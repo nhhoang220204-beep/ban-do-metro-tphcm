@@ -2,7 +2,7 @@
 
 Bản đồ mạng lưới đường sắt đô thị TP.HCM và Bình Dương, dùng khi tư vấn khách hàng bất động sản theo trục metro.
 
-**Xem bản đồ:** _(link GitHub Pages sẽ hiện ở đây sau khi bật Pages)_
+**Xem bản đồ:** https://nhhoang220204-beep.github.io/ban-do-metro-tphcm/
 
 ## Nguyên tắc dữ liệu
 
