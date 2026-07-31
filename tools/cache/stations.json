@@ -1,0 +1,543 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-29T08:07:47Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2891038201,
+  "lat": 10.8273477,
+  "lon": 106.7159069,
+  "tags": {
+    "name": "Bình Triệu",
+    "name:zh": "平趙",
+    "public_transport": "station",
+    "railway": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 2893771497,
+  "lat": 10.8158694,
+  "lon": 106.6846752,
+  "tags": {
+    "name": "Gò Vấp",
+    "name:ko": "고법역",
+    "name:th": "ก่อเวิ้ป",
+    "name:zh": "舊邑",
+    "operator": "Vietnam Railways",
+    "public_transport": "station",
+    "railway": "station",
+    "wikidata": "Q17990937",
+    "wikipedia": "vi:Ga Gò Vấp"
+  }
+},
+{
+  "type": "node",
+  "id": 10591979654,
+  "lat": 10.9507929,
+  "lon": 106.8263284,
+  "tags": {
+    "name": "Biên Hòa",
+    "name:en": "Bien Hoa",
+    "network": "VN:railway",
+    "operator": "Vietnam Railway (VNR)",
+    "public_transport": "station",
+    "railway": "station",
+    "railway:ref": "BH",
+    "train": "yes",
+    "wikidata": "Q2012224",
+    "wikipedia": "vi:Ga Biên Hòa"
+  }
+},
+{
+  "type": "node",
+  "id": 10591979655,
+  "lat": 10.7823050,
+  "lon": 106.6771626,
+  "tags": {
+    "name": "Sài Gòn",
+    "name:en": "Sai Gon",
+    "name:ja": "サイゴン駅",
+    "name:th": "ไซ่ง่อน",
+    "name:zh": "西贡",
+    "network": "VN:railway",
+    "operator": "Vietnam Railway (VNR)",
+    "public_transport": "station",
+    "railway": "station",
+    "railway:ref": "Sài Gòn",
+    "train": "yes",
+    "wikidata": "Q2673539",
+    "wikipedia": "vi:Ga Sài Gòn"
+  }
+},
+{
+  "type": "node",
+  "id": 11136225851,
+  "lat": 10.8781962,
+  "lon": 106.7517797,
+  "tags": {
+    "name": "Sóng Thần",
+    "name:en": "Song Than",
+    "network": "VN:railway",
+    "operator": "VNR",
+    "public_transport": "station",
+    "railway": "station",
+    "railway:ref": "ST",
+    "train": "yes",
+    "wikidata": "Q7561050",
+    "wikipedia": "vi:Ga Sóng Thần"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280298,
+  "lat": 10.7960548,
+  "lon": 106.7155056,
+  "tags": {
+    "level": "1",
+    "name": "Công viên Văn Thánh",
+    "name:de": "Park Văn Thánh",
+    "name:en": "Van Thanh Park",
+    "name:fr": "Parc Văn Thánh",
+    "name:nl": "Văn Thánhpark",
+    "name:th": "สวนสาธารณะวันทั้ญ",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314194",
+    "wikipedia": "vi:Ga Công viên Văn Thánh"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280299,
+  "lat": 10.7985879,
+  "lon": 106.7232392,
+  "tags": {
+    "departures_board": "realtime",
+    "level": "1",
+    "name": "Tân Cảng",
+    "name:en": "Tan Cang",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314173",
+    "wikipedia": "vi:Ga Tân Cảng"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280300,
+  "lat": 10.8004871,
+  "lon": 106.7336512,
+  "tags": {
+    "internet_access": "wlan",
+    "name": "Thảo Điền",
+    "name:en": "Thao Dien",
+    "name:th": "ถาวเดี่ยน",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60313686",
+    "wikipedia": "vi:Ga Thảo Điền"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280301,
+  "lat": 10.8021337,
+  "lon": 106.7422498,
+  "tags": {
+    "name": "An Phú",
+    "name:en": "An Phu",
+    "name:th": "อานฟู้",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314166",
+    "wikipedia": "vi:Ga An Phú"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280302,
+  "lat": 10.8085535,
+  "lon": 106.7552770,
+  "tags": {
+    "name": "Rạch Chiếc",
+    "name:en": "Rach Chiec",
+    "name:th": "สักเจี๊ยก",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314161",
+    "wikipedia": "vi:Ga Rạch Chiếc"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280303,
+  "lat": 10.8214350,
+  "lon": 106.7581850,
+  "tags": {
+    "name": "Phước Long",
+    "name:en": "Phuoc Long",
+    "name:th": "เฟื้อกล็อง",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314158",
+    "wikipedia": "vi:Ga Phước Long"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280304,
+  "lat": 10.8326520,
+  "lon": 106.7638944,
+  "tags": {
+    "name": "Bình Thái",
+    "name:en": "Binh Thai",
+    "name:th": "บิ่ญท้าย",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314150",
+    "wikipedia": "vi:Ga Bình Thái"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280305,
+  "lat": 10.8589894,
+  "lon": 106.7888364,
+  "tags": {
+    "name": "Khu Công Nghệ Cao",
+    "name:en": "High Tech Park",
+    "name:th": "ไฮเทคพาร์ก",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314137",
+    "wikipedia": "vi:Ga Khu Công nghệ cao"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280306,
+  "lat": 10.8662985,
+  "lon": 106.8012008,
+  "tags": {
+    "name": "Đại học Quốc gia",
+    "name:en": "National University",
+    "name:th": "มหาวิทยาลัยแห่งชาติ",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314143",
+    "wikipedia": "vi:Ga Đại học Quốc gia, Thành phố Hồ Chí Minh"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280307,
+  "lat": 10.8795447,
+  "lon": 106.8140929,
+  "tags": {
+    "name": "Bến xe Suối Tiên",
+    "name:en": "Suoi Tien Terminal",
+    "name:th": "ขนส่งซ้วยเตียน",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q61132106",
+    "wikipedia": "vi:Ga Bến xe Suối Tiên"
+  }
+},
+{
+  "type": "node",
+  "id": 11586280327,
+  "lat": 10.8464061,
+  "lon": 106.7716521,
+  "tags": {
+    "name": "Thủ Đức",
+    "name:en": "Thu Duc",
+    "name:th": "ถูดึ๊ก",
+    "network": "Ho Chi Minh City Metro",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wikidata": "Q60314119",
+    "wikipedia": "vi:Ga Thủ Đức"
+  }
+},
+{
+  "type": "node",
+  "id": 13316138905,
+  "lat": 10.6461789,
+  "lon": 106.7856370,
+  "tags": {
+    "level": "1",
+    "name": "Bình Khánh",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13316655061,
+  "lat": 10.3933680,
+  "lon": 106.9315647,
+  "tags": {
+    "building": "construction",
+    "name": "Cần Giờ",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13318786430,
+  "lat": 10.7242642,
+  "lon": 106.7246214,
+  "tags": {
+    "name": "Tân Thuận",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13319533422,
+  "lat": 10.6899510,
+  "lon": 106.7327077,
+  "tags": {
+    "name": "Nhà Bè",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13811202171,
+  "lat": 10.7708492,
+  "lon": 107.0421053,
+  "tags": {
+    "name": "Long Thanh Airport",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1162981728,
+  "center": {
+    "lat": 10.7709487,
+    "lon": 106.6978830
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "layer": "-1",
+    "level": "-4;-3;-2;-1",
+    "location": "underground",
+    "max_level": "-1",
+    "min_level": "-4",
+    "name": "Bến Thành",
+    "name:de": "U-Bahnhof Ben Thanh",
+    "name:en": "Ben Thanh Station",
+    "name:fr": "Gare de Ben Thanh",
+    "name:ja": "ベンタイン駅",
+    "name:th": "เบ๊นถั่ญ",
+    "name:vi": "Ga Bến Thành",
+    "name:zh": "濱城站",
+    "network": "Ho Chi Minh City Metro",
+    "opening_date": "2024-12-22",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1162989826,
+  "center": {
+    "lat": 10.7753030,
+    "lon": 106.7020679
+  },
+  "tags": {
+    "layer": "-1",
+    "level": "-4;-3;-2;-1",
+    "location": "underground",
+    "max_level": "-1",
+    "min_level": "-4",
+    "name": "Nhà Hát Thành Phố",
+    "name:de": "U-Bahnhof Opernhaus",
+    "name:en": "Opera House Station",
+    "name:fr": "Gare de l'Opéra",
+    "name:ja": "オペラハウス駅",
+    "name:th": "โรงอุปรากร",
+    "name:vi": "Ga Nhà Hát Thành Phố",
+    "name:zh": "市劇院站",
+    "network": "Ho Chi Minh City Metro",
+    "opening_date": "2024-12-22",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1163010587,
+  "center": {
+    "lat": 10.7817906,
+    "lon": 106.7083401
+  },
+  "tags": {
+    "departures_board": "realtime",
+    "layer": "-1",
+    "level": "-2;-1",
+    "location": "underground",
+    "max_level": "-1",
+    "min_level": "-2",
+    "name": "Ba Son",
+    "name:de": "U-Bahnhof Ba Son",
+    "name:en": "Ba Son Station",
+    "name:fr": "Gare de Ba Son",
+    "name:ja": "バソン駅",
+    "name:th": "บาสอน",
+    "name:vi": "Ga Ba Son",
+    "name:zh": "巴遜站",
+    "network": "Ho Chi Minh City Metro",
+    "opening_date": "2024-12-22",
+    "operator": "Ban Quản lý Đường sắt đô thị Thành phố Hồ Chí Minh",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "subway",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1208458877,
+  "center": {
+    "lat": 10.9593797,
+    "lon": 106.9057627
+  },
+  "tags": {
+    "landuse": "railway",
+    "name": "Hố Nai",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1210749199,
+  "center": {
+    "lat": 10.9079403,
+    "lon": 106.7694788
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Dĩ An",
+    "public_transport": "station",
+    "railway": "station",
+    "wikidata": "Q5270017"
+  }
+},
+{
+  "type": "way",
+  "id": 1210759300,
+  "center": {
+    "lat": 10.9311576,
+    "lon": 107.1378111
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Dầu Giây",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1210759301,
+  "center": {
+    "lat": 10.9338678,
+    "lon": 107.0628392
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Trung Hoà",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1210759304,
+  "center": {
+    "lat": 10.9447173,
+    "lon": 106.9941368
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Trảng Bom",
+    "public_transport": "station",
+    "railway": "station",
+    "train": "yes"
+  }
+}
+
+  ]
+}
