@@ -19,6 +19,7 @@ import { phanTich } from './analysis.js';
 import { veVongBanKinh, xoaVongBanKinh, hienTienIch, xoaTienIch } from './amenities.js';
 import { batDauGhim, xoaGhim, themSoSanh, ghimTheoToaDo } from './projects.js';
 import { doGaMetro, dangDoDuAn } from './dodac.js';
+import { danhGiaHuongLoi, toiDoan as toiDoanVD } from './vanhdai.js';
 
 const TABS = [
   { id: 'thong-tin', nhan: 'Thông tin',  icon: 'ℹ' },
@@ -56,7 +57,8 @@ export function khoiTaoSidebar(node) {
       'chep-toa-do': () => chepToaDo(duAn),
       'ban-kinh':    () => datBanKinh(+b.dataset.m),
       'nhom':        () => datNhom(b.dataset.nhom || null),
-      'toi-diem':    () => { const c = b.dataset.c.split(',').map(Number); map.flyTo(c, 17, { duration: .7 }); }
+      'toi-diem':    () => { const c = b.dataset.c.split(',').map(Number); map.flyTo(c, 17, { duration: .7 }); },
+      'toi-doan-vd': () => toiDoanVD(b.dataset.id)
     })[b.dataset.act]?.();
   });
 }
@@ -477,6 +479,8 @@ function tabPhanTich(p, diem) {
       el('div.row.wrap', {}, pt.hopVoi.map(t => el('span.badge.badge--info', {}, t)))
     ])]),
 
+    veHuongLoiVanhDai(p),
+
     ...khoi('Rủi ro cần nói trước với khách', pt.ruiRo, 'pt--rui'),
 
     pt.thieuDuLieu.length > 0 && el('div.sect__title', {}, 'Dữ liệu còn thiếu'),
@@ -487,6 +491,50 @@ function tabPhanTich(p, diem) {
 
     el('div.src', {}, ['⚠', el('div', {}, 'Nhận định do công cụ sinh từ dữ liệu bản đồ và số liệu đã nhập. ' +
       'Không phải khuyến nghị đầu tư. Khả năng tăng giá và cho thuê phụ thuộc nhiều yếu tố ngoài phạm vi công cụ này.')])
+  ]);
+}
+
+/* ─── §5b · MỨC HƯỞNG LỢI TỪ ĐƯỜNG VÀNH ĐAI ─────────────────────────────────
+   Khoảng cách ở đây là ĐƯỜNG THẲNG tới tim tuyến, không phải quãng đường lái
+   xe — nói rõ ngay trên giao diện để không ai nhầm với số trong tab Metro. */
+
+function veHuongLoiVanhDai(p) {
+  if (!p.toaDo) return null;
+  const hl = danhGiaHuongLoi(p);
+  if (!hl) {
+    return el('div.sb__pane', {}, [
+      el('div.sect__title', {}, 'Đường vành đai'),
+      el('div.panel__hint', {}, 'Không có đoạn vành đai nào trong bán kính 8 km.')
+    ]);
+  }
+
+  const nd = nhanDiem(hl.diem);
+  return el('div.sb__pane', {}, [
+    el('div.sect__title', {}, 'Mức hưởng lợi từ đường vành đai'),
+    el('div.card', {}, [el('div.card__body', {}, [
+      el('div.row.row--between', {}, [
+        el('span.crit__name', {}, hl.muc),
+        el('span.crit__val', { style: { color: nd.mau } }, `${hl.diem}/10`)
+      ]),
+      el('div.crit__bar', {}, [el('span', { style: { width: `${hl.diem * 10}%`, background: nd.mau } })]),
+      el('div.crit__why', {}, hl.giaiThich),
+
+      hl.theoTuyen.length > 1 ? el('div.vd-list', { style: { marginTop: '10px' } },
+        hl.theoTuyen.map(g => el('button.vd-doan', {
+          type: 'button', dataset: { act: 'toi-doan-vd', id: g.doan.id },
+          style: { '--vd-mau': g.doan.mau }
+        }, [
+          el('span.vd-doan__ten.ellipsis', {}, g.doan.tenTuyen),
+          el('span.vd-doan__meta', {}, [
+            el('span.muted', {}, g.m < 1000 ? `${g.m} m` : `${(g.m / 1000).toFixed(1)} km`),
+            el('span.badge', { style: { color: g.doan.mau } }, g.doan.tenDoan)
+          ])
+        ]))) : null,
+
+      el('div.sb__foot-note', {}, 'Khoảng cách đo theo đường thẳng tới tim tuyến, ' +
+        'không phải quãng đường lái xe.')
+    ])]),
+    hl.canhBao ? el('div.src', {}, ['⚠', el('div', {}, hl.canhBao)]) : null
   ]);
 }
 

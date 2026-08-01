@@ -21,7 +21,7 @@ const BAT_BUOC = ['metro', 'stations'];
  * routes + amenities cho khoảng cách, roads cho tiêu chí hạ tầng, boundaries
  * cho phường/xã. Thiếu thì tắt phần liên quan, ứng dụng vẫn chạy.
  */
-const NAP_NGAY = ['routes', 'amenities', 'roads', 'boundaries'];
+const NAP_NGAY = ['routes', 'amenities', 'roads', 'boundaries', 'ring_roads'];
 
 /**
  * Lớp nạp khi người dùng bật lên.

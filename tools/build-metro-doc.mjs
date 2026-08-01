@@ -31,7 +31,7 @@
 
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { overpass, hav, CACHE, DATA, log, kb } from './lib/osm.mjs';
+import { hav, CACHE, DATA, log, kb } from './lib/osm.mjs';
 
 const argv = process.argv.slice(2);
 const USE_CACHE = argv.includes('--cache');

@@ -17,6 +17,7 @@ import { khoiTaoPanel, ve as veLaiPanel, capNhatSauLoc } from './features/panel.
 import { khoiTaoTimKiem, quenNguonTim } from './features/search.js';
 import { khoiTaoSoSanh, mo as moSoSanh, veLaiSoSanh } from './features/compare.js';
 import { khoiTaoGuiKhach, batTat as batTatGuiKhach, veLaiGuiKhach } from './features/clientmode.js';
+import { khoiTaoVanhDai, hienLopVanhDai } from './features/vanhdai.js';
 
 /* ─── §1 · KHỞI ĐỘNG ────────────────────────────────────────────────────── */
 
@@ -37,6 +38,11 @@ async function khoiDong() {
 
     khoiTaoLop();
     khoiTaoDuAn();
+
+    /* Lớp vành đai tự quản lý việc vẽ (màu và kiểu nét theo trạng thái từng
+       đoạn) nên khởi tạo riêng, không đi qua sổ đăng ký lớp chung. */
+    const lopVD = khoiTaoVanhDai();
+    if (lopVD && state.lop.vanhdai !== false) hienLopVanhDai(true);
     khoiTaoSidebar($('.sidebar'));
     khoiTaoPanel($('.panel'), $('.legend'));
     khoiTaoTimKiem($('#tim'), $('#ketqua'));

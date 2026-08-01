@@ -82,6 +82,38 @@
 .panel__search[hidden] { display: none; }
 .panel__them { width: 100%; margin-top: var(--s3); }
 .chip__more { font-size: var(--fz0); padding: 5px 0; }
+
+/* ─── Bảng đường vành đai ───────────────────────────────────────────────── */
+
+.vd-cham {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  margin-right: 5px; flex-shrink: 0; vertical-align: baseline;
+}
+
+.vd-card { margin-bottom: var(--s2); }
+
+/* Thanh tỷ lệ theo trạng thái — nhìn là biết tuyến xong tới đâu */
+.vd-bar {
+  display: flex; height: 9px; border-radius: var(--r-full);
+  overflow: hidden; margin: var(--s2) 0 var(--s3);
+  background: var(--c-surface-3);
+}
+.vd-bar span { height: 100%; }
+
+.vd-list { display: grid; gap: var(--s1); margin-bottom: var(--s4); }
+.vd-doan {
+  display: grid; gap: 2px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--vd-mau, var(--c-border-strong));
+  border-radius: var(--r2);
+  background: var(--c-surface);
+  text-align: left;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.vd-doan:hover { background: var(--c-surface-3); border-color: var(--c-border-strong); }
+.vd-doan__ten  { font-size: var(--fz2); font-weight: 600; }
+.vd-doan__meta { display: flex; align-items: center; gap: var(--s2); font-size: var(--fz0); }
 .panel__hint {
   font-size: var(--fz0); color: var(--c-text-3); line-height: 1.45;
   padding: var(--s2) var(--s3); margin: var(--s2) 0;

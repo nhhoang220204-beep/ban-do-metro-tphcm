@@ -104,6 +104,24 @@
   transform: rotate(45deg); border: 2px solid #fff;
 }
 
+/* ─── Đoạn đường vành đai ───────────────────────────────────────────────────
+   Đoạn đang thi công có hiệu ứng nét chạy. Hiệu ứng CSS chỉ ăn trên SVG, nên
+   riêng nhóm đoạn này vẽ bằng SVG còn phần còn lại vẫn dùng canvas cho nhẹ —
+   số đoạn đang thi công ít nên không ảnh hưởng hiệu năng.                   */
+
+.vd-thicong {
+  stroke-dasharray: 14 9;
+  animation: vd-chay 1.1s linear infinite;
+}
+@keyframes vd-chay { to { stroke-dashoffset: -23; } }
+
+/* Đoạn đang chọn trong bảng — làm dày và sáng lên để dễ nhìn ra trên bản đồ. */
+.vd-chon { filter: drop-shadow(0 0 6px currentColor); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vd-thicong { animation: none; }
+}
+
 /* ─── Ghim cụm ──────────────────────────────────────────────────────────────
    Hiện thay cho hàng trăm ghim chồng nhau khi nhìn cả thành phố. Bốn cấp đậm
    dần theo số dự án để nhìn là biết chỗ nào dày.                            */

@@ -24,7 +24,11 @@ export const state = {
   },
   lop: {},               // bật/tắt từng lớp bản đồ
   guiKhach: false,       // chế độ gửi khách
-  ghim: null             // id dự án đang chờ ghim thủ công
+  ghim: null,            // id dự án đang chờ ghim thủ công
+
+  /* Bộ lọc riêng cho lớp đường vành đai. Không chọn gì = hiện tất cả. */
+  locVD: { tuyen: [], trangThai: [] },
+  doanVD: null           // id đoạn vành đai đang chọn
 };
 
 /* ─── Đăng ký nghe ──────────────────────────────────────────────────────── */

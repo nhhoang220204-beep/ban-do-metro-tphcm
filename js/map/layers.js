@@ -24,7 +24,10 @@ export const LOP = [
   { id: 'metro',      nhan: 'Tuyến Metro',        icon: '🚇', nhom: 'Giao thông', bat: true,  can: 'metro' },
   { id: 'ga',         nhan: 'Ga Metro',           icon: '🚉', nhom: 'Giao thông', bat: true,  can: 'stations' },
   { id: 'duan',       nhan: 'Dự án bất động sản', icon: '🏢', nhom: 'Bất động sản', bat: true, can: 'projects' },
-  { id: 'vanhdai',    nhan: 'Đường Vành đai',     icon: '🛣', nhom: 'Giao thông', bat: false, can: 'roads' },
+  /* Lớp vành đai đọc từ ring_roads.json — mỗi đoạn một trạng thái, màu và kiểu
+     nét theo trạng thái đó. Khác hẳn ba lớp đường bộ bên dưới vốn chỉ vẽ một
+     màu cho cả trục. */
+  { id: 'vanhdai',    nhan: 'Đường Vành đai',     icon: '🛣', nhom: 'Giao thông', bat: true,  can: 'ring_roads' },
   { id: 'caotoc',     nhan: 'Cao tốc',            icon: '🛤', nhom: 'Giao thông', bat: false, can: 'roads' },
   { id: 'quocLo',     nhan: 'Quốc lộ',            icon: '🚏', nhom: 'Giao thông', bat: false, can: 'roads' },
   { id: 'kcn',        nhan: 'Khu công nghiệp',    icon: '🏭', nhom: 'Tiện ích',   bat: false, can: 'industrial', zoomToiThieu: 12 },
@@ -118,7 +121,7 @@ function dungLop(id) {
     metro:    lopMetro,
     ga:       lopGa,
     duan:     () => null,              // do features/projects.js quản lý
-    vanhdai:  () => lopDuong('ring'),
+    vanhdai:  () => null,              // do features/vanhdai.js quản lý
     caotoc:   () => lopDuong('expressway'),
     quocLo:   () => lopDuong('highway'),
     kcn:      lopKcn,
@@ -347,12 +350,34 @@ export function veChuThich(host) {
     }
   }
 
-  const duong = [
-    ['vanhdai', 'ring'], ['caotoc', 'expressway'], ['quocLo', 'highway']
-  ].filter(([id]) => state.lop[id]);
+  /* Vành đai chú thích theo TRẠNG THÁI, không theo tuyến — vì màu trên bản đồ
+     là màu trạng thái. Chú thích theo tuyến sẽ nói dối về ý nghĩa màu. */
+  if (state.lop.vanhdai && duLieu.ring_roads) {
+    hang.push(el('div.legend__title', {}, 'Đường Vành đai'));
+    const dung = new Set(duLieu.ring_roads.tuyen.flatMap(t => Object.keys(t.theoTrangThai)));
+    for (const [ma, k] of Object.entries(duLieu.ring_roads.trangThai)
+                                .sort((a, b) => a[1].thuTu - b[1].thuTu)) {
+      if (!dung.has(ma)) continue;
+      hang.push(el('div.legend__row', {}, [
+        el('span.legend__swatch', {
+          style: {
+            background: k.net === 'dut'
+              ? `repeating-linear-gradient(90deg, ${k.mau} 0 5px, transparent 5px 9px)`
+              : k.net === 'cham'
+              ? `repeating-linear-gradient(90deg, ${k.mau} 0 2px, transparent 2px 6px)`
+              : k.mau
+          }
+        }),
+        el('span.grow', {}, k.nhan),
+        k.hieuUng ? el('span.muted', {}, 'nét chạy') : null
+      ]));
+    }
+  }
+
+  const duong = [['caotoc', 'expressway'], ['quocLo', 'highway']].filter(([id]) => state.lop[id]);
 
   if (duong.length && duLieu.roads) {
-    hang.push(el('div.legend__title', {}, 'Đường bộ'));
+    hang.push(el('div.legend__title', {}, 'Đường bộ khác'));
     for (const [, kind] of duong) {
       const c = duLieu.roads.loai[kind];
       hang.push(el('div.legend__row', {}, [

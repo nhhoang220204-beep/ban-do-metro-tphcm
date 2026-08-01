@@ -12,10 +12,13 @@ import { logoDuAn } from '../map/icons.js';
 import { danhSachNen, datNen } from '../map/engine.js';
 import { chamDiem, nhanDiem } from './score.js';
 import { chonDuAn, themSoSanh, batDauGhim, hienLopDuAn } from './projects.js';
+import { veBangVanhDai, batTatLocVD, datLocVD, toiDoan, hienLopVanhDai,
+         coDuLieu as coVanhDai, cacTuyenVD, tatCaDoan } from './vanhdai.js';
 
 const TABS = [
   { id: 'ds',  nhan: 'Dự án' },
-  { id: 'lop', nhan: 'Lớp bản đồ' },
+  { id: 'vd',  nhan: 'Vành đai' },
+  { id: 'lop', nhan: 'Lớp' },
   { id: 'loc', nhan: 'Bộ lọc' }
 ];
 
@@ -62,7 +65,14 @@ export function khoiTaoPanel(node, chuThich) {
         datLoc({ giaMin: null, giaMax: null, loaiHinh: [], khuVuc: [], chuDauTu: [], trangThai: [], nguon: [] });
         veLoc();
       },
-      'loc-nhieu': () => doiLocNhieu(b, b.dataset.truong, b.dataset.gia)
+      'loc-nhieu': () => doiLocNhieu(b, b.dataset.truong, b.dataset.gia),
+
+      /* Vành đai: đổi bộ lọc thì phải vẽ lại cả bảng vì con số thống kê và
+         danh sách đoạn đều đổi theo — khác với chip lọc dự án chỉ đổi trạng thái. */
+      'vd-loc-tuyen': () => { batTatLocVD('tuyen', b.dataset.gia); ve(); },
+      'vd-loc-tt':    () => { batTatLocVD('trangThai', b.dataset.gia); ve(); },
+      'vd-xoa-loc':   () => { datLocVD({ tuyen: [], trangThai: [] }); ve(); },
+      'vd-toi-doan':  () => toiDoan(b.dataset.gia)
     })[b.dataset.act]?.();
   });
 
@@ -75,7 +85,8 @@ let chuThichHost;
 export function ve() {
   /* Ô lọc tên chỉ có nghĩa ở tab danh sách. */
   if (elTim) elTim.parentElement.hidden = tab !== 'ds';
-  ({ ds: veDanhSach, lop: veLop, loc: veLoc })[tab]?.();
+  ({ ds: veDanhSach, vd: () => veBangVanhDai(elBody), lop: veLop, loc: veLoc })[tab]?.();
+  if (tab === 'vd') capNhatChanVanhDai();
   if (chuThichHost) veChuThich(chuThichHost);
 }
 
@@ -179,9 +190,15 @@ function theDuAn(p) {
  * vị trí cuộn và mất tiêu điểm bàn phím.
  */
 async function doiLop(nut, id, bat) {
+  /* Hai lớp này do module riêng quản lý vì cách vẽ khác hẳn: dự án cần gom cụm,
+     vành đai cần màu và kiểu nét theo trạng thái từng đoạn. */
   if (id === 'duan') {
     state.lop.duan = bat;
     hienLopDuAn(bat);
+  } else if (id === 'vanhdai') {
+    state.lop.vanhdai = bat;
+    hienLopVanhDai(bat);
+    veChuThich(chuThichHost);
   } else {
     /* Lớp nặng có thể phải tải trước khi vẽ. Khoá nút trong lúc chờ để người
        dùng không bấm liên tục tạo ra nhiều lượt tải chồng nhau. */
@@ -193,6 +210,16 @@ async function doiLop(nut, id, bat) {
   }
   nut.setAttribute('aria-pressed', String(!!state.lop[id]));
   capNhatChanBang();
+}
+
+function capNhatChanVanhDai() {
+  if (!coVanhDai()) { elFoot.textContent = 'Chưa có dữ liệu đường vành đai'; return; }
+  const f = state.locVD;
+  const hien = tatCaDoan().filter(d =>
+    (!f.tuyen.length || f.tuyen.includes(d.tuyenId)) &&
+    (!f.trangThai.length || f.trangThai.includes(d.trangThai)));
+  const km = hien.reduce((a, d) => a + d.daiKm, 0).toFixed(1);
+  elFoot.textContent = `${cacTuyenVD().length} tuyến · ${hien.length}/${tatCaDoan().length} đoạn đang hiện · ${km} km`;
 }
 
 function capNhatChanBang() {

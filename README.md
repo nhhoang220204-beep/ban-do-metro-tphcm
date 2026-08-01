@@ -66,6 +66,7 @@ tools/
   lib/route.mjs      ma trận khoảng cách đường thật qua OSRM
   build-data.mjs     dựng các lớp nền từ OpenStreetMap
   build-projects.mjs bổ sung ứng viên dự án từ OpenStreetMap
+  build-ring-roads.mjs  lớp đường vành đai — trạng thái riêng cho từng đoạn
   build-around.mjs   dựng tiện ích và khoảng cách quanh từng dự án
   build-geo.mjs      dựng lại hình tuyến metro (ít khi cần)
   probe-du-an.mjs    đếm xem OSM có bao nhiêu ứng viên trước khi dựng
@@ -91,6 +92,8 @@ node tools/build-around.mjs                # tiện ích + ga metro quanh mọi 
 node tools/build-around.mjs ht-pearl       # chỉ một dự án
 node tools/build-projects.mjs --dry        # xem thử ứng viên dự án mới từ OSM
 node tools/build-projects.mjs              # bổ sung ứng viên vào danh mục
+node tools/build-ring-roads.mjs            # lớp đường vành đai, trạng thái từng đoạn
+node tools/probe-vanh-dai.mjs              # dò trước xem OSM có gì cho từng tuyến vành đai
 ```
 
 `build-projects.mjs` **chỉ thêm, không bao giờ ghi đè** bản ghi đã có. Ứng viên

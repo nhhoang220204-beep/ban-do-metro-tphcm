@@ -171,6 +171,33 @@ export function chain(segments, maxGap = 300) {
   return out.sort((a, b) => b.length - a.length);
 }
 
+/**
+ * BẪY ĐƯỜNG ĐÔI — chuỗi khép kín là đi và về của hai chiều đường; giữ một chiều.
+ *
+ * OSM vẽ đường đôi thành hai way riêng cho hai chiều. Hàm chain() nối chúng ở
+ * chỗ giao nhau thành một chuỗi đi rồi quay về, làm chiều dài gấp đôi. Đã gặp
+ * ở tuyến metro 1 (ra 33,8 km thay vì 19,7) và ở Vành đai 4 (393 km thay vì 207).
+ */
+export function motChieu(points) {
+  if (points.length < 4 || hav(points[0], points.at(-1)) >= 150) return points;
+  let far = 0, best = -1;
+  points.forEach((p, i) => { const d = hav(points[0], p); if (d > best) { best = d; far = i; } });
+  const a = points.slice(0, far + 1), b = points.slice(far).reverse();
+  return a.length >= b.length ? a : b;
+}
+
+/** Cắt khúc gập ngược còn sót (> 150°), giữ nhánh dài hơn. */
+export function boKhucGap(points) {
+  for (let i = 0; i < points.length - 2; i++) {
+    const diff = Math.abs(bearing(points[i], points[i + 1]) - bearing(points[i + 1], points[i + 2]));
+    if (Math.min(diff, 360 - diff) > 150) {
+      const a = points.slice(0, i + 2), b = points.slice(i + 1);
+      return boKhucGap(a.length >= b.length ? a : b);
+    }
+  }
+  return points;
+}
+
 /** Tổng chiều dài một chuỗi điểm, đơn vị mét. */
 export function lengthOf(points) {
   let m = 0;
