@@ -56,9 +56,10 @@ Ba hệ quả trong mã v2:
 | Kiểm thử trên trình duyệt | ✅ Không lỗi console |
 | **Toạ độ 9 dự án Hoàng bán** | ⚠️ **Vẫn chưa ghim** — việc gấp nhất |
 | Hồ sơ dự án (giá, pháp lý, số căn) | ⚠️ Phần lớn trống; ứng viên OSM thì trống hoàn toàn theo thiết kế |
+| Hồ sơ metro có nguồn đối chiếu | ✅ 10 tuyến, GeoJSON + JSON + CSV — xem `data/metro/` |
 | Xuất ảnh PNG / in A4 | ❌ v1 có, v2 chưa dựng lại |
 | Đọc Google Sheet (QĐ-4) | ❌ Chưa dựng lại — **cần Hoàng quyết**, xem BAO-CAO-V2 mục XĐ-2 |
-| Đẩy v2 lên GitHub Pages | ❌ Chưa push |
+| Đẩy v2 lên GitHub Pages | ✅ **Đã lên ngày 01/08/2026**, kiểm thử trên link thật không lỗi |
 
 ---
 
