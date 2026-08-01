@@ -67,6 +67,56 @@
     "quy_uoc_trong": "Trường nào chưa có nguồn thì để null kèm ghi chú, KHÔNG điền số phỏng đoán."
   },
 
+  "mau_thuan_dang_mo": [
+    {
+      "ma": "MT-01",
+      "tuyen": "M6",
+      "doan": "Phú Hữu → nút giao Bình Thái (khoảng km 3,5 – 7,5 theo lý trình hình học OSM)",
+      "ngay_ghi_nhan": "2026-08-01",
+      "trang_thai": "CHƯA GIẢI QUYẾT — không dùng đoạn này để tư vấn khách cho tới khi có hồ sơ chính thức",
+
+      "hai_phia": {
+        "A_hinh_hoc_OSM": {
+          "noi_dung": "Tuyến bám theo hành lang Vành đai 2 quy hoạch, tiếp cận Bình Thái từ hướng Tăng Nhơn Phú / Dương Đình Hội. Cắt vuông góc đường Đỗ Xuân Hợp một lần rồi tách xa.",
+          "bang_chung_do_duoc": [
+            "Cách way 'Dự án đường Vành đai 2' trong OSM chỉ 12 m — bám sát",
+            "Chỉ 2/60 điểm mẫu nằm trong 70 m của Đỗ Xuân Hợp (3%)",
+            "Cách Đỗ Xuân Hợp tới 3.744 m tại km 2,65; gần nhất 50 m tại km 6,91",
+            "Cách Khu đô thị The Global City 1.988 m"
+          ],
+          "tinCay": 2,
+          "diem_yeu": "OSM là hình do cộng đồng vẽ lại từ bản đồ công bố, không phải hồ sơ MAUR. Hướng tuyến đoạn này chính thức vẫn đang được xác định."
+        },
+        "B_thong_tin_thuc_dia": {
+          "noi_dung": "Tuyến 6 cắt tuyến 1 tại ga Bình Thái, sau đó đi trên đường Đỗ Xuân Hợp, ngang qua khu đô thị The Global City.",
+          "nguon": "Huy Hoàng — môi giới bất động sản hoạt động tại chính khu vực Thủ Đức / Đỗ Xuân Hợp",
+          "ngay": "2026-08-01",
+          "tinCay": 3,
+          "diem_manh": [
+            "Phần 'cắt tuyến 1 tại ga Bình Thái' ĐÃ ĐƯỢC DỮ LIỆU XÁC NHẬN: ga Bình Thái nằm cách hình tuyến 6 chỉ 61 m và đã được đánh dấu là ga trung chuyển m1+m6",
+            "Người cung cấp làm việc trực tiếp tại khu vực này, nắm thông tin quy hoạch cập nhật hơn ảnh chụp OSM ngày 29/07/2026"
+          ]
+        }
+      },
+
+      "phan_da_thong_nhat": "Cả hai phía đều xác nhận tuyến 6 giao tuyến 1 tại ga Bình Thái. Điểm này coi như đã chốt.",
+
+      "vi_sao_chua_ket_luan_duoc": [
+        "Không tra được nguồn công khai nào mô tả hướng tuyến metro số 6 ở cấp tên đường cho đoạn Phú Hữu – Bình Thái.",
+        "Nguồn chính thống chỉ nói tuyến 6 chạy dọc Vành đai 2 và Sở Xây dựng ĐANG ĐƯỢC GIAO rà soát xác định hướng tuyến đoạn nút giao Bình Thái – nút giao Gò Dưa. Tức là đoạn này chính thức vẫn chưa cố định.",
+        "MAUR được giao phê duyệt hướng tuyến giai đoạn 1 trong tháng 6/2026 — hồ sơ đó nếu có sẽ trả lời dứt điểm."
+      ],
+
+      "nguon_giai_quyet": [
+        "Hồ sơ hướng tuyến metro số 6 giai đoạn 1 do MAUR phê duyệt (dự kiến tháng 6/2026)",
+        "Kết quả rà soát của Sở Xây dựng cho đoạn nút giao Bình Thái – nút giao Gò Dưa",
+        "Lớp quy hoạch đường sắt đô thị trên ArcGIS FeatureServer của gisxaydung.tphcm.gov.vn (cần xin quyền truy cập)"
+      ],
+
+      "anh_huong": "Đoạn này đi qua khu vực có nhiều dự án bất động sản đang bán. Sai 2 km khi nói với khách về khoảng cách tới ga là sai nghiêm trọng. Cho tới khi giải quyết, mọi con số khoảng cách tới ga metro trong đoạn Phú Hữu – Bình Thái phải kèm cảnh báo hướng tuyến chưa chốt."
+    }
+  ],
+
   "tuyen": [
     {
       "ma": "M1", "so": 1, "soHieuCu": "1",

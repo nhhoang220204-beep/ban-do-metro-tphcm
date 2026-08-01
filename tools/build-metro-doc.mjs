@@ -50,6 +50,35 @@ const BUOC_M = 150;      // khoảng cách giữa hai điểm mẫu
 const BAN_KINH_M = 70;   // xa hơn ngần này thì coi như không chạy dọc đường đó
 const DOAN_TOI_THIEU_M = 300;   // ngắn hơn thì là cắt ngang, không phải chạy dọc
 
+/**
+ * Phạt theo cấp đường, tính bằng mét cộng thêm vào khoảng cách thật.
+ *
+ * VÌ SAO CẦN: lấy "đường gần nhất tuyệt đối" thì ở khu dân cư dày, thuật toán
+ * bám vào con hẻm cách 4 m thay vì trục chính cách 20 m. Đã gặp thật: đoạn
+ * tuyến 6 qua Thủ Đức ra một chuỗi "Hẻm 45", "Hẻm 2", "Hẻm 38/22" trong khi
+ * trục thật là Đỗ Xuân Hợp cách đó 11 m.
+ *
+ * Metro không bao giờ chạy dọc hẻm. Cộng phạt để trục lớn thắng, trừ khi nó
+ * thật sự xa hơn nhiều.
+ */
+const PHAT_CAP_DUONG = {
+  motorway: 0, trunk: 0, primary: 0,
+  motorway_link: 0, trunk_link: 0, primary_link: 0,
+  secondary: 12, secondary_link: 12,
+  tertiary: 28, tertiary_link: 28,
+  unclassified: 55,
+  residential: 60,
+  living_street: 80
+};
+
+/** Hẻm và ngõ không bao giờ là hành lang metro, dù có sát đến đâu. */
+const LA_HEM = /^(hẻm|hem|ngõ|ngo|ngách|kiệt)\b/i;
+const PHAT_HEM = 250;
+
+function phat(w) {
+  return (PHAT_CAP_DUONG[w.cap] ?? 60) + (LA_HEM.test(w.ten) ? PHAT_HEM : 0);
+}
+
 /* ─── §2 · TIỆN ÍCH HÌNH HỌC ────────────────────────────────────────────── */
 
 function raiDiem(shape) {
@@ -101,7 +130,11 @@ async function taiDuong(id, mau) {
   const { cached } = await import('./lib/osm.mjs');
   const json = await cached(`huong-tuyen-${id}`, q, USE_CACHE, 1);
   return json.elements.filter(e => e.geometry?.length > 1)
-             .map(e => ({ ten: e.tags.name.trim(), pts: e.geometry.map(g => [g.lat, g.lon]) }));
+             .map(e => ({
+               ten: e.tags.name.trim(),
+               cap: e.tags.highway,
+               pts: e.geometry.map(g => [g.lat, g.lon])
+             }));
 }
 
 /* ─── §4 · SUY ĐOẠN ─────────────────────────────────────────────────────── */
@@ -109,27 +142,59 @@ async function taiDuong(id, mau) {
 function suyDoan(mau, duong) {
   const tho = [];
   for (const m of mau) {
-    let ten = null, gan = Infinity;
+    /* Chọn theo khoảng cách ĐÃ CỘNG PHẠT cấp đường, nhưng ghi lại khoảng cách
+       THẬT để người đọc tự đánh giá. */
+    let chon = null, diemChon = Infinity, lechThat = Infinity;
     for (const w of duong) {
       const d = khoangCachToiDuong(m.c, w);
-      if (d < gan) { gan = d; ten = w.ten; }
+      if (d > BAN_KINH_M) continue;
+      const diem = d + phat(w);
+      if (diem < diemChon) { diemChon = diem; chon = w; lechThat = d; }
     }
-    if (gan > BAN_KINH_M) ten = null;
+    const ten = chon?.ten ?? null;
 
     const cuoi = tho.at(-1);
-    if (cuoi && cuoi.duong === ten) { cuoi.kmCuoi = m.km; cuoi.soDiem++; }
-    else tho.push({ duong: ten, kmDau: m.km, kmCuoi: m.km, soDiem: 1, lech: Math.round(gan) });
+    if (cuoi && cuoi.duong === ten) {
+      cuoi.kmCuoi = m.km; cuoi.soDiem++;
+      cuoi.tongLech += lechThat === Infinity ? 0 : lechThat;
+    } else {
+      tho.push({ duong: ten, cap: chon?.cap ?? null, kmDau: m.km, kmCuoi: m.km,
+                 soDiem: 1, tongLech: lechThat === Infinity ? 0 : lechThat });
+    }
   }
 
-  return tho
+  /* Gộp các đoạn liền kề cùng tên đường bị một mẩu ngắn xen vào. Không gộp thì
+     một trục 3 km bị chẻ thành sáu mẩu vì vài điểm mẫu lệch sang đường bên. */
+  const gop = [];
+  for (const x of tho) {
+    const truoc = gop.at(-1);
+    if (truoc && truoc.duong === x.duong) {
+      truoc.kmCuoi = x.kmCuoi; truoc.soDiem += x.soDiem; truoc.tongLech += x.tongLech;
+    } else gop.push({ ...x });
+  }
+
+  /* Mẩu ngắn nằm KẸP GIỮA hai đoạn cùng một trục thì là nhiễu, nuốt nó đi. */
+  const sach = [];
+  for (let i = 0; i < gop.length; i++) {
+    const x = gop[i], truoc = sach.at(-1), sau = gop[i + 1];
+    const ngan = (x.kmCuoi - x.kmDau) * 1000 < DOAN_TOI_THIEU_M;
+    if (ngan && truoc && sau && truoc.duong === sau.duong) {
+      truoc.kmCuoi = x.kmCuoi; truoc.soDiem += x.soDiem; truoc.tongLech += x.tongLech;
+      continue;
+    }
+    sach.push(x);
+  }
+
+  return sach
     .filter(x => (x.kmCuoi - x.kmDau) * 1000 >= DOAN_TOI_THIEU_M)
     .map((x, i) => ({
       thuTu: i + 1,
       duong: x.duong,
+      capDuong: x.cap,
       kmDau: +x.kmDau.toFixed(2),
       kmCuoi: +x.kmCuoi.toFixed(2),
       daiKm: +(x.kmCuoi - x.kmDau).toFixed(2),
-      lechTrungBinhM: x.duong ? x.lech : null,
+      lechTrungBinhM: x.duong ? Math.round(x.tongLech / x.soDiem) : null,
       ghiChu: x.duong ? null : 'Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư'
     }));
 }

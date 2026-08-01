@@ -149,14 +149,64 @@ Kết quả suy ra **khớp với hành lang thật đã biết**, đây là b�
 - **Tuyến 1** ra `Xa lộ Hà Nội → Song Hành → Nguyễn Văn Bá → Võ Nguyên Giáp →
   Cầu Sài Gòn`, 0 km không xác định.
 
-#### Hai giới hạn phải biết
+#### Lỗi phương pháp đã phát hiện và sửa
 
-1. **Chỗ không có trục đường lớn, thuật toán bám vào con hẻm gần nhất.** Ví dụ
-   tuyến 6 km 5,22–5,64 ra "Hẻm 83 Đường Số 22" — metro không chạy dọc hẻm, đó
-   chỉ là way có tên gần nhất. Đọc kết quả phải nhìn cột `lechTrungBinhM`: lệch
-   trên 30 m thì nên nghi ngờ.
+Bản đầu lấy **đường gần nhất tuyệt đối**. Ở khu dân cư dày, thuật toán bám vào
+con hẻm cách 4 m thay vì trục chính cách 20 m — đoạn tuyến 6 qua Thủ Đức ra một
+chuỗi `Hẻm 45`, `Hẻm 2`, `Hẻm 38/22`, rồi bộ lọc đoạn ngắn nuốt sạch, để lại một
+khoảng trống 4,2 km không giải thích được.
+
+**Đã sửa:** cộng phạt theo cấp đường trước khi so — trục chính (`motorway`,
+`trunk`, `primary`) phạt 0, `secondary` +12 m, `tertiary` +28 m, `residential`
++60 m, và **hẻm/ngõ +250 m** vì metro không bao giờ chạy dọc hẻm. Thêm bước gộp
+đoạn liền kề cùng tên và nuốt mẩu ngắn kẹp giữa hai đoạn cùng một trục.
+
+Sau khi sửa, tuyến 6 ra toàn `trunk` và `primary`: Võ Chí Công → Cầu Phú Hữu →
+Võ Nguyên Giáp → Phạm Văn Đồng → Bạch Đằng. Không còn hẻm nào.
+
+#### Hai giới hạn còn lại
+
+1. **Kết quả chỉ nói tuyến CHẠY GẦN đường nào, không nói nó CHẠY DỌC đường đó.**
+   Một tuyến cắt vuông góc qua đường lớn vẫn có thể được ghi nhận nếu điểm mẫu
+   rơi đúng chỗ. Đọc phải nhìn `daiKm`: đoạn dài mới là chạy dọc thật.
 2. **Độ tin cậy kết quả không thể cao hơn độ tin cậy hình học đầu vào.** Tuyến 1
    và 2 thì ★★★★★ / ★★★☆☆. Tuyến quy hoạch vẫn chỉ ★★☆☆☆ dù kết quả trông đẹp.
+
+---
+
+### 2.4 · Mâu thuẫn đang mở: tuyến 6 đoạn Phú Hữu – Bình Thái
+
+**Ghi nhận 01/08/2026. Chưa giải quyết được. Xem `lines.json` → `mau_thuan_dang_mo` → `MT-01`.**
+
+| | Hình học OSM | Thông tin thực địa |
+|---|---|---|
+| Nội dung | Bám hành lang Vành đai 2, tiếp cận Bình Thái từ hướng Tăng Nhơn Phú | Cắt tuyến 1 tại ga Bình Thái, rồi đi trên **Đỗ Xuân Hợp**, ngang **The Global City** |
+| Nguồn | OpenStreetMap, ảnh chụp 29/07/2026 | Huy Hoàng — môi giới hoạt động tại chính khu vực này |
+| Tin cậy | ★★☆☆☆ | ★★★☆☆ |
+
+**Phần đã thống nhất:** cả hai đều xác nhận tuyến 6 giao tuyến 1 tại **ga Bình
+Thái**. Dữ liệu xác nhận luôn: ga Bình Thái cách hình tuyến 6 đúng **61 m** và đã
+được đánh dấu là ga trung chuyển m1+m6 từ trước.
+
+**Phần lệch nhau, đo bằng số:**
+
+| Phép đo | Kết quả |
+|---|---|
+| Tuyến 6 ↔ way "Dự án đường Vành đai 2" | **12 m** — OSM bám sát VĐ2 |
+| Tuyến 6 ↔ Đỗ Xuân Hợp | Cắt vuông góc tại km 6,91 (50 m), xa tới **3.744 m** tại km 2,65 |
+| Điểm mẫu trong 70 m của Đỗ Xuân Hợp | **2/60 (3%)** trên đoạn km 2,5–8,5 |
+| Tuyến 6 ↔ Khu đô thị The Global City | **1.988 m** |
+
+**Vì sao chưa kết luận được:** không tra được nguồn công khai nào mô tả hướng
+tuyến metro số 6 ở cấp tên đường cho đoạn này. Nguồn chính thống chỉ nói tuyến 6
+chạy dọc Vành đai 2, và **Sở Xây dựng đang được giao rà soát xác định hướng tuyến
+đoạn nút giao Bình Thái – nút giao Gò Dưa** — tức đoạn này chính thức vẫn chưa
+cố định.
+
+**Ảnh hưởng nghiệp vụ:** đoạn này đi qua khu vực nhiều dự án đang bán. Sai 2 km
+khi nói khoảng cách tới ga là sai nghiêm trọng với khách. Cho tới khi có hồ sơ
+MAUR, mọi con số khoảng cách tới ga trong đoạn Phú Hữu – Bình Thái phải kèm cảnh
+báo hướng tuyến chưa chốt.
 
 ---
 
