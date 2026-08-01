@@ -1,0 +1,1486 @@
+{
+ "meta": {
+  "nguon_hinh_hoc": "OpenStreetMap · Overpass API · ảnh chụp 29/07/2026",
+  "phuong_phap": "Rải điểm mẫu cách 150 m dọc hình tuyến, tìm đường có tên gần nhất trong bán kính 70 m, gom điểm liên tiếp cùng tên thành đoạn. Bỏ đoạn ngắn hơn 300 m vì đó là cắt ngang chứ không phải chạy dọc.",
+  "canh_bao": "Hình tuyến từ OpenStreetMap, KHÔNG phải hồ sơ MAUR. Tuyến quy hoạch có sai số hàng chục mét và hướng tuyến còn thay đổi. Không dùng thay bản vẽ thiết kế.",
+  "he_toa_do": "EPSG:4326 (WGS84)"
+ },
+ "tuyen": {
+  "m1": {
+   "ten": "Metro số 1",
+   "huongTuyen": "Bến Thành – Suối Tiên",
+   "trangThai": "operating",
+   "kmTheoHinhHoc": 19.6,
+   "soDoan": 2,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 16.92,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Xa lộ Hà Nội",
+       "kmDau": 0.6,
+       "kmCuoi": 2.05,
+       "daiKm": 1.45,
+       "lechTrungBinhM": 36,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Song Hành Xa Lộ Hà Nội",
+       "kmDau": 2.2,
+       "kmCuoi": 2.96,
+       "daiKm": 0.76,
+       "lechTrungBinhM": 6,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": "Song Hành Xa Lộ Hà Nội",
+       "kmDau": 3.27,
+       "kmCuoi": 5.75,
+       "daiKm": 2.48,
+       "lechTrungBinhM": 14,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 4,
+       "duong": "Nguyễn Văn Bá",
+       "kmDau": 6.24,
+       "kmCuoi": 7.16,
+       "daiKm": 0.92,
+       "lechTrungBinhM": 17,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Võ Nguyên Giáp",
+       "kmDau": 7.32,
+       "kmCuoi": 9,
+       "daiKm": 1.69,
+       "lechTrungBinhM": 18,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 6,
+       "duong": "Nguyễn Văn Bá",
+       "kmDau": 9.53,
+       "kmCuoi": 10.29,
+       "daiKm": 0.76,
+       "lechTrungBinhM": 18,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Song Hành Võ Nguyên Giáp",
+       "kmDau": 10.6,
+       "kmCuoi": 11.09,
+       "daiKm": 0.5,
+       "lechTrungBinhM": 9,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Song Hành Võ Nguyên Giáp",
+       "kmDau": 11.41,
+       "kmCuoi": 13.57,
+       "daiKm": 2.16,
+       "lechTrungBinhM": 4,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": "Cầu Sài Gòn",
+       "kmDau": 14.17,
+       "kmCuoi": 14.47,
+       "daiKm": 0.3,
+       "lechTrungBinhM": 30,
+       "ghiChu": null
+      }
+     ]
+    },
+    {
+     "maDoan": 1,
+     "daiKm": 2.35,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Lê Lợi",
+       "kmDau": 0.47,
+       "kmCuoi": 0.79,
+       "daiKm": 0.31,
+       "lechTrungBinhM": 1,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Nguyễn Siêu",
+       "kmDau": 1.28,
+       "kmCuoi": 1.59,
+       "daiKm": 0.31,
+       "lechTrungBinhM": 9,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "m2": {
+   "ten": "Metro số 2",
+   "huongTuyen": "Bến Thành – Tham Lương",
+   "trangThai": "construction",
+   "kmTheoHinhHoc": 10.4,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 10.43,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Trường Chinh",
+       "kmDau": 0.38,
+       "kmCuoi": 2.67,
+       "daiKm": 2.3,
+       "lechTrungBinhM": 2,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Trường Chinh",
+       "kmDau": 3.62,
+       "kmCuoi": 4.85,
+       "daiKm": 1.23,
+       "lechTrungBinhM": 12,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": "Cách Mạng Tháng Tám",
+       "kmDau": 5,
+       "kmCuoi": 7.42,
+       "daiKm": 2.42,
+       "lechTrungBinhM": 2,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 4,
+       "duong": "Cách Mạng Tháng Tám",
+       "kmDau": 7.72,
+       "kmCuoi": 8.33,
+       "daiKm": 0.61,
+       "lechTrungBinhM": 6,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Cách Mạng Tháng Tám",
+       "kmDau": 8.63,
+       "kmCuoi": 9.84,
+       "daiKm": 1.21,
+       "lechTrungBinhM": 7,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "m2tt": {
+   "ten": "Metro số 2 (nhánh)",
+   "huongTuyen": "Bến Thành – Thủ Thiêm",
+   "trangThai": "planned",
+   "kmTheoHinhHoc": 5.4,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 5.36,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Mai Chí Thọ",
+       "kmDau": 1.42,
+       "kmCuoi": 2.18,
+       "daiKm": 0.76,
+       "lechTrungBinhM": 15,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Mai Chí Thọ",
+       "kmDau": 2.48,
+       "kmCuoi": 2.88,
+       "daiKm": 0.39,
+       "lechTrungBinhM": 15,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": "Hàm Nghi",
+       "kmDau": 4.58,
+       "kmCuoi": 5.2,
+       "daiKm": 0.63,
+       "lechTrungBinhM": 1,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "bd2": {
+   "ten": "Metro số 2 Thủ Dầu Một",
+   "huongTuyen": "Thủ Dầu Một – TP.HCM",
+   "trangThai": "preparing",
+   "kmTheoHinhHoc": 21.8,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 21.78,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Phạm Ngọc Thạch",
+       "kmDau": 0,
+       "kmCuoi": 2.25,
+       "daiKm": 2.25,
+       "lechTrungBinhM": 21,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 2.31,
+       "kmCuoi": 2.85,
+       "daiKm": 0.54,
+       "lechTrungBinhM": 18,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 3.09,
+       "kmCuoi": 3.39,
+       "daiKm": 0.3,
+       "lechTrungBinhM": 16,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 4,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 3.7,
+       "kmCuoi": 6.6,
+       "daiKm": 2.9,
+       "lechTrungBinhM": 18,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 6.9,
+       "kmCuoi": 10.68,
+       "daiKm": 3.79,
+       "lechTrungBinhM": 13,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 6,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 10.99,
+       "kmCuoi": 11.61,
+       "daiKm": 0.62,
+       "lechTrungBinhM": 19,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 11.91,
+       "kmCuoi": 12.81,
+       "daiKm": 0.9,
+       "lechTrungBinhM": 15,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 13.08,
+       "kmCuoi": 16.22,
+       "daiKm": 3.14,
+       "lechTrungBinhM": 16,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": "Đại lộ Bình Dương",
+       "kmDau": 16.5,
+       "kmCuoi": 19.59,
+       "daiKm": 3.09,
+       "lechTrungBinhM": 16,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 10,
+       "duong": "Quốc lộ 13",
+       "kmDau": 21.25,
+       "kmCuoi": 21.78,
+       "daiKm": 0.53,
+       "lechTrungBinhM": 17,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "bd1": {
+   "ten": "Metro Bình Dương",
+   "huongTuyen": "Thành phố mới Bình Dương – Suối Tiên",
+   "trangThai": "preparing",
+   "kmTheoHinhHoc": 28.9,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 28.85,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Xa lộ Hà Nội",
+       "kmDau": 0.45,
+       "kmCuoi": 0.86,
+       "daiKm": 0.41,
+       "lechTrungBinhM": 12,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Mỹ Phước - Tân Vạn",
+       "kmDau": 2.04,
+       "kmCuoi": 2.81,
+       "daiKm": 0.77,
+       "lechTrungBinhM": 8,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": "Mỹ Phước - Tân Vạn",
+       "kmDau": 3.13,
+       "kmCuoi": 3.81,
+       "daiKm": 0.68,
+       "lechTrungBinhM": 23,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 4,
+       "duong": "Mỹ Phước - Tân Vạn",
+       "kmDau": 4.13,
+       "kmCuoi": 10.91,
+       "daiKm": 6.78,
+       "lechTrungBinhM": 25,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Bùi Thị Xuân",
+       "kmDau": 11.02,
+       "kmCuoi": 11.46,
+       "daiKm": 0.44,
+       "lechTrungBinhM": 11,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 6,
+       "duong": "Mỹ Phước - Tân Vạn",
+       "kmDau": 11.61,
+       "kmCuoi": 19.91,
+       "daiKm": 8.3,
+       "lechTrungBinhM": 13,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Mỹ Phước - Tân Vạn",
+       "kmDau": 20.54,
+       "kmCuoi": 22.01,
+       "daiKm": 1.47,
+       "lechTrungBinhM": 25,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Huỳnh Văn Lũy",
+       "kmDau": 22.2,
+       "kmCuoi": 22.93,
+       "daiKm": 0.73,
+       "lechTrungBinhM": 10,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": "Huỳnh Văn Lũy",
+       "kmDau": 23.25,
+       "kmCuoi": 24.71,
+       "daiKm": 1.46,
+       "lechTrungBinhM": 22,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 10,
+       "duong": "Huỳnh Văn Lũy",
+       "kmDau": 25.01,
+       "kmCuoi": 25.91,
+       "daiKm": 0.9,
+       "lechTrungBinhM": 21,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 11,
+       "duong": "Huỳnh Văn Lũy",
+       "kmDau": 26.21,
+       "kmCuoi": 28.56,
+       "daiKm": 2.34,
+       "lechTrungBinhM": 24,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "m6": {
+   "ten": "Metro số 6",
+   "huongTuyen": "Phú Hữu – Sân bay Tân Sơn Nhất",
+   "trangThai": "planned",
+   "kmTheoHinhHoc": 22.9,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 22.83,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Võ Chí Công",
+       "kmDau": 1.36,
+       "kmCuoi": 2.92,
+       "daiKm": 1.56,
+       "lechTrungBinhM": 21,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Cầu Phú Hữu",
+       "kmDau": 3.08,
+       "kmCuoi": 3.57,
+       "daiKm": 0.49,
+       "lechTrungBinhM": 30,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": null,
+       "kmDau": 4.3,
+       "kmCuoi": 4.62,
+       "daiKm": 0.32,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 4,
+       "duong": "Hẻm 83 Đường Số 22",
+       "kmDau": 5.22,
+       "kmCuoi": 5.64,
+       "daiKm": 0.42,
+       "lechTrungBinhM": 29,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Phạm Văn Đồng",
+       "kmDau": 9.86,
+       "kmCuoi": 10.35,
+       "daiKm": 0.49,
+       "lechTrungBinhM": 2,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 6,
+       "duong": "Phạm Văn Đồng",
+       "kmDau": 10.66,
+       "kmCuoi": 10.99,
+       "daiKm": 0.33,
+       "lechTrungBinhM": 3,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Phạm Văn Đồng",
+       "kmDau": 11.28,
+       "kmCuoi": 12.55,
+       "daiKm": 1.28,
+       "lechTrungBinhM": 5,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Phạm Văn Đồng",
+       "kmDau": 14.87,
+       "kmCuoi": 17.49,
+       "daiKm": 2.62,
+       "lechTrungBinhM": 10,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": "Bạch Đằng",
+       "kmDau": 17.99,
+       "kmCuoi": 19.04,
+       "daiKm": 1.05,
+       "lechTrungBinhM": 1,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 10,
+       "duong": null,
+       "kmDau": 19.6,
+       "kmCuoi": 20.2,
+       "daiKm": 0.6,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 11,
+       "duong": null,
+       "kmDau": 20.5,
+       "kmCuoi": 21.25,
+       "daiKm": 0.75,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 12,
+       "duong": "Đường C12",
+       "kmDau": 21.4,
+       "kmCuoi": 22.15,
+       "daiKm": 0.76,
+       "lechTrungBinhM": 39,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "m3": {
+   "ten": "Metro số 3",
+   "huongTuyen": "Hiệp Bình Phước – An Hạ",
+   "trangThai": "planned",
+   "kmTheoHinhHoc": 43.4,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 43.4,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Quốc lộ 13",
+       "kmDau": 0,
+       "kmCuoi": 0.31,
+       "daiKm": 0.31,
+       "lechTrungBinhM": 39,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Quốc lộ 13",
+       "kmDau": 0.51,
+       "kmCuoi": 0.99,
+       "daiKm": 0.48,
+       "lechTrungBinhM": 22,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": "Quốc lộ 13",
+       "kmDau": 1.31,
+       "kmCuoi": 1.78,
+       "daiKm": 0.47,
+       "lechTrungBinhM": 21,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 4,
+       "duong": "Quốc lộ 13",
+       "kmDau": 2.58,
+       "kmCuoi": 4.3,
+       "daiKm": 1.72,
+       "lechTrungBinhM": 25,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Xô Viết Nghệ Tĩnh",
+       "kmDau": 6.69,
+       "kmCuoi": 7.5,
+       "daiKm": 0.81,
+       "lechTrungBinhM": 13,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 6,
+       "duong": "Xô Viết Nghệ Tĩnh",
+       "kmDau": 8.43,
+       "kmCuoi": 8.73,
+       "daiKm": 0.3,
+       "lechTrungBinhM": 11,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Nguyễn Thị Minh Khai",
+       "kmDau": 9.03,
+       "kmCuoi": 11.89,
+       "daiKm": 2.86,
+       "lechTrungBinhM": 11,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Nguyễn Thị Minh Khai",
+       "kmDau": 12.19,
+       "kmCuoi": 12.64,
+       "daiKm": 0.45,
+       "lechTrungBinhM": 3,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": "Hùng Vương",
+       "kmDau": 12.93,
+       "kmCuoi": 13.51,
+       "daiKm": 0.58,
+       "lechTrungBinhM": 4,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 10,
+       "duong": "Hùng Vương",
+       "kmDau": 13.79,
+       "kmCuoi": 14.65,
+       "daiKm": 0.86,
+       "lechTrungBinhM": 7,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 11,
+       "duong": "Đường Hồng Bàng",
+       "kmDau": 14.79,
+       "kmCuoi": 17.88,
+       "daiKm": 3.09,
+       "lechTrungBinhM": 7,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 12,
+       "duong": "Đường Kinh Dương Vương",
+       "kmDau": 18.37,
+       "kmCuoi": 23.14,
+       "daiKm": 4.77,
+       "lechTrungBinhM": 5,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 13,
+       "duong": "Lê Khả Phiêu",
+       "kmDau": 23.4,
+       "kmCuoi": 23.97,
+       "daiKm": 0.56,
+       "lechTrungBinhM": 4,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 14,
+       "duong": "Lê Khả Phiêu",
+       "kmDau": 24.27,
+       "kmCuoi": 24.84,
+       "daiKm": 0.57,
+       "lechTrungBinhM": 19,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 15,
+       "duong": null,
+       "kmDau": 24.96,
+       "kmCuoi": 25.68,
+       "daiKm": 0.72,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 16,
+       "duong": "Đường gom Võ Trần Chí",
+       "kmDau": 27.61,
+       "kmCuoi": 28.1,
+       "daiKm": 0.49,
+       "lechTrungBinhM": 44,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 17,
+       "duong": null,
+       "kmDau": 28.54,
+       "kmCuoi": 28.91,
+       "daiKm": 0.37,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 18,
+       "duong": null,
+       "kmDau": 29.21,
+       "kmCuoi": 30.25,
+       "daiKm": 1.04,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 19,
+       "duong": null,
+       "kmDau": 30.53,
+       "kmCuoi": 31.55,
+       "daiKm": 1.02,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 20,
+       "duong": null,
+       "kmDau": 31.85,
+       "kmCuoi": 32.61,
+       "daiKm": 0.75,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 21,
+       "duong": null,
+       "kmDau": 33.36,
+       "kmCuoi": 34.99,
+       "daiKm": 1.63,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 22,
+       "duong": "Đường vành đai 3 Thành phố Hồ Chí Minh",
+       "kmDau": 35.19,
+       "kmCuoi": 35.83,
+       "daiKm": 0.63,
+       "lechTrungBinhM": 45,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 23,
+       "duong": "Trấn Đại Nghĩa",
+       "kmDau": 36.54,
+       "kmCuoi": 38.62,
+       "daiKm": 2.08,
+       "lechTrungBinhM": 25,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 24,
+       "duong": null,
+       "kmDau": 38.76,
+       "kmCuoi": 40.39,
+       "daiKm": 1.63,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 25,
+       "duong": null,
+       "kmDau": 41.29,
+       "kmCuoi": 41.59,
+       "daiKm": 0.3,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 26,
+       "duong": null,
+       "kmDau": 42.04,
+       "kmCuoi": 43.4,
+       "daiKm": 1.36,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      }
+     ]
+    }
+   ]
+  },
+  "m7": {
+   "ten": "Metro số 7",
+   "huongTuyen": "Tân Kiên – Vinhomes Grand Park",
+   "trangThai": "planned",
+   "kmTheoHinhHoc": 48.4,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 48.29,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Đường gom Võ Trần Chí",
+       "kmDau": 0,
+       "kmCuoi": 0.64,
+       "daiKm": 0.64,
+       "lechTrungBinhM": 16,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Đường gom Võ Trần Chí",
+       "kmDau": 1.27,
+       "kmCuoi": 1.7,
+       "daiKm": 0.43,
+       "lechTrungBinhM": 12,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": null,
+       "kmDau": 2.33,
+       "kmCuoi": 2.7,
+       "daiKm": 0.37,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 4,
+       "duong": "Đường dẫn cao tốc Thành phố Hồ Chí Minh – Trung Lương",
+       "kmDau": 3.06,
+       "kmCuoi": 3.5,
+       "daiKm": 0.44,
+       "lechTrungBinhM": 33,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": "Đông Thuận - Chợ Đệm",
+       "kmDau": 4.23,
+       "kmCuoi": 4.67,
+       "daiKm": 0.44,
+       "lechTrungBinhM": 24,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 6,
+       "duong": "Nguyễn Văn Linh",
+       "kmDau": 5.18,
+       "kmCuoi": 6.23,
+       "daiKm": 1.04,
+       "lechTrungBinhM": 23,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Nguyễn Văn Linh",
+       "kmDau": 6.52,
+       "kmCuoi": 8.01,
+       "daiKm": 1.49,
+       "lechTrungBinhM": 22,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Nguyễn Văn Linh",
+       "kmDau": 8.31,
+       "kmCuoi": 12.06,
+       "daiKm": 3.75,
+       "lechTrungBinhM": 14,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": null,
+       "kmDau": 12.5,
+       "kmCuoi": 12.94,
+       "daiKm": 0.44,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 10,
+       "duong": null,
+       "kmDau": 13.71,
+       "kmCuoi": 15.37,
+       "daiKm": 1.66,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 11,
+       "duong": null,
+       "kmDau": 16.38,
+       "kmCuoi": 17.46,
+       "daiKm": 1.08,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 12,
+       "duong": "Lê Thị Kỉnh",
+       "kmDau": 17.77,
+       "kmCuoi": 18.07,
+       "daiKm": 0.3,
+       "lechTrungBinhM": 23,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 13,
+       "duong": null,
+       "kmDau": 18.37,
+       "kmCuoi": 20.53,
+       "daiKm": 2.16,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 14,
+       "duong": "Nguyễn Lương Bằng",
+       "kmDau": 21.18,
+       "kmCuoi": 22,
+       "daiKm": 0.82,
+       "lechTrungBinhM": 1,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 15,
+       "duong": "Cầu Phú Mỹ",
+       "kmDau": 22.45,
+       "kmCuoi": 22.82,
+       "daiKm": 0.37,
+       "lechTrungBinhM": 21,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 16,
+       "duong": "Huỳnh Tấn Phát",
+       "kmDau": 23.47,
+       "kmCuoi": 25.22,
+       "daiKm": 1.75,
+       "lechTrungBinhM": 12,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 17,
+       "duong": "Lưu Trọng Lư",
+       "kmDau": 25.35,
+       "kmCuoi": 25.76,
+       "daiKm": 0.41,
+       "lechTrungBinhM": 45,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 18,
+       "duong": null,
+       "kmDau": 25.9,
+       "kmCuoi": 26.32,
+       "daiKm": 0.42,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 19,
+       "duong": "Bùi Thiện Ngộ",
+       "kmDau": 26.53,
+       "kmCuoi": 27.5,
+       "daiKm": 0.97,
+       "lechTrungBinhM": 13,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 20,
+       "duong": "Tố Hữu",
+       "kmDau": 28.28,
+       "kmCuoi": 28.7,
+       "daiKm": 0.41,
+       "lechTrungBinhM": 17,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 21,
+       "duong": "Tố Hữu",
+       "kmDau": 29.04,
+       "kmCuoi": 29.49,
+       "daiKm": 0.45,
+       "lechTrungBinhM": 34,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 22,
+       "duong": "Trần Não",
+       "kmDau": 30.61,
+       "kmCuoi": 31.48,
+       "daiKm": 0.87,
+       "lechTrungBinhM": 9,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 23,
+       "duong": "Trần Não",
+       "kmDau": 31.77,
+       "kmCuoi": 32.13,
+       "daiKm": 0.36,
+       "lechTrungBinhM": 13,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 24,
+       "duong": null,
+       "kmDau": 33.46,
+       "kmCuoi": 34.05,
+       "daiKm": 0.59,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 25,
+       "duong": null,
+       "kmDau": 35.14,
+       "kmCuoi": 35.95,
+       "daiKm": 0.81,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 26,
+       "duong": "Đường D2",
+       "kmDau": 40.18,
+       "kmCuoi": 41.74,
+       "daiKm": 1.56,
+       "lechTrungBinhM": 18,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 27,
+       "duong": "Đường D2",
+       "kmDau": 42.01,
+       "kmCuoi": 42.97,
+       "daiKm": 0.96,
+       "lechTrungBinhM": 2,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 28,
+       "duong": "Đường D2B",
+       "kmDau": 43.25,
+       "kmCuoi": 43.68,
+       "daiKm": 0.43,
+       "lechTrungBinhM": 15,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 29,
+       "duong": "Đường Cầu Vồng 3",
+       "kmDau": 46.21,
+       "kmCuoi": 46.72,
+       "daiKm": 0.52,
+       "lechTrungBinhM": 16,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 30,
+       "duong": "Đường V3",
+       "kmDau": 47.27,
+       "kmCuoi": 47.79,
+       "daiKm": 0.52,
+       "lechTrungBinhM": 59,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  },
+  "tt": {
+   "ten": "Thủ Thiêm – Long Thành",
+   "huongTuyen": "Thủ Thiêm – Sân bay Long Thành",
+   "trangThai": "planned",
+   "kmTheoHinhHoc": 46,
+   "soDoan": 1,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 46.02,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": null,
+       "kmDau": 0.15,
+       "kmCuoi": 9.74,
+       "daiKm": 9.59,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 2,
+       "duong": "Đường T1",
+       "kmDau": 9.89,
+       "kmCuoi": 11.78,
+       "daiKm": 1.88,
+       "lechTrungBinhM": 63,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": null,
+       "kmDau": 11.91,
+       "kmCuoi": 12.46,
+       "daiKm": 0.55,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 4,
+       "duong": null,
+       "kmDau": 12.77,
+       "kmCuoi": 13.81,
+       "daiKm": 1.04,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 5,
+       "duong": null,
+       "kmDau": 14.11,
+       "kmCuoi": 16.01,
+       "daiKm": 1.91,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 6,
+       "duong": "Tôn Đức Thắng",
+       "kmDau": 16.16,
+       "kmCuoi": 19.28,
+       "daiKm": 3.12,
+       "lechTrungBinhM": 49,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 7,
+       "duong": "Tôn Đức Thắng",
+       "kmDau": 19.58,
+       "kmCuoi": 27.42,
+       "daiKm": 7.84,
+       "lechTrungBinhM": 19,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 8,
+       "duong": "Đường song hành Vành đai 3 Thành phố Hồ Chí Minh",
+       "kmDau": 27.69,
+       "kmCuoi": 28.82,
+       "daiKm": 1.12,
+       "lechTrungBinhM": 62,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": "Đường vành đai 3 Thành phố Hồ Chí Minh",
+       "kmDau": 29.55,
+       "kmCuoi": 31.49,
+       "daiKm": 1.94,
+       "lechTrungBinhM": 27,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 10,
+       "duong": "Đường vành đai 3 Thành phố Hồ Chí Minh",
+       "kmDau": 31.82,
+       "kmCuoi": 32.76,
+       "daiKm": 0.94,
+       "lechTrungBinhM": 51,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 11,
+       "duong": "Cầu Nhơn Trạch",
+       "kmDau": 32.91,
+       "kmCuoi": 34.6,
+       "daiKm": 1.7,
+       "lechTrungBinhM": 58,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 12,
+       "duong": null,
+       "kmDau": 34.74,
+       "kmCuoi": 36.06,
+       "daiKm": 1.31,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 13,
+       "duong": "Đường cao tốc Thành phố Hồ Chí Minh – Long Thành – Dầu Giây",
+       "kmDau": 37.64,
+       "kmCuoi": 38.55,
+       "daiKm": 0.91,
+       "lechTrungBinhM": 60,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 14,
+       "duong": "Đường cao tốc Thành phố Hồ Chí Minh – Long Thành – Dầu Giây",
+       "kmDau": 39.76,
+       "kmCuoi": 40.06,
+       "daiKm": 0.3,
+       "lechTrungBinhM": 62,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 15,
+       "duong": "Đường cao tốc Thành phố Hồ Chí Minh – Long Thành – Dầu Giây",
+       "kmDau": 40.36,
+       "kmCuoi": 40.82,
+       "daiKm": 0.45,
+       "lechTrungBinhM": 57,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 16,
+       "duong": "Đường Song Hành Cao Tốc",
+       "kmDau": 41.73,
+       "kmCuoi": 42.97,
+       "daiKm": 1.23,
+       "lechTrungBinhM": 16,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 17,
+       "duong": "Đường Song Hành Cao Tốc",
+       "kmDau": 43.53,
+       "kmCuoi": 44.74,
+       "daiKm": 1.21,
+       "lechTrungBinhM": 17,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 18,
+       "duong": null,
+       "kmDau": 45.35,
+       "kmCuoi": 46.02,
+       "daiKm": 0.68,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      }
+     ]
+    }
+   ]
+  },
+  "cg": {
+   "ten": "Bến Thành – Cần Giờ",
+   "huongTuyen": "Bến Thành – Cần Giờ",
+   "trangThai": "planned",
+   "kmTheoHinhHoc": 53,
+   "soDoan": 2,
+   "doan": [
+    {
+     "maDoan": 0,
+     "daiKm": 50.56,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": "Rừng Sác",
+       "kmDau": 0,
+       "kmCuoi": 0.74,
+       "daiKm": 0.74,
+       "lechTrungBinhM": 25,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 2,
+       "duong": "Rừng Sác",
+       "kmDau": 1.1,
+       "kmCuoi": 3.09,
+       "daiKm": 1.99,
+       "lechTrungBinhM": 58,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 3,
+       "duong": null,
+       "kmDau": 3.25,
+       "kmCuoi": 9.58,
+       "daiKm": 6.33,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 4,
+       "duong": "Rừng Sác",
+       "kmDau": 9.73,
+       "kmCuoi": 13.04,
+       "daiKm": 3.31,
+       "lechTrungBinhM": 64,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 5,
+       "duong": null,
+       "kmDau": 13.2,
+       "kmCuoi": 19.32,
+       "daiKm": 6.12,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 6,
+       "duong": null,
+       "kmDau": 19.76,
+       "kmCuoi": 22.43,
+       "daiKm": 2.67,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 7,
+       "duong": null,
+       "kmDau": 22.73,
+       "kmCuoi": 27.42,
+       "daiKm": 4.69,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 8,
+       "duong": "Rừng Sác",
+       "kmDau": 28.16,
+       "kmCuoi": 31.35,
+       "daiKm": 3.19,
+       "lechTrungBinhM": 59,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 9,
+       "duong": null,
+       "kmDau": 32.32,
+       "kmCuoi": 37.53,
+       "daiKm": 5.22,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 10,
+       "duong": null,
+       "kmDau": 37.86,
+       "kmCuoi": 38.33,
+       "daiKm": 0.47,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 11,
+       "duong": null,
+       "kmDau": 39.22,
+       "kmCuoi": 40.53,
+       "daiKm": 1.32,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 12,
+       "duong": "Đường 15B",
+       "kmDau": 40.98,
+       "kmCuoi": 42.06,
+       "daiKm": 1.07,
+       "lechTrungBinhM": 3,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 13,
+       "duong": "Nguyễn Lương Bằng",
+       "kmDau": 42.52,
+       "kmCuoi": 43.29,
+       "daiKm": 0.77,
+       "lechTrungBinhM": 1,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 14,
+       "duong": "Nguyễn Lương Bằng",
+       "kmDau": 43.6,
+       "kmCuoi": 44.51,
+       "daiKm": 0.9,
+       "lechTrungBinhM": 4,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 15,
+       "duong": "Nguyễn Văn Linh",
+       "kmDau": 45.19,
+       "kmCuoi": 46.62,
+       "daiKm": 1.43,
+       "lechTrungBinhM": 12,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 16,
+       "duong": "Nguyễn Tất Thành",
+       "kmDau": 47.7,
+       "kmCuoi": 48.68,
+       "daiKm": 0.98,
+       "lechTrungBinhM": 4,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 17,
+       "duong": "Lê Quốc Hưng",
+       "kmDau": 49.06,
+       "kmCuoi": 49.55,
+       "daiKm": 0.49,
+       "lechTrungBinhM": 12,
+       "ghiChu": null
+      },
+      {
+       "thuTu": 18,
+       "duong": "Ký Con",
+       "kmDau": 49.82,
+       "kmCuoi": 50.28,
+       "daiKm": 0.46,
+       "lechTrungBinhM": 28,
+       "ghiChu": null
+      }
+     ]
+    },
+    {
+     "maDoan": 1,
+     "daiKm": 2.46,
+     "phanDoan": [
+      {
+       "thuTu": 1,
+       "duong": null,
+       "kmDau": 0.15,
+       "kmCuoi": 1.44,
+       "daiKm": 1.29,
+       "lechTrungBinhM": null,
+       "ghiChu": "Không có đường có tên nào trong 70 m — có thể là đoạn vượt sông, cắt đồng, hoặc đi dưới khu dân cư"
+      },
+      {
+       "thuTu": 2,
+       "duong": "Rừng Sác",
+       "kmDau": 2.15,
+       "kmCuoi": 2.46,
+       "daiKm": 0.3,
+       "lechTrungBinhM": 37,
+       "ghiChu": null
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

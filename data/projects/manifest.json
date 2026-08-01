@@ -1,0 +1,51 @@
+{
+  "phienBan": 2,
+
+  "_doc": [
+    "Khai báo nguồn dữ liệu dự án. Ứng dụng đọc file này trước, rồi mới tải các",
+    "file chỉ mục được liệt kê trong 'chiMuc'.",
+    "",
+    "THÊM DỰ ÁN: thêm một object vào data/projects/index.json là xong, website tự",
+    "cập nhật, không cần chạy công cụ nào. Muốn có hồ sơ đầy đủ (giá, pháp lý,",
+    "ảnh, lịch thanh toán) thì tạo thêm data/projects/chi-tiet/<id>.json và đặt",
+    "'coChiTiet': true trong chỉ mục.",
+    "",
+    "KHI VƯỢT KHOẢNG 10.000 DỰ ÁN: chia index.json thành nhiều file rồi liệt kê",
+    "tất cả vào mảng 'chiMuc'. Ứng dụng tải song song và gộp lại. Không phải sửa",
+    "dòng mã nào."
+  ],
+
+  "chiMuc": ["index.json"],
+  "chiTiet": "chi-tiet/{id}.json",
+
+  "loaiHinh": {
+    "can-ho":             { "nhan": "Căn hộ",              "glyph": "🏢", "mau": "#1d4ed8" },
+    "chung-cu":           { "nhan": "Chung cư",            "glyph": "🏬", "mau": "#4f46e5" },
+    "nha-pho":            { "nhan": "Nhà phố",             "glyph": "🏘", "mau": "#0f766e" },
+    "nha-pho-thuong-mai": { "nhan": "Nhà phố thương mại",  "glyph": "🏪", "mau": "#0891b2" },
+    "shophouse":          { "nhan": "Shophouse",           "glyph": "🏬", "mau": "#0284c7" },
+    "biet-thu":           { "nhan": "Biệt thự",            "glyph": "🏡", "mau": "#15803d" },
+    "dat-nen":            { "nhan": "Đất nền",             "glyph": "📐", "mau": "#a16207" },
+    "khu-do-thi":         { "nhan": "Khu đô thị",          "glyph": "🏙", "mau": "#7c3aed" }
+  },
+
+  "trangThai": {
+    "dang-ban":    { "nhan": "Đang bán",     "mau": "#1d4ed8", "lop": "badge--info" },
+    "sap-mo-ban":  { "nhan": "Sắp mở bán",   "mau": "#b45309", "lop": "badge--warn" },
+    "da-ban-giao": { "nhan": "Đã bàn giao",  "mau": "#15803d", "lop": "badge--ok" },
+    "chua-ro":     { "nhan": "Chưa rõ",      "mau": "#64748b", "lop": "" }
+  },
+
+  "nguon": {
+    "thu-cong": {
+      "nhan": "Hồ sơ đã kiểm",
+      "moTa": "Do người dùng nhập và kiểm chứng. Dùng được để tư vấn khách.",
+      "tinCay": "cao"
+    },
+    "osm": {
+      "nhan": "Ứng viên từ OpenStreetMap",
+      "moTa": "Toạ độ và tên lấy từ OpenStreetMap nên có thật, nhưng CHƯA kiểm chứng đây có phải dự án đang bán hay không. Phải tự kiểm trước khi nói với khách.",
+      "tinCay": "chua-kiem"
+    }
+  }
+}

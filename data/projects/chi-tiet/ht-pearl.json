@@ -1,0 +1,30 @@
+{
+  "id": "ht-pearl",
+  "ma": "HT",
+  "ten": "HT Pearl",
+  "chuDauTu": "",
+  "loaiHinh": "can-ho",
+  "diaChi": "Đường Nguyễn Bỉnh Khiêm, khu Tân Hoà, phường Đông Hoà, TP. Dĩ An, TP.HCM",
+  "toaDo": [
+    10.8886,
+    106.78643
+  ],
+  "xacMinh": "osm",
+  "nguonToaDo": "OpenStreetMap · building=apartments name=HT Pearl",
+  "trangThai": "dang-ban",
+  "quyMo": "",
+  "block": "",
+  "tongSoCan": "",
+  "banGiao": "",
+  "phapLy": "",
+  "giaTu": null,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/m²",
+  "dienTich": "",
+  "logo": "",
+  "anh": [],
+  "matBang": [],
+  "lichThanhToan": [],
+  "nguon": "thu-cong",
+  "ghiChu": ""
+}

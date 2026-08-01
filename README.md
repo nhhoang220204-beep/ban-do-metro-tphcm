@@ -1,58 +1,130 @@
-# Bản đồ Metro TP.HCM — công cụ tư vấn bất động sản
+# Bản đồ tư vấn bất động sản — Thành phố Hồ Chí Minh
 
-Bản đồ mạng lưới đường sắt đô thị TP.HCM và Bình Dương, dùng khi tư vấn khách hàng bất động sản theo trục metro.
+Công cụ bản đồ dùng khi tư vấn khách mua bất động sản: mở lên là thấy dự án nằm
+ở đâu, cách ga metro bao xa, quanh đó có gì, và vì sao chỗ đó đáng hay không
+đáng tiền.
 
-**Xem bản đồ:** https://nhhoang220204-beep.github.io/ban-do-metro-tphcm/
+**Đang chạy:** https://nhhoang220204-beep.github.io/ban-do-metro-tphcm/
 
-## Nguyên tắc dữ liệu
+---
 
-Bản đồ **chỉ vẽ những gì xác minh được**. Hình học hướng tuyến và toạ độ ga lấy nguyên từ OpenStreetMap (Overpass API, 29/07/2026) — không nội suy, không ước lượng, không tự ghim.
+## Nguyên tắc số một
 
-Tuyến hoặc ga nào tài liệu có nhắc nhưng chưa công bố toạ độ thì được liệt kê trong mục **Dữ liệu chưa xác minh** ngay trong ứng dụng, không vẽ lên bản đồ.
+> Chỉ hiển thị dữ liệu xác minh được. Không nội suy, không ước lượng, không đoán.
+> Thiếu thì ghi **"Đang cập nhật"**.
 
-Mỗi tuyến hiển thị mức phủ dữ liệu ngay trong danh sách, ví dụ `14/14 ga` (đủ) hay `2/24 ga` (mới xác minh được 2 ga).
+Bản dựng đầu tiên của dự án này tự suy vị trí ga từ trí nhớ mô hình và đặt sai
+tới gần 1 km, ngay trên tuyến đang chạy tàu. Đây là công cụ đưa thông tin tới
+khách hàng thật, nên tra nguồn trước, dựng sau.
 
-## Tính năng
+Cụ thể trong mã:
 
-- 10 tuyến metro với hình học hướng tuyến thật, 49 ga đã xác minh toạ độ
-- Lọc theo tuyến và theo trạng thái: đang vận hành, đang xây dựng, chuẩn bị khởi công, quy hoạch
-- Tìm kiếm ga, tuyến, dự án — gõ không dấu vẫn ra
-- Ghim dự án bất động sản, tự tính ga gần nhất kèm thời gian đi bộ và đi xe
-- Dữ liệu dự án dùng chung qua Google Sheet, cả nhóm cùng cập nhật
-- Chế độ gửi khách: ẩn toàn bộ menu, chỉ còn bản đồ và thông tin liên hệ, dùng để chụp màn hình
-- Xuất ảnh PNG, in và xuất PDF khổ A4 ngang
-- Chạy tốt trên điện thoại
+- Toạ độ dự án chỉ đến từ hai nguồn: đối tượng cùng tên trong OpenStreetMap,
+  hoặc do người dùng tự ghim. Ứng dụng không bao giờ tự sinh toạ độ.
+- Khoảng cách và thời gian đi lại đo bằng **đường thật** qua OSRM, không phải
+  đường chim bay. Không đo được thì ghi "Đang cập nhật".
+- Điểm đánh giá chỉ chấm tiêu chí có đủ đầu vào, và luôn hiện rõ đã chấm được
+  bao nhiêu trên tổng số.
+
+---
+
+## Chạy trên máy
+
+```bash
+node tools/serve.mjs
+```
+
+Rồi mở http://localhost:5173
+
+Không cài gì thêm, chỉ cần Node 18 trở lên.
+
+> **Không mở thẳng `index.html` từ ổ đĩa.** Giao thức `file://` chặn cả `fetch`
+> lẫn module JavaScript nên sẽ ra trang trắng. Ứng dụng tự phát hiện và báo
+> tiếng Việt, nhưng vẫn phải chạy qua máy chủ.
+
+---
 
 ## Cấu trúc
 
-| File | Nội dung |
-|---|---|
-| `index.html` | Toàn bộ ứng dụng — HTML, CSS, JavaScript thuần trong một file |
-| `mau-du-an-bds.csv` | File mẫu để tạo bảng tính dự án dùng chung |
-| `HUONG-DAN-CHIA-SE.md` | Hướng dẫn tạo Google Sheet và chia sẻ cho cả nhóm |
-
-Thư viện ngoài duy nhất: [Leaflet](https://leafletjs.com) 1.9.4. Không backend, không framework.
-
-## Nối bảng tính dự án dùng chung
-
-Xem chi tiết trong [HUONG-DAN-CHIA-SE.md](HUONG-DAN-CHIA-SE.md). Tóm tắt: tạo Google Sheet từ file mẫu, mở quyền xem, rồi dán link vào mục **Dữ liệu dùng chung** trong ứng dụng.
-
-Muốn cả nhóm dùng chung một bảng tính mà không phải cấu hình từng máy, dán link vào dòng này trong `index.html`:
-
-```js
-const SHEET_URL = '';   // ← dán link Google Sheet vào đây
+```
+index.html          vỏ trang, không chứa dữ liệu và không chứa logic
+css/                tokens → base → layout → map → panels → sidebar → client
+js/
+  core/             dom, format, geo, store, data  (không phụ thuộc Leaflet)
+  map/              engine, icons, layers          (lớp bọc Leaflet)
+  features/         projects, popup, sidebar, score, analysis,
+                    amenities, compare, search, panel, clientmode
+  app.js            khởi động và nối các module
+data/
+  projects/         danh mục dự án — sửa tay được, xem HUONG-DAN-NHAP-DU-AN.md
+    manifest.json   khai báo loại hình, tình trạng, mức tin cậy nguồn
+    index.json      chỉ mục gọn, nạp ngay khi mở trang
+    chi-tiet/       hồ sơ đầy đủ từng dự án, chỉ tải khi mở dự án đó
+  *.json            các lớp bản đồ, sinh bằng tools/, không sửa tay
+tools/
+  lib/osm.mjs        gọi Overpass, hình học, ghi file
+  lib/route.mjs      ma trận khoảng cách đường thật qua OSRM
+  build-data.mjs     dựng các lớp nền từ OpenStreetMap
+  build-projects.mjs bổ sung ứng viên dự án từ OpenStreetMap
+  build-around.mjs   dựng tiện ích và khoảng cách quanh từng dự án
+  build-geo.mjs      dựng lại hình tuyến metro (ít khi cần)
+  probe-du-an.mjs    đếm xem OSM có bao nhiêu ứng viên trước khi dựng
+  serve.mjs          máy chủ tĩnh để chạy trên máy
 ```
 
-## Cập nhật dữ liệu tuyến
+**Quy mô:** chỉ mục khoảng 220–300 byte mỗi dự án. Bản đồ gom cụm và lọc theo
+khung nhìn, danh sách phân trang, tra phường/xã lọc trước bằng khung bao. Đo
+thật ở 5.000 dự án: vẽ lại bản đồ 4–11 ms, mở bảng lọc 11 ms, DOM khoảng 1.200
+nút. Vượt 10.000 thì chia `index.json` thành nhiều file và khai vào `manifest.json`
+— không phải sửa mã.
 
-Dữ liệu tuyến nằm ở đầu phần script trong `index.html`:
+Không framework. Thư viện ngoài duy nhất là Leaflet 1.9.4.
 
-- `GEO` — hình học hướng tuyến và toạ độ ga, sinh tự động từ OpenStreetMap
-- `LINES` — tên tuyến, màu, trạng thái, số liệu theo hồ sơ quy hoạch
-- `GAPS` — danh sách dữ liệu còn thiếu
+---
 
-## Nguồn
+## Dựng lại dữ liệu
 
-OpenStreetMap (Overpass API) · Hồ sơ tham vấn cộng đồng của Ban Quản lý Đường sắt đô thị TP.HCM · Tổng hợp báo chí tháng 7/2026.
+```bash
+node tools/build-data.mjs                  # tất cả các lớp nền
+node tools/build-data.mjs roads parks      # chỉ lớp được nêu
+node tools/build-around.mjs                # tiện ích + ga metro quanh mọi dự án đã ghim
+node tools/build-around.mjs ht-pearl       # chỉ một dự án
+node tools/build-projects.mjs --dry        # xem thử ứng viên dự án mới từ OSM
+node tools/build-projects.mjs              # bổ sung ứng viên vào danh mục
+```
 
-Khi tư vấn khách nên dẫn kèm câu *"theo hồ sơ đang niêm yết"* — hướng tuyến vẫn có thể điều chỉnh, và chiều dài, số ga, tốc độ thiết kế còn vênh nhau giữa các nguồn.
+`build-projects.mjs` **chỉ thêm, không bao giờ ghi đè** bản ghi đã có. Ứng viên
+lấy từ OpenStreetMap mang nhãn `nguon: "osm"` và hiện chữ **"Chưa kiểm"** ở mọi
+nơi — vì OSM biết toà nhà đó có thật, nhưng không biết nó có đang bán hay không.
+
+**Chạy `build-around.mjs` lại mỗi khi ghim thêm một dự án** — đó là bước đo
+khoảng cách thật và nạp tiện ích quanh điểm mới.
+
+Máy chủ Overpass công cộng hay trả 504, công cụ tự đổi máy chủ và thử lại. Một
+lượt dựng đầy đủ mất khoảng 15–25 phút. Kết quả thô nhớ đệm trong `tools/cache/`,
+thêm cờ `--cache` để dùng lại mà không gọi mạng.
+
+---
+
+## Thêm hoặc sửa dự án
+
+Sửa `data/projects/index.json`. Xem `HUONG-DAN-NHAP-DU-AN.md` để biết ý nghĩa từng
+trường và cách ghim vị trí.
+
+Trường nào chưa có thì để chuỗi rỗng — ứng dụng sẽ hiện "Đang cập nhật". **Đừng
+điền số phỏng đoán cho đủ ô.**
+
+---
+
+## Nguồn dữ liệu
+
+| Thứ | Nguồn |
+|---|---|
+| Hình tuyến metro, ga | OpenStreetMap qua Overpass API |
+| Đường bộ, khu công nghiệp, trường, bệnh viện, mua sắm, công viên, sông hồ | OpenStreetMap |
+| Địa giới hành chính | OpenStreetMap — TP.HCM sau sáp nhập 01/07/2025, 168 phường/xã |
+| Khoảng cách và thời gian đi lại | OSRM (đi xe: router.project-osrm.org · đi bộ: routing.openstreetmap.de) |
+| Ảnh nền bản đồ | OpenStreetMap · CARTO · Esri World Imagery |
+| Thông tin dự án | Người dùng tự nhập |
+
+Dữ liệu OpenStreetMap theo giấy phép ODbL 1.0.

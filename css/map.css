@@ -1,0 +1,219 @@
+/* ═══ §4 · BẢN ĐỒ · ghim, nút điều khiển, chú thích ═══════════════════════ */
+
+/* ─── Chỉnh Leaflet cho khớp hệ thiết kế ────────────────────────────────── */
+
+.leaflet-container {
+  font-family: var(--ff);
+  background: var(--c-surface-3);
+  -webkit-tap-highlight-color: transparent;
+}
+.leaflet-control-container .leaflet-top,
+.leaflet-control-container .leaflet-bottom { z-index: var(--z-mapctl); }
+
+.leaflet-control-attribution {
+  background: color-mix(in srgb, var(--c-surface) 88%, transparent);
+  color: var(--c-text-3); font-size: 10px;
+  padding: 2px var(--s2); border-radius: var(--r1) 0 0 0;
+}
+.leaflet-control-attribution a { color: var(--c-text-2); }
+
+/* Ảnh nền sáng quá làm ghim khó đọc — hạ tương phản một chút. */
+.leaflet-tile-pane { filter: saturate(.92) contrast(.96); }
+:root[data-theme="dark"] .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.92) contrast(.9) saturate(.7); }
+
+/* ─── Cụm nút điều khiển bản đồ ─────────────────────────────────────────── */
+
+.mapctl {
+  position: absolute; z-index: var(--z-mapctl);
+  right: var(--s3); bottom: calc(var(--s3) + 18px);
+  display: flex; flex-direction: column; gap: var(--s2);
+  transition: right var(--t-slow);
+}
+.mapctl__group {
+  display: flex; flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r2);
+  box-shadow: var(--sh2);
+  overflow: hidden;
+}
+.mapctl__btn {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  color: var(--c-text-2); font-size: 17px; line-height: 1;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.mapctl__btn:hover { background: var(--c-surface-3); color: var(--c-text); }
+.mapctl__btn + .mapctl__btn { border-top: 1px solid var(--c-border); }
+.mapctl__btn[aria-pressed="true"] { background: var(--c-brand-soft); color: var(--c-brand-dark); }
+.mapctl__btn[data-busy] { opacity: .5; pointer-events: none; }
+
+/* Đẩy nút sang trái khi hồ sơ dự án mở, để không bị bảng che. */
+.app[data-sidebar="open"] .mapctl { right: calc(var(--w-sidebar) + var(--s3)); }
+@media (max-width: 900px) {
+  .app[data-sidebar="open"] .mapctl { right: var(--s2); bottom: calc(88dvh + var(--s2)); }
+  .mapctl { right: var(--s2); bottom: calc(var(--s2) + 18px); }
+  .mapctl__btn { width: 36px; height: 36px; }
+}
+
+/* ─── Ghim dự án ────────────────────────────────────────────────────────── */
+
+.pin {
+  position: relative;
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
+  background: var(--pin-bg, var(--c-brand));
+  border: 2.5px solid #fff;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, .35);
+  transition: transform var(--t-mid), box-shadow var(--t-mid);
+}
+.pin__glyph { transform: rotate(45deg); font-size: 15px; line-height: 1; color: #fff; }
+
+.pin-wrap { position: relative; }
+.pin-wrap:hover .pin { transform: rotate(-45deg) scale(1.12); box-shadow: 0 6px 16px rgba(15, 23, 42, .4); }
+
+/* Nhãn tên dự án luôn hiện — người tư vấn cần đọc tên mà không phải bấm. */
+.pin__label {
+  position: absolute; top: 36px; left: 50%; transform: translateX(-50%);
+  max-width: 148px; padding: 2px 7px;
+  background: var(--c-surface); color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r1);
+  box-shadow: var(--sh1);
+  font-size: var(--fz0); font-weight: 650; text-align: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  pointer-events: none;
+}
+
+/* Ghim thủ công: viền nét đứt để không ai nhầm là toạ độ đã xác minh. */
+.pin--thucong { border-style: dashed; border-color: var(--c-accent-soft); }
+.pin-wrap[data-verify="thu-cong"] .pin__label::after { content: ' ✎'; color: var(--c-accent); }
+
+/* Dự án đang được chọn */
+.pin-wrap[data-active] .pin { transform: rotate(-45deg) scale(1.25); box-shadow: 0 0 0 4px color-mix(in srgb, var(--pin-bg, var(--c-brand)) 30%, transparent), 0 6px 18px rgba(15,23,42,.4); }
+.pin-wrap[data-active] .pin__label { background: var(--c-brand); color: #fff; border-color: var(--c-brand); }
+
+/* Dự án đang nằm trong bảng so sánh */
+.pin-wrap[data-compare] .pin::after {
+  content: attr(data-compare); position: absolute; top: -9px; right: -9px;
+  width: 17px; height: 17px; border-radius: 50%;
+  background: var(--c-accent); color: #fff;
+  font-size: 10px; font-weight: 700; display: grid; place-items: center;
+  transform: rotate(45deg); border: 2px solid #fff;
+}
+
+/* ─── Ghim cụm ──────────────────────────────────────────────────────────────
+   Hiện thay cho hàng trăm ghim chồng nhau khi nhìn cả thành phố. Bốn cấp đậm
+   dần theo số dự án để nhìn là biết chỗ nào dày.                            */
+
+.cum {
+  display: grid; place-items: center;
+  border-radius: 50%;
+  font-weight: 750; font-variant-numeric: tabular-nums;
+  color: #fff;
+  border: 3px solid var(--c-surface);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, .35);
+  transition: transform var(--t-fast);
+  cursor: pointer;
+}
+.cum:hover { transform: scale(1.1); }
+.cum[data-cap="0"] { background: #3b82f6; font-size: 12px; }
+.cum[data-cap="1"] { background: #2563eb; font-size: 13px; }
+.cum[data-cap="2"] { background: #1d4ed8; font-size: 14px; }
+.cum[data-cap="3"] { background: #1e3a8a; font-size: 15px; }
+
+/* ─── Ghim ga metro ─────────────────────────────────────────────────────── */
+
+.station {
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--c-surface); border: 3px solid var(--st-color, var(--c-text-2));
+  box-shadow: 0 1px 4px rgba(15, 23, 42, .3);
+  transition: transform var(--t-fast);
+}
+.station:hover { transform: scale(1.35); }
+.station--doi { width: 19px; height: 19px; border-width: 4px; border-color: var(--c-text); }
+
+/* ─── Ghim tiện ích và điểm hạ tầng ─────────────────────────────────────── */
+
+.poi {
+  display: grid; place-items: center;
+  width: 26px; height: 26px; border-radius: 9px;
+  background: var(--c-surface);
+  border: 2px solid var(--poi-color, var(--c-text-2));
+  box-shadow: var(--sh1);
+  font-size: 13px; line-height: 1;
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+.poi:hover { transform: scale(1.18); box-shadow: var(--sh2); z-index: 400; }
+.poi--sm { width: 21px; height: 21px; border-radius: 7px; font-size: 11px; border-width: 1.5px; }
+
+/* Nhãn tên khu công nghiệp / công viên lớn */
+.arealabel {
+  padding: 1px 6px; border-radius: var(--r1);
+  background: color-mix(in srgb, var(--c-surface) 85%, transparent);
+  color: var(--c-text-2); font-size: 10px; font-weight: 650;
+  white-space: nowrap; pointer-events: none;
+  border: 1px solid var(--c-border);
+}
+
+/* ─── Vòng bán kính ─────────────────────────────────────────────────────── */
+
+.radius-label {
+  padding: 1px 6px; border-radius: var(--r-full);
+  background: var(--c-brand); color: #fff;
+  font-size: 10px; font-weight: 700; white-space: nowrap;
+  box-shadow: var(--sh1);
+}
+
+/* ─── Chú thích ─────────────────────────────────────────────────────────── */
+
+.legend {
+  position: absolute; z-index: var(--z-mapctl);
+  left: var(--s3); bottom: var(--s3);
+  max-width: 250px; padding: var(--s2) var(--s3);
+  background: color-mix(in srgb, var(--c-surface) 94%, transparent);
+  border: 1px solid var(--c-border); border-radius: var(--r2);
+  box-shadow: var(--sh2);
+  font-size: var(--fz0);
+  backdrop-filter: blur(6px);
+}
+.legend__title { font-weight: 700; color: var(--c-text-3); text-transform: uppercase; letter-spacing: .04em; margin-bottom: var(--s1); }
+.legend__row { display: flex; align-items: center; gap: 6px; padding: 1px 0; color: var(--c-text-2); }
+.legend__swatch { width: 16px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+.legend__dot { width: 9px; height: 9px; border-radius: 50%; border: 2px solid currentColor; flex-shrink: 0; }
+@media (max-width: 900px) { .legend { display: none; } }
+
+/* ─── Bong bóng thông tin của Leaflet ───────────────────────────────────── */
+
+.leaflet-popup-content-wrapper {
+  padding: 0; border-radius: var(--r3); overflow: hidden;
+  background: var(--c-surface); color: var(--c-text);
+  box-shadow: var(--sh4); border: 1px solid var(--c-border);
+}
+.leaflet-popup-content { margin: 0; width: 300px !important; font-size: var(--fz2); line-height: 1.5; }
+.leaflet-popup-tip { background: var(--c-surface); border: 1px solid var(--c-border); }
+.leaflet-container a.leaflet-popup-close-button {
+  width: 26px; height: 26px; top: 6px; right: 6px;
+  color: #fff; font-size: 17px; line-height: 24px;
+  border-radius: 50%; background: rgba(15, 23, 42, .4);
+  transition: background var(--t-fast);
+}
+.leaflet-container a.leaflet-popup-close-button:hover { background: rgba(15, 23, 42, .65); color: #fff; }
+
+/* ─── Con trỏ khi đang ghim thủ công ────────────────────────────────────── */
+
+.app[data-pinning] .leaflet-container { cursor: crosshair; }
+.pinbar {
+  position: absolute; z-index: var(--z-modal);
+  left: 50%; transform: translateX(-50%);
+  top: calc(52px + var(--s3) * 2);
+  display: flex; align-items: center; gap: var(--s3);
+  padding: var(--s2) var(--s2) var(--s2) var(--s4);
+  background: var(--c-accent); color: #fff;
+  border-radius: var(--r-full); box-shadow: var(--sh4);
+  font-size: var(--fz2); font-weight: 600;
+}
+.pinbar .btn { background: rgba(255, 255, 255, .18); border-color: transparent; color: #fff; }
+.pinbar .btn:hover { background: rgba(255, 255, 255, .3); }

@@ -1,0 +1,121 @@
+/* ═══ §3 · BỐ CỤC ══════════════════════════════════════════════════════════
+   Bản đồ chiếm trọn khung, mọi bảng điều khiển nổi lên trên — giống cách
+   Google Maps làm. Chọn kiểu này thay vì chia lưới vì bản đồ không bao giờ
+   phải đổi kích thước khi mở/đóng bảng, nhờ vậy không lặp lại lỗi cũ: bảng
+   đóng làm ô bản đồ co về 0 chiều cao trong chế độ gửi khách.              */
+
+.app { position: relative; width: 100%; height: 100dvh; overflow: hidden; }
+
+#map { position: absolute; inset: 0; z-index: var(--z-map); background: var(--c-surface-3); }
+
+/* ─── Thanh trên ────────────────────────────────────────────────────────── */
+
+.topbar {
+  position: absolute; inset: var(--s3) var(--s3) auto var(--s3);
+  z-index: var(--z-topbar);
+  display: flex; align-items: center; gap: var(--s2);
+  height: 52px; padding: 0 var(--s2) 0 var(--s3);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r3);
+  box-shadow: var(--sh3);
+}
+
+.brand { display: flex; align-items: center; gap: var(--s2); padding-right: var(--s2); flex-shrink: 0; }
+.brand__mark {
+  width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: linear-gradient(140deg, var(--c-brand), var(--c-brand-dark));
+  color: #fff; font-size: 15px;
+}
+.brand__name { font-size: var(--fz3); font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+.brand__sub  { font-size: var(--fz0); color: var(--c-text-3); line-height: 1.1; }
+
+.topbar__tools { display: flex; align-items: center; gap: var(--s1); margin-left: auto; flex-shrink: 0; }
+.topbar__sep { width: 1px; height: 22px; background: var(--c-border); margin: 0 var(--s1); flex-shrink: 0; }
+
+/* ─── Bảng trái · danh sách, lớp, bộ lọc ────────────────────────────────── */
+
+.panel {
+  position: absolute; z-index: var(--z-panel);
+  top: calc(52px + var(--s3) * 2); left: var(--s3);
+  width: var(--w-panel);
+  max-height: calc(100dvh - 52px - var(--s3) * 3 - 44px);
+  display: flex; flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r3);
+  box-shadow: var(--sh3);
+  transform-origin: top left;
+  transition: opacity var(--t-mid), transform var(--t-mid), visibility var(--t-mid);
+}
+.panel[hidden] { display: flex !important; opacity: 0; visibility: hidden; transform: translateX(-12px) scale(.98); pointer-events: none; }
+
+.panel__tabs { display: flex; gap: 2px; padding: var(--s2); border-bottom: 1px solid var(--c-border); }
+.panel__tab {
+  flex: 1; height: 30px; border-radius: var(--r1);
+  font-size: var(--fz1); font-weight: 600; color: var(--c-text-3);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.panel__tab:hover { background: var(--c-surface-3); color: var(--c-text-2); }
+.panel__tab[aria-selected="true"] { background: var(--c-brand-soft); color: var(--c-brand-dark); }
+.panel__body { flex: 1; min-height: 0; overflow: auto; }
+.panel__foot { padding: var(--s2) var(--s3); border-top: 1px solid var(--c-border); font-size: var(--fz0); color: var(--c-text-3); }
+
+/* ─── Bảng phải · hồ sơ dự án ───────────────────────────────────────────── */
+
+.sidebar {
+  position: absolute; z-index: var(--z-sidebar);
+  top: 0; right: 0; bottom: 0;
+  width: var(--w-sidebar); max-width: 100%;
+  display: flex; flex-direction: column;
+  background: var(--c-surface);
+  border-left: 1px solid var(--c-border);
+  box-shadow: var(--sh4);
+  transition: transform var(--t-slow), visibility var(--t-slow);
+}
+.sidebar[hidden] { display: flex !important; visibility: hidden; transform: translateX(100%); }
+
+/* ─── Khay dưới trên điện thoại ─────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  :root { --h-topbar: 52px; }
+
+  .topbar { inset: var(--s2) var(--s2) auto var(--s2); height: 48px; padding: 0 var(--s1) 0 var(--s2); }
+  .brand__sub { display: none; }
+  .brand__name { font-size: var(--fz2); }
+
+  .panel {
+    top: auto; left: var(--s2); right: var(--s2); bottom: 0;
+    width: auto; max-height: 62dvh;
+    border-radius: var(--r4) var(--r4) 0 0;
+    border-bottom: 0;
+  }
+  .panel[hidden] { transform: translateY(16px); }
+  .panel::before {
+    content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+    width: 36px; height: 4px; border-radius: var(--r-full); background: var(--c-border-strong);
+  }
+  .panel__tabs { padding-top: var(--s4); }
+
+  .sidebar {
+    top: auto; left: 0; right: 0; bottom: 0;
+    width: auto; height: 88dvh;
+    border-left: 0; border-top: 1px solid var(--c-border);
+    border-radius: var(--r4) var(--r4) 0 0;
+  }
+  .sidebar[hidden] { transform: translateY(100%); }
+}
+
+/* ─── Màn hình rất hẹp ──────────────────────────────────────────────────── */
+
+@media (max-width: 400px) {
+  .brand__name { display: none; }
+  .topbar__sep { display: none; }
+}
+
+/* ─── Màn hình lớn · tận dụng chiều ngang ───────────────────────────────── */
+
+@media (min-width: 1600px) {
+  :root { --w-sidebar: 480px; --w-panel: 360px; }
+}

@@ -1,5 +1,14 @@
 # Chia sẻ bản đồ Metro cho cả nhóm
 
+> ## ⚠ Tài liệu này thuộc bản v1, chưa áp dụng cho bản hiện tại
+>
+> Bản v2 đọc dự án từ `data/projects.json` trong repo, **chưa có phần đọc Google
+> Sheet**. Xem `HUONG-DAN-NHAP-DU-AN.md` để biết cách nhập dự án cho bản đang chạy.
+>
+> Giữ lại tài liệu này vì quyết định QĐ-4 (tách nguồn dùng chung / riêng qua bảng
+> tính) chưa bị huỷ, mới chỉ chưa dựng lại trên v2. Đang chờ chủ dự án quyết
+> định có làm tiếp hay bỏ hẳn — xem mục "Xung đột cần quyết" trong báo cáo v2.
+
 Ba việc, làm theo thứ tự. Tổng thời gian khoảng 20 phút.
 
 ---

@@ -1,0 +1,30 @@
+{
+  "id": "tt-avio",
+  "ma": "AVIO",
+  "ten": "TT AVIO",
+  "chuDauTu": "",
+  "loaiHinh": "can-ho",
+  "diaChi": "Phường Dĩ An, TP. Dĩ An, TP.HCM",
+  "toaDo": [
+    10.91225,
+    106.74792
+  ],
+  "xacMinh": "osm",
+  "nguonToaDo": "OpenStreetMap · landuse=residential name=TT Avio",
+  "trangThai": "dang-ban",
+  "quyMo": "",
+  "block": "",
+  "tongSoCan": "",
+  "banGiao": "",
+  "phapLy": "",
+  "giaTu": null,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/m²",
+  "dienTich": "",
+  "logo": "",
+  "anh": [],
+  "matBang": [],
+  "lichThanhToan": [],
+  "nguon": "thu-cong",
+  "ghiChu": "Khách trẻ mua căn đầu, vốn mỏng; khai thác cho thuê gần khu công nghiệp. Nguồn: hồ sơ nội bộ 22/07/2026."
+}

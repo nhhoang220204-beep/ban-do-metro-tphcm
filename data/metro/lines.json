@@ -1,0 +1,262 @@
+{
+  "meta": {
+    "tieu_de": "Sổ đăng ký tuyến đường sắt đô thị TP.HCM",
+    "cap_nhat": "2026-08-01",
+    "he_toa_do": "EPSG:4326 (WGS84)",
+
+    "canh_bao_quan_trong": [
+      "Danh sách tuyến 1, 2, 3A, 3B, 4, 4B, 5, 6 là QUY HOẠCH CŨ theo Quyết định 568/QĐ-TTg",
+      "ngày 08/04/2013 (8 tuyến, khoảng 220 km). Quy hoạch đó ĐÃ BỊ THAY THẾ.",
+      "",
+      "Quy hoạch hiện hành đánh số lại thành 10 tuyến metro liền mạch 1–10. Không còn",
+      "tuyến 3A, 3B hay 4B — tuyến 3 cũ (3A+3B) và tuyến 4B đã được nhập/vẽ lại.",
+      "",
+      "Vì vậy tài liệu này lập theo bộ số hiệu HIỆN HÀNH 1–10, và ghi kèm ánh xạ sang",
+      "số hiệu cũ ở trường 'soHieuCu' để đối chiếu tài liệu trước 2024."
+    ],
+
+    "van_ban_goc": {
+      "QD-1125": {
+        "so": "1125/QĐ-TTg",
+        "ngay": "2025-06-11",
+        "ten": "Phê duyệt Đồ án điều chỉnh quy hoạch chung TP.HCM đến năm 2040, tầm nhìn đến năm 2060",
+        "coQuan": "Thủ tướng Chính phủ (Phó Thủ tướng Trần Hồng Hà ký)",
+        "noiDungLienQuan": "12 tuyến đường sắt đô thị, tổng khoảng 582 km: 8 tuyến metro xuyên tâm, 2 tuyến metro vành đai, 1 nhánh đường sắt ngoại ô, 1 tuyến tramway/LRT",
+        "link": "https://vanban.chinhphu.vn/?pageid=27160&docid=213900",
+        "tinCay": 5,
+        "ghiChu": "Phê duyệt TRƯỚC ngày sáp nhập 01/07/2025 nên phạm vi là TP.HCM cũ (2.095 km²), chưa gồm Bình Dương và Bà Rịa – Vũng Tàu"
+      },
+      "NQ-188": {
+        "so": "188/2025/QH15",
+        "ngay": "2025-02-19",
+        "ten": "Thí điểm một số cơ chế, chính sách đặc thù, đặc biệt để phát triển hệ thống mạng lưới đường sắt đô thị tại Hà Nội, TP.HCM",
+        "coQuan": "Quốc hội khóa XV",
+        "noiDungLienQuan": "TP.HCM triển khai 7 tuyến trong giai đoạn 2026–2035; mục tiêu hoàn thành 355 km đến 2035",
+        "link": "https://xaydungchinhsach.chinhphu.vn/nghi-quyet-188-2025-qh15-thi-diem-mot-so-co-che-chinh-sach-dac-thu-dac-biet-de-phat-trien-he-thong-mang-luoi-duong-sat-do-thi-tai-ha-noi-tphcm-119250226112513612.htm",
+        "tinCay": 5
+      },
+      "DE-AN-DSDT": {
+        "so": "Đề án phát triển hệ thống đường sắt đô thị TP.HCM",
+        "ngay": "2024-05",
+        "coQuan": "Sở Giao thông vận tải TP.HCM (Giám đốc Trần Quang Lâm báo cáo)",
+        "noiDungLienQuan": "10 tuyến metro, tổng mức đầu tư 824.495,704 tỷ đồng (~34,39 tỷ USD), chia 3 giai đoạn",
+        "link": "https://vneconomy.vn/tp-hcm-dau-tu-gan-35-ty-usd-cho-10-tuyen-metro.htm",
+        "tinCay": 4,
+        "ghiChu": "Số liệu chiều dài từng tuyến lấy từ đây. Đọc qua bài báo tường thuật, chưa đối chiếu bản gốc của Đề án"
+      },
+      "QD-568": {
+        "so": "568/QĐ-TTg",
+        "ngay": "2013-04-08",
+        "ten": "Phê duyệt Điều chỉnh Quy hoạch phát triển giao thông vận tải TP.HCM đến năm 2020 và tầm nhìn sau năm 2020",
+        "coQuan": "Thủ tướng Chính phủ",
+        "noiDungLienQuan": "8 tuyến metro xuyên tâm và vành đai, tổng khoảng 220 km — đây là nguồn của cách đánh số 3A, 3B, 4B",
+        "link": "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=166552",
+        "tinCay": 5,
+        "trangThai": "ĐÃ BỊ THAY THẾ về phần đường sắt đô thị"
+      }
+    },
+
+    "thang_tin_cay": {
+      "5": "★★★★★ Văn bản pháp quy hoặc dữ liệu đo được trên thực địa",
+      "4": "★★★★☆ Báo cáo cơ quan chuyên môn, hoặc báo chính thống dẫn nguồn cơ quan",
+      "3": "★★★☆☆ Báo chính thống không dẫn văn bản gốc",
+      "2": "★★☆☆☆ Nguồn thứ cấp, cần đối chiếu",
+      "1": "★☆☆☆☆ Chưa xác minh"
+    },
+
+    "quy_uoc_trong": "Trường nào chưa có nguồn thì để null kèm ghi chú, KHÔNG điền số phỏng đoán."
+  },
+
+  "tuyen": [
+    {
+      "ma": "M1", "so": 1, "soHieuCu": "1",
+      "ten": "Tuyến số 1",
+      "loai": "xuyen-tam",
+      "mau": "#e11d48",
+      "huongTuyen": { "giaTri": "Suối Tiên – Bến Thành – An Hạ", "nguon": "NQ-188", "tinCay": 5 },
+      "doanDangKhaiThac": { "giaTri": "Bến Thành – Suối Tiên", "km": 19.7, "soGa": 14, "nguon": "MAUR · vận hành thương mại từ 22/12/2024", "tinCay": 5 },
+      "chieuDai": { "den2035Km": 40.8, "toanTuyenKm": 40.8, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "operating",
+      "idTrongApp": "m1",
+      "hinhHocOSM": { "co": true, "kmDoDuoc": 19.6, "gaCoToaDo": 14, "tinCay": 5,
+                      "ghiChu": "Đo được 19,6 km, khớp con số chính thức 19,7 km — sai lệch 0,5%" },
+      "thieu": ["Hướng tuyến và ga đoạn kéo dài Bến Thành – An Hạ", "Toạ độ depot Long Bình"]
+    },
+    {
+      "ma": "M2", "so": 2, "soHieuCu": "2",
+      "ten": "Tuyến số 2",
+      "loai": "xuyen-tam",
+      "mau": "#2563eb",
+      "huongTuyen": { "giaTri": "Củ Chi – Quốc lộ 22 – An Sương – Bến Thành – Thủ Thiêm", "nguon": "NQ-188", "tinCay": 5 },
+      "doanDangThiCong": { "giaTri": "Bến Thành – Tham Lương", "km": null, "soGa": 10, "nguon": "MAUR", "tinCay": 3,
+                           "ghiChu": "Số ga 10 theo hồ sơ niêm yết; chiều dài chưa đối chiếu văn bản gốc" },
+      "chieuDai": { "den2035Km": 20.22, "toanTuyenKm": 62.8, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "construction",
+      "idTrongApp": "m2",
+      "hinhHocOSM": { "co": true, "kmDoDuoc": null, "gaCoToaDo": 2, "tinCay": 3 },
+      "thieu": ["8/10 toạ độ ga đoạn Bến Thành – Tham Lương", "Toàn bộ đoạn Tham Lương – Củ Chi", "Toạ độ depot Tham Lương"]
+    },
+    {
+      "ma": "M2-TT", "so": 2, "soHieuCu": "2 (nhánh)",
+      "ten": "Tuyến số 2 — nhánh Bến Thành – Thủ Thiêm",
+      "loai": "xuyen-tam",
+      "mau": "#7c3aed",
+      "huongTuyen": { "giaTri": "Bến Thành – Thủ Thiêm", "nguon": "OpenStreetMap (tên way)", "tinCay": 2 },
+      "chieuDai": { "den2035Km": null, "toanTuyenKm": null, "nguon": null, "tinCay": 1 },
+      "trangThai": "planned",
+      "idTrongApp": "m2tt",
+      "hinhHocOSM": { "co": true, "kmDoDuoc": null, "gaCoToaDo": null, "tinCay": 2 },
+      "thieu": ["Toàn bộ danh sách ga", "Chiều dài chính thức", "Xác nhận đây là nhánh riêng hay một phần tuyến 2"]
+    },
+    {
+      "ma": "M3", "so": 3, "soHieuCu": "3A + 3B",
+      "ten": "Tuyến số 3",
+      "loai": "xuyen-tam",
+      "mau": "#16a34a",
+      "huongTuyen": { "giaTri": "Hiệp Bình Phước – Bình Triệu – Ngã 6 Cộng Hòa – Tân Kiên – An Hạ", "nguon": "NQ-188", "tinCay": 5 },
+      "chieuDai": { "den2035Km": 29.53, "toanTuyenKm": 62.17, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "planned",
+      "idTrongApp": "m3",
+      "hinhHocOSM": { "co": true, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 2 },
+      "thieu": ["Toàn bộ danh sách ga", "Ranh giới giữa phần 3A cũ và 3B cũ trong tuyến mới"]
+    },
+    {
+      "ma": "M4", "so": 4, "soHieuCu": "4 + 4B",
+      "ten": "Tuyến số 4",
+      "loai": "xuyen-tam",
+      "mau": "#f59e0b",
+      "huongTuyen": { "giaTri": "Đông Thạnh – Sân bay Tân Sơn Nhất – Bến Thành – Nguyễn Hữu Thọ – Khu đô thị Hiệp Phước", "nguon": "NQ-188", "tinCay": 5 },
+      "chieuDai": { "den2035Km": 36.82, "toanTuyenKm": 43.4, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "planned",
+      "idTrongApp": null,
+      "hinhHocOSM": { "co": false, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 1 },
+      "thieu": ["TOÀN BỘ hình học hướng tuyến", "Toàn bộ danh sách ga", "Ánh xạ chính xác phần nào là tuyến 4B cũ"]
+    },
+    {
+      "ma": "M5", "so": 5, "soHieuCu": "5",
+      "ten": "Tuyến số 5",
+      "loai": "xuyen-tam",
+      "mau": "#db2777",
+      "huongTuyen": { "giaTri": "Long Trường – Xa lộ Hà Nội – Cầu Sài Gòn – Bảy Hiền – Depot Đa Phước", "nguon": "NQ-188", "tinCay": 5 },
+      "chieuDai": { "den2035Km": 32.5, "toanTuyenKm": 53.87, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "planned",
+      "idTrongApp": null,
+      "hinhHocOSM": { "co": false, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 1 },
+      "thieu": ["TOÀN BỘ hình học hướng tuyến", "Toàn bộ danh sách ga", "Toạ độ depot Đa Phước"]
+    },
+    {
+      "ma": "M6", "so": 6, "soHieuCu": "6",
+      "ten": "Tuyến số 6 — Vành đai trong",
+      "loai": "vanh-dai",
+      "mau": "#ea580c",
+      "huongTuyen": { "giaTri": "Tuyến vành đai trong", "nguon": "NQ-188", "tinCay": 5 },
+      "giaiDoan1": {
+        "giaTri": "Sân bay Tân Sơn Nhất – Phú Hữu",
+        "km": 22.85,
+        "tongMucDauTuTyDong": 86529,
+        "nguon": "Báo Tuổi Trẻ / Thanh Niên 06/2026 dẫn UBND TP.HCM và MAUR",
+        "tinCay": 3,
+        "moc": "MAUR được giao phê duyệt hướng tuyến trong tháng 6/2026, dự kiến khởi công cuối 2026, hoàn thành 2030",
+        "diemNhan": "Giao tuyến 2 tại ga Bà Quẹo; đi qua cả ba nhà ga T1, T2, T3 sân bay Tân Sơn Nhất; nối tuyến Thủ Thiêm – Long Thành tại nút Phú Hữu"
+      },
+      "chieuDai": { "den2035Km": 22.85, "toanTuyenKm": 53.8, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "preparing",
+      "idTrongApp": "m6",
+      "hinhHocOSM": { "co": true, "kmDoDuoc": null, "gaCoToaDo": null, "tinCay": 2,
+                      "ghiChu": "Hình học trong app tương ứng GIAI ĐOẠN 1 (Tân Sơn Nhất – Phú Hữu), không phải toàn tuyến vành đai 53,8 km" },
+      "thieu": ["Hai ga ngầm trong sân bay (ST01, ST02)", "Phần vành đai còn lại ngoài giai đoạn 1",
+                "Hướng tuyến chính thức — MAUR dự kiến phê duyệt 6/2026, ĐÂY LÀ NGUỒN CẦN XIN NHẤT"]
+    },
+    {
+      "ma": "M7", "so": 7, "soHieuCu": "—",
+      "ten": "Tuyến số 7",
+      "loai": "xuyen-tam",
+      "mau": "#c026d3",
+      "huongTuyen": { "giaTri": "Tân Kiên – Nguyễn Văn Linh – Thủ Thiêm – Thảo Điền – Thanh Đa – Khu Công nghệ cao – Vinhomes Grand Park", "nguon": "NQ-188", "tinCay": 5 },
+      "chieuDai": { "den2035Km": null, "toanTuyenKm": 51.23, "nguon": "DE-AN-DSDT", "tinCay": 4,
+                    "ghiChu": "Thuộc giai đoạn 2 (2035–2045) theo Đề án; NQ-188 lại xếp vào nhóm 7 tuyến 2026–2035 — HAI NGUỒN VÊNH NHAU" },
+      "trangThai": "planned",
+      "idTrongApp": "m7",
+      "hinhHocOSM": { "co": true, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 2 },
+      "thieu": ["Toàn bộ danh sách ga", "Thống nhất giai đoạn đầu tư giữa NQ-188 và Đề án"]
+    },
+    {
+      "ma": "M8", "so": 8, "soHieuCu": "—",
+      "ten": "Tuyến số 8",
+      "loai": "xuyen-tam",
+      "mau": "#0891b2",
+      "huongTuyen": { "giaTri": null, "nguon": null, "tinCay": 1,
+                      "ghiChu": "KHÔNG tìm được nguồn nào nêu điểm đầu, điểm cuối. Không suy đoán." },
+      "chieuDai": { "den2035Km": null, "toanTuyenKm": 42.8, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "planned",
+      "idTrongApp": null,
+      "hinhHocOSM": { "co": false, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 1 },
+      "thieu": ["ĐIỂM ĐẦU VÀ ĐIỂM CUỐI", "Toàn bộ hình học", "Toàn bộ danh sách ga"]
+    },
+    {
+      "ma": "M9", "so": 9, "soHieuCu": "—",
+      "ten": "Tuyến số 9",
+      "loai": "xuyen-tam",
+      "mau": "#65a30d",
+      "huongTuyen": { "giaTri": "Tam Bình – An Hạ", "nguon": "Báo chuyên ngành bất động sản dẫn quy hoạch", "tinCay": 2,
+                      "ghiChu": "Có nêu đi qua Âu Cơ, Tân Kỳ Tân Quý, Hương Lộ 3, Vĩnh Lộc A, kết thúc tại KCN An Hạ — CHƯA đối chiếu văn bản gốc" },
+      "chieuDai": { "den2035Km": null, "toanTuyenKm": 28.31, "nguon": "DE-AN-DSDT", "tinCay": 4 },
+      "trangThai": "planned",
+      "idTrongApp": null,
+      "hinhHocOSM": { "co": false, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 1 },
+      "thieu": ["Xác nhận điểm đầu/cuối bằng văn bản gốc", "Toàn bộ hình học", "Toàn bộ danh sách ga"]
+    },
+    {
+      "ma": "M10", "so": 10, "soHieuCu": "—",
+      "ten": "Tuyến số 10 — Vành đai ngoài",
+      "loai": "vanh-dai",
+      "mau": "#475569",
+      "huongTuyen": { "giaTri": "Vòng khép kín: Thủ Thiêm – Cát Lái – Tam Đa – Long Phước – Khu Công nghệ cao – Linh Trung – Bình Phước – An Phú Đông – kênh Tham Lương – khu Tây – Bình Chánh – Nhà Bè – Đào Trí – Tân Thuận – về lại Thủ Thiêm", "nguon": "Báo chuyên ngành dẫn quy hoạch 2040", "tinCay": 2 },
+      "chieuDai": { "den2035Km": null, "toanTuyenKm": 87.84, "nguon": "DE-AN-DSDT", "tinCay": 4,
+                    "ghiChu": "Nguồn khác nêu ~84 km — CHÊNH 3,84 km giữa hai nguồn" },
+      "trangThai": "planned",
+      "idTrongApp": null,
+      "hinhHocOSM": { "co": false, "kmDoDuoc": null, "gaCoToaDo": 0, "tinCay": 1 },
+      "thieu": ["Toàn bộ hình học", "Toàn bộ danh sách ga", "Thống nhất chiều dài 84 km hay 87,84 km"]
+    }
+  ],
+
+  "tuyen_ngoai_bo_10": [
+    {
+      "ma": "TT-LT",
+      "ten": "Đường sắt Thủ Thiêm – Long Thành",
+      "loai": "duong-sat-ket-noi-san-bay",
+      "ghiChu": "Không thuộc 10 tuyến metro nội đô. Nối ga Thủ Thiêm với sân bay Long Thành.",
+      "idTrongApp": "tt",
+      "hinhHocOSM": { "co": true, "gaCoToaDo": 18, "tinCay": 3 },
+      "thieu": ["1 ga còn thiếu toạ độ", "Chiều dài chính thức", "Văn bản phê duyệt hướng tuyến"]
+    },
+    {
+      "ma": "BT-CG",
+      "ten": "Đường sắt đô thị Bến Thành – Cần Giờ",
+      "loai": "metro-ket-noi",
+      "ghiChu": "Nêu trong QĐ-1125 như một hướng mở rộng. Chưa rõ có nằm trong bộ 10 tuyến hay là tuyến riêng.",
+      "idTrongApp": "cg",
+      "hinhHocOSM": { "co": true, "gaCoToaDo": 0, "tinCay": 2 },
+      "thieu": ["Toàn bộ 6 ga", "Vị trí trong hệ thống đánh số"]
+    },
+    {
+      "ma": "BD-2",
+      "ten": "Metro số 2 Thủ Dầu Một – TP.HCM",
+      "loai": "metro-lien-vung",
+      "ghiChu": "Thuộc quy hoạch Bình Dương cũ. Sau sáp nhập 01/07/2025, Bình Dương thuộc TP.HCM nên tuyến này nay nằm trong địa giới TP.HCM — nhưng QĐ-1125 phê duyệt TRƯỚC sáp nhập nên chưa gồm tuyến này.",
+      "idTrongApp": "bd2",
+      "hinhHocOSM": { "co": true, "gaCoToaDo": 2, "tinCay": 2 },
+      "thieu": ["22/24 ga", "Văn bản quy hoạch hợp nhất sau sáp nhập"]
+    },
+    {
+      "ma": "BD-1",
+      "ten": "Metro Thành phố mới Bình Dương – Suối Tiên",
+      "loai": "metro-lien-vung",
+      "ghiChu": "Như trên — thuộc quy hoạch Bình Dương cũ, nay nằm trong TP.HCM.",
+      "idTrongApp": "bd1",
+      "hinhHocOSM": { "co": true, "gaCoToaDo": 0, "tinCay": 2 },
+      "thieu": ["Toàn bộ 19 ga", "Văn bản quy hoạch hợp nhất sau sáp nhập"]
+    }
+  ]
+}

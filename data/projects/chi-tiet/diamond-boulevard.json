@@ -1,0 +1,34 @@
+{
+  "id": "diamond-boulevard",
+  "ma": "DMB",
+  "ten": "Diamond Boulevard",
+  "chuDauTu": "Tecco",
+  "loaiHinh": "can-ho",
+  "diaChi": "",
+  "toaDo": null,
+  "xacMinh": "chua-ghim",
+  "nguonToaDo": "",
+  "trangThai": "dang-ban",
+  "quyMo": "",
+  "block": "",
+  "tongSoCan": "",
+  "banGiao": "Bàn giao full nội thất",
+  "phapLy": "",
+  "giaTu": 2000,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/căn",
+  "dienTich": "",
+  "logo": "",
+  "anh": [],
+  "matBang": [],
+  "lichThanhToan": [
+    {
+      "dot": "Đến khi nhận nhà",
+      "tyLe": "21%",
+      "soTien": "",
+      "moc": "Nhận nhà"
+    }
+  ],
+  "nguon": "thu-cong",
+  "ghiChu": "Mặt tiền đường, bàn giao full nội thất, khoảng giá 2–2,6 tỷ/căn."
+}

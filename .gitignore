@@ -1,3 +1,11 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Ảnh chụp thô từ Overpass — 16 MB, tái tạo được bất cứ lúc nào bằng
+# tools/build-data.mjs. Chỉ để tăng tốc khi chạy lại công cụ trên cùng một máy.
+tools/cache/*
+
+# NGOẠI LỆ: hình tuyến metro đã qua kiểm định chất lượng (tuyến 1 = 19,6 km /
+# 14 ga, 0 ga lệch khỏi tuyến). Đây là nguồn sự thật, phải theo repo.
+!tools/cache/geo-verified.json

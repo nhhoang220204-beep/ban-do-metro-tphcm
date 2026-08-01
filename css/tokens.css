@@ -1,0 +1,104 @@
+/* ═══ §1 · TOKENS ══════════════════════════════════════════════════════════
+   Mọi màu, khoảng cách, bo góc, đổ bóng khai báo một lần ở đây.
+   Không hardcode giá trị trong các file khác.                              */
+
+:root {
+  /* ─ Bảng màu nền · thang xám lạnh ─ */
+  --c-bg:            #f1f5f9;
+  --c-surface:       #ffffff;
+  --c-surface-2:     #f8fafc;
+  --c-surface-3:     #eef2f7;
+  --c-border:        #dbe2ea;
+  --c-border-strong: #c3cede;
+
+  /* ─ Chữ ─ */
+  --c-text:      #0f172a;
+  --c-text-2:    #475569;
+  --c-text-3:    #7c8ca3;
+  --c-text-inv:  #ffffff;
+
+  /* ─ Màu thương hiệu ─ */
+  --c-brand:       #1d4ed8;
+  --c-brand-dark:  #1e3a8a;
+  --c-brand-soft:  #e6edfd;
+  --c-accent:      #b45309;   /* điểm nhấn AI Score, huy hiệu */
+  --c-accent-soft: #fef3c7;
+
+  /* ─ Màu ngữ nghĩa ─ */
+  --c-ok:      #15803d;
+  --c-ok-soft: #dcfce7;
+  --c-warn:      #b45309;
+  --c-warn-soft: #fef3c7;
+  --c-bad:      #b91c1c;
+  --c-bad-soft: #fee2e2;
+  --c-info:      #0369a1;
+  --c-info-soft: #e0f2fe;
+
+  /* ─ Thang khoảng cách 4px ─ */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 20px; --s6: 24px; --s7: 32px; --s8: 48px;
+
+  /* ─ Bo góc ─ */
+  --r1: 6px; --r2: 10px; --r3: 14px; --r4: 20px; --r-full: 999px;
+
+  /* ─ Đổ bóng ─ */
+  --sh1: 0 1px 2px rgba(15, 23, 42, .06);
+  --sh2: 0 2px 8px rgba(15, 23, 42, .08), 0 1px 2px rgba(15, 23, 42, .04);
+  --sh3: 0 8px 24px rgba(15, 23, 42, .12), 0 2px 6px rgba(15, 23, 42, .06);
+  --sh4: 0 20px 48px rgba(15, 23, 42, .18), 0 4px 12px rgba(15, 23, 42, .08);
+
+  /* ─ Chữ ─ */
+  --ff: 'Segoe UI', system-ui, -apple-system, 'Noto Sans', Roboto, Arial, sans-serif;
+  --ff-num: 'Segoe UI', system-ui, sans-serif;
+  --fz0: 11px; --fz1: 12px; --fz2: 13px; --fz3: 14px;
+  --fz4: 16px; --fz5: 19px; --fz6: 23px; --fz7: 30px;
+
+  /* ─ Kích thước bố cục ─ */
+  --w-sidebar: 420px;
+  --w-panel:   324px;
+  --h-topbar:  60px;
+
+  /* ─ Chuyển động · dùng chung để cảm giác nhất quán ─ */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --t-fast: .14s var(--ease);
+  --t-mid:  .24s var(--ease);
+  --t-slow: .36s var(--ease);
+
+  /* ─ Lớp chồng ─ */
+  --z-map: 1; --z-mapctl: 500; --z-panel: 900; --z-topbar: 1000;
+  --z-sidebar: 1100; --z-modal: 1200; --z-toast: 1300;
+
+  color-scheme: light;
+}
+
+/* Chế độ tối · dùng khi máy khách để tối, và khi chụp màn hình buổi tối. */
+:root[data-theme="dark"] {
+  --c-bg:            #0b1220;
+  --c-surface:       #131c2e;
+  --c-surface-2:     #18233a;
+  --c-surface-3:     #1f2c47;
+  --c-border:        #27354f;
+  --c-border-strong: #3a4a6a;
+
+  --c-text:     #e8eefb;
+  --c-text-2:   #a9b6cd;
+  --c-text-3:   #7b8aa5;
+
+  --c-brand:      #5b8def;
+  --c-brand-dark: #93b4f7;
+  --c-brand-soft: #1b2a4a;
+  --c-accent:      #f0b429;
+  --c-accent-soft: #3a2e10;
+
+  --c-ok:   #4ade80; --c-ok-soft:   #12301f;
+  --c-warn: #fbbf24; --c-warn-soft: #33270a;
+  --c-bad:  #f87171; --c-bad-soft:  #3a1616;
+  --c-info: #38bdf8; --c-info-soft: #0b2b3d;
+
+  --sh1: 0 1px 2px rgba(0, 0, 0, .4);
+  --sh2: 0 2px 8px rgba(0, 0, 0, .45);
+  --sh3: 0 8px 24px rgba(0, 0, 0, .5);
+  --sh4: 0 20px 48px rgba(0, 0, 0, .6);
+
+  color-scheme: dark;
+}

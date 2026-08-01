@@ -1,0 +1,771 @@
+{
+ "type": "FeatureCollection",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "EPSG:4326"
+  }
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga1",
+    "ten": "Bến Thành",
+    "tuyen": "m1,m2,m2tt",
+    "trung_chuyen": true,
+    "so_tuyen": 3,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.69788,
+     10.77095
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga2",
+    "ten": "Nhà hát Thành phố",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.70207,
+     10.7753
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga3",
+    "ten": "Ba Son",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.70834,
+     10.78179
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga4",
+    "ten": "Công viên Văn Thánh",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.71551,
+     10.79605
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga5",
+    "ten": "Tân Cảng",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.72324,
+     10.79859
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga6",
+    "ten": "Thảo Điền",
+    "tuyen": "m1,m7",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.73365,
+     10.80049
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga7",
+    "ten": "An Phú",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.74225,
+     10.80213
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga8",
+    "ten": "Rạch Chiếc",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.75528,
+     10.80855
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga9",
+    "ten": "Phước Long",
+    "tuyen": "m1,m7",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.75818,
+     10.82143
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga10",
+    "ten": "Bình Thái",
+    "tuyen": "m1,m6",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.76389,
+     10.83265
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga11",
+    "ten": "Thủ Đức",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.77165,
+     10.84641
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga12",
+    "ten": "Khu Công nghệ cao",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.78884,
+     10.85899
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga13",
+    "ten": "Đại học Quốc gia",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.8012,
+     10.8663
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga14",
+    "ten": "Bến xe Suối Tiên",
+    "tuyen": "m1",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.81409,
+     10.87954
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga15",
+    "ten": "Tao Đàn",
+    "tuyen": "m2",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.6903,
+     10.77316
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga16",
+    "ten": "Hàm Nghi",
+    "tuyen": "m2tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.70359,
+     10.77087
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga17",
+    "ten": "Đại lộ Vòng Cung",
+    "tuyen": "m2tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.71498,
+     10.77192
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga18",
+    "ten": "Cung Thiếu nhi",
+    "tuyen": "m2tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.72229,
+     10.77313
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga19",
+    "ten": "Bệnh viện Quốc tế",
+    "tuyen": "m2tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.72872,
+     10.7764
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga20",
+    "ten": "Bình Khánh",
+    "tuyen": "m2tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.73592,
+     10.78007
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga21",
+    "ten": "Thủ Thiêm",
+    "tuyen": "m2tt,tt",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.74229,
+     10.78542
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga22",
+    "ten": "Ga S5",
+    "tuyen": "bd2",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.66887,
+     11.00796
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga23",
+    "ten": "Hiệp Bình Phước",
+    "tuyen": "bd2,m3",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.72397,
+     10.86597
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga24",
+    "ten": "Bà Hiện",
+    "tuyen": "m6,tt",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.79182,
+     10.79563
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga25",
+    "ten": "Phú Hữu",
+    "tuyen": "m6,tt",
+    "trung_chuyen": true,
+    "so_tuyen": 2,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.7995,
+     10.79439
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga26",
+    "ten": "Bình Trưng",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.76407,
+     10.7952
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga27",
+    "ten": "Đỗ Xuân Hợp",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.78037,
+     10.79588
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga28",
+    "ten": "Ông Nhiêu",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.80782,
+     10.79296
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga29",
+    "ten": "Long Trường",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.81683,
+     10.79139
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga30",
+    "ten": "Thiếc Dừa",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.83077,
+     10.77936
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga31",
+    "ten": "Long Tân",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.84842,
+     10.75406
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga32",
+    "ten": "Phú Thạnh",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.85099,
+     10.73762
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga33",
+    "ten": "Tuy Hạ",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.86253,
+     10.7189
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga34",
+    "ten": "Nhơn Trạch",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.87601,
+     10.722
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga35",
+    "ten": "Phú Hội",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.89921,
+     10.72731
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga36",
+    "ten": "Phước Thiền",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.91669,
+     10.73133
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga37",
+    "ten": "Hiệp Phước",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.93174,
+     10.73478
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga38",
+    "ten": "Ga S16",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.94955,
+     10.73835
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga39",
+    "ten": "Ga S17",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.9624,
+     10.74084
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "ga_id": "ga40",
+    "ten": "Ga S19",
+    "tuyen": "tt",
+    "trung_chuyen": false,
+    "so_tuyen": 1,
+    "nguon": "OpenStreetMap · Overpass API",
+    "ngay_chup": "2026-07-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     106.97581,
+     10.74114
+    ]
+   }
+  }
+ ]
+}
