@@ -1,0 +1,30 @@
+{
+  "id": "gateway",
+  "chuDauTu": "Tập đoàn DIC (DIC Corp - Tổng Công ty CP Đầu tư Phát triển Xây dựng)",
+  "diaChi": "Đường 3 Tháng 2, Khu đô thị Chí Linh, Phường Tam Thắng (trước sáp nhập là Phường Nguyễn An Ninh), TP. Vũng Tàu, TP.HCM",
+  "quyMo": "22.560 m², 2 block (A, B), tổng vốn đầu tư 1.572 tỷ đồng",
+  "block": "2 block A, B",
+  "soTang": "30 tầng",
+  "tongSoCan": "1.538 căn hộ",
+  "dienTich": "49-138 m² (căn hộ 1-3PN), có thêm shophouse và penthouse",
+  "tienDo": "Dự án đã xây dựng xong và đưa vào sử dụng; một số báo chí (2022-2023) phản ánh cư dân còn chờ cấp sổ hồng riêng cho từng căn",
+  "banGiao": "Đã bàn giao",
+  "phapLy": "Sổ hồng lâu dài (theo công bố chủ đầu tư); có báo chí phản ánh việc cấp sổ hồng riêng từng căn còn chậm/vướng mắc ở một số thời điểm — cần kiểm tra lại thực tế hiện nay",
+  "giaTu": 49.1,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/m²",
+  "hotline": "(0254) 3859248",
+  "website": "https://www.dic.vn/vung-tau/cum-chung-cu-cao-cap-vung-tau-gateway",
+  "tienIchNoiKhu": ["Hồ bơi 300m² (tầng 3-4)", "Trung tâm thương mại/hơn 50 gian hàng dịch vụ tầng trệt và lầu 2", "Thang máy (8 thang/block)", "Hệ thống báo cháy, camera an ninh"],
+  "nguonTheoTruong": {
+    "chuDauTu": "Website chính thức DIC Group — dic.vn",
+    "quyMo": "Website chính thức DIC Group — dic.vn",
+    "giaTu": "Batdongsan.com.vn, dữ liệu cập nhật T3/2026",
+    "phapLy": "Báo Pháp Luật TP.HCM (loạt bài 'Vũng Tàu Gateway và những vấn đề chưa có hồi kết'), đối chiếu với công bố CĐT"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Có nhiều fanpage/group liên quan (Căn hộ DIC Gateway Vũng Tàu, Cộng đồng cư dân GateWay Vũng Tàu...) — chưa xác định trang nào là fanpage chính thức duy nhất của CĐT. Nguồn báo chí và nguồn CĐT có mâu thuẫn về tiến độ cấp sổ hồng riêng từng căn, Hoàng nên xác minh lại tình trạng pháp lý hiện tại nếu tư vấn khách mua."
+}

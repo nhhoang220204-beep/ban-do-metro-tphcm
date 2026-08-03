@@ -1,0 +1,8 @@
+{
+  "id": "an-phu",
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Không xác định chắc chắn đây là một dự án BĐS cụ thể. Toạ độ (10.79994,106.73877) nằm trong Phường An Phú, Quận 2 cũ, rất gần điểm 'an-khanh' (id khác trong cùng đợt tra cứu) - nhiều khả năng cả hai chỉ là điểm OSM đánh dấu tên phường/khu đô thị An Phú - An Khánh (131ha), không phải một dự án đơn lẻ. Có tìm thấy một toà văn phòng tên 'Tòa nhà An Phú' tại 37 Đường số 2, An Khánh, Quận 2 (maisonoffice.vn, niceoffice.com.vn) nhưng KHÔNG đủ căn cứ để khẳng định đây đúng là điểm toạ độ được cho (trùng tên 'An Phú' rất phổ biến trong khu vực - còn có Masteri An Phú, Imperia An Phú, Palm Residence...). Vì không chắc chắn nên không gán thông tin cụ thể, tránh gán nhầm dự án."
+}

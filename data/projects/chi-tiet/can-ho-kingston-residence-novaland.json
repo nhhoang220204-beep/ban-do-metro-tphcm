@@ -1,0 +1,28 @@
+{
+  "id": "can-ho-kingston-residence-novaland",
+  "chuDauTu": "Novaland",
+  "diaChi": "146 Nguyễn Văn Trỗi và 223-223B Hoàng Văn Thụ, Phường Phú Nhuận, TP.HCM (trước sáp nhập: Phường 8, Quận Phú Nhuận)",
+  "quyMo": "Diện tích đất 4.580 m², diện tích xây dựng khoảng 18.000 m²",
+  "block": "1 tháp, 22 tầng + 2 tầng hầm",
+  "soTang": "22 tầng + 2 hầm",
+  "tongSoCan": "173 căn hộ + 114 office-tel (tổng 287 sản phẩm)",
+  "dienTich": "59-124 m²",
+  "tienDo": "Đã hoàn thành, khởi công quý 2/2015, bàn giao quý 4/2017",
+  "banGiao": "Đã bàn giao (Q4/2017)",
+  "phapLy": "Không tìm được công bố cụ thể về loại sổ (sổ hồng/officetel) trong các nguồn đã kiểm — cần xác minh thêm",
+  "giaTu": 60.26,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/m²",
+  "website": "https://novaworldvietnam.com.vn/kingston-residence-phu-nhuan/",
+  "tienIchNoiKhu": ["Hồ bơi", "Phòng gym", "Sân tennis", "Khu vui chơi trẻ em", "Trung tâm thương mại/siêu thị", "An ninh 24/7"],
+  "nguonTheoTruong": {
+    "chuDauTu": "Website chính thức Novaland — novaworldvietnam.com.vn",
+    "diaChi": "Rever.vn (đối chiếu Google Maps cho toạ độ trùng khớp phía mặt tiền Hoàng Văn Thụ)",
+    "giaTu": "Rever.vn, dữ liệu tổng hợp giá bán 60.26 - 97.37 trđ/m²"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Toạ độ đề bài (10.79971, 106.67054) khớp với mặt tiền đường Hoàng Văn Thụ của dự án (đối chiếu Nominatim/OSM ra địa chỉ 229 Hoàng Văn Thụ, Phường Phú Nhuận), phù hợp với địa chỉ dự án công bố (223-223B Hoàng Văn Thụ). Dự án nằm ở Phú Nhuận (TP.HCM cũ), KHÔNG phải Bình Dương như tên gợi ý ban đầu — đã xác minh qua nhiều nguồn độc lập."
+}

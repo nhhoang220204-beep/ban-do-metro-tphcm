@@ -268,32 +268,39 @@ function veODanToaDo(p) {
 
 function tabThongTin(p, diem) {
   const truong = [
-    ['Chủ đầu tư', p.chuDauTu],
-    ['Loại hình', tenLoaiHinh(p.loaiHinh)],
-    ['Địa chỉ', p.diaChi],
-    ['Quy mô', p.quyMo],
-    ['Block', p.block],
-    ['Tổng số căn', p.tongSoCan],
-    ['Diện tích', p.dienTich],
-    ['Bàn giao', p.banGiao],
-    ['Pháp lý', p.phapLy],
-    ['Giá từ', co(p.giaTu) ? gia(p.giaTu, p.donViGia) : null],
-    ['Giá trung bình', co(p.giaTrungBinh) ? gia(p.giaTrungBinh, p.donViGia) : null]
+    ['chuDauTu', 'Chủ đầu tư', p.chuDauTu],
+    ['donViPhatTrien', 'Đơn vị phát triển', p.donViPhatTrien],
+    ['loaiHinh', 'Loại hình', tenLoaiHinh(p.loaiHinh)],
+    ['diaChi', 'Địa chỉ', p.diaChi],
+    ['quyMo', 'Quy mô', p.quyMo],
+    ['block', 'Block', p.block],
+    ['soTang', 'Số tầng', p.soTang],
+    ['tongSoCan', 'Tổng số căn', p.tongSoCan],
+    ['dienTich', 'Diện tích', p.dienTich],
+    ['tienDo', 'Tiến độ', p.tienDo],
+    ['banGiao', 'Bàn giao', p.banGiao],
+    ['phapLy', 'Pháp lý', p.phapLy],
+    ['giaTu', 'Giá từ', co(p.giaTu) ? gia(p.giaTu, p.donViGia) : null],
+    ['giaTrungBinh', 'Giá trung bình', co(p.giaTrungBinh) ? gia(p.giaTrungBinh, p.donViGia) : null],
+    ['hotline', 'Hotline', p.hotline],
+    ['website', 'Website', p.website]
   ];
 
   return el('div.sb__pane', {}, [
     el('div.card', {}, [
-      el('div.card__body', {}, truong.map(([k, v]) =>
-        el('div.field', {}, [
-          el('span.field__k', {}, k),
-          co(v) ? el('span.field__v', {}, String(v)) : el('span.field__v.pending', {}, CHUA_CO)
-        ])))
+      el('div.card__body', {}, truong.map(([key, k, v]) => veTruong(p, key, k, v)))
     ]),
+
+    p.tienIchNoiKhu?.length > 0 && el('div.sect__title', {}, 'Tiện ích nội khu'),
+    p.tienIchNoiKhu?.length > 0 && el('div.card', {}, [el('div.card__body', {}, [
+      el('div.row.wrap', {}, p.tienIchNoiKhu.map(t => el('span.badge', {}, t)))
+    ])]),
 
     p.ghiChu && el('div.sect__title', {}, 'Ghi chú tư vấn'),
     p.ghiChu && el('div.card', {}, [el('div.card__body.sb__note', {}, p.ghiChu)]),
 
     veNguon(p),
+    veNguonNghienCuu(p),
 
     el('div.sect__title', {}, 'Điểm đánh giá'),
     el('div.card', {}, [el('div.card__body', {}, [
@@ -329,6 +336,53 @@ function veNguon(p) {
     el('div', {}, [
       p.nguon && el('div', {}, `Số liệu: ${p.nguon}`),
       p.nguonToaDo && el('div', {}, `Toạ độ: ${p.nguonToaDo}`)
+    ])
+  ]);
+}
+
+/**
+ * Một dòng trường dữ liệu trong tab Thông tin.
+ *
+ * Có giá trị thì kèm luôn nguồn của riêng trường đó (nếu tra được, ghi trong
+ * `nguonTheoTruong`). Trống mà đã có đợt nghiên cứu (`p.nghienCuu`) thì nói rõ
+ * "chưa tìm thấy nguồn đáng tin cậy" thay vì "Đang cập nhật" chung chung — hai
+ * câu khác nhau: một câu nói "chưa ai tra", câu kia nói "đã tra mà không có".
+ */
+function veTruong(p, key, nhan, gtri) {
+  const nguonTruong = p.nguonTheoTruong?.[key];
+  if (co(gtri)) {
+    return el('div.field', {}, [
+      el('span.field__k', {}, nhan),
+      el('div', {}, [
+        el('span.field__v', {}, String(gtri)),
+        nguonTruong && el('div.field__src', {}, `Nguồn: ${nguonTruong}`)
+      ])
+    ]);
+  }
+  return el('div.field', {}, [
+    el('span.field__k', {}, nhan),
+    el('span.field__v.pending', {},
+      p.nghienCuu ? 'Chưa tìm thấy dữ liệu đáng tin cậy từ các nguồn đã kiểm tra.' : CHUA_CO)
+  ]);
+}
+
+const NHAN_NGUON = {
+  'website-chinh-thuc': 'Website chính thức',
+  'fanpage': 'Fanpage',
+  'facebook-group': 'Facebook Group',
+  'web-bds': 'Website BĐS',
+  'google-maps': 'Google Maps'
+};
+
+/** Khối "các nguồn đã kiểm tra" — cho người đọc thấy công cụ đã thực sự tra, không phải bỏ trống vì lười. */
+function veNguonNghienCuu(p) {
+  if (!p.nghienCuu?.nguonDaKiem?.length) return null;
+  return el('div.card', {}, [
+    el('div.card__body', {}, [
+      el('div.field__k', { style: { marginBottom: 'var(--s2)' } }, 'Các nguồn đã kiểm tra'),
+      el('div.row.wrap', {}, p.nghienCuu.nguonDaKiem.map(k =>
+        el('span.badge.badge--ok.badge--dot', {}, `✓ ${NHAN_NGUON[k] ?? k}`))),
+      p.nghienCuu.ngay && el('div.sb__foot-note', {}, `Tra cứu lúc ${p.nghienCuu.ngay}.`)
     ])
   ]);
 }

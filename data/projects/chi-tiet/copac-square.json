@@ -1,0 +1,22 @@
+{
+  "id": "copac-square",
+  "chuDauTu": "Công ty Cổ phần Đầu tư Xây dựng và Thương mại Thái Bình Dương (COPAC)",
+  "diaChi": "12 Tôn Đản, Phường Xóm Chiếu (Phường 13 cũ), Quận 4, TP.HCM",
+  "quyMo": "4.700 m² đất, tổng diện tích sàn xây dựng khoảng 35.000 m² (bao gồm cả khối văn phòng cho thuê ~4.800 m²)",
+  "soTang": "2 tầng hầm, 22 tầng nổi",
+  "tongSoCan": "288 căn hộ",
+  "dienTich": "82 - 129 m²",
+  "banGiao": "Đã bàn giao, đưa vào sử dụng từ năm 2009, cấp sổ hồng từ 2010",
+  "phapLy": "Đã có sổ hồng tổng thể, giao dịch mua bán có hợp đồng chuyển nhượng quyền sử dụng đất và sở hữu căn hộ rõ ràng",
+  "hotline": "1800 234 546 (tư vấn căn hộ); văn phòng công ty mẹ 028 3941 1345",
+  "website": "https://www.copac.com.vn/",
+  "nguonTheoTruong": {
+    "chuDauTu": "Website copac.com.vn (công ty mẹ COPAC, địa chỉ trùng khớp toà Copac Square Building 12 Tôn Đản)",
+    "giaTu": "Web-bds (2026) ghi giá thứ cấp khoảng 45-60 trđ/m², một số tin đăng ghi giá từ 2,2 tỷ/căn"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Website copac.com.vn là trang công ty mẹ COPAC (không phải trang riêng cho dự án Copac Square) nhưng địa chỉ liên hệ trên trang khớp chính xác toà nhà. Không tìm thấy fanpage Facebook chính thức riêng cho dự án. Toạ độ đối chiếu OpenStreetMap trỏ đúng địa chỉ 12 Tôn Đản (ghi nhận văn phòng Lazada Group đặt tại đây, phù hợp với thông tin toà nhà có khối văn phòng cho thuê)."
+}

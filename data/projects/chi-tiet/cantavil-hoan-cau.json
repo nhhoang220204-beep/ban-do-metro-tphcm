@@ -1,0 +1,20 @@
+{
+  "id": "cantavil-hoan-cau",
+  "chuDauTu": "Liên doanh xây dựng Daewon - Hoàn Cầu",
+  "diaChi": "600A Điện Biên Phủ, Phường Thạnh Mỹ Tây (Phường 22 cũ), Bình Thạnh, TP.HCM",
+  "soTang": "18 tầng",
+  "tongSoCan": "189-191 căn hộ (các nguồn ghi số hơi khác nhau: 189 căn hoặc 191 căn, xếp từ tầng 2 đến tầng 17)",
+  "dienTich": "120 - 154 m²",
+  "banGiao": "Đã bàn giao (dự án cũ, đang giao dịch thứ cấp)",
+  "phapLy": "Ưu tiên giao dịch các căn đã có sổ hồng hoặc hợp đồng đủ điều kiện chuyển nhượng",
+  "tienIchNoiKhu": ["Hồ bơi ngoài trời", "Phòng gym", "Thư viện", "Khu vui chơi trẻ em", "Spa", "Bãi đỗ xe ngầm", "Thang máy thẻ từ"],
+  "nguonTheoTruong": {
+    "chuDauTu": "Guland, Rever — thống nhất tên liên doanh Daewon-Hoàn Cầu",
+    "giaTu": "Web-bds (2026): giá thứ cấp 79,3 - 114 trđ/m²; một tin đăng cũ hơn ghi giá từ 53 trđ/m² — CHÊNH LỆCH LỚN theo thời điểm đăng, cần đối chiếu tin mới nhất"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Không tìm được website/fanpage chính thức (dự án cũ, đã bàn giao, giao dịch chủ yếu thứ cấp qua môi giới). Toạ độ đối chiếu OpenStreetMap khớp 'Hẻm 598 Điện Biên Phủ, Phường Thạnh Mỹ Tây' — sát địa chỉ 600A Điện Biên Phủ ghi trên các web-bds. Giá bán giữa các nguồn chênh lệch rất lớn (53 trđ/m² ở tin cũ vs 79-114 trđ/m² ở tin 2026) — không ghi giaTu cụ thể, Hoàng cần tự kiểm tin đăng mới nhất."
+}

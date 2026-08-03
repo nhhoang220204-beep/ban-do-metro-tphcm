@@ -1,0 +1,19 @@
+{
+  "id": "orient-apartment",
+  "chuDauTu": "Công ty Cổ phần Thủy sản số 4",
+  "diaChi": "331 Bến Vân Đồn, Phường Vĩnh Hội (Phường 1 cũ), Quận 4, TP.HCM",
+  "quyMo": "Diện tích đất 3.275 m²",
+  "soTang": "1 tầng hầm, 18 tầng",
+  "tongSoCan": "Khoảng 180 căn hộ",
+  "dienTich": "71 - 109 m² (một số nguồn ghi 72 - 99 m² — có chênh lệch giữa các nguồn)",
+  "banGiao": "Đã bàn giao, hoàn thành năm 2010",
+  "nguonTheoTruong": {
+    "chuDauTu": "CafeLand, web-bds (Rever, Guland, Homedy...) — thống nhất tên chủ đầu tư",
+    "giaTu": "Web-bds ghi giá bán thứ cấp dao động 58-69,4 trđ/m² (2026), một số tin đăng cụ thể ~5,75-5,8 tỷ/căn 99-100m²"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Không có website chính thức riêng (dự án đã bàn giao từ 2010, không còn giai đoạn mở bán CĐT). Có một trang Facebook cộng đồng dạng môi giới 'Chung cư Orient Apartment, 331 Bến Vân Đồn Quận 4' nhưng không rõ có phải trang chính thức hay do môi giới lập. Diện tích căn hộ có chênh lệch nhẹ giữa các nguồn (71-109m² vs 72-99m²)."
+}

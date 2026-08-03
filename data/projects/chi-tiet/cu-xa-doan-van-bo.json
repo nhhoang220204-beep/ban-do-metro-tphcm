@@ -1,0 +1,8 @@
+{
+  "id": "cu-xa-doan-van-bo",
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "KHÔNG tìm thấy thông tin đáng tin cậy. Quan trọng: toạ độ [10.76303,106.70489] khi đối chiếu qua OpenStreetMap/Google Maps lại trỏ tới 'Hẻm 130 Lê Quốc Hưng, Phường Xóm Chiếu, Quận 4' — KHÔNG nằm trên đường Đoàn Văn Bơ (đường Đoàn Văn Bơ thực tế ở khu vực khác của Quận 4, gần cầu Calmet/chợ Xóm Chiếu phía Phường 12 cũ). Search tên 'Cư xá Đoàn Văn Bơ' chỉ ra kết quả gần giống là 'Cư xá Ngân Hàng' tại 89 Đoàn Văn Bơ — không chắc chắn là cùng một nơi nên KHÔNG gán. Rất có thể đây là điểm OSM bị gắn nhãn sai vị trí hoặc gắn sai tên. Hoàng cần tự kiểm tra thực địa để xác minh tên và vị trí thật của điểm này trước khi dùng dữ liệu."
+}

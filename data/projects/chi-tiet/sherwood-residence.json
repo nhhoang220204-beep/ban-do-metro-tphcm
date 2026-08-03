@@ -1,0 +1,21 @@
+{
+  "id": "sherwood-residence",
+  "chuDauTu": "Công ty Cổ phần Đầu tư Vạn Thịnh Phát",
+  "diaChi": "127 Pasteur, Phường Xuân Hòa (Phường Võ Thị Sáu, Quận 3 cũ), TP.HCM",
+  "quyMo": "Hơn 40.000 m² sàn xây dựng",
+  "soTang": "21 tầng, 2 tầng lửng, 3 tầng hầm",
+  "tongSoCan": "228 căn hộ dịch vụ cao cấp + 12 căn Penthouse",
+  "dienTich": "83 - 142 m² (căn tiêu chuẩn); Penthouse lớn hơn",
+  "banGiao": "Đã bàn giao/khai thác từ quý II/2007",
+  "hotline": null,
+  "website": "https://www.sherwoodresidence.com/",
+  "nguonTheoTruong": {
+    "chuDauTu": "CafeF, Batdongsanexpress.vn — Chủ đầu tư Vạn Thịnh Phát",
+    "giaTu": "Theo web-bds, giá thuê thị trường tham khảo khoảng 52-65 trđ/m² (đây là mô hình căn hộ dịch vụ cho thuê, không phải căn hộ bán)"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Đây là mô hình căn hộ/khách sạn DỊCH VỤ CHO THUÊ (serviced apartment, có mặt trên Agoda/Expedia/Tripadvisor), không phải dự án căn hộ để bán — không có 'giaTu' bán theo m² áp dụng. Toạ độ đối chiếu qua OpenStreetMap khớp chính xác địa chỉ 127 Pasteur. Lưu ý: một số báo (CafeF) có nhắc chủ đầu tư Vạn Thịnh Phát liên quan vụ án Trương Mỹ Lan — chỉ nêu để Hoàng biết bối cảnh pháp lý, không phải đánh giá của Claude."
+}

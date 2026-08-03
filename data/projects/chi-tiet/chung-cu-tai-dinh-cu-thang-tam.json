@@ -1,0 +1,26 @@
+{
+  "id": "chung-cu-tai-dinh-cu-thang-tam",
+  "chuDauTu": "UBND TP. Vũng Tàu (chủ đầu tư bằng vốn ngân sách tỉnh)",
+  "diaChi": "Đường Hồ Quý Ly, Phường Thắng Tam, TP. Vũng Tàu, TP.HCM",
+  "quyMo": "Tổng diện tích sàn hơn 66.500 m², tổng vốn đầu tư công bố dao động 550-586 tỷ đồng tuỳ nguồn (báo Tuổi Trẻ ghi hơn 550-600 tỷ, Mặt trận Tổ quốc BR-VT ghi hơn 586 tỷ)",
+  "soTang": "21 tầng",
+  "tongSoCan": "504 căn hộ",
+  "dienTich": "Nguồn không thống nhất: báo Pháp Luật TP.HCM ghi 50-95 m², báo Bà Rịa Vũng Tàu/Mặt trận Tổ quốc ghi 45-80 m²",
+  "tienDo": "Hoàn thành xây dựng cuối tháng 12/2021, được Bộ Xây dựng nghiệm thu 3/2022, nhưng bị treo bàn giao nhiều năm do vướng thủ tục pháp lý; đến giữa/cuối 10-2023 mới bắt đầu bàn giao, đầu năm 2025 những hộ dân đầu tiên chính thức dọn vào ở (69 hộ theo cập nhật gần nhất)",
+  "banGiao": "Bắt đầu bàn giao từ cuối 2023, đợt đầu 40-80 hộ dân nhận nhà cuối 2024/đầu 2025",
+  "phapLy": "Là chung cư tái định cư do Nhà nước đầu tư; giá bán/thuê do UBND tỉnh Bà Rịa - Vũng Tàu (cũ) phê duyệt theo quyết định hành chính (5/2024), KHÔNG phải giá thị trường thương mại tự do",
+  "giaTu": 24.6,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/m²",
+  "tienIchNoiKhu": ["Nhà trẻ", "Khu dịch vụ", "Cây xanh", "Đường nội bộ và hạ tầng kỹ thuật đi kèm"],
+  "nguonTheoTruong": {
+    "chuDauTu": "Báo Bà Rịa Vũng Tàu Online, Báo Pháp Luật TP.HCM",
+    "tongSoCan": "Báo Bà Rịa Vũng Tàu Online, Mặt trận Tổ quốc BR-VT",
+    "giaTu": "Báo Bà Rịa Vũng Tàu Online — giá bán được duyệt hơn 24,6 triệu đồng/m² (đã gồm VAT), giá thuê hơn 41.800 đồng/m²/tháng"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Đây là nhà ở tái định cư do Nhà nước đầu tư, không phải dự án thương mại mở bán — không có website/fanpage chính thức (đúng như dự kiến). Các nguồn báo chí có số liệu hơi lệch nhau về diện tích căn (45-80 m² vs 50-95 m²) và tổng vốn đầu tư (550-600 tỷ) — đã ghi nhận trung thực sự mâu thuẫn, Hoàng cần cân nhắc khi tư vấn vì đây không phải sản phẩm giao dịch tự do thông thường."
+}

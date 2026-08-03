@@ -1,0 +1,20 @@
+{
+  "id": "bitexco-building",
+  "chuDauTu": "Tập đoàn Bitexco (Bitexco Group)",
+  "diaChi": "36 Hồ Tùng Mậu (góc đường, còn được ghi là 2 Hải Triều), Phường Bến Nghé, Quận 1, TP.HCM",
+  "quyMo": "Khu đất 6.100 m², cao 262,5m, 68 tầng nổi + 3 tầng hầm, hơn 37.000 m² văn phòng và hơn 8.000 m² khối đế thương mại",
+  "soTang": "68 tầng",
+  "tienDo": "Đã hoàn thành và đưa vào hoạt động từ năm 2010, hiện đang vận hành là tòa văn phòng hạng A + trung tâm thương mại Icon68 + đài quan sát Saigon Skydeck",
+  "hotline": "+84 28 3915 6868",
+  "website": "bitexco.com.vn",
+  "tienIchNoiKhu": ["Trung tâm thương mại Icon68", "Đài quan sát Saigon Skydeck"],
+  "nguonTheoTruong": {
+    "chuDauTu": "website-chinh-thuc — bitexco.com.vn",
+    "quyMo": "en.wikipedia.org, skyscrapercenter.com"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Đây là tòa tháp văn phòng/thương mại đã hoàn thành từ 2010 (biểu tượng TP.HCM), KHÔNG phải dự án căn hộ đang mở bán — không có giaTu/phapLy dạng căn hộ. Giá thuê văn phòng tham khảo khoảng 44-45 USD/m²/tháng theo nguồn web-bds (officesaigon.vn), không đưa vào trường giaTu vì không đúng bản chất (trđ/m² bán). Tọa độ đã cho [10.7718,106.70556] khớp với vị trí Bitexco Financial Tower tại Quận 1."
+}

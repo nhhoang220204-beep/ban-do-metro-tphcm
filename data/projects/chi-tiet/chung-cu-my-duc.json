@@ -1,0 +1,23 @@
+{
+  "id": "chung-cu-my-duc",
+  "chuDauTu": "Công ty Cổ phần Xây dựng số 5",
+  "diaChi": "220 Xô Viết Nghệ Tĩnh, Phường Thạnh Mỹ Tây (trước sáp nhập: Phường 21, Quận Bình Thạnh), TP.HCM",
+  "soTang": "21 tầng",
+  "tongSoCan": "440 căn hộ",
+  "dienTich": "Đa dạng theo block: D2 43-53 m² (1-2PN); D1 84-103 m² (2-3PN); E1/E2 80-165 m² (2-3PN)",
+  "phapLy": "Sổ hồng riêng từng căn (theo tin đăng thị trường thứ cấp)",
+  "giaTu": 58.6,
+  "giaTrungBinh": null,
+  "donViGia": "trđ/m²",
+  "tienIchNoiKhu": ["Nhà trẻ/mẫu giáo", "Siêu thị mini", "Phòng sinh hoạt cộng đồng", "Trường học 4 tầng trong khuôn viên dự án (~3.000 m²)"],
+  "nguonTheoTruong": {
+    "chuDauTu": "Batdongsan.com.vn (dữ liệu dự án)",
+    "tongSoCan": "Batdongsan.com.vn (dữ liệu dự án)",
+    "giaTu": "Batdongsan.com.vn, dữ liệu cập nhật T5/2026, khoảng giá an toàn giao dịch 58,6-67,8 trđ/m²"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-02",
+    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+  },
+  "ghiChu": "Vị trí khớp qua OSM/Google Maps (hẻm 220 Xô Viết Nghệ Tĩnh, Phường Thạnh Mỹ Tây). Cùng chủ đầu tư với Chung cư Mỹ Phước (Công ty CP Xây dựng số 5) — cả hai đều là chung cư cũ đã bàn giao lâu năm, không có website/fanpage chính thức, giao dịch chủ yếu trên thị trường thứ cấp."
+}
