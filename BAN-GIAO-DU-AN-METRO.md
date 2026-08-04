@@ -383,21 +383,23 @@ cần xem bằng mắt). Đã làm phần THẬT SỰ khả thi:
    khi dùng để tư vấn khách — đặc biệt "Chung cư 22 Tầng" (độ tin cậy thấp) và
    "Cư xá Đoàn Văn Bơ" (nghi sai vị trí/tên). Sau khi duyệt, báo lại có chạy
    tiếp cho 1.104 ứng viên OSM còn lại hay không (tốn nhiều lượt tra cứu web).
-9. **Chọn thứ tự ưu tiên cho đợt "refactor tổng thể"** Hoàng yêu cầu 02/08/2026
-   (9 hạng mục lớn, xem nguyên văn trong lịch sử hội thoại phiên này nếu cần):
-   mục 1 (lọc dữ liệu theo loại hình) đã làm xong (Giai đoạn 8). CÒN LẠI CHƯA
-   LÀM: (2) Project Edit Mode — CRUD đầy đủ cho dự án (tên, CĐT, địa chỉ, giá,
-   quy mô…), (3) sửa marker dự án kéo-thả giống chế độ biên tập GIS đã có,
-   (4) nút "Kiểm tra dữ liệu" tự dò trùng tên/sai toạ độ/thiếu thông tin/giá
-   bất thường, (5) "Developer Mode" tự dò lỗi JS/Promise/Fetch/layer/popup/
-   sidebar/memory-leak (lưu ý: dò memory-leak và responsive tự động không khả
-   thi đầy đủ với kiến trúc thuần JS hiện tại, cần nói rõ giới hạn), (6) tìm
-   và sửa các nút/popup bị treo (Hoàng đã gặp nhưng chưa mô tả cụ thể nút nào —
-   cần hỏi lại cụ thể triệu chứng trước khi sửa mù), (7) trang Admin quản lý
-   Metro/Ga/Vành đai/tiện ích + Import/Export/Backup/Restore, (8) Undo/Redo
-   cho mọi thao tác chỉnh sửa. Đây là khối lượng nhiều phiên làm việc, KHÔNG
-   nên làm dồn một lượt rồi tự động đẩy lên — mỗi hạng mục cần Hoàng xem qua
-   trước khi làm tiếp, tránh làm hỏng công cụ đang dùng thật.
+9. **Đợt "refactor tổng thể"** Hoàng yêu cầu 02/08/2026 (9 hạng mục lớn) —
+   **ĐÃ XONG mục 1, 2, 3, 4, 5** (Giai đoạn 8–11, tất cả đã push). CÒN LẠI:
+   (6) tìm và sửa các nút/popup bị treo khác — đã sửa được 1 lỗi thật (đệ quy
+   vô hạn khi đóng sidebar, xem QĐ-19), nhưng cần Hoàng mô tả cụ thể triệu
+   chứng còn lại (bấm nút gì, ở đâu) để sửa tiếp, không đoán mò; (7) trang
+   Admin quản lý Metro/Ga/Vành đai/tiện ích + Import/Export/Backup/Restore;
+   (8) Undo/Redo cho mọi thao tác chỉnh sửa. Cả (7) và (8) là khối lượng
+   nhiều phiên làm việc, đang chờ Hoàng xác nhận có làm tiếp không.
+10. **Chọn hướng "lưu ngay trên web thật"** (đã hỏi sau khi Hoàng thấy thông
+    báo "Không lưu được xuống file" trên bản GitHub Pages) — Hoàng chọn hướng
+    Firebase (cơ sở dữ liệu đám mây miễn phí, lưu tức thì, không cần chạy lệnh
+    trên máy). **Cần Hoàng tự tạo tài khoản/dự án Firebase trước** (Claude
+    không tạo tài khoản thay được) — xem hướng dẫn từng bước trong
+    `HUONG-DAN-FIREBASE.md`, xong thì gửi lại khối `firebaseConfig` + email đã
+    dùng để Claude nối vào web. Đây là thay đổi kiến trúc — thêm lớp đăng nhập
+    (chỉ Hoàng sửa được, người khác vẫn xem bình thường) để chặn người lạ phá
+    dữ liệu qua web công khai.
 
 ### Kỹ thuật
 
@@ -543,6 +545,25 @@ KHÔNG có ô sửa tay — luôn tính lại từ dữ liệu đã lưu, sửa 
 làm sai lệch ý nghĩa của thang điểm với mọi dự án khác. "Xoá dự án" bắt buộc
 xác nhận 2 lần trong 4 giây, không dùng hộp thoại `confirm()` mặc định của
 trình duyệt (không khớp phong cách giao diện tự dựng của app).
+
+**QĐ-20 · Chuyển sang Firebase để lưu trực tiếp trên GitHub Pages (đang làm,
+xem `HUONG-DAN-FIREBASE.md`).** Lý do đổi: `POST /__luu-du-lieu` (QĐ-17) chỉ
+chạy được khi mở app bằng `node tools/serve.mjs` trên máy — Hoàng muốn sửa
+được ngay trên bản web thật, không cần mở terminal. Đây LÀ một lần nới lỏng
+nguyên tắc "không backend" đã theo suốt dự án (mục 1 Project Overview), có
+chủ đích và đã được Hoàng xác nhận sau khi nghe rõ đánh đổi — KHÔNG áp dụng
+ngược cho bất kỳ quyết định "không backend" nào khác chưa được hỏi lại.
+- Firestore (Firebase) là dịch vụ ngoài duy nhất được thêm — vẫn miễn phí ở
+  quy mô cá nhân, không phải máy chủ riêng do Claude/Hoàng tự vận hành
+- **Đọc luôn công khai** (ai xem web cũng đọc được dữ liệu, giống hiện tại)
+- **Ghi bắt buộc đăng nhập** — chỉ tài khoản `n.h.hoang220204@gmail.com` mới
+  ghi được (luật Firestore Rules chặn ở tầng máy chủ Firebase, không phải chỉ
+  ẩn nút trên giao diện) — bắt buộc, không được bỏ qua bước này dù chỉ để
+  thử nghiệm, vì web là công khai, thiếu luật này thì bất kỳ ai cũng phá được
+  dữ liệu
+- File JSON trong `data/` vẫn giữ làm bản sao lưu/lịch sử qua git — cần có cơ
+  chế đồng bộ định kỳ từ Firestore về file (chưa quyết định tần suất/cách),
+  không để Firestore thành nguồn dữ liệu duy nhất không có lịch sử
 
 ---
 
