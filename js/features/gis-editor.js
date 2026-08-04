@@ -17,9 +17,11 @@
 
 import { el, fill, toast, delegate } from '../core/dom.js';
 import { state, set, on } from '../core/store.js';
-import { duLieu } from '../core/data.js';
+import { duLieu, danhMuc } from '../core/data.js';
+import { luuFile } from '../core/luu-local.js';
 import { map, canvasRenderer } from '../map/engine.js';
 import { veLai as veLaiVanhDai, cacTuyenVD } from './vanhdai.js';
+import { themDuAnMoi } from './project-editor.js';
 
 let host;
 let lopGaTam = null;    // L.layerGroup — ga chưa xác minh
@@ -36,10 +38,13 @@ export function khoiTaoBienTap(node) {
     'loc-hien-thi':   btn => datLocHienThi(btn.dataset.gia),
     'dong-sua-doan':  () => set({ doanDangSua: null }, 'doan-sua-doi'),
     'luu-doan':       () => luuDoanDangSua(),
-    'xoa-doan-tam':   () => xoaDoanDangSua()
+    'xoa-doan-tam':   () => xoaDoanDangSua(),
+    'them-du-an':     () => themDuAnMoi()
   });
 
   on('doan-sua-doi', () => { veTrangThaiSuaDoan(); veNoiDungPanel(); });
+  on('du-an-doi', () => { if (state.bienTap) veNoiDungPanel(); });
+  on('sua-du-an-doi', () => { if (state.bienTap) veNoiDungPanel(); });
 }
 
 export function batTat(bat = !state.bienTap) {
@@ -235,27 +240,6 @@ function tinhDaiKm(polyline) {
   return m / 1000;
 }
 
-/* ─── §4 · LƯU XUỐNG FILE (chỉ chạy được qua node tools/serve.mjs) ─────── */
-
-async function luuFile(ten, noiDung) {
-  try {
-    const res = await fetch('/__luu-du-lieu', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ file: ten, noiDung: JSON.stringify(noiDung) })
-    });
-    const j = await res.json().catch(() => ({}));
-    if (!res.ok || j.loi) throw new Error(j.loi || `HTTP ${res.status}`);
-    toast(`Đã lưu vào data/${ten}.json`, 'ok');
-    return true;
-  } catch (err) {
-    toast('Không lưu được xuống file — chỉ hoạt động khi chạy "node tools/serve.mjs" trên máy. ' +
-          'Trên bản GitHub Pages, chỉnh sửa chỉ tồn tại trong phiên xem hiện tại.', 'warn', 7000);
-    console.warn('Lưu thất bại:', err.message);
-    return false;
-  }
-}
-
 /* ─── §5 · PANEL ĐIỀU KHIỂN ─────────────────────────────────────────────── */
 
 const NHAN_LOC = { 'xac-minh': 'Chỉ dữ liệu xác minh', 'tam': 'Chỉ dữ liệu tạm', 'tat-ca': 'Hiện tất cả' };
@@ -301,10 +285,16 @@ export function veNoiDungPanel() {
         ])
       ])]) : null,
 
+      el('div.sect__title', {}, 'Dự án BĐS'),
+      el('div.field', {}, [el('span.field__k', {}, 'Tổng số'), el('span.field__v', {}, `${danhMuc.duAn.length} dự án`)]),
+      el('button.btn.btn--sm.btn--primary', { type: 'button', dataset: { act: 'them-du-an' } }, '＋ Thêm dự án mới'),
+
       el('div.panel__hint', {}, [
         el('b', {}, 'Ga metro: '), 'bật lọc "Chỉ dữ liệu tạm" rồi kéo marker 🟡. ',
         el('b', {}, 'Vành đai: '), 'bấm vào một đoạn màu vàng chấm chấm ("Tạm số hoá") trên bản đồ để mở sửa điểm — ',
-        'kéo điểm hồng để di chuyển, bấm điểm để xoá, bấm chấm trắng giữa hai điểm để thêm.'
+        'kéo điểm hồng để di chuyển, bấm điểm để xoá, bấm chấm trắng giữa hai điểm để thêm. ',
+        el('b', {}, 'Dự án: '), 'mở hồ sơ một dự án rồi bấm "✏ Sửa dự án" trong hồ sơ để sửa/xoá, ' +
+        'kéo marker trên bản đồ để đổi vị trí.'
       ])
     ])
   ]);

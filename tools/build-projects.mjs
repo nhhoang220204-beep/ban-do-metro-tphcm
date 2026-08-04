@@ -70,7 +70,6 @@ const THEO_TEN = [
   [/(nhà phố thương mại|nhà phố tm)/i,                   'nha-pho-thuong-mai'],
   [/(nhà phố|liền kề|liên kế|townhouse)/i,               'nha-pho'],
   [/(biệt thự|villa|compound)/i,                         'biet-thu'],
-  [/(đất nền|phân lô)/i,                                 'dat-nen'],
   [/(chung cư|apartment|tower|residence|căn hộ)/i,       'chung-cu'],
   [/(khu đô thị|khu dân cư|kđt|residential area)/i,      'khu-do-thi']
 ];
@@ -107,11 +106,22 @@ const TU_CHUNG = new RegExp(
  * liệt kê không xuể — và liệt kê thiếu thì rác lọt thẳng vào danh mục tư vấn.
  */
 /* OSM gắn nhầm thẻ nhà ở cho cả trụ sở, trường, khách sạn. Tên đã nói rõ nó là
-   thứ khác thì loại thẳng, đừng để lọt vào danh mục tư vấn bất động sản. */
+   thứ khác thì loại thẳng, đừng để lọt vào danh mục tư vấn bất động sản.
+   Danh sách bổ sung 02/08/2026 sau khi rà tay 1.165 dự án (Giai đoạn 8, xem
+   BAN-GIAO-DU-AN-METRO.md): "công ty/văn phòng/showroom/cơ sở sản xuất/trạm
+   khí tượng/kho bạc" từng lọt qua bản lọc cũ vì không nằm trong regex.
+   CỐ TÌNH không thêm "chợ"/"đền"/"lăng" đứng riêng — đây cũng là tên khu vực
+   phổ biến trong tên chung cư thật ("Chợ Lớn", "Chợ Quán"), thêm vào sẽ loại
+   nhầm dự án thật. Chỉ loại khi ghép rõ thành một loại hình không phải nhà ở. */
 const KHONG_PHAI_NHA_O = new RegExp(
   '(công an|ubnd|uỷ ban|ủy ban|trụ sở|bệnh viện|trường|đại học|khách sạn|hotel|' +
   'nhà thờ|chùa |bưu điện|ngân hàng|chi cục|phòng khám|ktx|nhà máy|xí nghiệp|' +
-  'nhà khách|doanh trại)', 'i');
+  'nhà khách|doanh trại|' +
+  'công ty|cty\\b|doanh nghiệp|tổng công ty|văn phòng|showroom|trưng bày|' +
+  'nhà xưởng|kho bạc|khu công nghiệp|\\bkcn\\b|cụm công nghiệp|cơ sở sản xuất|' +
+  'chợ hoa|chợ đầu mối|siêu thị|sân vận động|nhà thi đấu|bến xe|nhà ga|' +
+  'trạm khí tượng|trạm biến áp|trạm bơm|trạm thu phí|nghĩa trang|bãi (xe|đỗ xe)|' +
+  'trung tâm hành chính|ban quản lý|đất nền|phân lô)', 'i');
 
 /* Mã căn hộ đứng đầu tên: "A40.05 Aspen Tower", "С3.1", "B12-04". Một căn hộ
    cụ thể không phải một dự án. */

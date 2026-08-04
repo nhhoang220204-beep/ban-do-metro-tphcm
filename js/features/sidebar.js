@@ -7,7 +7,7 @@
  */
 
 import { el, fill, toast } from '../core/dom.js';
-import { state, set } from '../core/store.js';
+import { state, set, on } from '../core/store.js';
 import { duLieu, tienIchCua, gaCua, cacBanKinh, nhomTienIch,
          chiTietDuAn, tenLoaiHinh, cacTrangThai, cacNguon } from '../core/data.js';
 import { khuVucCua } from '../core/loc.js';
@@ -20,6 +20,8 @@ import { veVongBanKinh, xoaVongBanKinh, hienTienIch, xoaTienIch } from './amenit
 import { batDauGhim, xoaGhim, themSoSanh, ghimTheoToaDo } from './projects.js';
 import { doGaMetro, dangDoDuAn } from './dodac.js';
 import { danhGiaHuongLoi, toiDoan as toiDoanVD } from './vanhdai.js';
+import { dangSua, banNhap, batDauSua, huySua, luuSua, xacNhanXoa, dangChoXacNhanXoa,
+         datTruong, NHAN_LOAI_HINH, NHAN_TRANG_THAI, DS_DON_VI_GIA } from './project-editor.js';
 
 const TABS = [
   { id: 'thong-tin', nhan: 'Thông tin',  icon: 'ℹ' },
@@ -58,9 +60,22 @@ export function khoiTaoSidebar(node) {
       'ban-kinh':    () => datBanKinh(+b.dataset.m),
       'nhom':        () => datNhom(b.dataset.nhom || null),
       'toi-diem':    () => { const c = b.dataset.c.split(',').map(Number); map.flyTo(c, 17, { duration: .7 }); },
-      'toi-doan-vd': () => toiDoanVD(b.dataset.id)
+      'toi-doan-vd': () => toiDoanVD(b.dataset.id),
+      'bat-dau-sua': () => duAn && batDauSua(duAn),
+      'huy-sua':     () => huySua(),
+      'luu-sua':     () => luuSua(),
+      'xoa-du-an':   () => duAn && xacNhanXoa(duAn.id, () => veNoiDung())
     })[b.dataset.act]?.();
   });
+
+  /* Kéo marker trong lúc sửa (xem projects.js) cập nhật bản nháp — vẽ lại ô
+     lat/lng. Bật/tắt chế độ sửa cũng phải vẽ lại (đổi cả đầu trang lẫn tab). */
+  on('sua-du-an-doi', () => veNoiDung());
+
+  /* Lưu xong: `dayDu` đang giữ hồ sơ CŨ trong bộ nhớ cục bộ của module này,
+     đổi index.json/chi-tiet không tự làm nó mới — phải mở lại đúng dự án đó
+     để tải lại từ đầu, nếu không hồ sơ vẫn hiện dữ liệu trước khi sửa. */
+  on('du-an-luu-xong', id => { if (state.chon === id) moHoSo(); });
 }
 
 /**
@@ -114,6 +129,11 @@ export async function moHoSo() {
 }
 
 export function dong() {
+  /* Idempotent: dong() luôn emit 'chon-doi', và app.js nghe 'chon-doi' rồi gọi
+     lại dong() khi chưa chọn gì — gọi dong() lúc đã đóng sẵn sẽ đệ quy vô hạn
+     (từng gặp: RangeError "Maximum call stack size exceeded"). Chặn ngay từ
+     đầu khi thật sự không có gì để đóng. */
+  if (state.chon == null && host.hidden) return;
   dayDu = null;
   host.hidden = true;
   delete document.querySelector('.app').dataset.sidebar;
@@ -155,7 +175,9 @@ function danhDauTab() {
 }
 
 function veNoiDung() {
-  const p = hienTai();
+  /* Đang sửa thì vẽ theo bản nháp (chưa lưu) để gõ tới đâu thấy ngay tới đó —
+     kể cả điểm đánh giá tính lại theo dữ liệu đang gõ, xem trước ảnh hưởng. */
+  const p = dangSua() ? banNhap() : hienTai();
   if (!p) return;
   const diem = chamDiem(p);
 
@@ -233,7 +255,25 @@ function veDauTrang(p, diem) {
       }, [daSoSanh ? '✓ Trong bảng so sánh' : '⇄ So sánh'])
     ]),
 
+    state.bienTap ? veThanhSuaDuAn(p) : null,
+
     veODanToaDo(p)
+  ]);
+}
+
+/** Thanh nút Sửa/Lưu/Huỷ/Xoá — chỉ hiện khi Chế độ biên tập GIS đang bật. */
+function veThanhSuaDuAn(p) {
+  if (!dangSua()) {
+    return el('div.row.wrap.sb__acts', { style: { marginTop: '-4px' } }, [
+      el('button.btn.btn--sm.btn--primary', { type: 'button', dataset: { act: 'bat-dau-sua' } }, ['✏ Sửa dự án'])
+    ]);
+  }
+  const dangHoiXoa = dangChoXacNhanXoa(p.id);
+  return el('div.row.wrap.sb__acts', { style: { marginTop: '-4px' } }, [
+    el('button.btn.btn--sm.btn--primary', { type: 'button', dataset: { act: 'luu-sua' } }, ['💾 Lưu']),
+    el('button.btn.btn--sm', { type: 'button', dataset: { act: 'huy-sua' } }, ['✕ Huỷ']),
+    el('button.btn.btn--sm.btn--ghost', { type: 'button', dataset: { act: 'xoa-du-an' } },
+      [dangHoiXoa ? '⚠ Bấm lần nữa để xoá hẳn' : '🗑 Xoá dự án'])
   ]);
 }
 
@@ -267,6 +307,7 @@ function veODanToaDo(p) {
 /* ─── §2 · TAB THÔNG TIN ────────────────────────────────────────────────── */
 
 function tabThongTin(p, diem) {
+  if (dangSua()) return veFormThongTin(p, diem);
   const truong = [
     ['chuDauTu', 'Chủ đầu tư', p.chuDauTu],
     ['donViPhatTrien', 'Đơn vị phát triển', p.donViPhatTrien],
@@ -326,6 +367,88 @@ function tabThongTin(p, diem) {
         ph?.vi && el('div.crit__why', {}, ph.vi)
       ]);
     }))
+  ]);
+}
+
+/**
+ * Form sửa tab Thông tin — chỉ hiện trong Chế độ biên tập GIS.
+ *
+ * Input chữ dùng `oninput` cập nhật thẳng bản nháp, không vẽ lại (giữ nguyên
+ * tiêu điểm bàn phím). Select/toạ độ đổi hiếm hơn nên vẽ lại cả panel để mọi
+ * chỗ khác (badge loại hình, điểm đánh giá) thấy ngay ảnh hưởng.
+ */
+function veFormThongTin(p, diem) {
+  const oInput = (key, placeholder) => el('input.inp', {
+    type: 'text', value: p[key] ?? '', placeholder: placeholder ?? '',
+    oninput: e => datTruong(key, e.target.value)
+  });
+
+  const dong = (nhan, node) => el('div.field', {}, [el('span.field__k', {}, nhan), node]);
+
+  const oLoaiHinh = el('select.inp', { onchange: e => { datTruong('loaiHinh', e.target.value); veLaiSidebar(); } },
+    Object.entries(NHAN_LOAI_HINH()).map(([ma, v]) =>
+      el('option', { value: ma, selected: ma === p.loaiHinh }, `${v.glyph ?? ''} ${v.nhan}`.trim())));
+
+  const oTrangThai = el('select.inp', { onchange: e => { datTruong('trangThai', e.target.value); veLaiSidebar(); } },
+    Object.entries(NHAN_TRANG_THAI()).map(([ma, v]) =>
+      el('option', { value: ma, selected: ma === p.trangThai }, v.nhan)));
+
+  const oLat = el('input.inp', {
+    type: 'text', inputmode: 'decimal', value: p.toaDo?.[0] ?? '',
+    oninput: e => { const lng = p.toaDo?.[1] ?? 0; datTruong('toaDo', [+e.target.value || 0, lng]); }
+  });
+  const oLng = el('input.inp', {
+    type: 'text', inputmode: 'decimal', value: p.toaDo?.[1] ?? '',
+    oninput: e => { const lat = p.toaDo?.[0] ?? 0; datTruong('toaDo', [lat, +e.target.value || 0]); }
+  });
+
+  const oTienIch = el('input.inp', {
+    type: 'text', value: (p.tienIchNoiKhu ?? []).join(', '),
+    placeholder: 'Hồ bơi, Phòng gym, Công viên nội khu…',
+    oninput: e => datTruong('tienIchNoiKhu', e.target.value.split(',').map(s => s.trim()).filter(Boolean))
+  });
+
+  const oGhiChu = el('textarea.inp', {
+    rows: 3, oninput: e => datTruong('ghiChu', e.target.value)
+  }, p.ghiChu ?? '');
+
+  return el('div.sb__pane', {}, [
+    el('div.card', {}, [el('div.card__body', {}, [
+      dong('Tên dự án', oInput('ten')),
+      dong('Chủ đầu tư', oInput('chuDauTu')),
+      dong('Đơn vị phát triển', oInput('donViPhatTrien')),
+      dong('Loại hình', oLoaiHinh),
+      dong('Trạng thái', oTrangThai),
+      dong('Địa chỉ', oInput('diaChi')),
+      dong('Quy mô', oInput('quyMo')),
+      dong('Block', oInput('block')),
+      dong('Số tầng', oInput('soTang')),
+      dong('Tổng số căn', oInput('tongSoCan')),
+      dong('Diện tích', oInput('dienTich')),
+      dong('Tiến độ', oInput('tienDo')),
+      dong('Bàn giao', oInput('banGiao')),
+      dong('Pháp lý', oInput('phapLy')),
+      dong('Hotline', oInput('hotline')),
+      dong('Website', oInput('website')),
+      el('div.field', {}, [el('span.field__k', {}, 'Toạ độ'),
+        el('div.row', {}, [oLat, oLng])])
+    ])]),
+
+    el('div.sect__title', {}, 'Tiện ích nội khu'),
+    el('div.card', {}, [el('div.card__body', {}, [
+      oTienIch,
+      el('div.panel__hint', {}, 'Cách nhau bằng dấu phẩy.')
+    ])]),
+
+    el('div.sect__title', {}, 'Ghi chú tư vấn'),
+    el('div.card', {}, [el('div.card__body', {}, [oGhiChu])]),
+
+    el('div.sect__title', {}, 'Điểm đánh giá'),
+    el('div.card', {}, [el('div.card__body', {}, [
+      el('div', { html: radar(diem) }),
+      el('div.sb__scorenote', {}, 'Tự tính lại từ dữ liệu bên trên và vị trí trên bản đồ — ' +
+        'không sửa trực tiếp được. Kéo marker trên bản đồ hoặc đổi toạ độ ở trên để xem điểm đổi theo.')
+    ])])
   ]);
 }
 
@@ -608,6 +731,7 @@ function tabAnh(p, truong, tieuDe, goiY) {
 /* ─── §7 · TAB GIÁ ──────────────────────────────────────────────────────── */
 
 function tabGia(p) {
+  if (dangSua()) return veFormGia(p);
   const coGia = co(p.giaTu) || co(p.giaTrungBinh);
   if (!coGia) {
     return trongVi('Chưa có bảng giá.',
@@ -627,6 +751,27 @@ function tabGia(p) {
     veNguon(p),
     el('div.src', {}, ['⚠', el('div', {}, 'Chiết khấu trừ vào giá và quyền lợi tặng kèm phải tách bạch khi tư vấn — ' +
       'không cộng dồn thành một con số "giá sau ưu đãi".')])
+  ]);
+}
+
+/** Form sửa tab Giá — chỉ hiện trong Chế độ biên tập GIS. */
+function veFormGia(p) {
+  const oSo = (key) => el('input.inp', {
+    type: 'text', inputmode: 'decimal', value: p[key] ?? '',
+    oninput: e => datTruong(key, e.target.value.trim() === '' ? null : +e.target.value || null)
+  });
+  const oDonVi = el('select.inp', { onchange: e => datTruong('donViGia', e.target.value) },
+    DS_DON_VI_GIA.map(d => el('option', { value: d, selected: d === p.donViGia }, d)));
+
+  return el('div.sb__pane', {}, [
+    el('div.card', {}, [el('div.card__body', {}, [
+      el('div.field', {}, [el('span.field__k', {}, 'Giá từ'), oSo('giaTu')]),
+      el('div.field', {}, [el('span.field__k', {}, 'Giá trung bình'), oSo('giaTrungBinh')]),
+      el('div.field', {}, [el('span.field__k', {}, 'Đơn vị giá'), oDonVi]),
+      el('div.field', {}, [el('span.field__k', {}, 'Diện tích'),
+        el('input.inp', { type: 'text', value: p.dienTich ?? '', oninput: e => datTruong('dienTich', e.target.value) })])
+    ])]),
+    el('div.panel__hint', {}, 'Đơn vị "trđ/m²" nhập giá mỗi m². "trđ/căn" nhập tổng giá mỗi căn, tính bằng triệu đồng.')
   ]);
 }
 

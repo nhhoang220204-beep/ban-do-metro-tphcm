@@ -12,13 +12,14 @@
  */
 
 import { el, toast } from '../core/dom.js';
-import { state, set, luuGhim, taiCaiDat, luuCaiDat } from '../core/store.js';
+import { state, set, on, luuGhim, taiCaiDat, luuCaiDat } from '../core/store.js';
 import { tronDuAn, tenLoaiHinh, quenChiTiet } from '../core/data.js';
 import { hopLe, docToaDo } from '../core/geo.js';
 import { locDuAn } from '../core/loc.js';
 import { map, bayToi } from '../map/engine.js';
 import { ghimDuAn, ghimCum } from '../map/icons.js';
 import { popupDuAn } from './popup.js';
+import { datToaDoTam, banNhap } from './project-editor.js';
 
 let lop = null;
 const markers = new Map();
@@ -62,6 +63,9 @@ export function khoiTaoDuAn() {
      trí xong nên getBounds() trả về một khung rỗng, lọc theo khung nhìn loại
      sạch mọi dự án và bản đồ trống trơn cho tới lần kéo đầu tiên. */
   map.whenReady(veLai);
+  /* Bật/tắt chế độ sửa phải vẽ lại để marker đổi giữa kéo-được/bấm-mở-popup. */
+  on('sua-du-an-doi', veLai);
+  on('bien-tap-doi', veLai);
 }
 
 /** Dự án có toạ độ hợp lệ VÀ lọt bộ lọc đang bật. */
@@ -90,13 +94,29 @@ export function veLai() {
 
 function veMotGhim(p) {
   const thuTu = state.soSanh.indexOf(p.id);
-  const m = L.marker(p.toaDo, {
+  /* Kéo được khi Chế độ biên tập GIS đang mở form sửa đúng dự án này — xem
+     project-editor.js. Kéo chỉ cập nhật bản nháp, chưa ghi file cho tới khi
+     bấm "Lưu" trong sidebar. */
+  const coTheKeo = state.bienTap && state.suaDuAn && state.chon === p.id;
+  /* Vẽ marker đang sửa theo TOẠ ĐỘ BẢN NHÁP, không phải toạ độ đã lưu — nếu
+     không, mỗi lần kéo xong bản đồ vẽ lại (moveend/sua-du-an-doi) sẽ kéo
+     marker bật ngược về vị trí cũ vì dữ liệu gốc chưa đổi cho tới khi Lưu. */
+  const toaDo = coTheKeo ? (banNhap()?.toaDo ?? p.toaDo) : p.toaDo;
+  const m = L.marker(toaDo, {
     icon: ghimDuAn(p, { active: state.chon === p.id, thuTuSoSanh: thuTu >= 0 ? thuTu + 1 : 0 }),
     zIndexOffset: state.chon === p.id ? 1000 : 500,
-    riseOnHover: true
+    riseOnHover: true,
+    draggable: coTheKeo
   });
-  m.on('click', () => chonDuAn(p.id, { bay: false }));
-  m.bindPopup(() => popupDuAn(p), { maxWidth: 320, autoPanPadding: [24, 80] });
+  m.on('click', () => { if (!coTheKeo) chonDuAn(p.id, { bay: false }); });
+  if (coTheKeo) {
+    m.on('dragend', () => {
+      const c = m.getLatLng();
+      datToaDoTam([+c.lat.toFixed(6), +c.lng.toFixed(6)]);
+    });
+  } else {
+    m.bindPopup(() => popupDuAn(p), { maxWidth: 320, autoPanPadding: [24, 80] });
+  }
   m.addTo(lop);
   markers.set(p.id, m);
 }

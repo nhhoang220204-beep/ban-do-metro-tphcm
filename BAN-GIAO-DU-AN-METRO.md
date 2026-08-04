@@ -3,13 +3,14 @@
 > Tài liệu này viết cho một phiên Claude hoàn toàn mới. Đọc xong file này là đủ
 > để tiếp tục công việc — **không cần đọc lại lịch sử hội thoại**.
 >
-> **Cập nhật:** 02/08/2026 · **Trạng thái:** Đã lên GitHub Pages (Chế độ biên
-> tập GIS + lọc lại danh mục dự án — Giai đoạn 7, 8), đang chờ Hoàng ghim 9 dự
-> án còn thiếu toạ độ và duyệt đợt thí điểm nghiên cứu tự động 50 dự án (Giai
-> đoạn 6). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng
-> mục: CRUD dự án, kiểm tra dữ liệu, Developer Mode, sửa lỗi treo, trang Admin,
-> Undo…) — đã thống nhất làm THEO ĐỢT, mục 1 (lọc dữ liệu) xong trước, các mục
-> còn lại **CHƯA LÀM**, xem mục 4 Pending Tasks.
+> **Cập nhật:** 02/08/2026 · **Trạng thái:** Chế độ biên tập GIS (Giai đoạn 7),
+> lọc danh mục dự án (Giai đoạn 8), và **Project Edit Mode** (Giai đoạn 9) đã
+> code và kiểm thử xong trên máy — **CHƯA PUSH lên GitHub**, đang chờ Hoàng
+> duyệt (Project Edit Mode cho xoá được dự án nên cần xác nhận trước khi lên
+> web thật). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng
+> mục) — đã thống nhất làm THEO ĐỢT, tự chọn việc tự tin nhất làm trước, báo
+> cáo lại sau mỗi đợt. Mục 1 (lọc dữ liệu) và mục 2+3 (CRUD dự án + kéo marker)
+> xong. Các mục còn lại **CHƯA LÀM**, xem mục 4 Pending Tasks.
 
 ---
 
@@ -255,6 +256,59 @@ lại (2–9) CHƯA làm, chờ Hoàng xác nhận thứ tự ưu tiên tiếp t
 - Không lỗi console sau khi xoá; kiểm tra không còn dữ liệu mồ côi trong
   `data/routes.json` / `data/amenities.json`
 
+### Giai đoạn 9 — Project Edit Mode: CRUD dự án + kéo marker (02/08/2026, CHƯA PUSH)
+Mục 2+3 trong yêu cầu "refactor tổng thể" của Hoàng (mục 4 dưới đây liệt kê cả
+9 mục). Mở rộng đúng khuôn Chế độ biên tập GIS đã có (Giai đoạn 7) sang dự án
+BĐS, dùng chung hạ tầng lưu file cục bộ.
+
+- **`js/core/luu-local.js`** (mới): tách hàm `luuFile`/`xoaFile` dùng chung
+  giữa gis-editor.js và project-editor.js, gọi `POST /__luu-du-lieu`
+- **`tools/serve.mjs`**: mở rộng endpoint ghi file — thêm `projects-index`
+  (ghi `data/projects/index.json`) và `projects-chi-tiet` (ghi/xoá
+  `data/projects/chi-tiet/<id>.json`, id kiểm bằng regex để chặn path traversal)
+- **`js/features/project-editor.js`** (mới): sửa/lưu/huỷ/xoá/thêm dự án.
+  Trong hồ sơ dự án, khi bật 🛠, có nút "✏ Sửa dự án" → mở form sửa TẤT CẢ
+  trường (tên, CĐT, đơn vị phát triển, loại hình, trạng thái, địa chỉ, quy mô,
+  block, số tầng, tổng số căn, diện tích, tiến độ, bàn giao, pháp lý, giá,
+  hotline, website, tiện ích nội khu, ghi chú, toạ độ) + Lưu/Huỷ/Xoá. "Xoá dự
+  án" phải bấm 2 lần trong 4 giây để xác nhận (không dùng `confirm()` của
+  trình duyệt). "Thêm dự án mới": nút trong panel biên tập → bấm lên bản đồ để
+  đặt vị trí → mở thẳng form sửa với dữ liệu mặc định
+- **AI Score KHÔNG cho sửa trực tiếp** — vẫn hiện trong form (tính lại theo dữ
+  liệu đang gõ, xem trước được) nhưng có ghi chú rõ đây là số tự tính, sửa các
+  trường khác rồi lưu thì điểm mới tự đổi theo, không có ô nhập điểm tay
+- **Kéo marker dự án đang sửa trên bản đồ** (`js/features/projects.js`):
+  chỉ marker của dự án đang mở form sửa mới kéo được; kéo chỉ cập nhật bản
+  nháp, chưa ghi file cho tới khi bấm "Lưu" trong sidebar
+- **Loại hình chỉ chọn được từ `manifest.json`** — đã bỏ "Đất nền" khỏi bảng
+  (xem QĐ-18) nên không tạo mới được dự án loại này nữa, không cần lọc lại sau
+- **Cập nhật gốc rễ `tools/build-projects.mjs`**: bảng loại trừ
+  `KHONG_PHAI_NHA_O` (dùng khi quét ứng viên mới từ OSM) được bổ sung các từ
+  khoá phát hiện ở Giai đoạn 8 (công ty, văn phòng, showroom, cơ sở sản xuất,
+  trạm khí tượng, kho bạc, khu công nghiệp…) và bỏ hẳn nhánh phân loại "đất
+  nền" — CỐ TÌNH không thêm "chợ"/"đền"/"lăng" đứng riêng vì trùng tên khu vực
+  phổ biến trong tên chung cư thật ("Chợ Lớn", "Chợ Quán") — nghĩa là lần chạy
+  `build-projects.mjs` tiếp theo sẽ không sinh lại đúng loại rác vừa dọn ở
+  Giai đoạn 8
+- **Sửa 2 lỗi tìm ra khi kiểm thử** (xem QĐ-19):
+  1. `sidebar.js`'s `dong()` đệ quy vô hạn khi bị gọi lúc đã đóng sẵn (RangeError
+     "Maximum call stack size exceeded") — lỗi CÓ SẴN TỪ TRƯỚC, không phải do
+     Project Edit Mode gây ra, nhưng tình cờ phát hiện trong lúc test. Rất có
+     thể chính là lỗi "sidebar bị treo" Hoàng từng phản ánh ở yêu cầu refactor
+     (mục 6). Đã thêm chốt idempotent.
+  2. Sau khi Lưu, hồ sơ vẫn hiện dữ liệu CŨ vì `dayDu` (biến giữ hồ sơ đầy đủ
+     trong sidebar.js) không tự tải lại — đã thêm sự kiện `du-an-luu-xong` để
+     ép tải lại đúng lúc
+- Đã kiểm thử trên máy: sửa từng trường + lưu (xác nhận ghi đúng cả
+  `index.json` lẫn `chi-tiet/<id>.json`), Huỷ (không ghi gì), kéo marker (bản
+  nháp cập nhật, marker không bật về vị trí cũ khi bản đồ vẽ lại), Xoá (2 lần
+  bấm, xác nhận file bị xoá thật), Thêm dự án mới (đặt marker → điền → lưu →
+  hiện đúng trong danh mục), mở/đóng sidebar liên tục 5 lần để dò lại lỗi #1 ở
+  trên — không còn lỗi console. Đã dọn sạch dữ liệu test khỏi HT Pearl trước
+  khi xong việc
+- **CHƯA PUSH lên GitHub** — tính năng có khả năng xoá dữ liệu thật, cần Hoàng
+  duyệt trước khi đưa lên bản online
+
 ---
 
 ## 4 · Pending Tasks
@@ -422,6 +476,23 @@ sở dữ liệu, KHÔNG phải website công bố dữ liệu chính thức." T
   công cụ biên tập không tự "thăng hạng" xác minh) rồi mới dùng để tư vấn khách
 - Khúc hở quá lớn để nối bằng đoạn thẳng (>6km, xem Giai đoạn 7) KHÔNG được tự
   động số hoá — phải tự vẽ tay hoặc tra quy hoạch chính thức
+
+**QĐ-18 · Không còn loại hình "Đất nền" trong danh mục dự án.** Bỏ khỏi
+`data/projects/manifest.json` (không còn dự án nào dùng), khỏi phân loại tự
+động trong `tools/build-projects.mjs` (ứng viên OSM có tên khớp "đất nền"/
+"phân lô" giờ bị LOẠI THẲNG thay vì gán nhầm loại), và khỏi `<select>` loại
+hình trong Chế độ biên tập GIS — không ai tạo lại được loại này qua giao diện
+nữa. Muốn thêm lại thì sửa cả ba chỗ.
+
+**QĐ-19 · Chế độ biên tập GIS (`js/features/project-editor.js`, Giai đoạn 9)
+mở rộng sang CRUD dự án BĐS, dùng chung nguyên tắc QĐ-17.** Sửa/xoá/thêm dự án
+ghi thẳng vào `data/projects/index.json` + `data/projects/chi-tiet/<id>.json`
+qua cùng endpoint cục bộ `POST /__luu-du-lieu` (đã tổng quát hoá, nhận thêm
+loại `projects-index` và `projects-chi-tiet` với id kiểm bằng regex). AI Score
+KHÔNG có ô sửa tay — luôn tính lại từ dữ liệu đã lưu, sửa trực tiếp điểm sẽ
+làm sai lệch ý nghĩa của thang điểm với mọi dự án khác. "Xoá dự án" bắt buộc
+xác nhận 2 lần trong 4 giây, không dùng hộp thoại `confirm()` mặc định của
+trình duyệt (không khớp phong cách giao diện tự dựng của app).
 
 ---
 

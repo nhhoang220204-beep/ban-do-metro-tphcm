@@ -34,7 +34,8 @@ export const state = {
      liệu, KHÔNG phải chế độ xem của khách. Mặc định tắt. */
   bienTap: false,
   locHienThi: 'tat-ca',  // 'xac-minh' | 'tam' | 'tat-ca'
-  doanDangSua: null      // id đoạn vành đai đang mở sửa polyline (chế độ biên tập)
+  doanDangSua: null,     // id đoạn vành đai đang mở sửa polyline (chế độ biên tập)
+  suaDuAn: false         // đang mở form sửa dự án trong hồ sơ hiện tại? (chế độ biên tập)
 };
 
 /* ─── Đăng ký nghe ──────────────────────────────────────────────────────── */
