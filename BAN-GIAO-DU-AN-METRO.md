@@ -3,7 +3,7 @@
 > Tài liệu này viết cho một phiên Claude hoàn toàn mới. Đọc xong file này là đủ
 > để tiếp tục công việc — **không cần đọc lại lịch sử hội thoại**.
 >
-> **Cập nhật:** 02/08/2026 · **Trạng thái:** Đã lên GitHub Pages: Chế độ biên
+> **Cập nhật:** 04/08/2026 · **Trạng thái:** Đã lên GitHub Pages: Chế độ biên
 > tập GIS (Giai đoạn 7), lọc danh mục dự án (Giai đoạn 8), Project Edit Mode
 > (Giai đoạn 9), "Kiểm tra dữ liệu" (Giai đoạn 10), Developer Mode (Giai đoạn
 > 11). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng mục) —
@@ -13,6 +13,15 @@
 > động). Các mục còn lại (mục 6 sửa lỗi treo cụ thể — cần Hoàng mô tả lại triệu
 > chứng, mục 7 trang Admin, mục 8 Import/Export/Backup/Restore, mục 9 Undo)
 > **CHƯA LÀM**, xem mục 4 Pending Tasks.
+>
+> **🔴 ĐANG DANG DỞ — Giai đoạn 12, chuyển sang Firebase (QĐ-20):** đang tạo dự
+> án Firebase trực tiếp trong trình duyệt Chrome thật của Hoàng (đã đăng nhập
+> sẵn, dùng Claude in Chrome để thao tác thay vì gõ) theo đúng yêu cầu của
+> Hoàng. Đã tạo xong dự án Firebase `ban-do-metro-tphcm` (gói Spark miễn phí),
+> đang giữa bước tạo Firestore Database (chọn vùng máy chủ) — **CHƯA XONG,
+> CHƯA XÁC NHẬN, CHƯA COMMIT CODE NÀO**. Xem chi tiết đầy đủ ở Giai đoạn 12
+> (mục 3) và mục 4 Pending Tasks, việc số 10 — đọc kỹ trước khi làm tiếp, có
+> một mâu thuẫn email quan trọng chưa giải quyết.
 
 ---
 
@@ -30,7 +39,7 @@ gì, có đáng tiền không, đường vành đai tới đâu rồi". Bản đ
 và **không được nói sai** — sai là đi thẳng tới khách hàng thật.
 
 **Ba trụ cột dữ liệu, mỗi trụ một tầng lớp riêng:**
-1. **Danh mục bất động sản** — 1.165 dự án (data/projects/)
+1. **Danh mục bất động sản** — 1.148 dự án (data/projects/)
 2. **Mạng lưới metro** — 10 tuyến theo quy hoạch hiện hành (data/metro.json,
    data/metro/)
 3. **Đường Vành đai 2/3/4** — mỗi đoạn một trạng thái thi công riêng
@@ -53,7 +62,7 @@ và **không được nói sai** — sai là đi thẳng tới khách hàng th�
 |---|---|
 | Ứng dụng | ✅ 22 module JS + 7 file CSS, không framework, ~5.750 dòng |
 | Dữ liệu nền OpenStreetMap | ✅ 12 lớp (đường bộ, KCN, trường, y tế, mua sắm, công viên, sông hồ, địa giới…) |
-| **Danh mục bất động sản** | ✅ **1.165 dự án** — 11 đã kiểm (Hoàng bán) + 1.154 ứng viên OSM (nhãn "Chưa kiểm") |
+| **Danh mục bất động sản** | ✅ **1.148 dự án** — 11 đã kiểm (Hoàng bán) + 1.137 ứng viên OSM (nhãn "Chưa kiểm") — 17 mục không phải nhà ở đã bị xoá ở Giai đoạn 8 |
 | **Toạ độ dự án Hoàng đang bán** | ⚠️ **2/11 đã ghim** (HT Pearl, TT AVIO qua OSM) · **9/11 còn thiếu — việc gấp nhất** |
 | Hồ sơ dự án (giá, pháp lý, số căn) | ⚠️ Phần lớn trống; ứng viên OSM trống hoàn toàn theo thiết kế (không đoán) |
 | **Nghiên cứu tự động cho ứng viên OSM (mới 02/08/2026)** | ⚠️ **Thí điểm 50/1.154** — xem Giai đoạn 6, mục 5, QĐ-16. Còn 1.104 ứng viên chưa chạy, chờ Hoàng duyệt chất lượng đợt thí điểm trước khi chạy tiếp |
@@ -69,6 +78,7 @@ và **không được nói sai** — sai là đi thẳng tới khách hàng th�
 | Xuất ảnh PNG / in A4 (chế độ gửi khách) | ❌ Bản v1 cũ có, chưa dựng lại |
 | Đọc Google Sheet (dữ liệu dùng chung nhiều máy) | ❌ Chưa dựng lại — **cần Hoàng quyết** có làm tiếp hay bỏ hẳn |
 | Truy cập ArcGIS FeatureServer chính thức của TP.HCM | ❌ Cổng có thật, trả về 401 — cần xin quyền qua Sở Xây dựng |
+| **Lưu trực tiếp trên GitHub Pages qua Firebase (QĐ-20)** | 🔴 **ĐANG LÀM DỞ** — dự án Firebase `ban-do-metro-tphcm` đã tạo, Firestore Database đang tạo (chưa xong bước chọn vùng), Authentication/Security Rules/firebaseConfig/tích hợp code **ĐỀU CHƯA LÀM**. Có mâu thuẫn email chưa giải quyết — xem Giai đoạn 12 |
 
 ---
 
@@ -359,6 +369,83 @@ cần xem bằng mắt). Đã làm phần THẬT SỰ khả thi:
   động, dò responsive tự động toàn diện, dò lỗi Popup/Sidebar dạng hình ảnh
   (chỉ dò được Layer ở mức "bật nhưng tải lỗi", không dò được "vẽ sai/méo")
 
+### Giai đoạn 12 — Chuyển sang Firebase để lưu trực tiếp trên web thật (🔴 ĐANG LÀM DỞ, bắt đầu 04/08/2026)
+
+Bối cảnh: Hoàng thấy toast "Không lưu được xuống file — chỉ hoạt động khi
+chạy node tools/serve.mjs trên máy…" khi bấm Lưu trên bản GitHub Pages, và nói
+**"tôi muốn khi mở web lên thì thằng này phải chạy, tôi chỉnh sửa cho tiện"**.
+Đã hỏi Hoàng chọn giữa 3 hướng (serverless function + GitHub API / cơ sở dữ
+liệu đám mây / chỉ làm cho chạy máy dễ hơn) — **Hoàng chọn cơ sở dữ liệu đám
+mây miễn phí (Firebase/Supabase)**. Đã soạn `HUONG-DAN-FIREBASE.md` (hướng
+dẫn 6 bước, giả định Hoàng tự làm bằng tay). Sau đó Hoàng nói thẳng:
+**"vào web của tôi đã đăng nhập và tạo luôn nhé, tôi đã đăng nhập rồi, đến
+khoản cấp quyền tôi sẽ hỗ trợ"** — tức là Claude tự thao tác bằng Claude in
+Chrome (trình duyệt Chrome thật của Hoàng, đã đăng nhập sẵn), Hoàng chỉ can
+thiệp ở bước cấp quyền/mật khẩu.
+
+**Ranh giới đã tuyên bố rõ với Hoàng trước khi bắt đầu và ĐANG GIỮ ĐÚNG:**
+Claude **không tự gõ mật khẩu** vào bất cứ đâu, kể cả khi Hoàng đã cho phép
+"cứ tạo luôn" — tới đúng bước cần mật khẩu (tạo user trong Firebase
+Authentication) thì DỪNG LẠI, nhờ Hoàng tự gõ.
+
+**Đã làm xong (qua Claude in Chrome, thao tác trực tiếp trên Chrome thật của Hoàng):**
+1. Xác nhận trạng thái đăng nhập Google trong Chrome của Hoàng
+2. Tạo dự án Firebase mới, đặt tên/ID `ban-do-metro-tphcm`
+3. Xác nhận gói **Spark (miễn phí)** — đúng yêu cầu "hoàn toàn miễn phí"
+4. Từ chối các add-on không cần: Google Developer Program, Gemini in Firebase,
+   Google Analytics (tắt cả ba để giữ phạm vi tối thiểu)
+5. Vào mục Firestore Database, bấm "Create database"
+6. Chọn **Standard edition** (đúng, mặc định phù hợp tier miễn phí)
+7. Đang ở bước "Mã định danh và vị trí cơ sở dữ liệu": ID để mặc định
+   `(default)`, đang chọn vùng máy chủ — mục tiêu là **asia-southeast1
+   (Singapore)** theo đúng khuyến nghị trong `HUONG-DAN-FIREBASE.md` (gần
+   Việt Nam nhất trong danh sách vùng có, giảm độ trễ)
+
+**⚠️ CHƯA XONG, CẦN LÀM TIẾP KHI VÀO PHIÊN MỚI:**
+- **Chưa xác nhận chọn được vùng `asia-southeast1 (Singapore)`.** Giao diện
+  chọn vùng của Firebase Console là một `<mat-select>` (Angular Material) khó
+  thao tác qua tool tự động: click bằng toạ độ nhiều lần bị đóng dropdown mà
+  không chọn được, `form_input` báo lỗi "MAT-SELECT is not a supported form
+  input", `.click()` bằng JavaScript trên `<mat-option>` cũng không ăn (giá
+  trị hiển thị vẫn cứng ở `nam5 (Hoa Kỳ)` sau mọi lần thử). **QUAN TRỌNG:
+  Firebase Console tự cảnh báo "Sau khi bạn đã thiết lập vị trí này, bạn
+  không thể thay đổi nó sau này" — TUYỆT ĐỐI không bấm "Tạo nên"/"Create"
+  khi ô Vị trí còn hiện `nam5 (Hoa Kỳ)` (Hoa Kỳ), vì không sửa lại được nữa.**
+  Phiên mới cần: mở lại tab Chrome đang có Firebase Console (hoặc điều hướng
+  lại `https://console.firebase.google.com/u/0/project/ban-do-metro-tphcm/firestore`),
+  kiểm tra kỹ ô "Vị trí" đã đổi đúng `asia-southeast1 (Singapore)` chưa bằng
+  cách đọc lại text hiển thị (không suy đoán từ hành động đã click), rồi mới
+  bấm Kế tiếp → Cấu hình (chọn "Khởi động ở chế độ sản xuất") → Tạo nên. Nếu
+  vẫn không tương tác được qua tool tự động, **nhờ Hoàng tự bấm 3 giây** thay
+  vì tiếp tục thử nhiều cách khác nhau — an toàn hơn là mạo hiểm tạo sai vùng
+  vĩnh viễn.
+- **Firestore Database CHƯA được tạo xong** (còn ở bước 2/3 của wizard).
+- **Authentication (Email/Password provider) CHƯA bật.**
+- **Chưa tạo user đăng nhập** — bước này Hoàng phải tự làm (nhập email + tự
+  đặt mật khẩu), Claude dừng lại đúng chỗ này, không gõ thay.
+- **Firestore Security Rules CHƯA đặt.**
+- **`firebaseConfig` CHƯA lấy được** — chưa có gì để nối vào code.
+- **Chưa sửa một dòng code nào** trong `js/core/luu-local.js` hay bất cứ đâu —
+  toàn bộ phần "chuyển `/__luu-du-lieu` sang ghi Firestore" ở QĐ-20 vẫn nằm
+  nguyên trên local server cũ, GitHub Pages vẫn báo lỗi lưu như trước.
+
+**🔴 MÂU THUẪN QUAN TRỌNG CHƯA GIẢI QUYẾT — email đăng nhập Firebase:**
+`HUONG-DAN-FIREBASE.md` (viết trước khi biết Hoàng sẽ để Claude tự thao tác)
+giả định Hoàng đăng nhập Firebase bằng `n.h.hoang220204@gmail.com` — Firestore
+Security Rules mẫu trong file đó (mục 4) hard-code đúng email này. Nhưng khi
+Claude vào Chrome của Hoàng để thao tác, tài khoản Google **đang đăng nhập
+thực tế là `hn2211609@gmail.com`** — khác hẳn. Dự án Firebase `ban-do-metro-tphcm`
+đã được tạo dưới tài khoản `hn2211609@gmail.com`, không phải
+`n.h.hoang220204@gmail.com`.
+
+**Phải hỏi Hoàng trực tiếp trước khi đặt Security Rules và trước khi tạo user
+Authentication:** đăng nhập chỉnh sửa web dùng email nào — `hn2211609@gmail.com`
+(tài khoản Chrome đang mở, đã tạo project) hay `n.h.hoang220204@gmail.com`
+(email trong `MEMORY.md`/tài liệu cũ, có thể là email chính khác máy)? Email
+trả lời sẽ quyết định: (a) nội dung chính xác của Firestore Security Rules
+(dòng `request.auth.token.email == '...'`), và (b) email Hoàng cần dùng để tạo
+user trong Firebase Authentication. Chọn sai thì đăng nhập không vào được.
+
 ---
 
 ## 4 · Pending Tasks
@@ -391,15 +478,24 @@ cần xem bằng mắt). Đã làm phần THẬT SỰ khả thi:
    Admin quản lý Metro/Ga/Vành đai/tiện ích + Import/Export/Backup/Restore;
    (8) Undo/Redo cho mọi thao tác chỉnh sửa. Cả (7) và (8) là khối lượng
    nhiều phiên làm việc, đang chờ Hoàng xác nhận có làm tiếp không.
-10. **Chọn hướng "lưu ngay trên web thật"** (đã hỏi sau khi Hoàng thấy thông
-    báo "Không lưu được xuống file" trên bản GitHub Pages) — Hoàng chọn hướng
-    Firebase (cơ sở dữ liệu đám mây miễn phí, lưu tức thì, không cần chạy lệnh
-    trên máy). **Cần Hoàng tự tạo tài khoản/dự án Firebase trước** (Claude
-    không tạo tài khoản thay được) — xem hướng dẫn từng bước trong
-    `HUONG-DAN-FIREBASE.md`, xong thì gửi lại khối `firebaseConfig` + email đã
-    dùng để Claude nối vào web. Đây là thay đổi kiến trúc — thêm lớp đăng nhập
-    (chỉ Hoàng sửa được, người khác vẫn xem bình thường) để chặn người lạ phá
-    dữ liệu qua web công khai.
+10. **🔴 Việc dở dang nhất hiện tại — hoàn tất Firebase (xem Giai đoạn 12 ở
+    mục 3 để biết chi tiết đầy đủ).** Tóm tắt việc còn lại theo đúng thứ tự:
+    1. Xác nhận/hoàn tất chọn vùng Firestore = `asia-southeast1 (Singapore)`
+       rồi mới bấm tạo — **không đảo ngược được sau khi tạo**, nếu tool tự
+       động không thao tác được thì nhờ Hoàng tự bấm, đừng liều.
+    2. Bật Authentication → Email/Password provider.
+    3. **Hỏi Hoàng chốt email đăng nhập** (`hn2211609@gmail.com` — tài khoản
+       Chrome đang tạo project — hay `n.h.hoang220204@gmail.com` — email
+       trong tài liệu cũ) TRƯỚC khi làm bước 4 và 5.
+    4. Nhờ Hoàng tự tạo user trong Authentication (Claude không gõ mật khẩu).
+    5. Đặt Firestore Security Rules đúng email đã chốt ở bước 3 (mẫu có sẵn
+       trong `HUONG-DAN-FIREBASE.md` mục 4, nhớ sửa email nếu khác).
+    6. Lấy khối `firebaseConfig` (an toàn để lộ ra ngoài, không phải bí mật).
+    7. Viết code: thêm màn hình đăng nhập (chỉ hiện khi bật 🛠 Chế độ biên tập
+       GIS), chuyển `js/core/luu-local.js` từ gọi `/__luu-du-lieu` sang ghi
+       Firestore, giữ file JSON trong `data/` làm bản sao lưu (chưa quyết định
+       tần suất đồng bộ — xem QĐ-20).
+    8. Test kỹ trên GitHub Pages thật (không chỉ trên máy), rồi mới báo xong.
 
 ### Kỹ thuật
 
@@ -586,7 +682,7 @@ D:\Claude Cowork\ABOUT ME\metro-web\        ← THƯ MỤC GIT, đây là bản 
 ├── data/                        TOÀN BỘ DỮ LIỆU, sinh bằng tools/, KHÔNG sửa tay (trừ projects/)
 │   ├── projects/
 │   │   ├── manifest.json        khai báo loại hình, trạng thái, mức tin cậy nguồn
-│   │   ├── index.json           chỉ mục 1.165 dự án — SỬA TAY ĐƯỢC, xem HUONG-DAN-NHAP-DU-AN.md
+│   │   ├── index.json           chỉ mục 1.148 dự án — SỬA TAY ĐƯỢC, xem HUONG-DAN-NHAP-DU-AN.md
 │   │   └── chi-tiet/<id>.json   hồ sơ đầy đủ, 61 file (11 dự án đã kiểm + 50
 │   │                             ứng viên OSM đã nghiên cứu thí điểm, xem GĐ6)
 │   ├── metro/
@@ -619,6 +715,7 @@ D:\Claude Cowork\ABOUT ME\metro-web\        ← THƯ MỤC GIT, đây là bản 
 ├── README.md                    tổng quan, cách chạy, cách dựng lại dữ liệu
 ├── HUONG-DAN-NHAP-DU-AN.md       hướng dẫn Hoàng nhập dự án, ghim vị trí, hiểu điểm đánh giá
 ├── HUONG-DAN-CHIA-SE.md          (di sản v1/Google Sheet — đã dán cảnh báo đầu file, QĐ-4 chưa chốt)
+├── HUONG-DAN-FIREBASE.md         hướng dẫn 6 bước tạo Firebase — 🔴 đang thực hiện dở, xem Giai đoạn 12
 ├── BAO-CAO-V2.md                 báo cáo đầy đủ đợt viết lại V2 + mở rộng cơ sở dữ liệu
 ├── mau-du-an-bds.csv             (di sản v1 — mẫu Google Sheet, chỉ dùng nếu QĐ-4 làm tiếp)
 └── BAN-GIAO-DU-AN-METRO.md       file này
@@ -807,6 +904,15 @@ cách vượt qua lớp xác thực** — phải xin qua đường chính thức
 
 Theo thứ tự ưu tiên:
 
+**Việc đang dở, ưu tiên trên hết vì đã bắt đầu giữa chừng — xem Giai đoạn 12
+(mục 3) và Pending Tasks việc số 10 (mục 4) để biết chi tiết đầy đủ trước khi
+làm tiếp, đặc biệt phần vùng Firestore không đảo ngược được và mâu thuẫn
+email:**
+
+00. **Hoàn tất tạo Firestore Database đúng vùng `asia-southeast1 (Singapore)`**,
+    bật Authentication, chốt email với Hoàng, đặt Security Rules, lấy
+    `firebaseConfig`, viết code tích hợp, test trên GitHub Pages thật.
+
 0. **Xin quyền truy cập ArcGIS FeatureServer** của cổng GIS quy hoạch TP.HCM
    (Sở Xây dựng / Trung tâm Chuyển đổi số TP.HCM). Nếu được cấp, gần như toàn
    bộ việc số hoá thủ công hướng tuyến metro/vành đai trở nên không cần thiết.
@@ -837,7 +943,18 @@ Tránh câu tường thuật kiểu bản tin, tránh cụm mở dẫn sáo rỗ
 tạo tài khoản thay Hoàng. Không tìm cách vượt qua lớp xác thực của hệ thống
 bên thứ ba (ví dụ cổng ArcGIS 401 ở mục 9) — phải xin quyền qua đường chính
 thức. Xác thực Git dùng Git Credential Manager đã lưu; `gh` CLI **chưa** đăng
-nhập, không cần thiết vì push vẫn chạy bình thường.
+nhập, không cần thiết vì push vẫn chạy bình thường. Ranh giới này áp dụng cả
+khi thao tác qua **Claude in Chrome** trên trình duyệt thật đã đăng nhập sẵn
+của Hoàng (xem Giai đoạn 12) — được phép click/điền cấu hình, KHÔNG được gõ
+mật khẩu dù Hoàng đã cho phép "cứ tạo luôn", phải dừng đúng bước cần mật khẩu.
+
+**⚠️ Email của Hoàng chưa nhất quán giữa các nguồn.** `MEMORY.md` (auto
+memory) và `HUONG-DAN-FIREBASE.md` ghi `n.h.hoang220204@gmail.com`. Nhưng tài
+khoản Google đang đăng nhập sẵn trong Chrome của Hoàng (dùng để tạo dự án
+Firebase ở Giai đoạn 12) là `hn2211609@gmail.com`. Chưa rõ đây là hai email
+khác nhau Hoàng dùng cho mục đích khác nhau, hay một trong hai đã lỗi thời —
+**phải hỏi thẳng Hoàng, đừng tự suy đoán**, đặc biệt trước khi đặt Firestore
+Security Rules (sai email = khoá luôn quyền ghi của chính Hoàng).
 
 **Bài học lớn nhất xuyên suốt dự án:** mọi lần Claude tự suy dữ liệu từ trí
 nhớ (vị trí ga, hướng tuyến, chiều dài) đều dẫn tới sai số nghiêm trọng và bị
@@ -914,6 +1031,12 @@ căn cứ, ghi thêm vào phần "hai phía" và giữ nguyên trạng thái CH�
 ## 13 · TODO Checklist
 
 ### Hoàng
+- [ ] **Trả lời: đăng nhập sửa web dùng email nào —
+      `hn2211609@gmail.com` hay `n.h.hoang220204@gmail.com`?** (chặn Giai
+      đoạn 12 Firebase, xem mục 11 Important Context)
+- [ ] Tự bấm chọn vùng Firestore = Singapore nếu tool tự động vẫn không thao
+      tác được (xem Giai đoạn 12) — KHÔNG bấm "Tạo nên" khi còn hiện Hoa Kỳ
+- [ ] Tự tạo user trong Firebase Authentication (Claude không gõ mật khẩu thay)
 - [ ] Ghim toạ độ 9 dự án còn thiếu (xem `HUONG-DAN-NHAP-DU-AN.md`)
 - [ ] Điền `phapLy`, `giaTu`, `tongSoCan` cho các dự án đã kiểm
 - [ ] Quyết định: làm tiếp phần đọc Google Sheet hay bỏ hẳn (QĐ-4)
@@ -957,7 +1080,7 @@ D:\Claude Cowork\ABOUT ME\metro-web\BAN-GIAO-DU-AN-METRO.md
 Tóm tắt để anh nắm nhanh:
 - App đang chạy tại https://nhhoang220204-beep.github.io/ban-do-metro-tphcm/
 - Mã nguồn ở D:\Claude Cowork\ABOUT ME\metro-web\ (repo git, remote sẵn sàng)
-- 1.165 dự án bất động sản (11 đã kiểm + 1.154 ứng viên OSM "Chưa kiểm")
+- 1.148 dự án bất động sản (11 đã kiểm + 1.137 ứng viên OSM "Chưa kiểm")
 - 10 tuyến metro theo quy hoạch hiện hành + 3 tuyến Vành đai (2/3/4), mỗi
   đoạn vành đai một trạng thái riêng
 
@@ -975,7 +1098,10 @@ Cách làm việc tôi muốn:
   một bên khi chưa có nguồn giải quyết
 
 Việc cần làm tiếp: [điền việc cụ thể — xem mục 10 "Next Priority" trong file
-bàn giao nếu chưa có việc cụ thể]
+bàn giao nếu chưa có việc cụ thể. LƯU Ý: có một việc đang dở dang — chuyển
+sang Firebase (Giai đoạn 12, mục 3) — đọc kỹ trước khi làm tiếp, có bước
+không đảo ngược được (chọn vùng Firestore) và một mâu thuẫn email chưa giải
+quyết]
 ```
 
 ---
@@ -1000,6 +1126,9 @@ bàn giao nếu chưa có việc cụ thể]
 | Địa giới TP.HCM | relation OSM `1973756` · 168 phường/xã |
 | Định tuyến đi xe | router.project-osrm.org |
 | Định tuyến đi bộ | routing.openstreetmap.de/routed-foot |
-| Số dự án hiện tại | 1.165 (11 đã kiểm · 1.154 ứng viên OSM) |
+| Số dự án hiện tại | 1.148 (11 đã kiểm · 1.137 ứng viên OSM) |
 | Số đoạn Vành đai | 53 (30 hoàn thành · 17 thi công · 6 quy hoạch) |
 | Cổng GIS quy hoạch TP.HCM (cần xin quyền) | api-gisxaydung.tphcm.gov.vn (ArcGIS FeatureServer, hiện 401) |
+| Firebase project ID (🔴 đang tạo dở, xem GĐ 12) | `ban-do-metro-tphcm` — gói Spark (miễn phí) |
+| Firebase Console | https://console.firebase.google.com/u/0/project/ban-do-metro-tphcm |
+| Tài khoản Google đang tạo Firebase | `hn2211609@gmail.com` — ⚠️ khác email trong tài liệu cũ, CHƯA chốt với Hoàng |

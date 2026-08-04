@@ -178,24 +178,6 @@
     "nguonToaDo": "Google Maps · \"Picity Sky Park\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
-    "id": "monrei-nido",
-    "ma": "MRN",
-    "ten": "Monrei · Nido",
-    "loaiHinh": "can-ho",
-    "toaDo": [
-      10.96256,
-      106.69776
-    ],
-    "xacMinh": "thu-cong",
-    "trangThai": "dang-ban",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "thu-cong",
-    "coChiTiet": true,
-    "nguonToaDo": "Google Maps · \"Monrei Sài Gòn\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
-  },
-  {
     "id": "gateway",
     "ma": "",
     "ten": "Gateway",
@@ -19290,20 +19272,6 @@
     "nguonToaDo": "Google Maps · \"Căn hộ The Regency Hồ Bán Nguyệt – Phú Mỹ Hưng\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
-    "id": "the-sculptura",
-    "ma": "",
-    "ten": "The Sculptura",
-    "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
-    "trangThai": "dang-ban",
-    "chuDauTu": "",
-    "giaTu": 160,
-    "donViGia": "trđ/m²",
-    "nguon": "thu-cong",
-    "coChiTiet": true
-  },
-  {
     "id": "lumiere-midtown",
     "ma": "",
     "ten": "Lumière Midtown",
@@ -19428,20 +19396,6 @@
     "nguon": "thu-cong",
     "coChiTiet": true,
     "nguonToaDo": "OpenStreetMap · Nominatim · The 9 Stellars - Phân khu 1"
-  },
-  {
-    "id": "alta-height",
-    "ma": "",
-    "ten": "Alta Height",
-    "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
-    "trangThai": "dang-ban",
-    "chuDauTu": "",
-    "giaTu": 80,
-    "donViGia": "trđ/m²",
-    "nguon": "thu-cong",
-    "coChiTiet": true
   },
   {
     "id": "vlasta-premier",
@@ -19686,20 +19640,6 @@
     "nguon": "thu-cong",
     "coChiTiet": true,
     "nguonToaDo": "Google Maps · \"AVA Center\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
-  },
-  {
-    "id": "ava-group",
-    "ma": "",
-    "ten": "AVA Group",
-    "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
-    "trangThai": "sap-mo-ban",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "thu-cong",
-    "coChiTiet": true
   },
   {
     "id": "lavita-thuan-an",
