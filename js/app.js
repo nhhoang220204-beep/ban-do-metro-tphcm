@@ -19,6 +19,7 @@ import { khoiTaoSoSanh, mo as moSoSanh, veLaiSoSanh } from './features/compare.j
 import { khoiTaoGuiKhach, batTat as batTatGuiKhach, veLaiGuiKhach } from './features/clientmode.js';
 import { khoiTaoVanhDai, hienLopVanhDai } from './features/vanhdai.js';
 import { khoiTaoBienTap, batTat as batTatBienTap, khoiTaoLopGaTam } from './features/gis-editor.js';
+import { khoiTaoKiemTra } from './features/data-checker.js';
 
 /* ─── §1 · KHỞI ĐỘNG ────────────────────────────────────────────────────── */
 
@@ -51,6 +52,7 @@ async function khoiDong() {
     khoiTaoSoSanh($('.cmp'));
     khoiTaoGuiKhach($('.ck'));
     khoiTaoBienTap($('.editor'));
+    khoiTaoKiemTra($('.checker'));
 
     noiSuKien();
     baoLopThieu();

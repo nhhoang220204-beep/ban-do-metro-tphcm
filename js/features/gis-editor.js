@@ -22,6 +22,7 @@ import { luuFile } from '../core/luu-local.js';
 import { map, canvasRenderer } from '../map/engine.js';
 import { veLai as veLaiVanhDai, cacTuyenVD } from './vanhdai.js';
 import { themDuAnMoi } from './project-editor.js';
+import { chayKiemTra } from './data-checker.js';
 
 let host;
 let lopGaTam = null;    // L.layerGroup — ga chưa xác minh
@@ -39,7 +40,8 @@ export function khoiTaoBienTap(node) {
     'dong-sua-doan':  () => set({ doanDangSua: null }, 'doan-sua-doi'),
     'luu-doan':       () => luuDoanDangSua(),
     'xoa-doan-tam':   () => xoaDoanDangSua(),
-    'them-du-an':     () => themDuAnMoi()
+    'them-du-an':     () => themDuAnMoi(),
+    'kiem-tra-du-lieu': () => chayKiemTra()
   });
 
   on('doan-sua-doi', () => { veTrangThaiSuaDoan(); veNoiDungPanel(); });
@@ -287,7 +289,10 @@ export function veNoiDungPanel() {
 
       el('div.sect__title', {}, 'Dự án BĐS'),
       el('div.field', {}, [el('span.field__k', {}, 'Tổng số'), el('span.field__v', {}, `${danhMuc.duAn.length} dự án`)]),
-      el('button.btn.btn--sm.btn--primary', { type: 'button', dataset: { act: 'them-du-an' } }, '＋ Thêm dự án mới'),
+      el('div.row.wrap', {}, [
+        el('button.btn.btn--sm.btn--primary', { type: 'button', dataset: { act: 'them-du-an' } }, '＋ Thêm dự án mới'),
+        el('button.btn.btn--sm', { type: 'button', dataset: { act: 'kiem-tra-du-lieu' } }, '🔍 Kiểm tra dữ liệu')
+      ]),
 
       el('div.panel__hint', {}, [
         el('b', {}, 'Ga metro: '), 'bật lọc "Chỉ dữ liệu tạm" rồi kéo marker 🟡. ',

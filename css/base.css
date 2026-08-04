@@ -98,6 +98,14 @@ button { cursor: pointer; border: 0; background: none; padding: 0; }
 .field__v { font-size: var(--fz2); color: var(--c-text); font-weight: 550; word-break: break-word; }
 .field__src { font-size: var(--fz0); color: var(--c-text-3); font-weight: 450; margin-top: 2px; }
 
+/* ─── Nút dạng liên kết — dùng trong danh sách kết quả (Kiểm tra dữ liệu) ── */
+
+.link-btn {
+  color: var(--c-brand); font-weight: 600; text-decoration: none;
+  display: inline-block; margin: 2px 6px 2px 0;
+}
+.link-btn:hover { text-decoration: underline; }
+
 /* Dữ liệu chưa có — hiển thị nhất quán ở mọi nơi, không bao giờ đoán thay */
 .pending { color: var(--c-text-3); font-weight: 450; font-style: italic; }
 

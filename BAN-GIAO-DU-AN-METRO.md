@@ -3,14 +3,14 @@
 > Tài liệu này viết cho một phiên Claude hoàn toàn mới. Đọc xong file này là đủ
 > để tiếp tục công việc — **không cần đọc lại lịch sử hội thoại**.
 >
-> **Cập nhật:** 02/08/2026 · **Trạng thái:** Chế độ biên tập GIS (Giai đoạn 7),
-> lọc danh mục dự án (Giai đoạn 8), và **Project Edit Mode** (Giai đoạn 9) đã
-> code và kiểm thử xong trên máy — **CHƯA PUSH lên GitHub**, đang chờ Hoàng
-> duyệt (Project Edit Mode cho xoá được dự án nên cần xác nhận trước khi lên
-> web thật). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng
-> mục) — đã thống nhất làm THEO ĐỢT, tự chọn việc tự tin nhất làm trước, báo
-> cáo lại sau mỗi đợt. Mục 1 (lọc dữ liệu) và mục 2+3 (CRUD dự án + kéo marker)
-> xong. Các mục còn lại **CHƯA LÀM**, xem mục 4 Pending Tasks.
+> **Cập nhật:** 02/08/2026 · **Trạng thái:** Đã lên GitHub Pages: Chế độ biên
+> tập GIS (Giai đoạn 7), lọc danh mục dự án (Giai đoạn 8), Project Edit Mode
+> (Giai đoạn 9), nút "Kiểm tra dữ liệu" (Giai đoạn 10). Hoàng đã yêu cầu một
+> đợt refactor tổng thể lớn hơn nhiều (9 hạng mục) — đã thống nhất làm THEO
+> ĐỢT, tự chọn việc tự tin nhất làm trước, báo cáo lại sau mỗi đợt và đẩy lên
+> ngay khi xong. Mục 1, 2, 3, 4 xong. Các mục còn lại (Developer Mode, sửa lỗi
+> treo, trang Admin, Import/Export/Backup/Restore, Undo) **CHƯA LÀM**, xem mục
+> 4 Pending Tasks.
 
 ---
 
@@ -178,7 +178,7 @@ trong app (xem QĐ-16).
 - **Không chạy phần "hình ảnh"/"mặt bằng" trong đợt này** — tải/gắn ảnh cần
   xác nhận quyền sử dụng, để ngoài phạm vi thí điểm
 
-### Giai đoạn 7 — Chế độ biên tập GIS nội bộ (02/08/2026, CHƯA PUSH)
+### Giai đoạn 7 — Chế độ biên tập GIS nội bộ (02/08/2026, đã push)
 Hoàng yêu cầu một chế độ riêng để tự dựng dữ liệu ga metro/vành đai bằng cách
 kéo-thả trên bản đồ, khác hẳn chế độ xem bình thường (xem QĐ-17). Đã dựng:
 
@@ -256,7 +256,7 @@ lại (2–9) CHƯA làm, chờ Hoàng xác nhận thứ tự ưu tiên tiếp t
 - Không lỗi console sau khi xoá; kiểm tra không còn dữ liệu mồ côi trong
   `data/routes.json` / `data/amenities.json`
 
-### Giai đoạn 9 — Project Edit Mode: CRUD dự án + kéo marker (02/08/2026, CHƯA PUSH)
+### Giai đoạn 9 — Project Edit Mode: CRUD dự án + kéo marker (02/08/2026, đã push)
 Mục 2+3 trong yêu cầu "refactor tổng thể" của Hoàng (mục 4 dưới đây liệt kê cả
 9 mục). Mở rộng đúng khuôn Chế độ biên tập GIS đã có (Giai đoạn 7) sang dự án
 BĐS, dùng chung hạ tầng lưu file cục bộ.
@@ -306,8 +306,32 @@ BĐS, dùng chung hạ tầng lưu file cục bộ.
   hiện đúng trong danh mục), mở/đóng sidebar liên tục 5 lần để dò lại lỗi #1 ở
   trên — không còn lỗi console. Đã dọn sạch dữ liệu test khỏi HT Pearl trước
   khi xong việc
-- **CHƯA PUSH lên GitHub** — tính năng có khả năng xoá dữ liệu thật, cần Hoàng
-  duyệt trước khi đưa lên bản online
+- ✅ **Đã push lên GitHub** — Hoàng xác nhận sau khi xem báo cáo
+
+### Giai đoạn 10 — Nút "Kiểm tra dữ liệu" (02/08/2026, đã push)
+Mục 4 trong yêu cầu refactor. Chỉ ĐỌC dữ liệu, không sửa gì — an toàn chạy bất
+cứ lúc nào. Nút "🔍 Kiểm tra dữ liệu" trong panel Chế độ biên tập GIS
+(`js/features/data-checker.js`), mở bảng kết quả riêng (giống khung "Bảng so
+sánh"). Dò 9 loại:
+
+- **Trùng tên, Trùng marker** (≤15m) — chạy trên TOÀN BỘ 1.148 dự án, vì trùng
+  lặp là lỗi thật bất kể nguồn dữ liệu
+- **Sai toạ độ** (BR-2, ngoài khung 8–12,5°N / 105–108,5°E), **Ngoài phường/xã**
+  (toạ độ hợp lệ nhưng không rơi vào phường/xã nào dù trong khung — có thể
+  lệch vị trí) — chạy toàn bộ
+- **Giá bất thường** (ngoài khoảng 5–500 trđ/m² hoặc 200 triệu–200 tỷ/căn tuỳ
+  đơn vị giá, hoặc giá trung bình thấp hơn giá từ) — chạy toàn bộ
+- **Thiếu thông tin, Thiếu ảnh, Thiếu logo, Thiếu AI Score** — CHỈ chạy trên
+  11 dự án `nguon: "thu-cong"` (đã kiểm). Cố tình KHÔNG chạy trên 1.137 ứng
+  viên OSM "Chưa kiểm" — chúng để trống hầu hết trường THEO ĐÚNG THIẾT KẾ
+  (QĐ-10), báo "thiếu" cho toàn bộ sẽ chỉ tạo hàng nghìn dòng nhiễu vô ích
+- Bấm tên dự án trong kết quả → đóng bảng, mở đúng hồ sơ dự án đó
+- Đã chạy thử trên dữ liệu thật: phát hiện 77 mục, trong đó có dữ liệu trùng
+  THẬT đáng chú ý (VD "Chung cư De Capella"/"Căn hộ De Capella" cùng toạ độ
+  chính xác — khả năng cao là một toà nhà bị OSM tạo hai bản ghi; "Chung Cư
+  BMC"/"Ficohome" cùng một điểm) — Hoàng nên xem qua danh sách "Trùng marker"
+  trước, có vẻ là nhóm đáng tin cậy nhất để dọn tiếp
+- Không lỗi console
 
 ---
 
