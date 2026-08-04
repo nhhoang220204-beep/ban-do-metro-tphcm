@@ -38,126 +38,162 @@
     "ma": "SCS",
     "ten": "Sun Casa Square",
     "loaiHinh": "nha-pho-thuong-mai",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      11.14245,
+      106.70481
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 3600,
     "donViGia": "trđ/căn",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"SUN CASA SQUARE - VSIP\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "sun-casa-central",
     "ma": "SCC",
     "ten": "Sun Casa Central",
     "loaiHinh": "nha-pho-thuong-mai",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      11.13632,
+      106.70203
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/căn",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"NHÀ PHỐ SUN CASA CENTRAL\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-habitat",
     "ma": "HBT",
     "ten": "The Habitat",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.92491,
+      106.7157
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 42,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn hộ The Habitat Bình Dương\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "emerald-garden-view",
     "ma": "EGV",
     "ten": "Emerald Garden View",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.94019,
+      106.69395
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 38,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"THE EMERALD GARDEN VIEW\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "diamond-boulevard",
     "ma": "DMB",
     "ten": "Diamond Boulevard",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.94505,
+      106.70735
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "Tecco",
     "giaTu": 38,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Diamond Boulevard\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "at-saigon-riverside",
     "ma": "ATR",
     "ten": "A&T Saigon Riverside",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87068,
+      106.70068
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 56,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"AT SaiGon RiverSide - Văn phòng tư vấn Bình Hòa\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "green-skyline",
     "ma": "GSL",
     "ten": "Green Skyline",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.8883,
+      106.77541
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Green Skyline Apartment - TBS\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "pi-city-sky-park",
     "ma": "PI",
     "ten": "Pi City Sky Park",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87381,
+      106.7597
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Picity Sky Park\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "monrei-nido",
     "ma": "MRN",
     "ten": "Monrei · Nido",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.96256,
+      106.69776
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Monrei Sài Gòn\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "gateway",
@@ -18974,56 +19010,72 @@
     "ma": "",
     "ten": "Define",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.77577,
+      106.75839
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 170,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"DEFINE Building\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "masteri-lumiere-riverside",
     "ma": "",
     "ten": "Masteri Lumiere Riverside",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.80415,
+      106.74825
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 150,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"LUMIÈRE Riverside\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "q2-thao-dien",
     "ma": "",
     "ten": "Q2 Thảo Điền",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.80434,
+      106.74723
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "da-ban-giao",
     "chuDauTu": "",
     "giaTu": 135,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Q2 Thao Dien Residence\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "eaton-park",
     "ma": "",
     "ten": "Eaton Park",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.80006,
+      106.75406
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 140,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Eaton Park Gamuda Land\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "lancaster-eden",
@@ -19066,14 +19118,18 @@
     "ma": "",
     "ten": "Precia",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.791,
+      106.75434
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 90,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Precia Apartment\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-metropolis",
@@ -19130,84 +19186,108 @@
     "ma": "",
     "ten": "Chung cư An Hòa",
     "loaiHinh": "chung-cu",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.79317,
+      106.73936
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "da-ban-giao",
     "chuDauTu": "",
     "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Chung Cư An Hòa\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "one-central",
     "ma": "",
     "ten": "One Central",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.77062,
+      106.6991
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "sap-mo-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"One Central Saigon\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-opusk",
     "ma": "",
     "ten": "The OpusK",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.77948,
+      106.71458
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 339,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"The Opusk Residence (Metropole Thủ Thiêm)\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "narra-residences",
     "ma": "",
     "ten": "Narra Residences",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.76764,
+      106.71334
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 261,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"NARRA RESIDENCES (Empire City)\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "l-arcade-2",
     "ma": "",
     "ten": "L'Arcade 2",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.72756,
+      106.72367
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 210,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Phú Mỹ Hưng L'arcade 1\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-regency",
     "ma": "",
     "ten": "The Regency",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.72606,
+      106.72156
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 194,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn hộ The Regency Hồ Bán Nguyệt – Phú Mỹ Hưng\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-sculptura",
@@ -19228,84 +19308,108 @@
     "ma": "",
     "ten": "Lumière Midtown",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.80369,
+      106.7756
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 157,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Masteri Lumiere midtown\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "masteri-grand-view",
     "ma": "",
     "ten": "Masteri Grand View",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.80332,
+      106.77762
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 129,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Masteri Grand View - Glow\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-prive",
     "ma": "",
     "ten": "The Privé",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.79309,
+      106.7667
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 118,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"The Privé - Căn Hộ Cao Cấp\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "legacy-66",
     "ma": "",
     "ten": "Legacy 66",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.7565,
+      106.65653
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 106,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn hộ Legacy 66\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "blanca-city",
     "ma": "",
     "ten": "Blanca City",
     "loaiHinh": "khu-do-thi",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.38714,
+      107.13788
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 100,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Nhà mẫu biệt thự BLANCA CITY VŨNG TÀU\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "victoria-village",
     "ma": "",
     "ten": "Victoria Village",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.77166,
+      106.7607
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 93,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Chung Cư Victoria Village Quận 2\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-9-stellars",
@@ -19344,84 +19448,108 @@
     "ma": "",
     "ten": "Vlasta Premier",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.72386,
+      106.74006
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 80,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Vlasta Premier Phú Thuận Quận 7\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "essensia-sky",
     "ma": "",
     "ten": "Essensia Sky",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.70787,
+      106.7107
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 76,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Essensia Sky Parkway\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "trellia-cove",
     "ma": "",
     "ten": "Trellia Cove",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.71297,
+      106.66104
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 71,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Trellia Cove (Mizuki Park)\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "khai-hoan-prime",
     "ma": "",
     "ten": "Khải Hoàn Prime",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.68434,
+      106.70119
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 71,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Khải Hoàn Prime\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "elysian-lo-lu",
     "ma": "",
     "ten": "Elysian Lò Lu",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.82592,
+      106.82025
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 71,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Elysian Gamuda Land\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "saigon-skyview",
     "ma": "",
     "ten": "Saigon Skyview",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.73289,
+      106.6557
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 64,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Sài Gòn Skyview\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "fiato-uptown",
@@ -19442,42 +19570,54 @@
     "ma": "",
     "ten": "Terra Luxury",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.70641,
+      106.64374
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 54,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Terra Luxury Khang Nam\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "muong-thanh-phu-huu",
     "ma": "",
     "ten": "Mường Thanh Phú Hữu",
     "loaiHinh": "chung-cu",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.80018,
+      106.7928
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "chua-ro",
     "chuDauTu": "",
     "giaTu": 50,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Chung cư Phú Hữu - Mường Thanh\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "metro-star",
     "ma": "",
     "ten": "Metro Star",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.83208,
+      106.76494
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "chua-ro",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Metro Star\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "thuan-an-2",
@@ -19498,42 +19638,54 @@
     "ma": "",
     "ten": "One Era",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.9663,
+      106.69498
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "sap-mo-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"One Era - Khu đô thị kiểu mẫu thế hệ mới\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "monrei-sai-gon",
     "ma": "",
     "ten": "Monrei Sài Gòn",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.96256,
+      106.69776
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 42,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Monrei Sài Gòn - Thành Phố Nước Thuỷ Liệu\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "ava-center",
     "ma": "",
     "ten": "AVA Center",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.95676,
+      106.70299
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 42,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"AVA Center\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "ava-group",
@@ -19554,28 +19706,36 @@
     "ma": "",
     "ten": "Lavita Thuận An",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.95926,
+      106.69833
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 40,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Chung cư LAVITA THUẬN AN\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "dicera-holdings",
     "ma": "",
     "ten": "Dicera Holdings",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.95692,
+      106.70073
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "sap-mo-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Công trình DICERA bình dương\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "ak-tower",
@@ -19614,14 +19774,18 @@
     "ma": "",
     "ten": "River Collection",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.93407,
+      106.80088
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "sap-mo-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"River Collection\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "gamuda-7ha",
@@ -19642,168 +19806,216 @@
     "ma": "",
     "ten": "The Aspira",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.91631,
+      106.76794
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 43,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Aspira\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "khai-hoan-imperial",
     "ma": "",
     "ten": "Khải Hoàn Imperial",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.93769,
+      106.70931
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 60,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Khải Hoàn Imperial\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-emerald-river-park",
     "ma": "",
     "ten": "The Emerald River Park",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.91274,
+      106.69121
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "sap-mo-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"THE EMERALD RIVER PARK (Lái Thiêu)\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "happy-one-mori",
     "ma": "",
     "ten": "Happy One Mori",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.91825,
+      106.71101
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 44,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn hộ Happy One Mori\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "bcons-solary",
     "ma": "",
     "ten": "Bcons Solary",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.91957,
+      106.78201
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 37,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Chung Cư Bcons Solary\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "fresia-riverside",
     "ma": "",
     "ten": "Fresia Riverside",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.9193,
+      106.82496
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 38,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"FRESIA RIVERSIDE\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-gio-riverside",
     "ma": "",
     "ten": "The Gió Riverside",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.90426,
+      106.83131
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 50,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"The Gió Riverside - CĐT An Gia\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "fenica",
     "ma": "",
     "ten": "Fenica",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.94654,
+      106.74768
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 38,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"The Fenica\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "lapura",
     "ma": "",
     "ten": "Lapura",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.91431,
+      106.71337
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 50,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"CHUNG CƯ LA PURA\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "bcons-city-diamond",
     "ma": "",
     "ten": "Bcons City - Diamond",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.89296,
+      106.79306
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 50,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Bcons City - Tháp Green Topaz\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "setia-edenia",
     "ma": "",
     "ten": "Setia Edenia",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.9058,
+      106.71261
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 48,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Setia Edenia\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-felix",
     "ma": "",
     "ten": "The Felix",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.91379,
+      106.72903
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 42,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn hộ The Felix\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "ho-guom-xanh",
@@ -19824,42 +20036,54 @@
     "ma": "",
     "ten": "Bcons Center",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.89376,
+      106.79338
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 57,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Bcons Center City\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-infinity",
     "ma": "",
     "ten": "The Infinity",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.90713,
+      106.74138
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"The Infinity Dĩ An\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "bcons-asahi",
     "ma": "",
     "ten": "Bcons Asahi",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.89894,
+      106.79195
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 43,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"BCONS ASAHI\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "new-galaxy",
@@ -19884,14 +20108,18 @@
     "ma": "",
     "ten": "Bcons Newsky",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.89073,
+      106.70344
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Bcons Newsky Thuận An – QL13\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "gamuda-1-3ha",
@@ -19948,98 +20176,126 @@
     "ma": "",
     "ten": "Happy One Sora",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.88671,
+      106.77142
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 46,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Happy One Sora Vạn Xuân\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "bcons-avenue",
     "ma": "",
     "ten": "Bcons Avenue",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.89227,
+      106.82238
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 46,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Bcons Avenue\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "serena-dat-phuoc",
     "ma": "",
     "ten": "Serena Đạt Phước",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87665,
+      106.69719
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "sap-mo-ban",
     "chuDauTu": "",
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Serena Riverside - Đạt Phước\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "stow-gate-way",
     "ma": "",
     "ten": "Stow Gate Way",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87486,
+      106.70164
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 42,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Chung cư Stown Gateway\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "symlife",
     "ma": "",
     "ten": "Symlife",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87279,
+      106.70368
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 38,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"SYMLIFE - Symphony Of Life\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-emerald-68",
     "ma": "",
     "ten": "The Emerald 68",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87148,
+      106.70475
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 55,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn Hộ Ngọc Lục Bảo - The Emerald 68\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "art-stella",
     "ma": "",
     "ten": "Art Stella",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.8904,
+      106.81664
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Ngôi Sao Nghệ Thuật - Art Stella\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "du-an-phu-cuong",
@@ -20060,27 +20316,35 @@
     "ma": "",
     "ten": "Sky Zen",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87417,
+      106.76018
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 52,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Sky Zen\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   },
   {
     "id": "the-emerald-boulevard",
     "ma": "",
     "ten": "The Emerald Boulevard",
     "loaiHinh": "can-ho",
-    "toaDo": null,
-    "xacMinh": "chua-ghim",
+    "toaDo": [
+      10.87045,
+      106.70877
+    ],
+    "xacMinh": "thu-cong",
     "trangThai": "dang-ban",
     "chuDauTu": "",
     "giaTu": 63,
     "donViGia": "trđ/m²",
     "nguon": "thu-cong",
-    "coChiTiet": true
+    "coChiTiet": true,
+    "nguonToaDo": "Google Maps · \"Căn hộ The Emerald Boulevard\" · ghim tự động 04/08/2026, chưa kiểm thực địa"
   }
 ]

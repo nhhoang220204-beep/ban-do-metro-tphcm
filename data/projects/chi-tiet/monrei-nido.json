@@ -23,5 +23,8 @@
   "matBang": [],
   "lichThanhToan": [],
   "nguon": "thu-cong",
-  "ghiChu": "Lọc căn theo hướng, nhiều phương thức thanh toán. Số liệu booking phải kiểm chứng trước khi dùng."
+  "ghiChu": "Lọc căn theo hướng, nhiều phương thức thanh toán. Số liệu booking phải kiểm chứng trước khi dùng. ⚠ VỊ TRÍ GHIM TỰ ĐỘNG từ Google Maps (\"Monrei Sài Gòn\"), CHƯA kiểm thực địa — kiểm lại trước khi dùng đo khoảng cách hay tư vấn khách. Lý do cần soát kỹ: Google không có 'Monrei Nido' riêng — mọi kết quả đều trỏ về Monrei Sài Gòn. NGHI hai hồ sơ này là MỘT dự án.",
+  "nguonTheoTruong": {
+    "toaDo": "Google Maps — tra ngày 04/08/2026 (ghim tự động theo yêu cầu, CHƯA kiểm thực địa) · khớp với địa điểm \"Monrei Sài Gòn\""
+  }
 }
