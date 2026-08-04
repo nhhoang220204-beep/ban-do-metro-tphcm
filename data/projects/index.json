@@ -801,7 +801,7 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 40,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/261581795",
@@ -1222,24 +1222,6 @@
     "coChiTiet": false
   },
   {
-    "id": "ficohome",
-    "ma": "",
-    "ten": "Ficohome",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.75993,
-      106.69294
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/290222675",
-    "coChiTiet": false
-  },
-  {
     "id": "nha-cong-vu-2-a13",
     "ma": "",
     "ten": "Nhà công vụ 2 - A13",
@@ -1359,11 +1341,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/304558505",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "fideco-riverview",
@@ -1467,11 +1449,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/306996388",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "toa-nha-parkson-cantavil",
@@ -1705,24 +1687,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/327262576",
-    "coChiTiet": false
-  },
-  {
-    "id": "ky-tuc-xa",
-    "ma": "",
-    "ten": "Ký túc xá",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.87853,
-      106.68004
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/327442178",
     "coChiTiet": false
   },
   {
@@ -2266,42 +2230,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-le-hong-phong",
-    "ma": "",
-    "ten": "Chung cư Lê Hồng Phong",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.7577,
-      106.68445
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405105228",
-    "coChiTiet": false
-  },
-  {
-    "id": "chung-cu-phan-van-tri",
-    "ma": "",
-    "ten": "Chung Cư Phan Văn Trị",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.75809,
-      106.68417
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405105229",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-an-binh-2",
     "ma": "",
     "ten": "Chung Cư An Bình",
@@ -2335,24 +2263,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/405105231",
-    "coChiTiet": false
-  },
-  {
-    "id": "chung-cu-su-van-hanh",
-    "ma": "",
-    "ten": "Chung Cư Sư Vạn Hạnh",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.77067,
-      106.6704
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405116550",
     "coChiTiet": false
   },
   {
@@ -3040,24 +2950,6 @@
     "coChiTiet": false
   },
   {
-    "id": "lan-phuong-plaza",
-    "ma": "",
-    "ten": "Lan Phuong Plaza",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.86477,
-      106.73387
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/503282435",
-    "coChiTiet": false
-  },
-  {
     "id": "hoang-long",
     "ma": "",
     "ten": "Hoàng Long",
@@ -3267,11 +3159,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 85,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/552015758",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-central-plaza",
@@ -3649,24 +3541,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/609516431",
-    "coChiTiet": false
-  },
-  {
-    "id": "chung-cu-ngoc-phuong-nam",
-    "ma": "",
-    "ten": "Chung cư Ngọc Phương Nam",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.74352,
-      106.68512
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/614725008",
     "coChiTiet": false
   },
   {
@@ -4282,24 +4156,6 @@
     "coChiTiet": false
   },
   {
-    "id": "can-ho-de-capella",
-    "ma": "",
-    "ten": "Căn hộ De Capella",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.78737,
-      106.73491
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/732989428",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-saigon-gateway",
     "ma": "",
     "ten": "Chung cư Saigon Gateway",
@@ -4588,24 +4444,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-gia-phu",
-    "ma": "",
-    "ten": "Chung cư Gia Phú",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.8639,
-      106.78132
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/750620398",
-    "coChiTiet": false
-  },
-  {
     "id": "lan-phuong-mhbr-tower",
     "ma": "",
     "ten": "Lan Phuong MHBR Tower",
@@ -4657,24 +4495,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/750622244",
-    "coChiTiet": false
-  },
-  {
-    "id": "thap-bac-m1",
-    "ma": "",
-    "ten": "Tháp Bắc (M1)",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.73671,
-      106.73861
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/750624688",
     "coChiTiet": false
   },
   {
@@ -5229,11 +5049,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 95,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/848372652",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-nguyen-huy-luong",
@@ -5463,11 +5283,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 145,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/925776255",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "d-edge-thao-dien",
@@ -6352,24 +6172,6 @@
     "coChiTiet": false
   },
   {
-    "id": "rivera-park-sai-gon-toa-b",
-    "ma": "",
-    "ten": "Rivera Park Sài Gòn - Tòa B",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.76969,
-      106.66385
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1146861611",
-    "coChiTiet": false
-  },
-  {
     "id": "rivera-park-sai-gon-toa-c",
     "ma": "",
     "ten": "Rivera Park Sài Gòn - Tòa C",
@@ -6583,24 +6385,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1210071486",
-    "coChiTiet": false
-  },
-  {
-    "id": "chung-cu-gia-dinh-quan-doi",
-    "ma": "",
-    "ten": "Chung cư Gia đình Quân đội",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.75087,
-      106.62845
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1210071513",
     "coChiTiet": false
   },
   {
@@ -6925,24 +6709,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1214584083",
-    "coChiTiet": false
-  },
-  {
-    "id": "shade-1-stories-20",
-    "ma": "",
-    "ten": "Shade 1 Stories 20",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.77489,
-      106.63407
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1214584084",
     "coChiTiet": false
   },
   {
@@ -7594,78 +7360,6 @@
     "coChiTiet": false
   },
   {
-    "id": "toa-dai-dong",
-    "ma": "",
-    "ten": "Tòa Đại Đồng",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.73238,
-      106.65309
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1226734724",
-    "coChiTiet": false
-  },
-  {
-    "id": "toa-dai-nam",
-    "ma": "",
-    "ten": "Tòa Đại Nam",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.73274,
-      106.65339
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1226734725",
-    "coChiTiet": false
-  },
-  {
-    "id": "toa-khai-hoan",
-    "ma": "",
-    "ten": "Tòa Khải Hoàn",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.73218,
-      106.65368
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1226734726",
-    "coChiTiet": false
-  },
-  {
-    "id": "toa-kinh-do",
-    "ma": "",
-    "ten": "Tòa Kinh Đô",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.73182,
-      106.65339
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1226734727",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-carillon-5",
     "ma": "",
     "ten": "Chung cư Carillon 5",
@@ -7879,24 +7573,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1271675756",
-    "coChiTiet": false
-  },
-  {
-    "id": "the-krista-capitaland",
-    "ma": "",
-    "ten": "The Krista - CapitaLand",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.79022,
-      106.77056
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1271675757",
     "coChiTiet": false
   },
   {
@@ -8131,24 +7807,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1308395603",
-    "coChiTiet": false
-  },
-  {
-    "id": "thap-nam-m2",
-    "ma": "",
-    "ten": "Tháp Nam (M2)",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.73601,
-      106.73893
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1308395614",
     "coChiTiet": false
   },
   {
@@ -9412,24 +9070,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-au-co-2",
-    "ma": "",
-    "ten": "Chung cư Âu Cơ",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.78013,
-      106.64459
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1524796530",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-vung-tau-melody",
     "ma": "",
     "ten": "Chung cư Vũng Tàu Melody",
@@ -9585,11 +9225,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 120,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/711567159",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "mipec",
@@ -10276,24 +9916,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-him-lam-dong-nam-riverside",
-    "ma": "",
-    "ten": "Khu Dân Cư Him Lam Đông Nam Riverside",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.84097,
-      106.71115
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/4357644196",
-    "coChiTiet": false
-  },
-  {
     "id": "pdd-building",
     "ma": "",
     "ten": "PDD Building",
@@ -10309,24 +9931,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · node/4727136589",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-the-waterfront",
-    "ma": "",
-    "ten": "Khu Dân Cư The Waterfront",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.7251,
-      106.72437
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/5375680652",
     "coChiTiet": false
   },
   {
@@ -10456,60 +10060,6 @@
     "coChiTiet": false
   },
   {
-    "id": "nha-tro-hanh-phuc",
-    "ma": "",
-    "ten": "Nhà Trọ Hạnh Phúc",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.77186,
-      106.65098
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7016285748",
-    "coChiTiet": false
-  },
-  {
-    "id": "nha-tro-hang-nhu",
-    "ma": "",
-    "ten": "Nhà trọ Hằng Như",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.77182,
-      106.651
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7016290328",
-    "coChiTiet": false
-  },
-  {
-    "id": "can-ho-the-krista",
-    "ma": "",
-    "ten": "Căn Hộ The Krista",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.79033,
-      106.7705
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7017120519",
-    "coChiTiet": false
-  },
-  {
     "id": "can-ho-chung-cu-nguyen-van-dung",
     "ma": "",
     "ten": "Căn Hộ Chung Cư Nguyễn Văn Dung",
@@ -10636,24 +10186,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-dat-gia-garden",
-    "ma": "",
-    "ten": "Khu dân cư Đạt Gia Garden",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.87692,
-      106.59491
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7018252174",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-flora-fuji",
     "ma": "",
     "ten": "Chung Cư Flora Fuji",
@@ -10672,24 +10204,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-dai-hai-cong-ty-tan-trieu-phuoc",
-    "ma": "",
-    "ten": "Khu Dân Cư Đại Hải;Công ty Tân Triệu Phước",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.84831,
-      106.58584
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7018293938",
-    "coChiTiet": false
-  },
-  {
     "id": "can-ho-stcity-to-ky-hoc-mon",
     "ma": "",
     "ten": "Căn Hộ STCITY Tô Ký Hóc Môn",
@@ -10705,42 +10219,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · node/7018300952",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-an-thinh",
-    "ma": "",
-    "ten": "KDC An Thịnh",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.83743,
-      106.58818
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7018304505",
-    "coChiTiet": false
-  },
-  {
-    "id": "chung-cu-quan-doi",
-    "ma": "",
-    "ten": "Chung cư quân đội",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.89509,
-      106.58226
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7018305345",
     "coChiTiet": false
   },
   {
@@ -10813,24 +10291,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · node/7018315507",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-hoang-hai",
-    "ma": "",
-    "ten": "Khu Dân Cư Hoàng Hải",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.83738,
-      106.59588
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/7018318082",
     "coChiTiet": false
   },
   {
@@ -11176,24 +10636,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-himlam-phu-an",
-    "ma": "",
-    "ten": "Chung Cư HimLam Phú An",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.81901,
-      106.76201
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/8291915117",
-    "coChiTiet": false
-  },
-  {
     "id": "can-ho-centana-thu-thiem",
     "ma": "",
     "ten": "Căn hộ Centana Thủ Thiêm",
@@ -11205,11 +10647,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 65,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · node/9584673036",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-khuong-viet",
@@ -11335,24 +10777,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · node/9586952120",
-    "coChiTiet": false
-  },
-  {
-    "id": "chung-cu-melody-au-co",
-    "ma": "",
-    "ten": "Chung Cư Melody Âu Cơ",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.79644,
-      106.63704
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/9587042689",
     "coChiTiet": false
   },
   {
@@ -11734,24 +11158,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-dream-home-2",
-    "ma": "",
-    "ten": "Chung Cư Dream Home 2",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.85539,
-      106.65271
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/9593196271",
-    "coChiTiet": false
-  },
-  {
     "id": "dao-kim-cuong",
     "ma": "",
     "ten": "Đảo Kim Cương",
@@ -11937,8 +11343,8 @@
     "ten": "Chung Cư Tara Residences",
     "loaiHinh": "chung-cu",
     "toaDo": [
-      10.73278,
-      106.65332
+      10.732183,
+      106.653259
     ],
     "xacMinh": "osm",
     "trangThai": "chua-ro",
@@ -11946,8 +11352,8 @@
     "giaTu": null,
     "donViGia": "trđ/m²",
     "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · node/9593946632",
-    "coChiTiet": false
+    "coChiTiet": true,
+    "nguonToaDo": "OpenStreetMap · node/9593946632"
   },
   {
     "id": "chung-cu-ehome-3",
@@ -12555,11 +11961,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 85,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · node/12141109932",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "cosmocity-block-c",
@@ -12958,24 +12364,6 @@
     "coChiTiet": false
   },
   {
-    "id": "bao-liem",
-    "ma": "",
-    "ten": "Bao Liêm",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.71438,
-      106.73557
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/225753560",
-    "coChiTiet": false
-  },
-  {
     "id": "khu-villa-hoang-gia-phuong-nam",
     "ma": "",
     "ten": "Khu Villa Hoàng Gia - Phương Nam",
@@ -13156,24 +12544,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-nha-o-dau-khi",
-    "ma": "",
-    "ten": "Khu Nhà ở Dầu khí",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.58113,
-      107.05371
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/267023799",
-    "coChiTiet": false
-  },
-  {
     "id": "khu-biet-thu-hoang-quan",
     "ma": "",
     "ten": "Khu Biệt thự Hoàng Quân",
@@ -13246,24 +12616,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-my-phuoc-2",
-    "ma": "",
-    "ten": "Chung Cư Mỹ Phước",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.72791,
-      106.71139
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/289862500",
-    "coChiTiet": false
-  },
-  {
     "id": "nam-thien-i",
     "ma": "",
     "ten": "Nam Thiên I",
@@ -13297,24 +12649,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/289862504",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-my-kim-ii",
-    "ma": "",
-    "ten": "Khu Dân Cư Mỹ Kim II",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.725,
-      106.70981
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/289862507",
     "coChiTiet": false
   },
   {
@@ -13606,42 +12940,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-710",
-    "ma": "",
-    "ten": "Khu Dân cư 710",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.88097,
-      106.81269
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/290789282",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-61",
-    "ma": "",
-    "ten": "Khu Dân cư 61",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.88011,
-      106.81139
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/290789283",
-    "coChiTiet": false
-  },
-  {
     "id": "khu-do-thi-moi-binh-nguyen",
     "ma": "",
     "ten": "Khu đô thị mới Bình Nguyên",
@@ -13657,24 +12955,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/291052443",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-dong-hoa-1",
-    "ma": "",
-    "ten": "KDC Đông Hòa 1",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.9013,
-      106.79003
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/291493856",
     "coChiTiet": false
   },
   {
@@ -13707,11 +12987,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 55,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/306996390",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "khu-biet-thu-my-van-2",
@@ -13783,24 +13063,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/327243236",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-hong-long",
-    "ma": "",
-    "ten": "KDC Hồng Long",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.84986,
-      106.7239
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/330653184",
     "coChiTiet": false
   },
   {
@@ -13876,24 +13138,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-him-lam",
-    "ma": "",
-    "ten": "Khu dân cư Him Lam",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.7401,
-      106.69703
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405083628",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-tran-quang-dieu",
     "ma": "",
     "ten": "Chung cư Trần Quang Diệu",
@@ -13912,42 +13156,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-ven-song",
-    "ma": "",
-    "ten": "Khu Dân Cư Ven Sông",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.72657,
-      106.6939
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405098012",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-tan-quy-dong",
-    "ma": "",
-    "ten": "Khu dân cư Tân Quy Đông",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.73723,
-      106.70905
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405098014",
-    "coChiTiet": false
-  },
-  {
     "id": "my-hung",
     "ma": "",
     "ten": "Mỹ Hưng",
@@ -13963,24 +13171,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/405098015",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-nam-long",
-    "ma": "",
-    "ten": "Khu dân cư Nam Long",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.74354,
-      106.73438
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/405098018",
     "coChiTiet": false
   },
   {
@@ -14110,42 +13300,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-vi-hao",
-    "ma": "",
-    "ten": "Khu Dân Cư Vị Hảo",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.99268,
-      106.7369
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/410414493",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-hiep-thanh-3",
-    "ma": "",
-    "ten": "Khu dân cư Hiệp Thành 3",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      11.00301,
-      106.66943
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/410566717",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-him-lam-nam-khanh",
     "ma": "",
     "ten": "Chung cư Him Lam Nam Khánh",
@@ -14254,24 +13408,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-cityland-centra-hill",
-    "ma": "",
-    "ten": "khu dân cư Cityland Centra Hill",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.82844,
-      106.68065
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/446074292",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-78-tan-hoa-dong",
     "ma": "",
     "ten": "Chung cư 78 Tân Hòa Đông",
@@ -14326,24 +13462,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-khang-an-phu-huu",
-    "ma": "",
-    "ten": "Khu dân cư Khang An - Phú Hữu",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.80092,
-      106.78957
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/464094526",
-    "coChiTiet": false
-  },
-  {
     "id": "kikyo-residences",
     "ma": "",
     "ten": "KIKYO RESIDENCES",
@@ -14377,60 +13495,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/464096174",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-gia-hoa",
-    "ma": "",
-    "ten": "KDC Gia Hòa",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.81633,
-      106.78022
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/464098188",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-khang-dien",
-    "ma": "",
-    "ten": "KDC KHANG ĐIỀN",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.81869,
-      106.78132
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/464098438",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-nam-long",
-    "ma": "",
-    "ten": "KDC NAM LONG",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.8096,
-      106.78199
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/464099479",
     "coChiTiet": false
   },
   {
@@ -14578,42 +13642,6 @@
     "coChiTiet": false
   },
   {
-    "id": "ha-do-centrosa-garden",
-    "ma": "",
-    "ten": "Hà Đô Centrosa Garden",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.77588,
-      106.67875
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/465861145",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-ha-phuong",
-    "ma": "",
-    "ten": "Khu dân cư Hà Phương",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.76959,
-      106.62613
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/468755920",
-    "coChiTiet": false
-  },
-  {
     "id": "khu-dat-110-1-to-hieu",
     "ma": "",
     "ten": "Khu đất 110/1 Tô Hiệu",
@@ -14704,24 +13732,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-3-2",
-    "ma": "",
-    "ten": "Khu dân cư 3/2",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.95391,
-      106.73448
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/499420835",
-    "coChiTiet": false
-  },
-  {
     "id": "cu-xa-savimex",
     "ma": "",
     "ten": "Cư xá Savimex",
@@ -14758,24 +13768,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-rach-lao",
-    "ma": "",
-    "ten": "Khu dân cư Rạch Lào",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.73054,
-      106.63538
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/508078641",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-rubyland",
     "ma": "",
     "ten": "Chung cư Rubyland",
@@ -14791,24 +13783,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/509025838",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-huong-lo-5",
-    "ma": "",
-    "ten": "Khu dân cư Hương lộ 5",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.71939,
-      106.61125
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/509640792",
     "coChiTiet": false
   },
   {
@@ -15100,24 +14074,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-so-1-ton-that-thuyet",
-    "ma": "",
-    "ten": "Chung cư số 1 Tôn Thất Thuyết",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.75466,
-      106.69242
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/682250598",
-    "coChiTiet": false
-  },
-  {
     "id": "masteri-millenium-condo",
     "ma": "",
     "ten": "Masteri Millenium Condo",
@@ -15147,11 +14103,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 95,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/692121761",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "khu-tai-dinh-cu-thanh-my-loi",
@@ -15201,11 +14157,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 105,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/711567157",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "toa-nha-one-verandah",
@@ -15219,11 +14175,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 110,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/711567160",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "haus-neo",
@@ -15291,11 +14247,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 75,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/733162715",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "the-estella",
@@ -15309,11 +14265,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 100,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/733162716",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "estella-heights",
@@ -15327,11 +14283,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 125,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/733166650",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "sanctuary-ho-tram-resort-community",
@@ -15493,24 +14449,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/750475234",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-an-hoi",
-    "ma": "",
-    "ten": "Khu Dân Cư An Hội",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.85265,
-      106.64696
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/750480429",
     "coChiTiet": false
   },
   {
@@ -15975,11 +14913,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 75,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/807423421",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-ton-that-thuyet-p4",
@@ -16126,24 +15064,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-phu-hong-thinh",
-    "ma": "",
-    "ten": "Khu dân cư Phú Hồng Thịnh",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.90362,
-      106.7967
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/973931177",
-    "coChiTiet": false
-  },
-  {
     "id": "diamond-riverside-apartment",
     "ma": "",
     "ten": "Diamond Riverside Apartment",
@@ -16177,24 +15097,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/976232588",
-    "coChiTiet": false
-  },
-  {
-    "id": "green-tower",
-    "ma": "",
-    "ten": "Green Tower",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.8884,
-      106.775
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/976324703",
     "coChiTiet": false
   },
   {
@@ -16234,60 +15136,6 @@
     "coChiTiet": false
   },
   {
-    "id": "kdc-phu-dong",
-    "ma": "",
-    "ten": "KDC Phú Đông",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.86751,
-      106.75554
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1019191662",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-huong-sen",
-    "ma": "",
-    "ten": "Khu dân cư Hương Sen",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.87177,
-      106.75629
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1023239482",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-areco-linh-tay",
-    "ma": "",
-    "ten": "Khu dân cư Areco Linh Tây",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.86504,
-      106.75971
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1023239483",
-    "coChiTiet": false
-  },
-  {
     "id": "opal-boulevard",
     "ma": "",
     "ten": "Opal Boulevard",
@@ -16303,42 +15151,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1023240914",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-tan-hai-minh",
-    "ma": "",
-    "ten": "KDC Tân Hải Minh",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.86259,
-      106.75753
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1023256508",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-nam-thinh",
-    "ma": "",
-    "ten": "Khu dân cư Nam Thịnh",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.87372,
-      106.75062
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1023697345",
     "coChiTiet": false
   },
   {
@@ -16522,60 +15334,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-lap-phuc",
-    "ma": "",
-    "ten": "Khu dân cư Lập Phúc",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.70898,
-      106.69806
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1035102536",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-dao-su-tich",
-    "ma": "",
-    "ten": "Khu dân cư Đào Sư Tích",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.70943,
-      106.69287
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1035102537",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-van-lang",
-    "ma": "",
-    "ten": "Khu dân cư Văn Lang",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.72059,
-      106.68036
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1035102545",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-sunny-plaza",
     "ma": "",
     "ten": "Chung Cư Sunny Plaza",
@@ -16720,24 +15478,6 @@
     "coChiTiet": false
   },
   {
-    "id": "246-4a-nguyen-thi-dang",
-    "ma": "",
-    "ten": "246/4a Nguyễn thị Đặng",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.86591,
-      106.64138
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1101900504",
-    "coChiTiet": false
-  },
-  {
     "id": "terra-rosa",
     "ma": "",
     "ten": "Terra Rosa",
@@ -16753,24 +15493,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1108154111",
-    "coChiTiet": false
-  },
-  {
-    "id": "a-view",
-    "ma": "",
-    "ten": "A.View",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.7129,
-      106.64611
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1112317313",
     "coChiTiet": false
   },
   {
@@ -16839,11 +15561,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 95,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1115566352",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "west-gate-binh-chanh",
@@ -17386,24 +16108,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-duc-hoa",
-    "ma": "",
-    "ten": "Khu dân cư Đức Hòa",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.82041,
-      106.51071
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1183609947",
-    "coChiTiet": false
-  },
-  {
     "id": "khu-nha-o-thuong-mai-dich-vu-phu-my",
     "ma": "",
     "ten": "Khu nhà ở Thương mại - Dịch vụ Phú Mỹ",
@@ -17509,24 +16213,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1210729160",
-    "coChiTiet": false
-  },
-  {
-    "id": "du-an-kdc-the-sholi-binh-tan",
-    "ma": "",
-    "ten": "Dự án KDC The Sholi Bình Tân",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.73592,
-      106.62067
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1211031816",
     "coChiTiet": false
   },
   {
@@ -17883,11 +16569,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 75,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1215518805",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-de-capella",
@@ -17901,11 +16587,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 65,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1215518806",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-mieu-noi-5-tang",
@@ -17941,24 +16627,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1216840367",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-584-huynh-ba-chanh",
-    "ma": "",
-    "ten": "Khu dân cư 584 Huỳnh Bá Chánh",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.70868,
-      106.6022
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1216840371",
     "coChiTiet": false
   },
   {
@@ -18045,11 +16713,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 45,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1217348536",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "chung-cu-1ha-thu-thiem",
@@ -18736,24 +17404,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-cityland-riverside",
-    "ma": "",
-    "ten": "Khu dân cư Cityland Riverside",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.73594,
-      106.72598
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1308072065",
-    "coChiTiet": false
-  },
-  {
     "id": "du-an-can-ho-green-star-sky-garden",
     "ma": "",
     "ten": "Dự án căn hộ Green Star Sky Garden",
@@ -18898,24 +17548,6 @@
     "coChiTiet": false
   },
   {
-    "id": "chung-cu-quan-doi-2",
-    "ma": "",
-    "ten": "Chung cư Quân đội",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.83029,
-      106.68477
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1308615148",
-    "coChiTiet": false
-  },
-  {
     "id": "chung-cu-cityland-park-hills",
     "ma": "",
     "ten": "Chung cư Cityland Park Hills",
@@ -19003,24 +17635,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1309074002",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-hiep-thanh-city",
-    "ma": "",
-    "ten": "Khu dân cư Hiệp Thành City",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.87583,
-      106.62912
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1309074064",
     "coChiTiet": false
   },
   {
@@ -19312,24 +17926,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-19-8",
-    "ma": "",
-    "ten": "Khu dân cư 19/8",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.89078,
-      106.77898
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1344488584",
-    "coChiTiet": false
-  },
-  {
     "id": "the-stellar-9",
     "ma": "",
     "ten": "The STELLAR 9",
@@ -19564,60 +18160,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-savimex",
-    "ma": "",
-    "ten": "Khu dân cư Savimex",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.72803,
-      106.73644
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1411361899",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-ta-thi-ngoc-thao",
-    "ma": "",
-    "ten": "Khu dân cư Tạ Thị Ngọc Thảo",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.7155,
-      106.73848
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1411361902",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-van-phat-hung",
-    "ma": "",
-    "ten": "Khu dân cư Vạn Phát Hưng",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.715,
-      106.73976
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1411361903",
-    "coChiTiet": false
-  },
-  {
     "id": "biet-palm-marina-city-novaland",
     "ma": "",
     "ten": "Biet Palm Marina City Novaland",
@@ -19669,60 +18211,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1419351449",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-vinh-phu-2",
-    "ma": "",
-    "ten": "Khu dân cư Vĩnh Phú 2",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.88724,
-      106.71069
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1422493010",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-phuoc-thanh",
-    "ma": "",
-    "ten": "KDC Phước Thành",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.62965,
-      106.73064
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1424057409",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-tdc-long-hau",
-    "ma": "",
-    "ten": "KDC TĐC Long Hậu",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.62549,
-      106.72752
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1424057411",
     "coChiTiet": false
   },
   {
@@ -19816,24 +18304,6 @@
     "coChiTiet": false
   },
   {
-    "id": "khu-dan-cu-thanh-my-loi",
-    "ma": "",
-    "ten": "Khu dân cư Thạnh Mỹ Lợi",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.77417,
-      106.76065
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1424935816",
-    "coChiTiet": false
-  },
-  {
     "id": "khu-dan-cu-palm-residence",
     "ma": "",
     "ten": "Khu dân cư Palm Residence",
@@ -19845,47 +18315,11 @@
     "xacMinh": "osm",
     "trangThai": "chua-ro",
     "chuDauTu": "",
-    "giaTu": null,
+    "giaTu": 85,
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1424995574",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-an-phu-tay",
-    "ma": "",
-    "ten": "KDC An Phú Tây",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.68383,
-      106.61428
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1425022233",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-phong-phu-4",
-    "ma": "",
-    "ten": "KDC Phong Phú 4",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.69248,
-      106.64619
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1425562221",
-    "coChiTiet": false
+    "coChiTiet": true
   },
   {
     "id": "khu-do-thi-the-global-city",
@@ -19939,24 +18373,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1429138253",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-senturia-nam-sai-gon",
-    "ma": "",
-    "ten": "Khu dân cư Senturia Nam Sài Gòn",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.72131,
-      106.67046
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1436841784",
     "coChiTiet": false
   },
   {
@@ -20068,42 +18484,6 @@
     "coChiTiet": false
   },
   {
-    "id": "kdc-ha-do-thoi-an",
-    "ma": "",
-    "ten": "KDC Hà Đô Thới An",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.87291,
-      106.659
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1447732771",
-    "coChiTiet": false
-  },
-  {
-    "id": "khu-dan-cu-tan-tien",
-    "ma": "",
-    "ten": "Khu dân cư Tân Tiến",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.85443,
-      106.64409
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1447732786",
-    "coChiTiet": false
-  },
-  {
     "id": "lavila-nam-sai-gon",
     "ma": "",
     "ten": "Lavila Nam Sài Gòn",
@@ -20191,42 +18571,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/1454573893",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-tri-kiet",
-    "ma": "",
-    "ten": "KDC Trí Kiệt",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.81033,
-      106.77918
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1454576381",
-    "coChiTiet": false
-  },
-  {
-    "id": "kdc-kien-a",
-    "ma": "",
-    "ten": "KDC Kiến Á",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      10.80625,
-      106.78278
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1454576382",
     "coChiTiet": false
   },
   {
@@ -20624,5 +18968,515 @@
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · relation/16717131",
     "coChiTiet": false
+  },
+  {
+    "id": "define",
+    "ma": "",
+    "ten": "Define",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 170,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "masteri-lumiere-riverside",
+    "ma": "",
+    "ten": "Masteri Lumiere Riverside",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 150,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "q2-thao-dien",
+    "ma": "",
+    "ten": "Q2 Thảo Điền",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "da-ban-giao",
+    "chuDauTu": "",
+    "giaTu": 135,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "eaton-park",
+    "ma": "",
+    "ten": "Eaton Park",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 140,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "lancaster-eden",
+    "ma": "",
+    "ten": "Lancaster Eden",
+    "loaiHinh": "biet-thu",
+    "toaDo": [
+      10.79342,
+      106.73845
+    ],
+    "xacMinh": "osm",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 180,
+    "donViGia": "trđ/m² đất",
+    "nguon": "thu-cong",
+    "coChiTiet": true,
+    "nguonToaDo": "OpenStreetMap · way/1242486508"
+  },
+  {
+    "id": "palm-heights",
+    "ma": "",
+    "ten": "Palm Heights",
+    "loaiHinh": "can-ho",
+    "toaDo": [
+      10.79216,
+      106.76061
+    ],
+    "xacMinh": "osm",
+    "trangThai": "da-ban-giao",
+    "chuDauTu": "",
+    "giaTu": 95,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true,
+    "nguonToaDo": "OpenStreetMap · Nominatim · Chung Cư Palm Height"
+  },
+  {
+    "id": "precia",
+    "ma": "",
+    "ten": "Precia",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 90,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "the-metropolis",
+    "ma": "",
+    "ten": "The Metropolis",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "chua-ro",
+    "chuDauTu": "",
+    "giaTu": 70,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "cantavil-an-phu",
+    "ma": "",
+    "ten": "Cantavil An Phú",
+    "loaiHinh": "can-ho",
+    "toaDo": [
+      10.80087,
+      106.74708
+    ],
+    "xacMinh": "osm",
+    "trangThai": "da-ban-giao",
+    "chuDauTu": "",
+    "giaTu": 60,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true,
+    "nguonToaDo": "OpenStreetMap · way/733162714"
+  },
+  {
+    "id": "chung-cu-bo-cong-an",
+    "ma": "",
+    "ten": "Chung cư Bộ Công An",
+    "loaiHinh": "chung-cu",
+    "toaDo": [
+      10.79496,
+      106.73649
+    ],
+    "xacMinh": "osm",
+    "trangThai": "da-ban-giao",
+    "chuDauTu": "",
+    "giaTu": 55,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true,
+    "nguonToaDo": "OpenStreetMap · way/732489093"
+  },
+  {
+    "id": "chung-cu-an-hoa",
+    "ma": "",
+    "ten": "Chung cư An Hòa",
+    "loaiHinh": "chung-cu",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "da-ban-giao",
+    "chuDauTu": "",
+    "giaTu": 45,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "one-central",
+    "ma": "",
+    "ten": "One Central",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "sap-mo-ban",
+    "chuDauTu": "",
+    "giaTu": null,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "the-opusk",
+    "ma": "",
+    "ten": "The OpusK",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 339,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "narra-residences",
+    "ma": "",
+    "ten": "Narra Residences",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 261,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "l-arcade-2",
+    "ma": "",
+    "ten": "L'Arcade 2",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 210,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "the-regency",
+    "ma": "",
+    "ten": "The Regency",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 194,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "the-sculptura",
+    "ma": "",
+    "ten": "The Sculptura",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 160,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "lumiere-midtown",
+    "ma": "",
+    "ten": "Lumière Midtown",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 157,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "masteri-grand-view",
+    "ma": "",
+    "ten": "Masteri Grand View",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 129,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "the-prive",
+    "ma": "",
+    "ten": "The Privé",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 118,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "legacy-66",
+    "ma": "",
+    "ten": "Legacy 66",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 106,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "blanca-city",
+    "ma": "",
+    "ten": "Blanca City",
+    "loaiHinh": "khu-do-thi",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 100,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "victoria-village",
+    "ma": "",
+    "ten": "Victoria Village",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 93,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "the-9-stellars",
+    "ma": "",
+    "ten": "The 9 Stellars",
+    "loaiHinh": "khu-do-thi",
+    "toaDo": [
+      10.87745,
+      106.81805
+    ],
+    "xacMinh": "osm",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 82,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true,
+    "nguonToaDo": "OpenStreetMap · Nominatim · The 9 Stellars - Phân khu 1"
+  },
+  {
+    "id": "alta-height",
+    "ma": "",
+    "ten": "Alta Height",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 80,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "vlasta-premier",
+    "ma": "",
+    "ten": "Vlasta Premier",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 80,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "essensia-sky",
+    "ma": "",
+    "ten": "Essensia Sky",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 76,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "trellia-cove",
+    "ma": "",
+    "ten": "Trellia Cove",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 71,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "khai-hoan-prime",
+    "ma": "",
+    "ten": "Khải Hoàn Prime",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 71,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "elysian-lo-lu",
+    "ma": "",
+    "ten": "Elysian Lò Lu",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 71,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "saigon-skyview",
+    "ma": "",
+    "ten": "Saigon Skyview",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 64,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "fiato-uptown",
+    "ma": "",
+    "ten": "Fiato Uptown",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 60,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "terra-luxury",
+    "ma": "",
+    "ten": "Terra Luxury",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "dang-ban",
+    "chuDauTu": "",
+    "giaTu": 54,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "muong-thanh-phu-huu",
+    "ma": "",
+    "ten": "Mường Thanh Phú Hữu",
+    "loaiHinh": "chung-cu",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "chua-ro",
+    "chuDauTu": "",
+    "giaTu": 50,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
+  },
+  {
+    "id": "metro-star",
+    "ma": "",
+    "ten": "Metro Star",
+    "loaiHinh": "can-ho",
+    "toaDo": null,
+    "xacMinh": "chua-ghim",
+    "trangThai": "chua-ro",
+    "chuDauTu": "",
+    "giaTu": null,
+    "donViGia": "trđ/m²",
+    "nguon": "thu-cong",
+    "coChiTiet": true
   }
 ]

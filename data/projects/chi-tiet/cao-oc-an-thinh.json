@@ -4,14 +4,27 @@
   "soTang": "15 tầng + 1 hầm + 1 trệt, 4 thang máy",
   "dienTich": "Khoảng 75-140 m² (căn hộ/văn phòng, theo các tin rao thứ cấp)",
   "phapLy": "Một số căn đã có sổ hồng (theo tin rao lại)",
-  "tienIchNoiKhu": ["Hồ bơi", "Sân tennis", "Bãi giữ xe"],
+  "tienIchNoiKhu": [
+    "Hồ bơi",
+    "Sân tennis",
+    "Bãi giữ xe"
+  ],
   "nguonTheoTruong": {
     "diaChi": "5office.vn, vlook.vn, Cốc Cốc Map (tòa nhà văn phòng cho thuê An Thịnh)",
-    "dienTich": "Housenow.com.vn, các tin rao bán lại trên vatgia.com, sosanhnha.com"
+    "dienTich": "Housenow.com.vn, các tin rao bán lại trên vatgia.com, sosanhnha.com",
+    "giaTu": "Bảng giá căn hộ quanh Ga An Phú, cập nhật T7–T8/2026 (Kênh Thị Trường Bất Động Sản) — giá tham khảo môi giới, CHƯA đối chiếu chủ đầu tư"
   },
   "nghienCuu": {
     "ngay": "2026-08-02",
-    "nguonDaKiem": ["website-chinh-thuc", "fanpage", "facebook-group", "web-bds", "google-maps"]
+    "nguonDaKiem": [
+      "website-chinh-thuc",
+      "fanpage",
+      "facebook-group",
+      "web-bds",
+      "google-maps"
+    ]
   },
-  "ghiChu": "Cao Ốc An Thịnh thực chất là toà nhà hỗn hợp văn phòng cho thuê + căn hộ, xây đã hơn 10 năm, không phải dự án căn hộ thương mại đang mở bán mới. Không có website/fanpage chính thức của chủ đầu tư - chỉ có các trang môi giới văn phòng cho thuê (5office.vn, vlook.vn, meoffice.vn) và tin rao bán lại. Giá bán lại dao động rất rộng (khoảng 42-73 triệu/m² tuỳ tin đăng) nên không ghi giaTu vì không có mức giá thống nhất từ một nguồn tin cậy."
+  "ghiChu": "Cao Ốc An Thịnh thực chất là toà nhà hỗn hợp văn phòng cho thuê + căn hộ, xây đã hơn 10 năm, không phải dự án căn hộ thương mại đang mở bán mới. Không có website/fanpage chính thức của chủ đầu tư - chỉ có các trang môi giới văn phòng cho thuê (5office.vn, vlook.vn, meoffice.vn) và tin rao bán lại. Giá bán lại dao động rất rộng (khoảng 42-73 triệu/m² tuỳ tin đăng) nên không ghi giaTu vì không có mức giá thống nhất từ một nguồn tin cậy. Khoảng giá tham khảo: 40–55 trđ/m² (T7–T8/2026). Đây là giá tham khảo từ bảng giá lưu hành trong giới môi giới, CHƯA đối chiếu bảng giá chính thức của chủ đầu tư — phải kiểm lại trước khi báo giá cho khách.",
+  "giaTu": 40,
+  "donViGia": "trđ/m²"
 }

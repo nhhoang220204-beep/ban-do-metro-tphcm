@@ -1,0 +1,18 @@
+{
+  "id": "chung-cu-tara-residences",
+  "ma": "",
+  "ten": "Chung Cư Tara Residences",
+  "loaiHinh": "chung-cu",
+  "toaDo": [
+    10.732183,
+    106.653259
+  ],
+  "xacMinh": "osm",
+  "trangThai": "chua-ro",
+  "chuDauTu": "",
+  "giaTu": null,
+  "donViGia": "trđ/m²",
+  "nguon": "osm",
+  "nguonToaDo": "OpenStreetMap · node/9593946632",
+  "coChiTiet": true
+}
