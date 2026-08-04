@@ -35,7 +35,11 @@ export const state = {
   bienTap: false,
   locHienThi: 'tat-ca',  // 'xac-minh' | 'tam' | 'tat-ca'
   doanDangSua: null,     // id đoạn vành đai đang mở sửa polyline (chế độ biên tập)
-  suaDuAn: false         // đang mở form sửa dự án trong hồ sơ hiện tại? (chế độ biên tập)
+  suaDuAn: false,        // đang mở form sửa dự án trong hồ sơ hiện tại? (chế độ biên tập)
+
+  /* Developer Mode — xem features/dev-mode.js. Mặc định tắt; việc BẮT lỗi vẫn
+     chạy nền dù tắt (không bỏ sót lỗi xảy ra trước khi bật panel lên xem). */
+  devMode: false
 };
 
 /* ─── Đăng ký nghe ──────────────────────────────────────────────────────── */

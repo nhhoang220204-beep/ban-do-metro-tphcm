@@ -57,6 +57,8 @@
       <button class="btn btn--icon" type="button" data-act="bien-tap" aria-pressed="false"
               title="Chế độ biên tập GIS — công cụ nội bộ, không phải dữ liệu công bố"
               aria-label="Chế độ biên tập GIS">🛠</button>
+      <button class="btn btn--icon" type="button" data-act="dev-mode" aria-pressed="false"
+              title="Developer Mode — bắt lỗi JS/Promise/dữ liệu" aria-label="Developer Mode">🐞</button>
       <button class="btn btn--icon" type="button" data-act="chu-de"
               title="Đổi nền sáng / tối" aria-label="Đổi nền sáng tối">☾</button>
       <button class="btn btn--primary" type="button" data-act="gui-khach"
@@ -97,6 +99,9 @@
 
   <!-- ─── Kiểm tra dữ liệu — báo cáo lỗi, chỉ đọc ─────────────────────── -->
   <section class="cmp checker" aria-label="Kiểm tra dữ liệu" hidden></section>
+
+  <!-- ─── Developer Mode — bắt lỗi JS/Promise/dữ liệu ─────────────────── -->
+  <aside class="editor devmode" aria-label="Developer Mode" hidden></aside>
 
   <!-- ─── Nút điều khiển bản đồ và chú thích ──────────────────────────── -->
   <div class="mapctl" role="group" aria-label="Điều khiển bản đồ"></div>

@@ -20,6 +20,7 @@ import { khoiTaoGuiKhach, batTat as batTatGuiKhach, veLaiGuiKhach } from './feat
 import { khoiTaoVanhDai, hienLopVanhDai } from './features/vanhdai.js';
 import { khoiTaoBienTap, batTat as batTatBienTap, khoiTaoLopGaTam } from './features/gis-editor.js';
 import { khoiTaoKiemTra } from './features/data-checker.js';
+import { khoiTaoDevMode, batTat as batTatDevMode } from './features/dev-mode.js';
 
 /* ─── §1 · KHỞI ĐỘNG ────────────────────────────────────────────────────── */
 
@@ -53,6 +54,7 @@ async function khoiDong() {
     khoiTaoGuiKhach($('.ck'));
     khoiTaoBienTap($('.editor'));
     khoiTaoKiemTra($('.checker'));
+    khoiTaoDevMode($('.devmode'));
 
     noiSuKien();
     baoLopThieu();
@@ -99,6 +101,7 @@ function noiSuKien() {
     'so-sanh':    () => moSoSanh(),
     'gui-khach':  () => batTatGuiKhach(),
     'bien-tap':   () => batTatBienTap(),
+    'dev-mode':   () => batTatDevMode(),
     'chu-de':     () => doiChuDe(),
     'reset':      () => { veKhungMacDinh(); dongHoSo(); }
   });

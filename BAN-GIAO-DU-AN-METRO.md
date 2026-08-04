@@ -5,12 +5,14 @@
 >
 > **Cập nhật:** 02/08/2026 · **Trạng thái:** Đã lên GitHub Pages: Chế độ biên
 > tập GIS (Giai đoạn 7), lọc danh mục dự án (Giai đoạn 8), Project Edit Mode
-> (Giai đoạn 9), nút "Kiểm tra dữ liệu" (Giai đoạn 10). Hoàng đã yêu cầu một
-> đợt refactor tổng thể lớn hơn nhiều (9 hạng mục) — đã thống nhất làm THEO
-> ĐỢT, tự chọn việc tự tin nhất làm trước, báo cáo lại sau mỗi đợt và đẩy lên
-> ngay khi xong. Mục 1, 2, 3, 4 xong. Các mục còn lại (Developer Mode, sửa lỗi
-> treo, trang Admin, Import/Export/Backup/Restore, Undo) **CHƯA LÀM**, xem mục
-> 4 Pending Tasks.
+> (Giai đoạn 9), "Kiểm tra dữ liệu" (Giai đoạn 10), Developer Mode (Giai đoạn
+> 11). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng mục) —
+> đã thống nhất làm THEO ĐỢT, tự chọn việc tự tin nhất làm trước, báo cáo lại
+> sau mỗi đợt và đẩy lên ngay khi xong. Mục 1, 2, 3, 4, 5 xong (một phần —
+> Developer Mode nói rõ giới hạn, không hứa dò được rò rỉ bộ nhớ/responsive tự
+> động). Các mục còn lại (mục 6 sửa lỗi treo cụ thể — cần Hoàng mô tả lại triệu
+> chứng, mục 7 trang Admin, mục 8 Import/Export/Backup/Restore, mục 9 Undo)
+> **CHƯA LÀM**, xem mục 4 Pending Tasks.
 
 ---
 
@@ -332,6 +334,30 @@ sánh"). Dò 9 loại:
   BMC"/"Ficohome" cùng một điểm) — Hoàng nên xem qua danh sách "Trùng marker"
   trước, có vẻ là nhóm đáng tin cậy nhất để dọn tiếp
 - Không lỗi console
+
+### Giai đoạn 11 — Developer Mode (02/08/2026, đã push)
+Mục 5 trong yêu cầu refactor. **Nói rõ giới hạn trước khi làm** — không hứa
+suông: "dò rò rỉ bộ nhớ" và "responsive" đầy đủ tự động là KHÔNG khả thi từ
+trong trang bằng JavaScript thuần, cần công cụ ngoài (DevTools tab Memory cho
+rò rỉ, tự đổi cỡ cửa sổ hoặc DevTools device toolbar cho responsive — cả hai
+cần xem bằng mắt). Đã làm phần THẬT SỰ khả thi:
+
+- **`js/features/dev-mode.js`**: đăng ký `window.addEventListener('error')` +
+  `'unhandledrejection'` ngay khi module nạp (không đợi bật panel — không bỏ
+  sót lỗi xảy ra sớm), lưu vào nhật ký trong bộ nhớ (tối đa 300 dòng)
+- Nút "🐞 Developer Mode" trên thanh trên → panel hiện: số lỗi JS, số promise
+  bị từ chối chưa bắt, danh sách chi tiết (giờ + thông điệp + stack, bấm mở
+  rộng xem), và "kiểm tra tĩnh" (lớp bản đồ bật trong cài đặt nhưng tải lỗi,
+  phần tử DOM bắt buộc bị thiếu, danh mục dự án rỗng)
+- "📄 Xuất báo cáo": tải về file `.txt` gồm toàn bộ nhật ký + kết quả kiểm tra
+  tĩnh — đúng yêu cầu "sau đó xuất báo cáo"
+- Đã thử: cố tình gây 1 lỗi JS thật (gọi hàm không tồn tại) + 1 promise bị từ
+  chối — cả hai bắt đúng, xuất báo cáo tải file thành công, không lỗi console
+- Đã tự kiểm responsive bằng mắt (không phải app tự làm): đổi cỡ màn hình
+  375×812 (mobile), panel Kiểm tra dữ liệu vẫn vừa khít, không vỡ bố cục
+- **CHƯA làm** (nằm trong nhóm "không hứa suông" ở trên): dò rò rỉ bộ nhớ tự
+  động, dò responsive tự động toàn diện, dò lỗi Popup/Sidebar dạng hình ảnh
+  (chỉ dò được Layer ở mức "bật nhưng tải lỗi", không dò được "vẽ sai/méo")
 
 ---
 

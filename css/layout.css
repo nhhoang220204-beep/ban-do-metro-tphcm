@@ -93,6 +93,10 @@
 .editor[hidden] { display: none; }
 .app[data-sidebar="open"] .editor { right: calc(var(--w-sidebar) + var(--s3)); }
 
+/* Developer Mode dùng chung khung .editor. Nếu mở cùng lúc với Chế độ biên
+   tập GIS thì chồng lên nhau — chấp nhận được, hai chế độ hiếm khi cần mở
+   song song, cứ đóng bớt một cái là thấy cái kia. */
+
 @media (max-width: 900px) {
   .editor { top: auto; bottom: 0; left: var(--s2); right: var(--s2); width: auto; max-height: 60dvh; }
   .app[data-sidebar="open"] .editor { right: var(--s2); }
