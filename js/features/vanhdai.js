@@ -42,6 +42,11 @@ function lotLoc(d) {
   const f = state.locVD;
   if (f.tuyen.length && !f.tuyen.includes(d.tuyenId)) return false;
   if (f.trangThai.length && !f.trangThai.includes(d.trangThai)) return false;
+  /* Bộ lọc riêng của chế độ biên tập GIS: cô lập đoạn tạm để chỉnh, hoặc ẩn
+     hẳn khi chỉ muốn xem dữ liệu đã xác minh. */
+  const laTam = d.trangThai === 'tam-so-hoa';
+  if (state.locHienThi === 'xac-minh' && laTam) return false;
+  if (state.locHienThi === 'tam' && !laTam) return false;
   return true;
 }
 
@@ -88,9 +93,14 @@ export function veLai() {
       className: kieu.hieuUng ? 'vd-thicong' : ''
     });
 
-    line.bindTooltip(`${doan.tenTuyen} · ${kieu.nhan ?? doan.trangThai}`, { sticky: true });
-    line.bindPopup(() => popupDoan(doan), { maxWidth: 340 });
-    line.on('click', () => set({ doanVD: doan.id }, 'doan-vd-doi'));
+    line.bindTooltip(`${doan.tenTuyen} · ${kieu.nhan ?? doan.trangThai}${state.bienTap ? ' · bấm để sửa điểm' : ''}`, { sticky: true });
+    if (!state.bienTap) line.bindPopup(() => popupDoan(doan), { maxWidth: 340 });
+    line.on('click', () => {
+      /* Trong chế độ biên tập, bấm một đoạn là để mở sửa polyline (xem
+         gis-editor.js), không mở bong bóng thông tin thông thường. */
+      if (state.bienTap) set({ doanDangSua: doan.id }, 'doan-sua-doi');
+      else set({ doanVD: doan.id }, 'doan-vd-doi');
+    });
     line.addTo(lop);
     duongCuaDoan.set(doan.id, line);
   }

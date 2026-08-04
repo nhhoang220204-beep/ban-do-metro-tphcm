@@ -76,6 +76,41 @@
 }
 .sidebar[hidden] { display: flex !important; visibility: hidden; transform: translateX(100%); }
 
+/* ─── Chế độ biên tập GIS — công cụ nội bộ ──────────────────────────────── */
+
+.editor {
+  position: absolute; z-index: var(--z-sidebar);
+  top: calc(52px + var(--s3) * 2); right: var(--s3);
+  width: 300px; max-height: calc(100dvh - 52px - var(--s3) * 4);
+  display: flex; flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r3);
+  box-shadow: var(--sh4);
+  overflow: auto;
+  transition: right var(--t-slow);
+}
+.editor[hidden] { display: none; }
+.app[data-sidebar="open"] .editor { right: calc(var(--w-sidebar) + var(--s3)); }
+
+@media (max-width: 900px) {
+  .editor { top: auto; bottom: 0; left: var(--s2); right: var(--s2); width: auto; max-height: 60dvh; }
+  .app[data-sidebar="open"] .editor { right: var(--s2); }
+}
+
+.editor__head {
+  display: flex; align-items: flex-start; gap: var(--s2);
+  padding: var(--s3); border-bottom: 1px solid var(--c-border);
+  background: color-mix(in srgb, #eab308 12%, var(--c-surface));
+}
+.editor__title { font-size: var(--fz2); font-weight: 750; }
+.editor__sub { font-size: var(--fz0); color: var(--c-text-3); margin-top: 2px; }
+.editor__body { padding: var(--s3); display: flex; flex-direction: column; gap: var(--s2); overflow: auto; }
+
+/* Bong bóng sửa toạ độ ga tạm — nội dung popup Leaflet. */
+.editor-pop { min-width: 200px; display: flex; flex-direction: column; gap: 2px; }
+.editor-pop__title { font-weight: 700; margin-bottom: var(--s1); }
+
 /* ─── Khay dưới trên điện thoại ─────────────────────────────────────────── */
 
 @media (max-width: 900px) {

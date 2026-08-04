@@ -28,7 +28,13 @@ export const state = {
 
   /* Bộ lọc riêng cho lớp đường vành đai. Không chọn gì = hiện tất cả. */
   locVD: { tuyen: [], trangThai: [] },
-  doanVD: null           // id đoạn vành đai đang chọn
+  doanVD: null,          // id đoạn vành đai đang chọn
+
+  /* Chế độ biên tập GIS nội bộ — xem features/gis-editor.js. Công cụ dựng dữ
+     liệu, KHÔNG phải chế độ xem của khách. Mặc định tắt. */
+  bienTap: false,
+  locHienThi: 'tat-ca',  // 'xac-minh' | 'tam' | 'tat-ca'
+  doanDangSua: null      // id đoạn vành đai đang mở sửa polyline (chế độ biên tập)
 };
 
 /* ─── Đăng ký nghe ──────────────────────────────────────────────────────── */

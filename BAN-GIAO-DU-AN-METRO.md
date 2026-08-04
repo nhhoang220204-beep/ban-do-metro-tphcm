@@ -3,9 +3,13 @@
 > Tài liệu này viết cho một phiên Claude hoàn toàn mới. Đọc xong file này là đủ
 > để tiếp tục công việc — **không cần đọc lại lịch sử hội thoại**.
 >
-> **Cập nhật:** 02/08/2026 · **Trạng thái:** Đã lên GitHub Pages, chạy được,
-> đang chờ Hoàng ghim 9 dự án còn thiếu toạ độ và duyệt đợt thí điểm nghiên
-> cứu tự động 50 dự án (xem Giai đoạn 6).
+> **Cập nhật:** 02/08/2026 · **Trạng thái:** Đã lên GitHub Pages (Chế độ biên
+> tập GIS + lọc lại danh mục dự án — Giai đoạn 7, 8), đang chờ Hoàng ghim 9 dự
+> án còn thiếu toạ độ và duyệt đợt thí điểm nghiên cứu tự động 50 dự án (Giai
+> đoạn 6). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng
+> mục: CRUD dự án, kiểm tra dữ liệu, Developer Mode, sửa lỗi treo, trang Admin,
+> Undo…) — đã thống nhất làm THEO ĐỢT, mục 1 (lọc dữ liệu) xong trước, các mục
+> còn lại **CHƯA LÀM**, xem mục 4 Pending Tasks.
 
 ---
 
@@ -173,6 +177,84 @@ trong app (xem QĐ-16).
 - **Không chạy phần "hình ảnh"/"mặt bằng" trong đợt này** — tải/gắn ảnh cần
   xác nhận quyền sử dụng, để ngoài phạm vi thí điểm
 
+### Giai đoạn 7 — Chế độ biên tập GIS nội bộ (02/08/2026, CHƯA PUSH)
+Hoàng yêu cầu một chế độ riêng để tự dựng dữ liệu ga metro/vành đai bằng cách
+kéo-thả trên bản đồ, khác hẳn chế độ xem bình thường (xem QĐ-17). Đã dựng:
+
+- **Nút "🛠 Chế độ biên tập GIS"** trên thanh trên → mở panel bên phải
+  (`js/features/gis-editor.js`), có bộ lọc hiển thị 3 mức: Chỉ xác minh / Chỉ
+  tạm / Hiện tất cả (mặc định "Hiện tất cả" — không chặn hiển thị dữ liệu tạm)
+- **Ga metro tạm** (🟡, nhấp nháy): kéo-thả trực tiếp trên bản đồ hoặc sửa số
+  lat/lng trong popup, bấm "Lưu toạ độ" ghi thẳng vào `data/stations.json`.
+  Đã sinh sẵn **41 ga tạm** (22 cho Metro số 2 Thủ Dầu Một + 19 cho Metro Bình
+  Dương — Suối Tiên) bằng cách nội suy đều theo hình học tuyến đã có từ OSM —
+  KHÔNG phải vị trí ga thật, chỉ là điểm khởi đầu để Hoàng tự kéo vào đúng chỗ
+  (xem `tools/estimate-stations-tam.mjs`, chạy lại được, idempotent)
+- **Sửa polyline đoạn vành đai**: bấm một đoạn "Tạm số hoá" (màu vàng chấm
+  chấm) trong chế độ biên tập → hiện tay cầm từng điểm (kéo = di chuyển, bấm =
+  xoá điểm, bấm chấm trắng giữa hai điểm = thêm điểm) → bấm "Lưu" ghi vào
+  `data/ring_roads.json`. Đã tự động nối **41 khúc hở ngắn** (≤6km, khả năng
+  cao là chỗ giao lộ OSM vẽ rời) giữa các đoạn đã có của cả 3 vành đai bằng
+  đoạn thẳng tạm — trạng thái mới `tam-so-hoa` (xem `tools/estimate-ring-gaps-tam.mjs`)
+- **1 khúc hở KHÔNG được nối** (Vành đai 4, 41 km, xuyên nhiều tỉnh) — nối
+  thẳng sẽ là bịa cả chục km đường, không phải "số hoá sơ bộ". Hoàng cần tự
+  vẽ tay trong chế độ biên tập hoặc tra quy hoạch chính thức
+- **`tools/serve.mjs` giờ có thể GHI file**: thêm `POST /__luu-du-lieu`, chỉ
+  nhận đúng hai tên file (`stations`, `ring_roads`), chỉ chạy khi mở bằng
+  `node tools/serve.mjs` trên máy Hoàng. ⚠️ **Đổi hành vi:** máy chủ giờ chỉ
+  lắng nghe trên `127.0.0.1` (trước đây không khai báo host nên nghe cả mạng
+  LAN) — vì đã có khả năng ghi file, không để lộ ra mạng. Nếu Hoàng có thói
+  quen mở app từ điện thoại qua địa chỉ IP của máy tính trong cùng wifi, cách
+  đó **sẽ không còn chạy được nữa**. Trên GitHub Pages (site tĩnh), nút "Lưu"
+  luôn báo lỗi rõ ràng, không bao giờ mất dữ liệu âm thầm
+- Đã kiểm thử đầy đủ trên máy: kéo ga tạm + lưu (xác nhận ghi đúng xuống
+  `data/stations.json`), thêm/xoá/kéo điểm polyline + lưu (xác nhận ghi đúng
+  xuống `data/ring_roads.json`), bộ lọc hiển thị, ga/đoạn đã xác minh không
+  đổi hành vi khi bật/tắt chế độ biên tập — không lỗi console
+- ✅ **Đã push lên GitHub** (cùng đợt với Giai đoạn 8 bên dưới)
+
+### Giai đoạn 8 — Lọc lại danh mục dự án theo loại hình (02/08/2026)
+Hoàng phản ánh danh mục lẫn nhiều đối tượng không phải nhà ở (công ty, văn
+phòng, showroom, trụ sở, khu đất, doanh nghiệp) — chỉ muốn giữ Chung cư/Căn
+hộ/Nhà phố/Shophouse/Biệt thự/Khu đô thị/Dự án nhà ở, loại còn lại thì "Không
+xác định được loại hình → Không hiển thị". Đây là mục 1 trong yêu cầu refactor
+lớn hơn (xem mục 4 Pending Tasks) — đã làm riêng mục này trước, các mục còn
+lại (2–9) CHƯA làm, chờ Hoàng xác nhận thứ tự ưu tiên tiếp theo.
+
+- Quét tên 1.154 ứng viên OSM theo 2 vòng từ khoá (công ty/văn phòng/showroom/
+  trụ sở/xí nghiệp/kho/KCN/trường/bệnh viện/UBND/công an/ngân hàng/chợ/nhà
+  thờ/chùa/bãi xe/trạm/nghĩa trang/khách sạn…) — chỉ ra 13 nghi vấn, xác nhận
+  tay từng cái để tránh xoá nhầm (vd: "Miếu Nổi", "Chợ Lớn", "Chợ Quán" là ĐỊA
+  DANH trong tên chung cư thật, không phải văn phòng/chợ thật — GIỮ LẠI)
+- Đối chiếu thêm với 50 hồ sơ đã tự nghiên cứu ở Giai đoạn 6 (có ghi rõ trong
+  `ghiChu` nếu là văn phòng/căn hộ dịch vụ cho thuê thay vì dự án bán) — tìm
+  thêm 10 trường hợp xác nhận rõ không phải BĐS để bán
+- **Đã xoá 17/1.165 dự án** khỏi `data/projects/index.json` (còn 1.148):
+  Bitexco Building, Toà Nhà Cityview, Crescent Residence 1/2/3 (văn phòng/căn
+  hộ dịch vụ cho thuê), Sherwood Residence, Indochine Park Tower (serviced
+  apartment cho thuê, không bán), Saigon Mansion (văn phòng+bán lẻ+ở hỗn hợp,
+  không có căn hộ để bán xác nhận), An Khánh, An Phú (không xác định được là
+  một dự án cụ thể — nhiều khả năng chỉ là điểm OSM đánh dấu tên phường), Trạm
+  khí tượng Thủ Dầu Một, Kho Bạc NN quận Phú Nhuận, Chợ Hoa Tươi Đầm Sen, Công
+  ty CP Nhựa Bảo Vân, Công Ty TNHH Vision International, Cty Liên Hưng, Cơ sở
+  sản xuất Sơn Hà — xoá luôn 10 file `chi-tiet/<id>.json` mồ côi tương ứng
+- **Giữ lại** các trường hợp nghi vấn nhưng có bằng chứng vẫn là BĐS ở thật:
+  Copac Square và Cao Ốc An Thịnh (toà hỗn hợp văn phòng+căn hộ nhưng CÓ xác
+  nhận giao dịch mua bán căn hộ thật); các chung cư cũ tên trùng địa danh
+  (Miếu Nổi, Chợ Lớn, Chợ Quán, Phan Xích Long, 145 Phan Chu Trinh…); khu tái
+  định cư (vẫn là nhà ở, chỉ khác chủ đầu tư là nhà nước); resort có "Residences"
+  trong tên (Hyatt Regency Hồ Tràm…) — chưa đủ căn cứ để xoá, resort bán biệt
+  thự/condotel là sản phẩm thật ở khu vực này
+- ⚠️ **GIỚI HẠN QUAN TRỌNG:** chỉ rà được kỹ 61/1.165 dự án (11 đã kiểm + 50 đã
+  nghiên cứu Giai đoạn 6). Với **~1.087 dự án còn lại chưa từng nghiên cứu**,
+  chỉ lọc được bằng từ khoá trong TÊN — dự án nào tên không có từ khoá lộ liễu
+  (như "Bitexco Building", "Crescent Residence" từng lọt qua vòng từ khoá vì
+  tên không "kêu" là văn phòng) vẫn có thể còn sai loại hình mà chưa phát hiện
+  được. Muốn rà hết cần nghiên cứu từng dự án như Giai đoạn 6, tốn nhiều đợt
+  agent tương tự
+- Không lỗi console sau khi xoá; kiểm tra không còn dữ liệu mồ côi trong
+  `data/routes.json` / `data/amenities.json`
+
 ---
 
 ## 4 · Pending Tasks
@@ -197,6 +279,21 @@ trong app (xem QĐ-16).
    khi dùng để tư vấn khách — đặc biệt "Chung cư 22 Tầng" (độ tin cậy thấp) và
    "Cư xá Đoàn Văn Bơ" (nghi sai vị trí/tên). Sau khi duyệt, báo lại có chạy
    tiếp cho 1.104 ứng viên OSM còn lại hay không (tốn nhiều lượt tra cứu web).
+9. **Chọn thứ tự ưu tiên cho đợt "refactor tổng thể"** Hoàng yêu cầu 02/08/2026
+   (9 hạng mục lớn, xem nguyên văn trong lịch sử hội thoại phiên này nếu cần):
+   mục 1 (lọc dữ liệu theo loại hình) đã làm xong (Giai đoạn 8). CÒN LẠI CHƯA
+   LÀM: (2) Project Edit Mode — CRUD đầy đủ cho dự án (tên, CĐT, địa chỉ, giá,
+   quy mô…), (3) sửa marker dự án kéo-thả giống chế độ biên tập GIS đã có,
+   (4) nút "Kiểm tra dữ liệu" tự dò trùng tên/sai toạ độ/thiếu thông tin/giá
+   bất thường, (5) "Developer Mode" tự dò lỗi JS/Promise/Fetch/layer/popup/
+   sidebar/memory-leak (lưu ý: dò memory-leak và responsive tự động không khả
+   thi đầy đủ với kiến trúc thuần JS hiện tại, cần nói rõ giới hạn), (6) tìm
+   và sửa các nút/popup bị treo (Hoàng đã gặp nhưng chưa mô tả cụ thể nút nào —
+   cần hỏi lại cụ thể triệu chứng trước khi sửa mù), (7) trang Admin quản lý
+   Metro/Ga/Vành đai/tiện ích + Import/Export/Backup/Restore, (8) Undo/Redo
+   cho mọi thao tác chỉnh sửa. Đây là khối lượng nhiều phiên làm việc, KHÔNG
+   nên làm dồn một lượt rồi tự động đẩy lên — mỗi hạng mục cần Hoàng xem qua
+   trước khi làm tiếp, tránh làm hỏng công cụ đang dùng thật.
 
 ### Kỹ thuật
 
@@ -308,6 +405,23 @@ khoá do `index.json` quản lý (`nguon`, `trangThai`, `xacMinh`, `ten`, `toaDo
 `ma`) khi nghiên cứu ứng viên OSM — nghiên cứu chỉ bổ sung số liệu, không tự ý
 "thăng hạng" một ứng viên chưa kiểm thành dự án đã xác minh (vi phạm QĐ-10 nếu
 làm vậy).
+
+**QĐ-17 · Chế độ biên tập GIS (`js/features/gis-editor.js`) là NGOẠI LỆ có chủ
+đích của QĐ-1, chỉ áp dụng khi Hoàng bật nút 🛠, không áp dụng cho chế độ xem
+thường.** Hoàng xác nhận rõ: "Website này là công cụ nội bộ để tôi xây dựng cơ
+sở dữ liệu, KHÔNG phải website công bố dữ liệu chính thức." Trong chế độ này:
+- Được phép đặt marker/polyline ước lượng cho dữ liệu chưa xác minh (ga metro,
+  đoạn vành đai), miễn là mang trạng thái riêng (`tamThoi: true` /
+  `trangThai: "tam-so-hoa"`), màu riêng (🟡 vàng), và không bao giờ gộp chung
+  với dữ liệu đã xác minh
+- `tools/serve.mjs` có endpoint ghi file `POST /__luu-du-lieu`, chỉ chạy cục
+  bộ (127.0.0.1), chỉ ghi đúng hai file được liệt kê sẵn (`stations.json`,
+  `ring_roads.json`) — KHÔNG bao giờ có ở bản GitHub Pages
+- Khi Hoàng đã kéo một ga/đoạn vào đúng vị trí thực địa, cần TỰ đổi
+  `tamThoi`/`trangThai` sang trạng thái đã xác minh (sửa tay trong file JSON —
+  công cụ biên tập không tự "thăng hạng" xác minh) rồi mới dùng để tư vấn khách
+- Khúc hở quá lớn để nối bằng đoạn thẳng (>6km, xem Giai đoạn 7) KHÔNG được tự
+  động số hoá — phải tự vẽ tay hoặc tra quy hoạch chính thức
 
 ---
 

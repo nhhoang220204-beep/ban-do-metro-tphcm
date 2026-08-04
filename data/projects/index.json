@@ -322,24 +322,6 @@
     "coChiTiet": true
   },
   {
-    "id": "toa-nha-cityview",
-    "ma": "",
-    "ten": "Toà Nhà Cityview",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.78498,
-      106.69955
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/165627078",
-    "coChiTiet": true
-  },
-  {
     "id": "shade-2-stories-1",
     "ma": "",
     "ten": "Shade 2 Stories 1",
@@ -373,24 +355,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/166103218",
-    "coChiTiet": true
-  },
-  {
-    "id": "sherwood-residence",
-    "ma": "",
-    "ten": "Sherwood Residence",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.78248,
-      106.69294
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/186545012",
     "coChiTiet": true
   },
   {
@@ -517,42 +481,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/193940330",
-    "coChiTiet": true
-  },
-  {
-    "id": "crescent-residence-2",
-    "ma": "",
-    "ten": "Crescent Residence 2",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.72604,
-      106.72076
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/205798430",
-    "coChiTiet": true
-  },
-  {
-    "id": "crescent-residence-3",
-    "ma": "",
-    "ten": "Crescent Residence 3",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.7249,
-      106.72041
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/205798431",
     "coChiTiet": true
   },
   {
@@ -700,24 +628,6 @@
     "coChiTiet": true
   },
   {
-    "id": "crescent-residence-1",
-    "ma": "",
-    "ten": "Crescent Residence 1",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.72786,
-      106.71916
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/243154153",
-    "coChiTiet": true
-  },
-  {
     "id": "riverside-residence-block-b",
     "ma": "",
     "ten": "Riverside Residence - Block B",
@@ -805,24 +715,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/258736056",
-    "coChiTiet": true
-  },
-  {
-    "id": "bitexco-building",
-    "ma": "",
-    "ten": "Bitexco Building",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.7718,
-      106.70556
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/258866010",
     "coChiTiet": true
   },
   {
@@ -916,42 +808,6 @@
     "coChiTiet": true
   },
   {
-    "id": "an-khanh",
-    "ma": "",
-    "ten": "An Khánh",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.79981,
-      106.73795
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/261583837",
-    "coChiTiet": true
-  },
-  {
-    "id": "an-phu",
-    "ma": "",
-    "ten": "An Phú",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.79994,
-      106.73877
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/261583838",
-    "coChiTiet": true
-  },
-  {
     "id": "chung-cu-minh-thanh",
     "ma": "",
     "ten": "Chung Cư Minh Thành",
@@ -967,42 +823,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/262630392",
-    "coChiTiet": true
-  },
-  {
-    "id": "indochine-park-tower",
-    "ma": "",
-    "ten": "Indochine Park Tower",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.77846,
-      106.69351
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/262966604",
-    "coChiTiet": true
-  },
-  {
-    "id": "saigon-mansion",
-    "ma": "",
-    "ten": "Saigon Mansion",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.78086,
-      106.6946
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/262966612",
     "coChiTiet": true
   },
   {
@@ -7720,24 +7540,6 @@
     "coChiTiet": false
   },
   {
-    "id": "tram-khi-tuong-thu-dau-mot",
-    "ma": "",
-    "ten": "Trạm khí tượng Thủ Dầu Một",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      11.04145,
-      106.63515
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/1223713270",
-    "coChiTiet": false
-  },
-  {
     "id": "cao-oc-b",
     "ma": "",
     "ten": "Cao ốc B",
@@ -9754,24 +9556,6 @@
     "coChiTiet": false
   },
   {
-    "id": "kho-bac-nn-quan-phu-nhuan",
-    "ma": "",
-    "ten": "Kho Bạc NN quận Phú Nhuận",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.79412,
-      106.67585
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/372305017",
-    "coChiTiet": false
-  },
-  {
     "id": "cho-binh-tien",
     "ma": "",
     "ten": "Chợ Bình Tiên",
@@ -9787,24 +9571,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/419478164",
-    "coChiTiet": false
-  },
-  {
-    "id": "cho-hoa-tuoi-dam-sen",
-    "ma": "",
-    "ten": "Chợ Hoa Tươi Đầm Sen",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.7697,
-      106.64276
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/421970913",
     "coChiTiet": false
   },
   {
@@ -9895,60 +9661,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/786415048",
-    "coChiTiet": false
-  },
-  {
-    "id": "cong-ty-cp-nhua-bao-van",
-    "ma": "",
-    "ten": "Công ty CP Nhựa Bảo Vân",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.92214,
-      106.7266
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/971580231",
-    "coChiTiet": false
-  },
-  {
-    "id": "cong-ty-tnhh-vision-international",
-    "ma": "",
-    "ten": "Công Ty TNHH Vision International",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.92628,
-      106.72226
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/971582700",
-    "coChiTiet": false
-  },
-  {
-    "id": "cty-lien-hung",
-    "ma": "",
-    "ten": "Cty Liên Hưng",
-    "loaiHinh": "chung-cu",
-    "toaDo": [
-      10.94499,
-      106.71553
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/971589287",
     "coChiTiet": false
   },
   {
@@ -16411,24 +16123,6 @@
     "donViGia": "trđ/m²",
     "nguon": "osm",
     "nguonToaDo": "OpenStreetMap · way/933079497",
-    "coChiTiet": false
-  },
-  {
-    "id": "co-so-san-xuat-son-ha",
-    "ma": "",
-    "ten": "Cơ sở sản xuất Sơn Hà",
-    "loaiHinh": "khu-do-thi",
-    "toaDo": [
-      11.3022,
-      106.63024
-    ],
-    "xacMinh": "osm",
-    "trangThai": "chua-ro",
-    "chuDauTu": "",
-    "giaTu": null,
-    "donViGia": "trđ/m²",
-    "nguon": "osm",
-    "nguonToaDo": "OpenStreetMap · way/971943446",
     "coChiTiet": false
   },
   {

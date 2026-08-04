@@ -186,6 +186,10 @@ function lopGa() {
   const mauTuyen = Object.fromEntries(duLieu.metro.lines.map(l => [l.id, l.color]));
 
   for (const ga of duLieu.stations.stations) {
+    /* Ga tạm (chưa xác minh) do gis-editor.js tự quản lý — kéo-thả được, màu
+       riêng, ẩn/hiện theo bộ lọc chế độ biên tập. Lớp "Ga Metro" thường chỉ vẽ
+       ga đã xác minh, không đổi hành vi khi chế độ biên tập tắt. */
+    if (ga.tamThoi) continue;
     const ten = ga.lines.map(id => duLieu.metro.lines.find(l => l.id === id)?.name ?? id);
     L.marker(ga.c, { icon: ghimGa(ga, mauTuyen[ga.lines[0]] ?? '#475569'), zIndexOffset: 200 })
       .bindTooltip(ga.name, { direction: 'top', offset: [0, -8] })

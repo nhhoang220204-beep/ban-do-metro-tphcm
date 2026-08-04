@@ -153,6 +153,34 @@
 .station:hover { transform: scale(1.35); }
 .station--doi { width: 19px; height: 19px; border-width: 4px; border-color: var(--c-text); }
 
+/* ─── Ga tạm — chế độ biên tập GIS, KHÔNG phải dữ liệu đã xác minh ──────── */
+
+.station-tam {
+  display: grid; place-items: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #eab308; border: 2px solid #a16207;
+  box-shadow: 0 1px 5px rgba(15, 23, 42, .4);
+  font-size: 11px; cursor: grab;
+  animation: tam-nhap-nhay 1.8s ease-in-out infinite;
+}
+.station-tam:active { cursor: grabbing; animation: none; }
+@keyframes tam-nhap-nhay { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+
+/* ─── Tay cầm sửa polyline vành đai ─────────────────────────────────────── */
+
+.tay-cam {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #ec4899; border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, .5);
+  cursor: grab;
+}
+.tay-cam:active { cursor: grabbing; }
+.tay-cam--mid {
+  width: 9px; height: 9px; background: #fff; border: 2px solid #ec4899;
+  opacity: .8; cursor: copy;
+}
+.tay-cam--mid:hover { opacity: 1; transform: scale(1.3); }
+
 /* ─── Ghim tiện ích và điểm hạ tầng ─────────────────────────────────────── */
 
 .poi {

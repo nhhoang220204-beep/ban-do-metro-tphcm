@@ -8,16 +8,29 @@
  * Vì sao cần: ứng dụng nạp dữ liệu bằng fetch và dùng module JavaScript. Mở
  * thẳng file từ ổ đĩa (giao thức file://) thì trình duyệt chặn cả hai, ra trang
  * trắng. Không cần cài gì thêm, chỉ dùng thư viện có sẵn của Node.
+ *
+ * CHẾ ĐỘ BIÊN TẬP GIS: máy chủ này còn nhận POST /__luu-du-lieu để ghi thẳng
+ * xuống data/stations.json và data/ring_roads.json khi bấm "Lưu" trong ứng
+ * dụng — chỉ dùng cho việc tự dựng dữ liệu trên máy Hoàng, KHÔNG bao giờ chạy
+ * trên GitHub Pages (site tĩnh không có máy chủ này). Vì có khả năng GHI file
+ * nên chỉ lắng nghe trên 127.0.0.1, không mở ra mạng LAN, và chỉ nhận đúng hai
+ * tên file trong danh sách cho phép bên dưới.
  */
 
 import { createServer } from 'node:http';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, writeFile, stat } from 'node:fs/promises';
 import { join, extname, normalize } from 'node:path';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.argv[2]) || 5173;
+
+/** Chỉ hai file này được phép ghi qua /__luu-du-lieu — không nhận đường dẫn tuỳ ý. */
+const FILE_DUOC_GHI = {
+  'stations': join(ROOT, 'data', 'stations.json'),
+  'ring_roads': join(ROOT, 'data', 'ring_roads.json')
+};
 
 const KIEU = {
   '.html': 'text/html; charset=utf-8',
@@ -33,9 +46,48 @@ const KIEU = {
   '.ico':  'image/x-icon'
 };
 
+/** Đọc thân request, chặn body quá lớn (phòng lỗi gõ nhầm gửi vòng lặp). */
+async function docThan(req, gioiHan = 20 * 1024 * 1024) {
+  const phan = [];
+  let tong = 0;
+  for await (const doan of req) {
+    tong += doan.length;
+    if (tong > gioiHan) throw new Error('Body quá lớn');
+    phan.push(doan);
+  }
+  return Buffer.concat(phan).toString('utf8');
+}
+
+async function xuLyLuuDuLieu(req, res) {
+  try {
+    const than = await docThan(req);
+    const { file, noiDung } = JSON.parse(than);
+    const duong = FILE_DUOC_GHI[file];
+    if (!duong) {
+      res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' })
+         .end(JSON.stringify({ loi: `Tên file không hợp lệ: "${file}"` }));
+      return;
+    }
+    /* noiDung phải là JSON hợp lệ trước khi ghi — không để một lần lưu hỏng làm
+       mất trắng cả file. */
+    const parsed = JSON.parse(noiDung);
+    await writeFile(duong, JSON.stringify(parsed, null, 2) + '\n', 'utf8');
+    console.log(`  → đã lưu ${file}: data/${file === 'stations' ? 'stations' : 'ring_roads'}.json`);
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' }).end(JSON.stringify({ ok: true }));
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
+       .end(JSON.stringify({ loi: err.message }));
+  }
+}
+
 const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
+
+    if (req.method === 'POST' && url.pathname === '/__luu-du-lieu') {
+      return xuLyLuuDuLieu(req, res);
+    }
+
     let rel = decodeURIComponent(url.pathname);
     if (rel.endsWith('/')) rel += 'index.html';
 
@@ -57,7 +109,9 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
+/* Chỉ 127.0.0.1: máy chủ này giờ có khả năng ghi file, không để lộ ra mạng LAN. */
+server.listen(PORT, '127.0.0.1', () => {
   console.log(`Bản đồ đang chạy tại  http://localhost:${PORT}`);
+  console.log('Chế độ biên tập GIS: bấm "Lưu" trong ứng dụng sẽ ghi thẳng vào data/*.json');
   console.log('Dừng bằng Ctrl+C');
 });

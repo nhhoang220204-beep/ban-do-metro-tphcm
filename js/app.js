@@ -18,6 +18,7 @@ import { khoiTaoTimKiem, quenNguonTim } from './features/search.js';
 import { khoiTaoSoSanh, mo as moSoSanh, veLaiSoSanh } from './features/compare.js';
 import { khoiTaoGuiKhach, batTat as batTatGuiKhach, veLaiGuiKhach } from './features/clientmode.js';
 import { khoiTaoVanhDai, hienLopVanhDai } from './features/vanhdai.js';
+import { khoiTaoBienTap, batTat as batTatBienTap, khoiTaoLopGaTam } from './features/gis-editor.js';
 
 /* ─── §1 · KHỞI ĐỘNG ────────────────────────────────────────────────────── */
 
@@ -43,11 +44,13 @@ async function khoiDong() {
        đoạn) nên khởi tạo riêng, không đi qua sổ đăng ký lớp chung. */
     const lopVD = khoiTaoVanhDai();
     if (lopVD && state.lop.vanhdai !== false) hienLopVanhDai(true);
+    khoiTaoLopGaTam();
     khoiTaoSidebar($('.sidebar'));
     khoiTaoPanel($('.panel'), $('.legend'));
     khoiTaoTimKiem($('#tim'), $('#ketqua'));
     khoiTaoSoSanh($('.cmp'));
     khoiTaoGuiKhach($('.ck'));
+    khoiTaoBienTap($('.editor'));
 
     noiSuKien();
     baoLopThieu();
@@ -93,6 +96,7 @@ function noiSuKien() {
     'panel':      btn => batTatPanel(btn),
     'so-sanh':    () => moSoSanh(),
     'gui-khach':  () => batTatGuiKhach(),
+    'bien-tap':   () => batTatBienTap(),
     'chu-de':     () => doiChuDe(),
     'reset':      () => { veKhungMacDinh(); dongHoSo(); }
   });
