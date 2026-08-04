@@ -12,11 +12,11 @@
   "quyMo": "",
   "block": "",
   "tongSoCan": "",
-  "banGiao": "Bàn giao full nội thất",
+  "banGiao": "Q2/2026",
   "phapLy": "",
-  "giaTu": 2000,
+  "giaTu": 38,
   "giaTrungBinh": null,
-  "donViGia": "trđ/căn",
+  "donViGia": "trđ/m²",
   "dienTich": "",
   "logo": "",
   "anh": [],
@@ -30,5 +30,15 @@
     }
   ],
   "nguon": "thu-cong",
-  "ghiChu": "Mặt tiền đường, bàn giao full nội thất, khoảng giá 2–2,6 tỷ/căn."
+  "ghiChu": "Mặt tiền đường, bàn giao full nội thất, khoảng giá 2–2,6 tỷ/căn. Giá tham khảo: 38 tr/m² (bảng Bình Dương 7/2026). Bàn giao theo bảng: Q2/2026. Tiến độ kinh doanh theo bảng: Dự án mở bán đợt 2. Giá THAM KHẢO, CHƯA VAT, lấy từ bảng lưu hành trong giới môi giới — chưa đối chiếu bảng giá chính thức của chủ đầu tư. Phải kiểm lại trước khi báo giá cho khách. Hồ sơ cũ ghi giá 2.000 trđ/căn; bảng Bình Dương 7/2026 ghi 38 tr/m² — đổi sang đơn vị tr/m² cho đồng bộ với danh mục, số cũ giữ lại trong ghi chú này.",
+  "nguonTheoTruong": {
+    "giaTu": "Bảng \"DỰ ÁN – BÌNH DƯƠNG · Tiến độ kinh doanh – Giá – TG bàn giao\" (Kênh Thị Trường Bất Động Sản / Minh Tri Real), cập nhật 7/2026 — GIÁ THAM KHẢO CHƯA VAT",
+    "banGiao": "Bảng \"DỰ ÁN – BÌNH DƯƠNG · Tiến độ kinh doanh – Giá – TG bàn giao\" (Kênh Thị Trường Bất Động Sản / Minh Tri Real), cập nhật 7/2026 — GIÁ THAM KHẢO CHƯA VAT"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-04",
+    "nguonDaKiem": [
+      "bang-gia-moi-gioi"
+    ]
+  }
 }

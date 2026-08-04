@@ -12,9 +12,9 @@
   "quyMo": "",
   "block": "",
   "tongSoCan": "",
-  "banGiao": "",
+  "banGiao": "~ 2028",
   "phapLy": "",
-  "giaTu": null,
+  "giaTu": 38,
   "giaTrungBinh": null,
   "donViGia": "trđ/m²",
   "dienTich": "Studio khoảng 40,64 m² sàn (36,53 m² tim tường) · 1PN+ khoảng 54 m² · 2PN 2WC khoảng 67 m²",
@@ -23,5 +23,15 @@
   "matBang": [],
   "lichThanhToan": [],
   "nguon": "thu-cong",
-  "ghiChu": "Tệp khách: gia đình trẻ và nhà đầu tư vốn vừa."
+  "ghiChu": "Tệp khách: gia đình trẻ và nhà đầu tư vốn vừa. Giá tham khảo: 38 tr/m² (bảng Bình Dương 7/2026). Bàn giao theo bảng: ~ 2028. Tiến độ kinh doanh theo bảng: Dự án mở bán đợt 2. Giá THAM KHẢO, CHƯA VAT, lấy từ bảng lưu hành trong giới môi giới — chưa đối chiếu bảng giá chính thức của chủ đầu tư. Phải kiểm lại trước khi báo giá cho khách.",
+  "nguonTheoTruong": {
+    "giaTu": "Bảng \"DỰ ÁN – BÌNH DƯƠNG · Tiến độ kinh doanh – Giá – TG bàn giao\" (Kênh Thị Trường Bất Động Sản / Minh Tri Real), cập nhật 7/2026 — GIÁ THAM KHẢO CHƯA VAT",
+    "banGiao": "Bảng \"DỰ ÁN – BÌNH DƯƠNG · Tiến độ kinh doanh – Giá – TG bàn giao\" (Kênh Thị Trường Bất Động Sản / Minh Tri Real), cập nhật 7/2026 — GIÁ THAM KHẢO CHƯA VAT"
+  },
+  "nghienCuu": {
+    "ngay": "2026-08-04",
+    "nguonDaKiem": [
+      "bang-gia-moi-gioi"
+    ]
+  }
 }

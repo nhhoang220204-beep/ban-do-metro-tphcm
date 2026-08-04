@@ -2,15 +2,16 @@
   "id": "fiato-uptown",
   "chuDauTu": "",
   "diaChi": "Thủ Đức",
-  "giaTu": 60,
+  "giaTu": 58,
   "giaTrungBinh": null,
   "donViGia": "trđ/m²",
   "tongSoCan": "383 căn hộ",
   "quyMo": "1.66 ha",
   "nguonTheoTruong": {
-    "giaTu": "BIGGEE.VN — bảng theo dõi nguồn cung căn hộ TP.HCM (kèm %MoM, %YTD), cập nhật T7–T8/2026 — giá tham khảo, CHƯA đối chiếu chủ đầu tư",
+    "giaTu": "Bảng \"DỰ ÁN – BÌNH DƯƠNG · Tiến độ kinh doanh – Giá – TG bàn giao\" (Kênh Thị Trường Bất Động Sản / Minh Tri Real), cập nhật 7/2026 — GIÁ THAM KHẢO CHƯA VAT",
     "tongSoCan": "BIGGEE.VN — bảng theo dõi nguồn cung căn hộ TP.HCM (kèm %MoM, %YTD), cập nhật T7–T8/2026 — giá tham khảo, CHƯA đối chiếu chủ đầu tư",
-    "quyMo": "BIGGEE.VN — bảng theo dõi nguồn cung căn hộ TP.HCM (kèm %MoM, %YTD), cập nhật T7–T8/2026 — giá tham khảo, CHƯA đối chiếu chủ đầu tư"
+    "quyMo": "BIGGEE.VN — bảng theo dõi nguồn cung căn hộ TP.HCM (kèm %MoM, %YTD), cập nhật T7–T8/2026 — giá tham khảo, CHƯA đối chiếu chủ đầu tư",
+    "banGiao": "Bảng \"DỰ ÁN – BÌNH DƯƠNG · Tiến độ kinh doanh – Giá – TG bàn giao\" (Kênh Thị Trường Bất Động Sản / Minh Tri Real), cập nhật 7/2026 — GIÁ THAM KHẢO CHƯA VAT"
   },
   "nghienCuu": {
     "ngay": "2026-08-04",
@@ -18,5 +19,6 @@
       "bang-gia-moi-gioi"
     ]
   },
-  "ghiChu": "Khoảng giá tham khảo: 60–75 trđ/m² (T7–T8/2026). Biến động theo nguồn: %MoM 0%, %YTD +5.3%. Khu vực theo nguồn: Thủ Đức. Diện tích khu đất: 1.66 ha. Số lượng căn hộ: 383. Đây là giá tham khảo từ bảng giá lưu hành trong giới môi giới, CHƯA đối chiếu bảng giá chính thức của chủ đầu tư — phải kiểm lại trước khi báo giá cho khách. CHƯA có toạ độ — dự án không hiện trên bản đồ cho tới khi ghim vị trí."
+  "ghiChu": "Khoảng giá tham khảo: 60–75 trđ/m² (T7–T8/2026). Biến động theo nguồn: %MoM 0%, %YTD +5.3%. Khu vực theo nguồn: Thủ Đức. Diện tích khu đất: 1.66 ha. Số lượng căn hộ: 383. Đây là giá tham khảo từ bảng giá lưu hành trong giới môi giới, CHƯA đối chiếu bảng giá chính thức của chủ đầu tư — phải kiểm lại trước khi báo giá cho khách. CHƯA có toạ độ — dự án không hiện trên bản đồ cho tới khi ghim vị trí. Giá tham khảo: 58 tr/m² (bảng Bình Dương 7/2026). Bàn giao theo bảng: ~ Q3/2026. Tiến độ kinh doanh theo bảng: Dự án mở bán đợt 2. Được người lập bảng đánh dấu ⭐ (nổi bật). Giá THAM KHẢO, CHƯA VAT, lấy từ bảng lưu hành trong giới môi giới — chưa đối chiếu bảng giá chính thức của chủ đầu tư. Phải kiểm lại trước khi báo giá cho khách. Có hai nguồn khác nhau: bảng Bình Dương 7/2026 ghi 58 tr/m² (bàn giao Q3/2026); BIGGEE.VN T7–T8/2026 ghi 60–75 tr/m² (Thủ Đức). Đang lấy theo bảng Bình Dương vì mới hơn và cụ thể hơn.",
+  "banGiao": "~ Q3/2026"
 }
