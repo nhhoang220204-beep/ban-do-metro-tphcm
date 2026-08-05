@@ -19,6 +19,7 @@ import { el, fill, toast, delegate } from '../core/dom.js';
 import { state, set, on } from '../core/store.js';
 import { duLieu, danhMuc } from '../core/data.js';
 import { luuFile } from '../core/luu-local.js';
+import { moLichSu, ghiNhan, hoanTac, lamLai, demBuoc, dongLichSu } from '../core/lich-su.js';
 import { map, canvasRenderer } from '../map/engine.js';
 import { veLai as veLaiVanhDai, cacTuyenVD } from './vanhdai.js';
 import { themDuAnMoi } from './project-editor.js';
@@ -39,12 +40,26 @@ export function khoiTaoBienTap(node) {
     'loc-hien-thi':   btn => datLocHienThi(btn.dataset.gia),
     'dong-sua-doan':  () => set({ doanDangSua: null }, 'doan-sua-doi'),
     'luu-doan':       () => luuDoanDangSua(),
+    'hoan-tac-doan':  () => apLichSu(hoanTac),
+    'lam-lai-doan':   () => apLichSu(lamLai),
     'xoa-doan-tam':   () => xoaDoanDangSua(),
     'them-du-an':     () => themDuAnMoi(),
     'kiem-tra-du-lieu': () => chayKiemTra()
   });
 
   on('doan-sua-doi', () => { veTrangThaiSuaDoan(); veNoiDungPanel(); });
+
+  /* Ctrl+Z / Ctrl+Y (và Ctrl+Shift+Z) — chỉ ăn khi đang sửa một đoạn và con
+     trỏ không nằm trong ô nhập, để không cướp undo của ô nhập toạ độ. */
+  document.addEventListener('keydown', ev => {
+    if (!state.bienTap || !state.doanDangSua) return;
+    if (!(ev.ctrlKey || ev.metaKey)) return;
+    const t = ev.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    const k = ev.key.toLowerCase();
+    if (k === 'z' && !ev.shiftKey) { ev.preventDefault(); apLichSu(hoanTac); }
+    else if (k === 'y' || (k === 'z' && ev.shiftKey)) { ev.preventDefault(); apLichSu(lamLai); }
+  });
   on('du-an-doi', () => { if (state.bienTap) veNoiDungPanel(); });
   on('sua-du-an-doi', () => { if (state.bienTap) veNoiDungPanel(); });
 }
@@ -166,6 +181,7 @@ function veTrangThaiSuaDoan() {
 
   lopSuaDoan ??= L.layerGroup();
   lopSuaDoan.addTo(map);
+  moLichSu(kq.doan.id, kq.doan.polyline);   // mốc gốc để hoàn tác về
   veLaiTayCam(kq.doan);
 
   map.flyToBounds(L.polyline(kq.doan.polyline).getBounds(), { padding: [90, 90], maxZoom: 16 });
@@ -186,8 +202,10 @@ function veLaiTayCam(doan) {
       .bindTooltip('Bấm để thêm điểm', { direction: 'top' })
       .on('click', () => {
         doan.polyline.splice(i + 1, 0, mid);
+        ghiNhan(doan.id, doan.polyline);
         veLaiTayCam(doan);
         veLaiVanhDai();
+        veNoiDungPanel();
       })
       .addTo(lopSuaDoan);
   }
@@ -201,22 +219,49 @@ function veLaiTayCam(doan) {
       doan.polyline[i] = [+c.lat.toFixed(6), +c.lng.toFixed(6)];
       highlightLine.setLatLngs(doan.polyline);
     });
-    m.on('dragend', () => veLaiVanhDai());
+    m.on('dragend', () => {
+      ghiNhan(doan.id, doan.polyline);   // một lần kéo = một bước hoàn tác
+      veLaiVanhDai();
+      veNoiDungPanel();
+    });
     m.on('click', () => {
       if (doan.polyline.length <= 2) return toast('Đoạn cần giữ ít nhất 2 điểm', 'warn');
       doan.polyline.splice(i, 1);
+      ghiNhan(doan.id, doan.polyline);
       veLaiTayCam(doan);
       veLaiVanhDai();
+      veNoiDungPanel();
     });
     m.addTo(lopSuaDoan);
   });
+}
+
+/**
+ * Áp một bước Hoàn tác / Làm lại lên đoạn đang sửa.
+ * Ghi ĐÈ TẠI CHỖ vào mảng polyline cũ (splice) chứ không gán mảng mới, vì
+ * nhiều chỗ khác đang giữ tham chiếu tới chính mảng đó.
+ */
+function apLichSu(buoc) {
+  const kq = timDoan(state.doanDangSua);
+  if (!kq) return;
+  const pts = buoc(kq.doan.id);
+  if (!pts) return toast(buoc === hoanTac ? 'Không còn bước để hoàn tác' : 'Không còn bước để làm lại', 'warn');
+  kq.doan.polyline.splice(0, kq.doan.polyline.length, ...pts);
+  kq.doan.daiKm = +tinhDaiKm(kq.doan.polyline).toFixed(2);
+  veLaiTayCam(kq.doan);
+  veLaiVanhDai();
+  veNoiDungPanel();
 }
 
 async function luuDoanDangSua() {
   const kq = timDoan(state.doanDangSua);
   if (!kq) return;
   kq.doan.daiKm = +tinhDaiKm(kq.doan.polyline).toFixed(2);
-  if (await luuFile('ring_roads', duLieu.ring_roads)) toast('Đã lưu đoạn ' + kq.doan.tenDoan, 'ok');
+  if (await luuFile('ring_roads', duLieu.ring_roads)) {
+    dongLichSu(kq.doan.id);          // đã ghi xuống file — mốc mới coi như sạch
+    veNoiDungPanel();
+    toast('Đã lưu đoạn ' + kq.doan.tenDoan, 'ok');
+  }
 }
 
 async function xoaDoanDangSua() {
@@ -278,6 +323,21 @@ export function veNoiDungPanel() {
         el('div.field', {}, [el('span.field__k', {}, 'Tuyến'), el('span.field__v', {}, dangSua.tuyen.ten)]),
         el('div.field', {}, [el('span.field__k', {}, 'Đoạn'), el('span.field__v', {}, dangSua.doan.tenDoan)]),
         el('div.field', {}, [el('span.field__k', {}, 'Chiều dài'), el('span.field__v', {}, `${tinhDaiKm(dangSua.doan.polyline).toFixed(2)} km`)]),
+        el('div.field', {}, [el('span.field__k', {}, 'Số điểm'),
+          el('span.field__v', {}, `${dangSua.doan.polyline.length}`)]),
+        (() => {
+          const b = demBuoc(dangSua.doan.id);
+          return el('div.row.wrap', { style: { marginTop: 'var(--s2)' } }, [
+            el('button.btn.btn--sm', {
+              type: 'button', dataset: { act: 'hoan-tac-doan' }, disabled: b.lui === 0 || undefined,
+              title: 'Hoàn tác (Ctrl+Z)'
+            }, `↶ Hoàn tác${b.lui ? ` (${b.lui})` : ''}`),
+            el('button.btn.btn--sm', {
+              type: 'button', dataset: { act: 'lam-lai-doan' }, disabled: b.tien === 0 || undefined,
+              title: 'Làm lại (Ctrl+Y)'
+            }, `↷ Làm lại${b.tien ? ` (${b.tien})` : ''}`)
+          ]);
+        })(),
         el('div.row.wrap', { style: { marginTop: 'var(--s2)' } }, [
           el('button.btn.btn--sm.btn--primary', { type: 'button', dataset: { act: 'luu-doan' } }, 'Lưu'),
           dangSua.doan.trangThai === 'tam-so-hoa'
