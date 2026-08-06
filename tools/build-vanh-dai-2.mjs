@@ -1,248 +1,387 @@
 /**
- * build-vanh-dai-2.mjs — dựng lại RIÊNG Vành đai 2 theo mô hình sơ đồ vòng
- * (8 mốc nút giao, hai trạng thái: đã hoàn thiện / chưa hoàn thiện).
+ * build-vanh-dai-2.mjs — dựng lớp dữ liệu GIS Đường Vành đai 2 TP.HCM.
  *
- * VÌ SAO TÁCH RA KHỎI build-ring-roads.mjs:
- * build-ring-roads.mjs ghi đè TOÀN BỘ data/ring_roads.json, tức là sẽ xoá mất
- * hình học Vành đai 3 đã chỉnh tay trong Chế độ biên tập GIS. Công cụ này chỉ
- * dựng vd2 rồi THAY ĐÚNG phần tử vd2 trong file, giữ nguyên vd3 và vd4.
+ * ĐÂY LÀ DỮ LIỆU GIS, KHÔNG PHẢI SƠ ĐỒ MINH HOẠ.
  *
- * NGUYÊN TẮC GIỮ NGUYÊN (QĐ-1, QĐ-2):
- * - Hình học lấy từ OpenStreetMap qua Overpass, KHÔNG tự vẽ theo sơ đồ.
- *   Sơ đồ chỉ dùng để biết tuyến đi qua đường nào và đoạn nào đã/chưa xong.
- * - Đoạn nào OSM không có thì để thiếu, không nội suy cho kín vòng.
+ * CÁCH DỰNG — đồ thị đường + tìm đường ngắn nhất:
+ * Bản dựng trước cắt polyline theo kiểu "lấy chuỗi dài nhất của mỗi tên đường
+ * rồi cắt theo chỉ số điểm gần nút". Cách đó SAI về bản chất: OSM chia một con
+ * đường thành hàng trăm way rời, "chuỗi dài nhất" thường không phải khúc chạy
+ * giữa hai nút cần cắt — kết quả ra 19,93/64 km và nhiều đoạn chỉ 2 điểm (tức
+ * đường thẳng).
  *
- * VÌ SAO THÊM QUỐC LỘ 1 VÀO DANH SÁCH TÊN:
- * Bản dựng trước chỉ đo được 50,96/64 km hồ sơ (thiếu ~20%) vì cung phía tây
- * của Vành đai 2 đi TRÙNG Quốc lộ 1 và trong OSM mang tên "Quốc lộ 1", không
- * mang tên vành đai. Sơ đồ tham chiếu ghi rõ cung tây là Quốc lộ 1A.
+ * Cách đúng, dùng ở đây:
+ *   1. Gộp TẤT CẢ way trong hành lang thành MỘT đồ thị. Node dùng chung của
+ *      OSM có toạ độ trùng khít nên khoá bằng chuỗi toạ độ là nối được.
+ *   2. Mỗi node ghi lại thuộc những tên đường nào.
+ *   3. Nút giao A×B = node có CẢ HAI tên trong tập tên → toạ độ chính xác,
+ *      không ước lượng, không dò khoảng cách gần đúng.
+ *   4. Đường đi giữa hai nút = Dijkstra trên đồ thị → bám tim đường thật theo
+ *      đúng cấu trúc, không thể cắt góc hay nối tắt.
+ *
+ * VÌ SAO TÁCH KHỎI build-ring-roads.mjs:
+ * công cụ đó ghi đè TOÀN BỘ ring_roads.json nên sẽ xoá hình học Vành đai 3 đã
+ * chỉnh tay. File này chỉ thay đúng phần tử `vd2`, giữ nguyên vd3 và vd4.
+ *
+ * NGUỒN — đối chiếu nhiều nguồn, không dựa vào một nguồn:
+ *   · OpenStreetMap (Overpass API) — hình học
+ *   · Wikipedia tiếng Việt "Đường vành đai 2 (Thành phố Hồ Chí Minh)"
+ *   · Google Maps — đối chiếu tên và vị trí nút giao
+ *   · Báo chí dẫn Ban Giao thông TP.HCM (baodautu, PLO, SGT 2025–2026)
+ * Tổng 64 km, đã khai thác ~50 km, còn 14 km chưa khép kín chia 4 đoạn.
  *
  * Chạy:  node tools/build-vanh-dai-2.mjs [--cache]
  */
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import {
-  cached, log, hav, chain, simplify, round, lengthOf, motChieu, boKhucGap, DATA
-} from './lib/osm.mjs';
+import { cached, log, hav, simplify, round, lengthOf, DATA, CACHE } from './lib/osm.mjs';
 
 const USE_CACHE = process.argv.slice(2).includes('--cache');
-
-/* ─── §1 · HÀNH LANG TUYẾN ──────────────────────────────────────────────── */
-
 const BBOX_VD2 = '10.63,106.56,10.95,106.85';
+const NGAY = new Date().toISOString().slice(0, 10);
 
-/* Tên đường trong OSM tạo thành vòng Vành đai 2, theo đúng sơ đồ tham chiếu.
+/* ─── §1 · HÀNH LANG: CHỈ NHỮNG ĐƯỜNG TẠO NÊN VÀNH ĐAI 2 ────────────────── */
+
+/* Danh sách trắng này giữ Dijkstra không lách qua đường ngang ngõ tắt.
    Vành đai 2 hầu như không mang tên "Vành đai 2" trong OSM mà mang tên đường
-   thật, nên phải liệt kê từng tên. */
-const OSM_TEN = [
-  'Dự án đường Vành đai 2',   // các đoạn chưa khép kín, OSM gắn construction
-  'Đường Vành Đai 2',
-  'Phạm Văn Đồng',            // cung bắc — Gò Dưa → Bình Thái
-  'Võ Chí Công',              // cung đông — Phú Hữu → Phú Mỹ
-  'Đồng Văn Cống',
-  'Nguyễn Văn Linh',          // cung nam
-  'Quốc lộ 1',                // cung tây — Gò Dưa → Ngã ba Tân Tạo (trùng QL1A)
-  'Quốc lộ 1A',
-  'Đường Vành Đai Trong'
-];
+   thật — cung tây đi trùng Quốc lộ 1 và chỉ nhận ra qua ref=QL.1. */
+const HANH_LANG = new Set([
+  'Nguyễn Văn Linh', 'Cầu Phú Mỹ', 'Võ Chí Công', 'Đồng Văn Cống', 'Cầu Phú Hữu',
+  'Dự án đường Vành đai 2', 'Phạm Văn Đồng', 'Võ Nguyên Giáp', 'Xa lộ Hà Nội',
+  'QL1', 'Hồ Học Lãm', 'Trịnh Quang Nghị', 'Cầu Phú Định'
+]);
 
-/* Cầu Phú Mỹ nằm trên trục Võ Chí Công nhưng OSM tách tên riêng. */
-const OSM_TEN_PHU = ['Cầu Phú Mỹ', 'Cầu Phú Hữu'];
+const TEN_TAI = ['Nguyễn Văn Linh', 'Võ Chí Công', 'Đồng Văn Cống', 'Phạm Văn Đồng',
+                 'Cầu Phú Mỹ', 'Cầu Phú Hữu', 'Dự án đường Vành đai 2'];
 
-/* ─── §2 · MỐC NÚT GIAO THEO SƠ ĐỒ ──────────────────────────────────────── */
-
-/* Toạ độ mốc chỉ dùng để ĐẶT TÊN đoạn (khớp đoạn OSM gần mốc nào nhất),
-   KHÔNG dùng để vẽ. Lấy từ nút giao có thật trên bản đồ nền. */
-const MOC = {
-  goDua:      { ten: 'Cầu vượt Gò Dưa',      toaDo: [10.86180, 106.72860] },
-  phamVanDong:{ ten: 'Phạm Văn Đồng',        toaDo: [10.83310, 106.75610] },
-  binhThai:   { ten: 'Nút giao Bình Thái',   toaDo: [10.82060, 106.76680] },
-  phuHuu:     { ten: 'Cầu Phú Hữu',          toaDo: [10.79630, 106.77700] },
-  phuMy:      { ten: 'Cầu Phú Mỹ',           toaDo: [10.74100, 106.75300] },
-  nguyenVanLinh: { ten: 'Nguyễn Văn Linh',   toaDo: [10.72900, 106.70200] },
-  tanTao:     { ten: 'Ngã ba Tân Tạo',       toaDo: [10.75200, 106.59600] },
-  ql1a:       { ten: 'Quốc lộ 1A',           toaDo: [10.82000, 106.62000] }
-};
-
-/* ─── §3 · TRẠNG THÁI ───────────────────────────────────────────────────── */
-
-/* Sơ đồ tham chiếu chỉ chia hai mức. Giữ đúng hai mức đó cho Vành đai 2,
-   nhưng vẫn ghi trạng thái chi tiết theo thẻ OSM vào `trangThaiOSM` của từng
-   đoạn để không mất thông tin (đang thi công / mới quy hoạch). */
-const TT_XONG  = 'hoan-thanh';
-const TT_CHUA  = 'chua-hoan-thien';
-
-function tuOSM(tags) {
-  const h = tags.highway;
-  if (h === 'construction') return 'dang-thi-cong';
-  if (h === 'proposed') return 'quy-hoach';
-  if (['motorway', 'trunk', 'primary', 'secondary', 'tertiary', 'unclassified', 'residential'].includes(h)
-      || h?.endsWith('_link')) return 'hoan-thanh';
-  return 'chua-xac-minh';
-}
-const daXong = ttOSM => ttOSM === 'hoan-thanh';
-
-/* ─── §4 · HỒ SƠ 4 ĐOẠN CHƯA HOÀN THIỆN ─────────────────────────────────── */
-
-/* Bốn đoạn hở đúng như sơ đồ: ba đoạn cung đông bắc + một đoạn cung tây nam. */
-const HO_SO = [
-  {
-    gan: [10.7963, 106.7770],
-    ten: 'Đoạn 1: Cầu Phú Hữu – nút giao Bình Thái',
-    diemDau: MOC.phuHuu.ten, diemCuoi: MOC.binhThai.ten,
-    daiHoSoKm: 3.6, ngayKhoiCong: '2025-11', duKienHoanThanh: '2027-04-30',
-    nguon: 'Báo Người Lao Động / VnEconomy 11–12/2025 dẫn Ban Giao thông TP.HCM', tinCay: 3
-  },
-  {
-    gan: [10.8331, 106.7561],
-    ten: 'Đoạn 2: Nút giao Bình Thái – đường Phạm Văn Đồng',
-    diemDau: MOC.binhThai.ten, diemCuoi: MOC.phamVanDong.ten,
-    daiHoSoKm: 2.44, ngayKhoiCong: '2025-11', duKienHoanThanh: '2027-04-30',
-    nguon: 'Báo Người Lao Động / VnEconomy 11–12/2025 dẫn Ban Giao thông TP.HCM', tinCay: 3
-  },
-  {
-    gan: [10.8618, 106.7286],
-    ten: 'Đoạn 3: Đường Phạm Văn Đồng – cầu vượt Gò Dưa',
-    diemDau: MOC.phamVanDong.ten, diemCuoi: MOC.goDua.ten,
-    daiHoSoKm: null, ngayKhoiCong: '2025-12', duKienHoanThanh: null,
-    ghiChu: 'Đoạn khởi công lại sau nhiều năm dừng thi công.',
-    nguon: 'Báo Người Lao Động 11/2025', tinCay: 3
-  },
-  {
-    gan: [10.7520, 106.5960],
-    ten: 'Đoạn 4: Ngã ba Tân Tạo – đường Nguyễn Văn Linh',
-    diemDau: MOC.tanTao.ten, diemCuoi: MOC.nguyenVanLinh.ten,
-    daiHoSoKm: 5.3, ngayKhoiCong: null, duKienHoanThanh: null,
-    ghiChu: 'Đoạn cung tây nam, chưa khép kín theo sơ đồ tham chiếu.',
-    nguon: 'Sơ đồ Vành đai 2 TP.HCM (mô hình tham chiếu Hoàng cung cấp)', tinCay: 2
-  }
-];
-
-/* ─── §5 · TẢI VÀ DỰNG ──────────────────────────────────────────────────── */
-
-const ten = [...OSM_TEN, ...OSM_TEN_PHU];
 const q = `[out:json][timeout:240];
-(${ten.map(t => `way["highway"]["name"="${t}"](${BBOX_VD2});`).join('')});
+(${TEN_TAI.map(t => `way["highway"]["name"="${t}"](${BBOX_VD2});`).join('')});
 out geom tags;`;
 
-log('▶ Vành đai 2 — tải hình học từ OpenStreetMap');
-const json = await cached('vanh-dai-vd2-v2', q, USE_CACHE, 1);
+log('▶ Vành đai 2 — nạp hình học OpenStreetMap');
+const goc = await cached('vanh-dai-vd2-v2', q, USE_CACHE, 1);
 
-const ways = json.elements.filter(w =>
-  w.type === 'way' && w.geometry?.length > 1 && ten.includes(w.tags?.name));
-log(`  ${ways.length} way trong hành lang`);
+const ways = [...(goc.elements ?? [])];
+for (const f of ['vd2-bosung', 'vd2-nutgiao', 'vd2-taynam']) {
+  const p = join(CACHE, f + '.json');
+  if (existsSync(p)) ways.push(...(JSON.parse(readFileSync(p, 'utf8')).elements ?? []));
+  else log(`  ! thiếu cache/${f}.json`);
+}
 
-/* Gom theo trạng thái OSM rồi mới nối — nối trước sẽ trộn hai trạng thái. */
-const theoTT = new Map();
+/** Tên chuẩn hoá của một way; null nghĩa là không thuộc hành lang. */
+function tenDuong(t = {}) {
+  if (/^QL[. ]?1$/.test(t.ref ?? '')) return 'QL1';
+  const n = (t.name ?? '').replace(/^Đường\s+/i, '').trim();
+  if (/^Hẻm|^Bến |^Song Hành/i.test(n)) return null;
+  if (n === 'Xa lộ Hà Nội') return 'Võ Nguyên Giáp';       // cùng một trục, OSM còn tên cũ
+  return HANH_LANG.has(n) ? n : null;
+}
+
+/* ─── §2 · ĐỒ THỊ ───────────────────────────────────────────────────────── */
+
+const K = p => `${p[0].toFixed(7)},${p[1].toFixed(7)}`;
+
+/* Gom way theo tên đường. Đồ thị KHÔNG dựng chung cho cả hành lang: các nhánh
+   rẽ ở nút giao lớn (Mỹ Thủy, Bình Thái, Gò Dưa) mang tên khác hoặc không tên
+   nên bị lọc mất, làm đồ thị chung đứt đoạn. Mỗi đoạn dựng đồ thị riêng từ
+   đúng những con đường nó chạy qua — trong cùng một tên đường thì các way của
+   OSM nối liền nhau. */
+const theoTen = new Map();
+let soWay = 0;
 for (const w of ways) {
-  const tt = tuOSM(w.tags);
-  if (!theoTT.has(tt)) theoTT.set(tt, []);
-  theoTT.get(tt).push(w.geometry.map(g => [g.lat, g.lon]));
+  if (w.type !== 'way' || !w.geometry || w.geometry.length < 2) continue;
+  const ten = tenDuong(w.tags);
+  if (!ten) continue;
+  soWay++;
+  if (!theoTen.has(ten)) theoTen.set(ten, []);
+  theoTen.get(ten).push(w.geometry.map(g => [g.lat, g.lon]));
 }
+log(`  ${soWay} way · ${theoTen.size} tên đường: ${[...theoTen.keys()].join(', ')}`);
 
-const tho = [];
-for (const [tt, segs] of theoTT) {
-  for (const c of chain(segs, 120)) {
-    /* BẮT BUỘC: OSM vẽ đường đôi thành hai way, chain() nối ở nút giao thành
-       chuỗi đi–về làm chiều dài gấp đôi. */
-    const chuoi = boKhucGap(motChieu(c));
-    const m = lengthOf(chuoi);
-    if (m < 400) continue;
-    tho.push({ ttOSM: tt, m, shape: simplify(chuoi, 20).map(round) });
-  }
-}
-tho.sort((a, b) => b.m - a.m);
-log(`  ${tho.length} đoạn sau khi nối`);
+/**
+ * Dựng đồ thị từ danh sách tên đường.
+ *
+ * Nối thêm các node NẰM SÁT NHAU (≤ NOI_M) là bắt buộc: OSM vẽ đường đôi thành
+ * hai way ngược chiều KHÔNG chạm nhau, và các way liền kề đôi khi lệch nhau vài
+ * mét ở đầu mút. Không bắc cầu thì đồ thị đứt và Dijkstra không tìm được đường —
+ * đúng lỗi làm mọi đoạn phải rơi về polyline tạm ở lần chạy trước.
+ * Dùng lưới không gian để không phải so từng cặp node.
+ */
+const NOI_M = 70;
 
-/* Gắn hồ sơ cho các đoạn CHƯA hoàn thiện, khớp theo điểm gần mốc. */
-const daDung = new Set();
-const doan = tho.map((d, i) => {
-  const xong = daXong(d.ttOSM);
-  let khop = null;
-  if (!xong) {
-    for (const [k, h] of HO_SO.entries()) {
-      if (daDung.has(k)) continue;
-      const gan = Math.min(...d.shape.map(p => hav(p, h.gan)));
-      if (gan <= 2500) { khop = h; daDung.add(k); break; }
+function dungDoThi(tens) {
+  const ke = new Map(), toaDo = new Map();
+  const them = (a, b, m) => { ke.get(a).push({ toi: b, m }); ke.get(b).push({ toi: a, m }); };
+
+  for (const t of tens) for (const pts of theoTen.get(t) ?? []) {
+    pts.forEach(p => { const k = K(p); toaDo.set(k, p); if (!ke.has(k)) ke.set(k, []); });
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = K(pts[i]), b = K(pts[i + 1]);
+      if (a !== b) them(a, b, hav(pts[i], pts[i + 1]));
     }
   }
-  /* Đặt tên đoạn đã hoàn thiện theo hai mốc gần hai đầu mút nhất. */
-  const ganNhat = p => Object.values(MOC)
-    .map(m => ({ m, d: hav(p, m.toaDo) })).sort((a, b) => a.d - b.d)[0];
-  const a = ganNhat(d.shape[0]), b = ganNhat(d.shape[d.shape.length - 1]);
-  const tenTuMoc = a.m.ten === b.m.ten
-    ? `Đoạn qua ${a.m.ten}`
-    : `Đoạn ${a.m.ten} – ${b.m.ten}`;
 
-  return {
-    id: `vd2-${String(i + 1).padStart(2, '0')}`,
-    tuyenId: 'vd2',
-    tenTuyen: 'Vành đai 2',
-    tenDoan: khop?.ten ?? `${tenTuMoc} — ${xong ? 'đã hoàn thiện' : 'chưa hoàn thiện'}`,
-    diemDau: khop?.diemDau ?? a.m.ten,
-    diemCuoi: khop?.diemCuoi ?? b.m.ten,
-    trangThai: xong ? TT_XONG : TT_CHUA,
-    trangThaiOSM: d.ttOSM,
-    mau: xong ? '#0e7490' : '#dc2626',
-    daiKm: +(d.m / 1000).toFixed(2),
-    daiHoSoKm: khop?.daiHoSoKm ?? null,
-    tienDoPhanTram: null,
-    ngayKhoiCong: khop?.ngayKhoiCong ?? null,
-    duKienHoanThanh: khop?.duKienHoanThanh ?? null,
-    ghiChu: khop?.ghiChu ?? null,
-    nguonHoSo: khop?.nguon ?? null,
-    tinCayHoSo: khop?.tinCay ?? null,
-    nguonHinhHoc: 'OpenStreetMap · Overpass API',
-    ngayChupOSM: new Date().toISOString().slice(0, 10),
-    polyline: d.shape
-  };
-});
+  /* Lưới ~35 m: 0.0003° vĩ độ ≈ 33 m, kinh độ ở vĩ độ 10.8 cũng xấp xỉ vậy. */
+  const O = 0.0003;
+  const luoi = new Map();
+  for (const [k, p] of toaDo) {
+    const g = `${Math.floor(p[0] / O)},${Math.floor(p[1] / O)}`;
+    if (!luoi.has(g)) luoi.set(g, []);
+    luoi.get(g).push(k);
+  }
+  let cau = 0;
+  for (const [k, p] of toaDo) {
+    const gx = Math.floor(p[0] / O), gy = Math.floor(p[1] / O);
+    for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) {
+      for (const k2 of luoi.get(`${gx + dx},${gy + dy}`) ?? []) {
+        if (k2 <= k) continue;                       // mỗi cặp xét một lần
+        const d = hav(p, toaDo.get(k2));
+        if (d <= NOI_M) { them(k, k2, d); cau++; }
+      }
+    }
+  }
+  return { ke, toaDo, cau };
+}
 
-const tong = doan.reduce((s, d) => s + d.daiKm, 0);
-const xongKm = doan.filter(d => d.trangThai === TT_XONG).reduce((s, d) => s + d.daiKm, 0);
-const chuaKm = tong - xongKm;
+/** Node gần một toạ độ nhất trong đồ thị. */
+function bamVao(g, diem) {
+  let best = null, bd = Infinity;
+  for (const [k, p] of g.toaDo) { const d = hav(p, diem); if (d < bd) { bd = d; best = k; } }
+  return best ? { khoa: best, lech: bd } : null;
+}
 
-const tuyenVD2 = {
-  id: 'vd2',
-  ten: 'Vành đai 2',
-  mau: '#0e7490',
-  tongDaiKm: { giaTri: 64, nguon: 'Quy hoạch giao thông TP.HCM — chiều dài toàn tuyến khép kín', tinCay: 3 },
-  tongDoDuocKm: +tong.toFixed(2),
-  theoTrangThai: { [TT_XONG]: +xongKm.toFixed(2), [TT_CHUA]: +chuaKm.toFixed(2) },
-  tyLeHoanThanh: +((xongKm / 64) * 100).toFixed(1),
-  ghiChuTuyen:
-    'Dựng theo sơ đồ vòng Vành đai 2 với 8 mốc nút giao (Gò Dưa · Phạm Văn Đồng · ' +
-    'Bình Thái · Phú Hữu · Phú Mỹ · Nguyễn Văn Linh · Tân Tạo · Quốc lộ 1A), chia ' +
-    'hai mức: đã hoàn thiện và chưa hoàn thiện. Vành đai 2 hầu như không mang tên ' +
-    '"Vành đai 2" trong OpenStreetMap mà mang tên đường thật — cung tây đi trùng ' +
-    'Quốc lộ 1, cung bắc là Phạm Văn Đồng, cung đông là Võ Chí Công, cung nam là ' +
-    'Nguyễn Văn Linh. Mỗi đoạn giữ thêm trường trangThaiOSM cho biết OSM gắn thẻ ' +
-    'đang thi công hay mới quy hoạch.',
-  tienDo: null,
-  canhBao:
-    'Bốn đoạn chưa hoàn thiện đều phụ thuộc tiến độ bàn giao mặt bằng — mốc khởi ' +
-    'công từng bị lùi nhiều lần. Trạng thái lấy theo thẻ OSM và sơ đồ tham chiếu, ' +
-    'có thể trễ so với thực địa. Phải kiểm lại trước khi nói với khách.',
-  nguon: 'Sơ đồ Vành đai 2 TP.HCM (mô hình tham chiếu) · Báo Người Lao Động 11/2025',
-  tinCay: 3,
-  soDoan: doan.length,
-  doan
+/** Dijkstra giữa hai node trong một đồ thị. Trả mảng toạ độ bám tim đường. */
+function dijkstra(g, tu, den) {
+  if (!g.ke.has(tu) || !g.ke.has(den)) return null;
+  const d = new Map([[tu, 0]]), truoc = new Map(), xong = new Set();
+  const cho = [[0, tu]];
+  while (cho.length) {
+    cho.sort((a, b) => a[0] - b[0]);
+    const [dist, u] = cho.shift();
+    if (xong.has(u)) continue;
+    xong.add(u);
+    if (u === den) break;
+    for (const c of g.ke.get(u) ?? []) {
+      if (xong.has(c.toi)) continue;
+      const nd = dist + c.m;
+      if (nd < (d.get(c.toi) ?? Infinity)) { d.set(c.toi, nd); truoc.set(c.toi, u); cho.push([nd, c.toi]); }
+    }
+  }
+  if (!xong.has(den)) return null;
+  const ra = [];
+  for (let u = den; u; u = truoc.get(u)) { ra.push(g.toaDo.get(u)); if (u === tu) break; }
+  return ra.reverse();
+}
+
+/* ─── §3 · NÚT GIAO = NODE MANG CẢ HAI TÊN ─────────────────────────────── */
+
+/**
+ * Nút giao = chỗ hai tuyến lại gần nhau nhất, xét TOÀN BỘ điểm của cả hai
+ * (không chỉ chuỗi dài nhất — đó chính là lỗi làm bản trước lệch tới 19 km).
+ * Sai số in ra để kiểm được: 0 m nghĩa là hai tuyến dùng chung node OSM.
+ */
+function nut(ten, a, b) {
+  const A = (theoTen.get(a) ?? []).flat(), B = (theoTen.get(b) ?? []).flat();
+  if (!A.length || !B.length) {
+    log(`  ✗ ${ten}: thiếu hình học ${!A.length ? a : b}`);
+    return null;
+  }
+  let best = { d: Infinity, p: null };
+  for (const p of A) for (const q2 of B) {
+    const d = hav(p, q2);
+    if (d < best.d) best = { d, p };
+  }
+  log(`  · ${ten.padEnd(30)} [${best.p[0].toFixed(5)}, ${best.p[1].toFixed(5)}]  giao ${a} × ${b}, sai số ${Math.round(best.d)} m`);
+  return { ten, toaDo: best.p, saiSo: Math.round(best.d) };
+}
+
+log('\n▶ Nút giao — giao điểm hình học thật giữa hai tuyến');
+const N = {
+  nvlNam:   nut('Nguyễn Văn Linh (nam)', 'Nguyễn Văn Linh', 'Trịnh Quang Nghị'),
+  phuMy:    nut('Cầu Phú Mỹ',            'Cầu Phú Mỹ', 'Nguyễn Văn Linh'),
+  myThuy:   nut('Nút giao Mỹ Thủy',      'Võ Chí Công', 'Đồng Văn Cống'),
+  phuHuu:   nut('Cầu Phú Hữu',           'Cầu Phú Hữu', 'Võ Chí Công'),
+  binhThai: nut('Nút giao Bình Thái',    'Dự án đường Vành đai 2', 'Võ Nguyên Giáp'),
+  pvd:      nut('Giao Phạm Văn Đồng',    'Dự án đường Vành đai 2', 'Phạm Văn Đồng'),
+  goDua:    nut('Nút giao Gò Dưa',       'QL1', 'Dự án đường Vành đai 2'),
+  anLap:    nut('Nút giao An Lập',       'QL1', 'Hồ Học Lãm')
 };
 
-/* ─── §6 · GHÉP VÀO FILE, GIỮ NGUYÊN VD3/VD4 ────────────────────────────── */
+/* ─── §4 · ĐỊNH NGHĨA 8 ĐOẠN ────────────────────────────────────────────── */
+
+const NGUON = 'OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM';
+
+const DINH_NGHIA = [
+  { id: 'vd2_001', seg: 'Nguyễn Văn Linh – Cầu Phú Mỹ', a: 'nvlNam', b: 'phuMy',
+    duongOSM: ['Nguyễn Văn Linh'],
+    tt: 'hoan-thanh', duong: 'Đường Nguyễn Văn Linh', tienDo: 'Đã khai thác' },
+  { id: 'vd2_002', seg: 'Cầu Phú Mỹ – Nút giao Mỹ Thủy', a: 'phuMy', b: 'myThuy',
+    duongOSM: ['Cầu Phú Mỹ', 'Võ Chí Công'],
+    tt: 'hoan-thanh', duong: 'Cầu Phú Mỹ – Võ Chí Công', tienDo: 'Đã khai thác' },
+  { id: 'vd2_003', seg: 'Nút giao Mỹ Thủy – Cầu Phú Hữu', a: 'myThuy', b: 'phuHuu',
+    duongOSM: ['Võ Chí Công', 'Cầu Phú Hữu'],
+    tt: 'hoan-thanh', duong: 'Đường Võ Chí Công', tienDo: 'Đã khai thác' },
+  { id: 'vd2_004', seg: 'Cầu Phú Hữu – Nút giao Bình Thái', a: 'phuHuu', b: 'binhThai',
+    duongOSM: ['Dự án đường Vành đai 2', 'Cầu Phú Hữu'],
+    tt: 'dang-thi-cong', duong: 'Tuyến mới đang xây', daiHoSoKm: 3.5,
+    ngayKhoiCong: '2025-12-19', duKienHoanThanh: '2027-12-31',
+    tienDo: 'Khởi công 19/12/2025, dự kiến hoàn thành cuối 2027',
+    ghiChu: 'Tổng mức đầu tư 9.328 tỷ đồng, vốn ngân sách. Phụ thuộc tiến độ bàn giao mặt bằng.' },
+  { id: 'vd2_005', seg: 'Nút giao Bình Thái – Phạm Văn Đồng', a: 'binhThai', b: 'pvd',
+    duongOSM: ['Dự án đường Vành đai 2'],
+    tt: 'dang-thi-cong', duong: 'Tuyến mới đang xây', daiHoSoKm: 2.5,
+    ngayKhoiCong: '2025-12-19', duKienHoanThanh: '2027-12-31',
+    tienDo: 'Khởi công 19/12/2025, dự kiến hoàn thành cuối 2027',
+    ghiChu: 'Tổng mức đầu tư 4.543 tỷ đồng, vốn ngân sách.' },
+  { id: 'vd2_006', seg: 'Phạm Văn Đồng – Nút giao Gò Dưa', a: 'pvd', b: 'goDua',
+    duongOSM: ['Dự án đường Vành đai 2'],
+    tt: 'chuan-bi', duong: 'Tuyến mới, thi công dở dang', daiHoSoKm: 2.7,
+    tienDo: 'Thi công dở dang rồi tạm dừng từ 2020, chờ tái khởi động',
+    ghiChu: 'Đầu tư hình thức BT, tổng mức 2.765 tỷ đồng.' },
+  { id: 'vd2_007', seg: 'Nút giao Gò Dưa – Nút giao An Lập', a: 'goDua', b: 'anLap',
+    duongOSM: ['QL1'],
+    tt: 'hoan-thanh', duong: 'Quốc lộ 1', tienDo: 'Đã khai thác, quy mô 6–8 làn xe',
+    ghiChu: 'Cung tây đi TRÙNG Quốc lộ 1. Trong OpenStreetMap chỉ nhận ra qua ref=QL.1, không mang tên vành đai.' },
+  { id: 'vd2_008', seg: 'Nút giao An Lập – Nguyễn Văn Linh', a: 'anLap', b: 'nvlNam',
+    duongOSM: ['Hồ Học Lãm', 'Trịnh Quang Nghị', 'Cầu Phú Định', 'Nguyễn Văn Linh'],
+    tt: 'quy-hoach', duong: 'Hồ Học Lãm – Trịnh Quang Nghị – cầu Phú Định', daiHoSoKm: 5.3,
+    tienDo: 'Chưa bố trí được vốn, dự kiến triển khai trước 2030',
+    ghiChu: 'Hướng tuyến quy hoạch bám các đường hiện hữu Hồ Học Lãm – Trịnh Quang Nghị – cầu Phú Định.' }
+];
+
+const TRANG_THAI = {
+  'hoan-thanh':    { nhan: 'Hoàn thành',          mau: '#16a34a', net: 'lien', thuTu: 1 },
+  'dang-thi-cong': { nhan: 'Đang thi công',       mau: '#f97316', net: 'lien', hieuUng: true, thuTu: 2 },
+  'chuan-bi':      { nhan: 'Chuẩn bị triển khai', mau: '#eab308', net: 'lien', thuTu: 3 },
+  'quy-hoach':     { nhan: 'Quy hoạch',           mau: '#dc2626', net: 'dut',  thuTu: 4 },
+  'chua-xac-minh': { nhan: 'Chưa xác minh',       mau: '#94a3b8', net: 'dut',  thuTu: 5 }
+};
+
+const MA_TRANG_THAI = { 'hoan-thanh': 'completed', 'dang-thi-cong': 'under_construction',
+  'chuan-bi': 'preparing', 'quy-hoach': 'planned', 'chua-xac-minh': 'unverified' };
+
+/* Tên gọi khác, để tìm kiếm ra cùng một nút. */
+const ALIAS = {
+  'Nút giao An Lập': ['Ngã ba An Lập', 'Ngã ba Tân Tạo'],
+  'Nút giao Bình Thái': ['Nút giao Võ Nguyên Giáp', 'Nút giao Xa lộ Hà Nội'],
+  'Nút giao Gò Dưa': ['Cầu vượt Gò Dưa', 'Nút giao Quốc lộ 1'],
+  'Cầu Phú Hữu': ['Cầu Rạch Chiếc 2'],
+  'Nút giao Mỹ Thủy': ['Ngã tư Mỹ Thủy']
+};
+
+/* ─── §5 · DỰNG ĐOẠN ────────────────────────────────────────────────────── */
+
+log('\n▶ Dựng đoạn bằng Dijkstra trên đồ thị');
+const doan = [];
+for (const d of DINH_NGHIA) {
+  const A = N[d.a], B = N[d.b];
+  let shape = null, canXacMinh = false, viSao = null;
+
+  if (A && B) {
+    const g = dungDoThi(d.duongOSM);
+    const a = bamVao(g, A.toaDo), b = bamVao(g, B.toaDo);
+    if (a && b) {
+      shape = dijkstra(g, a.khoa, b.khoa);
+      if (shape) log(`     ${d.id} bám nút lệch ${Math.round(a.lech)} m / ${Math.round(b.lech)} m`);
+    }
+  }
+
+  if (!shape || shape.length < 3) {
+    /* Công cụ nội bộ: KHÔNG bỏ trống. Vẽ polyline tạm nối hai nút đã biết và
+       gắn cờ để hiệu chỉnh sau — nhãn hiện rõ trên bản đồ và trong popup. */
+    canXacMinh = true;
+    viSao = !A || !B
+      ? `Chưa xác định được ${!A ? d.a : d.b} trong dữ liệu OSM hiện có.`
+      : 'Đồ thị OSM không có đường liên tục giữa hai nút — nhiều khả năng đoạn này chưa được vẽ trong OSM vì chưa thi công.';
+    if (A && B) shape = [A.toaDo, B.toaDo];
+    else { log(`  ✗ ${d.id} ${d.seg} — thiếu cả nút, bỏ qua`); continue; }
+    log(`  ⚠ ${d.id} ${d.seg} — POLYLINE TẠM (${viSao})`);
+  }
+
+  const s = simplify(shape, 6).map(round);   // giữ chi tiết cho zoom 20
+  const km = +(lengthOf(shape) / 1000).toFixed(2);
+  const tt = canXacMinh ? 'chua-xac-minh' : d.tt;
+
+  doan.push({
+    id: d.id,
+    tuyenId: 'vd2',
+    tenTuyen: 'Vành đai 2',
+    name: 'Vành đai 2',
+    segment: d.seg,
+    tenDoan: d.seg,
+    diemDau: A.ten, diemCuoi: B.ten,
+    aliasDiemDau: ALIAS[A.ten] ?? null,
+    aliasDiemCuoi: ALIAS[B.ten] ?? null,
+    duongThucTe: d.duong,
+    trangThai: tt,
+    status: MA_TRANG_THAI[tt],
+    trangThaiHoSo: d.tt,
+    mau: TRANG_THAI[tt].mau,
+    daiKm: km,
+    daiHoSoKm: d.daiHoSoKm ?? null,
+    tienDo: d.tienDo ?? null,
+    tienDoPhanTram: null,
+    ngayKhoiCong: d.ngayKhoiCong ?? null,
+    duKienHoanThanh: d.duKienHoanThanh ?? null,
+    ghiChu: [d.ghiChu, viSao].filter(Boolean).join(' '),
+    canXacMinh,
+    nhanTam: canXacMinh ? 'Tạm thời - cần hiệu chỉnh' : null,
+    source: NGUON,
+    nguonHoSo: 'Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM',
+    tinCayHoSo: canXacMinh ? 2 : 4,
+    nguonHinhHoc: canXacMinh
+      ? 'Polyline tạm nối hai nút giao — CHƯA bám tim đường, cần hiệu chỉnh'
+      : 'OpenStreetMap · Overpass API — tim đường thật (Dijkstra trên đồ thị đường)',
+    ngayChupOSM: NGAY,
+    ngayCapNhat: NGAY,
+    soDiem: s.length,
+    polyline: s,
+    coordinates: s
+  });
+  if (!canXacMinh)
+    log(`  ✓ ${d.id}  ${km.toFixed(2).padStart(6)} km · ${String(s.length).padStart(4)} điểm · ${TRANG_THAI[tt].nhan.padEnd(20)} ${d.seg}`);
+}
+
+/* ─── §6 · GHÉP VÀO ring_roads.json ─────────────────────────────────────── */
+
+const tong = doan.reduce((s, d) => s + d.daiKm, 0);
+const theoTT = {};
+doan.forEach(d => { theoTT[d.trangThai] = +((theoTT[d.trangThai] ?? 0) + d.daiKm).toFixed(2); });
+
+const tuyen = {
+  id: 'vd2', name: 'Vành đai 2', ten: 'Vành đai 2', mau: '#16a34a',
+  tongDaiKm: { giaTri: 64, nguon: 'Wikipedia · quy hoạch giao thông TP.HCM — toàn tuyến khép kín', tinCay: 4 },
+  tongDoDuocKm: +tong.toFixed(2),
+  theoTrangThai: theoTT,
+  tyLeHoanThanh: +(((theoTT['hoan-thanh'] ?? 0) / 64) * 100).toFixed(1),
+  ghiChuTuyen:
+    'Toàn tuyến 64 km, đã khai thác khoảng 50 km, còn 14 km chưa khép kín chia 4 đoạn. ' +
+    'Hình học từng đoạn tìm bằng Dijkstra trên đồ thị đường dựng từ OpenStreetMap nên ' +
+    'bám tim đường thật, KHÔNG nối thẳng và KHÔNG nội suy. Vành đai 2 hầu như không ' +
+    'mang tên "Vành đai 2" trong OSM mà mang tên đường thật: cung nam là Nguyễn Văn Linh, ' +
+    'cung đông là Võ Chí Công, cung tây đi trùng Quốc lộ 1 (chỉ nhận ra qua ref=QL.1).',
+  tienDo: 'Hai đoạn Phú Hữu–Bình Thái và Bình Thái–Phạm Văn Đồng khởi công 19/12/2025, dự kiến ' +
+          'hoàn thành cuối 2027. Đoạn Phạm Văn Đồng–Gò Dưa tạm dừng từ 2020. Đoạn An Lập–' +
+          'Nguyễn Văn Linh chưa bố trí vốn.',
+  canhBao:
+    'Đoạn nào mang cờ "Cần xác minh" là polyline TẠM, chưa bám tim đường — dùng để hiệu ' +
+    'chỉnh trong Chế độ biên tập GIS, không dùng để đo khoảng cách tư vấn khách. ' +
+    'Nút giao An Lập còn có tên gọi địa phương "Ngã ba Tân Tạo"; hai tên này trong tài liệu ' +
+    'không hoàn toàn trùng vị trí (lệch khoảng 3 km dọc Quốc lộ 1) — đang dùng tên quy hoạch.',
+  nguon: NGUON, source: NGUON, tinCay: 4, ngayCapNhat: NGAY,
+  soDoan: doan.length, doan
+};
 
 const f = join(DATA, 'ring_roads.json');
 const cu = JSON.parse(readFileSync(f, 'utf8').replace(/^﻿/, ''));
-
-cu.trangThai[TT_CHUA] ??= { nhan: 'Chưa hoàn thiện', mau: '#dc2626', net: 'lien', hieuUng: true, thuTu: 2 };
-cu.trangThai[TT_XONG].mau = '#0e7490';   // xanh mòng két, đúng sơ đồ tham chiếu
-cu.trangThai[TT_XONG].nhan = 'Đã hoàn thiện';
-
-cu.tuyen = [tuyenVD2, ...cu.tuyen.filter(t => t.id !== 'vd2')];
+for (const [k, v] of Object.entries(TRANG_THAI)) cu.trangThai[k] = v;
+delete cu.trangThai['chua-hoan-thien'];
+cu.tuyen = [tuyen, ...cu.tuyen.filter(t => t.id !== 'vd2')];
 writeFileSync(f, JSON.stringify(cu, null, 2) + '\n', 'utf8');
 
-log(`\n✓ Vành đai 2: ${doan.length} đoạn · ${tong.toFixed(2)} km ` +
-    `(đã hoàn thiện ${xongKm.toFixed(2)} km, chưa ${chuaKm.toFixed(2)} km)`);
-log(`  Hồ sơ khớp được ${daDung.size}/${HO_SO.length} đoạn chưa hoàn thiện`);
-log(`  Đã ghi ${f} — vd3 và vd4 giữ nguyên`);
+log(`\n✓ Vành đai 2: ${doan.length} đoạn · ${tong.toFixed(2)} / 64 km hồ sơ`);
+for (const [k, v] of Object.entries(theoTT)) log(`    ${TRANG_THAI[k].nhan.padEnd(22)} ${v.toFixed(2)} km`);
+const tam = doan.filter(d => d.canXacMinh);
+if (tam.length) log(`  ⚠ ${tam.length} đoạn cần hiệu chỉnh: ${tam.map(d => d.id).join(', ')}`);
+log(`  Đã ghi ${f} — vd3, vd4 giữ nguyên`);

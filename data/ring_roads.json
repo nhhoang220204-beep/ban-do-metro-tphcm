@@ -10,8 +10,8 @@
   },
   "trangThai": {
     "hoan-thanh": {
-      "nhan": "Đã hoàn thiện",
-      "mau": "#0e7490",
+      "nhan": "Hoàn thành",
+      "mau": "#16a34a",
       "net": "lien",
       "thuTu": 1
     },
@@ -23,7 +23,7 @@
       "thuTu": 2
     },
     "chuan-bi": {
-      "nhan": "Chuẩn bị thi công",
+      "nhan": "Chuẩn bị triển khai",
       "mau": "#eab308",
       "net": "lien",
       "thuTu": 3
@@ -37,7 +37,7 @@
     "chua-xac-minh": {
       "nhan": "Chưa xác minh",
       "mau": "#94a3b8",
-      "net": "cham",
+      "net": "dut",
       "thuTu": 5
     },
     "tam-so-hoa": {
@@ -45,323 +45,382 @@
       "mau": "#eab308",
       "net": "cham",
       "thuTu": 6
-    },
-    "chua-hoan-thien": {
-      "nhan": "Chưa hoàn thiện",
-      "mau": "#dc2626",
-      "net": "lien",
-      "hieuUng": true,
-      "thuTu": 2
     }
   },
   "tuyen": [
     {
       "id": "vd2",
+      "name": "Vành đai 2",
       "ten": "Vành đai 2",
-      "mau": "#0e7490",
+      "mau": "#16a34a",
       "tongDaiKm": {
         "giaTri": 64,
-        "nguon": "Quy hoạch giao thông TP.HCM — chiều dài toàn tuyến khép kín",
-        "tinCay": 3
+        "nguon": "Wikipedia · quy hoạch giao thông TP.HCM — toàn tuyến khép kín",
+        "tinCay": 4
       },
-      "tongDoDuocKm": 65.38,
+      "tongDoDuocKm": 63.03,
       "theoTrangThai": {
-        "hoan-thanh": 57.03,
-        "chua-hoan-thien": 8.35
+        "chua-xac-minh": 31.26,
+        "dang-thi-cong": 2.45,
+        "chuan-bi": 2.8,
+        "hoan-thanh": 26.52
       },
-      "tyLeHoanThanh": 89.1,
-      "ghiChuTuyen": "Dựng theo sơ đồ vòng Vành đai 2 với 8 mốc nút giao (Gò Dưa · Phạm Văn Đồng · Bình Thái · Phú Hữu · Phú Mỹ · Nguyễn Văn Linh · Tân Tạo · Quốc lộ 1A), chia hai mức: đã hoàn thiện và chưa hoàn thiện. Vành đai 2 hầu như không mang tên \"Vành đai 2\" trong OpenStreetMap mà mang tên đường thật — cung tây đi trùng Quốc lộ 1, cung bắc là Phạm Văn Đồng, cung đông là Võ Chí Công, cung nam là Nguyễn Văn Linh. Mỗi đoạn giữ thêm trường trangThaiOSM cho biết OSM gắn thẻ đang thi công hay mới quy hoạch.",
-      "tienDo": null,
-      "canhBao": "Bốn đoạn chưa hoàn thiện đều phụ thuộc tiến độ bàn giao mặt bằng — mốc khởi công từng bị lùi nhiều lần. Trạng thái lấy theo thẻ OSM và sơ đồ tham chiếu, có thể trễ so với thực địa. Phải kiểm lại trước khi nói với khách.",
-      "nguon": "Sơ đồ Vành đai 2 TP.HCM (mô hình tham chiếu) · Báo Người Lao Động 11/2025",
-      "tinCay": 3,
-      "soDoan": 36,
+      "tyLeHoanThanh": 41.4,
+      "ghiChuTuyen": "Toàn tuyến 64 km, đã khai thác khoảng 50 km, còn 14 km chưa khép kín chia 4 đoạn. Hình học từng đoạn tìm bằng Dijkstra trên đồ thị đường dựng từ OpenStreetMap nên bám tim đường thật, KHÔNG nối thẳng và KHÔNG nội suy. Vành đai 2 hầu như không mang tên \"Vành đai 2\" trong OSM mà mang tên đường thật: cung nam là Nguyễn Văn Linh, cung đông là Võ Chí Công, cung tây đi trùng Quốc lộ 1 (chỉ nhận ra qua ref=QL.1).",
+      "tienDo": "Hai đoạn Phú Hữu–Bình Thái và Bình Thái–Phạm Văn Đồng khởi công 19/12/2025, dự kiến hoàn thành cuối 2027. Đoạn Phạm Văn Đồng–Gò Dưa tạm dừng từ 2020. Đoạn An Lập–Nguyễn Văn Linh chưa bố trí vốn.",
+      "canhBao": "Đoạn nào mang cờ \"Cần xác minh\" là polyline TẠM, chưa bám tim đường — dùng để hiệu chỉnh trong Chế độ biên tập GIS, không dùng để đo khoảng cách tư vấn khách. Nút giao An Lập còn có tên gọi địa phương \"Ngã ba Tân Tạo\"; hai tên này trong tài liệu không hoàn toàn trùng vị trí (lệch khoảng 3 km dọc Quốc lộ 1) — đang dùng tên quy hoạch.",
+      "nguon": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+      "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+      "tinCay": 4,
+      "ngayCapNhat": "2026-08-06",
+      "soDoan": 8,
       "doan": [
         {
-          "id": "vd2-01",
+          "id": "vd2_001",
           "tuyenId": "vd2",
           "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Nguyễn Văn Linh – Cầu Phú Mỹ — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
+          "name": "Vành đai 2",
+          "segment": "Nguyễn Văn Linh – Cầu Phú Mỹ",
+          "tenDoan": "Nguyễn Văn Linh – Cầu Phú Mỹ",
+          "diemDau": "Nguyễn Văn Linh (nam)",
           "diemCuoi": "Cầu Phú Mỹ",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 6.06,
+          "aliasDiemDau": null,
+          "aliasDiemCuoi": null,
+          "duongThucTe": "Đường Nguyễn Văn Linh",
+          "trangThai": "chua-xac-minh",
+          "status": "unverified",
+          "trangThaiHoSo": "hoan-thanh",
+          "mau": "#94a3b8",
+          "daiKm": 10.28,
           "daiHoSoKm": null,
+          "tienDo": "Đã khai thác",
           "tienDoPhanTram": null,
           "ngayKhoiCong": null,
           "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
+          "ghiChu": "Đồ thị OSM không có đường liên tục giữa hai nút — nhiều khả năng đoạn này chưa được vẽ trong OSM vì chưa thi công.",
+          "canXacMinh": true,
+          "nhanTam": "Tạm thời - cần hiệu chỉnh",
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 2,
+          "nguonHinhHoc": "Polyline tạm nối hai nút giao — CHƯA bám tim đường, cần hiệu chỉnh",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 2,
           "polyline": [
             [
-              10.73383,
-              106.72279
+              10.7027,
+              106.63381
             ],
             [
-              10.73396,
-              106.72184
+              10.734,
+              106.7223
+            ]
+          ],
+          "coordinates": [
+            [
+              10.7027,
+              106.63381
             ],
             [
-              10.73355,
-              106.72104
-            ],
-            [
-              10.73181,
-              106.72013
-            ],
-            [
-              10.73194,
-              106.71994
-            ],
-            [
-              10.73429,
-              106.72112
-            ],
-            [
-              10.73785,
-              106.72144
-            ],
-            [
-              10.7373,
-              106.72164
-            ],
-            [
-              10.73434,
-              106.72147
-            ],
-            [
-              10.73352,
-              106.72484
-            ],
-            [
-              10.73382,
-              106.72669
-            ],
-            [
-              10.73478,
-              106.72823
-            ],
-            [
-              10.73786,
-              106.73103
-            ],
-            [
-              10.74891,
-              106.75291
-            ],
-            [
-              10.75079,
-              106.7561
-            ],
-            [
-              10.75217,
-              106.75685
+              10.734,
+              106.7223
             ]
           ]
         },
         {
-          "id": "vd2-02",
+          "id": "vd2_002",
           "tuyenId": "vd2",
           "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
+          "name": "Vành đai 2",
+          "segment": "Cầu Phú Mỹ – Nút giao Mỹ Thủy",
+          "tenDoan": "Cầu Phú Mỹ – Nút giao Mỹ Thủy",
+          "diemDau": "Cầu Phú Mỹ",
+          "diemCuoi": "Nút giao Mỹ Thủy",
+          "aliasDiemDau": null,
+          "aliasDiemCuoi": [
+            "Ngã tư Mỹ Thủy"
+          ],
+          "duongThucTe": "Cầu Phú Mỹ – Võ Chí Công",
+          "trangThai": "chua-xac-minh",
+          "status": "unverified",
+          "trangThaiHoSo": "hoan-thanh",
+          "mau": "#94a3b8",
+          "daiKm": 6.97,
+          "daiHoSoKm": null,
+          "tienDo": "Đã khai thác",
+          "tienDoPhanTram": null,
+          "ngayKhoiCong": null,
+          "duKienHoanThanh": null,
+          "ghiChu": "Đồ thị OSM không có đường liên tục giữa hai nút — nhiều khả năng đoạn này chưa được vẽ trong OSM vì chưa thi công.",
+          "canXacMinh": true,
+          "nhanTam": "Tạm thời - cần hiệu chỉnh",
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 2,
+          "nguonHinhHoc": "Polyline tạm nối hai nút giao — CHƯA bám tim đường, cần hiệu chỉnh",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 2,
+          "polyline": [
+            [
+              10.734,
+              106.7223
+            ],
+            [
+              10.76977,
+              106.77471
+            ]
+          ],
+          "coordinates": [
+            [
+              10.734,
+              106.7223
+            ],
+            [
+              10.76977,
+              106.77471
+            ]
+          ]
+        },
+        {
+          "id": "vd2_003",
+          "tuyenId": "vd2",
+          "tenTuyen": "Vành đai 2",
+          "name": "Vành đai 2",
+          "segment": "Nút giao Mỹ Thủy – Cầu Phú Hữu",
+          "tenDoan": "Nút giao Mỹ Thủy – Cầu Phú Hữu",
+          "diemDau": "Nút giao Mỹ Thủy",
           "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 5.08,
+          "aliasDiemDau": [
+            "Ngã tư Mỹ Thủy"
+          ],
+          "aliasDiemCuoi": [
+            "Cầu Rạch Chiếc 2"
+          ],
+          "duongThucTe": "Đường Võ Chí Công",
+          "trangThai": "chua-xac-minh",
+          "status": "unverified",
+          "trangThaiHoSo": "hoan-thanh",
+          "mau": "#94a3b8",
+          "daiKm": 5.7,
           "daiHoSoKm": null,
+          "tienDo": "Đã khai thác",
           "tienDoPhanTram": null,
           "ngayKhoiCong": null,
           "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
+          "ghiChu": "Đồ thị OSM không có đường liên tục giữa hai nút — nhiều khả năng đoạn này chưa được vẽ trong OSM vì chưa thi công.",
+          "canXacMinh": true,
+          "nhanTam": "Tạm thời - cần hiệu chỉnh",
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 2,
+          "nguonHinhHoc": "Polyline tạm nối hai nút giao — CHƯA bám tim đường, cần hiệu chỉnh",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 2,
           "polyline": [
             [
-              10.81398,
-              106.79195
+              10.76977,
+              106.77471
             ],
             [
-              10.81186,
-              106.79228
+              10.81843,
+              106.7912
+            ]
+          ],
+          "coordinates": [
+            [
+              10.76977,
+              106.77471
             ],
             [
-              10.81094,
-              106.79194
-            ],
-            [
-              10.8087,
-              106.79245
-            ],
-            [
-              10.79977,
-              106.79264
-            ],
-            [
-              10.79794,
-              106.79217
-            ],
-            [
-              10.79497,
-              106.79223
-            ],
-            [
-              10.79412,
-              106.79226
-            ],
-            [
-              10.79466,
-              106.79272
-            ],
-            [
-              10.79803,
-              106.79267
-            ],
-            [
-              10.79812,
-              106.79221
-            ],
-            [
-              10.79977,
-              106.79218
-            ],
-            [
-              10.79978,
-              106.79257
-            ],
-            [
-              10.79812,
-              106.79221
-            ],
-            [
-              10.79422,
-              106.7923
-            ],
-            [
-              10.79466,
-              106.79272
-            ],
-            [
-              10.79266,
-              106.79278
-            ],
-            [
-              10.79244,
-              106.79234
-            ],
-            [
-              10.7905,
-              106.79277
-            ],
-            [
-              10.78909,
-              106.79276
-            ],
-            [
-              10.78664,
-              106.79191
-            ],
-            [
-              10.78349,
-              106.78896
+              10.81843,
+              106.7912
             ]
           ]
         },
         {
-          "id": "vd2-03",
+          "id": "vd2_004",
           "tuyenId": "vd2",
           "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Ngã ba Tân Tạo — đã hoàn thiện",
-          "diemDau": "Ngã ba Tân Tạo",
-          "diemCuoi": "Ngã ba Tân Tạo",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 4.89,
-          "daiHoSoKm": null,
+          "name": "Vành đai 2",
+          "segment": "Cầu Phú Hữu – Nút giao Bình Thái",
+          "tenDoan": "Cầu Phú Hữu – Nút giao Bình Thái",
+          "diemDau": "Cầu Phú Hữu",
+          "diemCuoi": "Nút giao Bình Thái",
+          "aliasDiemDau": [
+            "Cầu Rạch Chiếc 2"
+          ],
+          "aliasDiemCuoi": [
+            "Nút giao Võ Nguyên Giáp",
+            "Nút giao Xa lộ Hà Nội"
+          ],
+          "duongThucTe": "Tuyến mới đang xây",
+          "trangThai": "chua-xac-minh",
+          "status": "unverified",
+          "trangThaiHoSo": "dang-thi-cong",
+          "mau": "#94a3b8",
+          "daiKm": 3.29,
+          "daiHoSoKm": 3.5,
+          "tienDo": "Khởi công 19/12/2025, dự kiến hoàn thành cuối 2027",
           "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
+          "ngayKhoiCong": "2025-12-19",
+          "duKienHoanThanh": "2027-12-31",
+          "ghiChu": "Tổng mức đầu tư 9.328 tỷ đồng, vốn ngân sách. Phụ thuộc tiến độ bàn giao mặt bằng. Đồ thị OSM không có đường liên tục giữa hai nút — nhiều khả năng đoạn này chưa được vẽ trong OSM vì chưa thi công.",
+          "canXacMinh": true,
+          "nhanTam": "Tạm thời - cần hiệu chỉnh",
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 2,
+          "nguonHinhHoc": "Polyline tạm nối hai nút giao — CHƯA bám tim đường, cần hiệu chỉnh",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 2,
           "polyline": [
             [
-              10.69859,
-              106.62543
+              10.81843,
+              106.7912
             ],
             [
-              10.69885,
-              106.62816
+              10.8359,
+              106.76688
+            ]
+          ],
+          "coordinates": [
+            [
+              10.81843,
+              106.7912
             ],
             [
-              10.70029,
-              106.63117
-            ],
-            [
-              10.70252,
-              106.6342
-            ],
-            [
-              10.70297,
-              106.63388
-            ],
-            [
-              10.70855,
-              106.64119
-            ],
-            [
-              10.70785,
-              106.64127
-            ],
-            [
-              10.70062,
-              106.63062
-            ],
-            [
-              10.69941,
-              106.62792
-            ],
-            [
-              10.69708,
-              106.61996
+              10.8359,
+              106.76688
             ]
           ]
         },
         {
-          "id": "vd2-04",
+          "id": "vd2_005",
           "tuyenId": "vd2",
           "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn 2: Nút giao Bình Thái – đường Phạm Văn Đồng",
+          "name": "Vành đai 2",
+          "segment": "Nút giao Bình Thái – Phạm Văn Đồng",
+          "tenDoan": "Nút giao Bình Thái – Phạm Văn Đồng",
           "diemDau": "Nút giao Bình Thái",
-          "diemCuoi": "Phạm Văn Đồng",
-          "trangThai": "chua-hoan-thien",
-          "trangThaiOSM": "dang-thi-cong",
-          "mau": "#dc2626",
-          "daiKm": 4.52,
-          "daiHoSoKm": 2.44,
+          "diemCuoi": "Giao Phạm Văn Đồng",
+          "aliasDiemDau": [
+            "Nút giao Võ Nguyên Giáp",
+            "Nút giao Xa lộ Hà Nội"
+          ],
+          "aliasDiemCuoi": null,
+          "duongThucTe": "Tuyến mới đang xây",
+          "trangThai": "dang-thi-cong",
+          "status": "under_construction",
+          "trangThaiHoSo": "dang-thi-cong",
+          "mau": "#f97316",
+          "daiKm": 2.45,
+          "daiHoSoKm": 2.5,
+          "tienDo": "Khởi công 19/12/2025, dự kiến hoàn thành cuối 2027",
           "tienDoPhanTram": null,
-          "ngayKhoiCong": "2025-11",
-          "duKienHoanThanh": "2027-04-30",
-          "ghiChu": null,
-          "nguonHoSo": "Báo Người Lao Động / VnEconomy 11–12/2025 dẫn Ban Giao thông TP.HCM",
-          "tinCayHoSo": 3,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
+          "ngayKhoiCong": "2025-12-19",
+          "duKienHoanThanh": "2027-12-31",
+          "ghiChu": "Tổng mức đầu tư 4.543 tỷ đồng, vốn ngân sách.",
+          "canXacMinh": false,
+          "nhanTam": null,
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 4,
+          "nguonHinhHoc": "OpenStreetMap · Overpass API — tim đường thật (Dijkstra trên đồ thị đường)",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 5,
           "polyline": [
+            [
+              10.8359,
+              106.76688
+            ],
+            [
+              10.83833,
+              106.76222
+            ],
+            [
+              10.83842,
+              106.76227
+            ],
             [
               10.83912,
               106.76119
+            ],
+            [
+              10.84635,
+              106.74727
+            ]
+          ],
+          "coordinates": [
+            [
+              10.8359,
+              106.76688
+            ],
+            [
+              10.83833,
+              106.76222
+            ],
+            [
+              10.83842,
+              106.76227
+            ],
+            [
+              10.83912,
+              106.76119
+            ],
+            [
+              10.84635,
+              106.74727
+            ]
+          ]
+        },
+        {
+          "id": "vd2_006",
+          "tuyenId": "vd2",
+          "tenTuyen": "Vành đai 2",
+          "name": "Vành đai 2",
+          "segment": "Phạm Văn Đồng – Nút giao Gò Dưa",
+          "tenDoan": "Phạm Văn Đồng – Nút giao Gò Dưa",
+          "diemDau": "Giao Phạm Văn Đồng",
+          "diemCuoi": "Nút giao Gò Dưa",
+          "aliasDiemDau": null,
+          "aliasDiemCuoi": [
+            "Cầu vượt Gò Dưa",
+            "Nút giao Quốc lộ 1"
+          ],
+          "duongThucTe": "Tuyến mới, thi công dở dang",
+          "trangThai": "chuan-bi",
+          "status": "preparing",
+          "trangThaiHoSo": "chuan-bi",
+          "mau": "#eab308",
+          "daiKm": 2.8,
+          "daiHoSoKm": 2.7,
+          "tienDo": "Thi công dở dang rồi tạm dừng từ 2020, chờ tái khởi động",
+          "tienDoPhanTram": null,
+          "ngayKhoiCong": null,
+          "duKienHoanThanh": null,
+          "ghiChu": "Đầu tư hình thức BT, tổng mức 2.765 tỷ đồng.",
+          "canXacMinh": false,
+          "nhanTam": null,
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 4,
+          "nguonHinhHoc": "OpenStreetMap · Overpass API — tim đường thật (Dijkstra trên đồ thị đường)",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 8,
+          "polyline": [
+            [
+              10.84635,
+              106.74727
+            ],
+            [
+              10.84949,
+              106.74129
             ],
             [
               10.85024,
@@ -370,6 +429,44 @@
             [
               10.85134,
               106.7392
+            ],
+            [
+              10.85189,
+              106.73889
+            ],
+            [
+              10.85367,
+              106.73816
+            ],
+            [
+              10.86595,
+              106.73454
+            ],
+            [
+              10.86624,
+              106.73425
+            ]
+          ],
+          "coordinates": [
+            [
+              10.84635,
+              106.74727
+            ],
+            [
+              10.84949,
+              106.74129
+            ],
+            [
+              10.85024,
+              106.7402
+            ],
+            [
+              10.85134,
+              106.7392
+            ],
+            [
+              10.85189,
+              106.73889
             ],
             [
               10.85367,
@@ -386,1486 +483,437 @@
           ]
         },
         {
-          "id": "vd2-05",
+          "id": "vd2_007",
           "tuyenId": "vd2",
           "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Cầu vượt Gò Dưa – Phạm Văn Đồng — đã hoàn thiện",
-          "diemDau": "Cầu vượt Gò Dưa",
-          "diemCuoi": "Phạm Văn Đồng",
+          "name": "Vành đai 2",
+          "segment": "Nút giao Gò Dưa – Nút giao An Lập",
+          "tenDoan": "Nút giao Gò Dưa – Nút giao An Lập",
+          "diemDau": "Nút giao Gò Dưa",
+          "diemCuoi": "Nút giao An Lập",
+          "aliasDiemDau": [
+            "Cầu vượt Gò Dưa",
+            "Nút giao Quốc lộ 1"
+          ],
+          "aliasDiemCuoi": [
+            "Ngã ba An Lập",
+            "Ngã ba Tân Tạo"
+          ],
+          "duongThucTe": "Quốc lộ 1",
           "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 4.49,
+          "status": "completed",
+          "trangThaiHoSo": "hoan-thanh",
+          "mau": "#16a34a",
+          "daiKm": 26.52,
           "daiHoSoKm": null,
+          "tienDo": "Đã khai thác, quy mô 6–8 làn xe",
           "tienDoPhanTram": null,
           "ngayKhoiCong": null,
           "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
+          "ghiChu": "Cung tây đi TRÙNG Quốc lộ 1. Trong OpenStreetMap chỉ nhận ra qua ref=QL.1, không mang tên vành đai.",
+          "canXacMinh": false,
+          "nhanTam": null,
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 4,
+          "nguonHinhHoc": "OpenStreetMap · Overpass API — tim đường thật (Dijkstra trên đồ thị đường)",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 42,
           "polyline": [
             [
-              10.8667,
-              106.7618
+              10.86963,
+              106.73268
             ],
             [
-              10.86318,
-              106.75553
+              10.86679,
+              106.72701
+            ],
+            [
+              10.86672,
+              106.72664
+            ],
+            [
+              10.86394,
+              106.72093
             ],
             [
               10.85962,
-              106.75223
+              106.71258
             ],
             [
-              10.8536,
-              106.7515
+              10.85906,
+              106.71132
             ],
             [
-              10.846,
-              106.74707
+              10.85888,
+              106.71044
             ],
             [
-              10.84263,
-              106.7455
+              10.85898,
+              106.7084
             ],
             [
-              10.84146,
-              106.74446
+              10.85929,
+              106.7058
             ],
             [
-              10.84143,
-              106.74382
+              10.85922,
+              106.70522
             ],
             [
-              10.84249,
-              106.74488
+              10.86042,
+              106.69574
             ],
             [
-              10.8443,
-              106.74604
+              10.86166,
+              106.67704
             ],
             [
-              10.84286,
-              106.74548
+              10.86173,
+              106.67448
             ],
             [
-              10.84112,
-              106.74388
-            ]
-          ]
-        },
-        {
-          "id": "vd2-06",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nguyễn Văn Linh — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Nguyễn Văn Linh",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 4.33,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.72827,
-              106.7033
-            ],
-            [
-              10.72835,
-              106.70673
-            ],
-            [
-              10.72908,
-              106.70677
-            ],
-            [
-              10.72912,
-              106.70846
-            ],
-            [
-              10.72828,
-              106.70861
-            ],
-            [
-              10.72819,
-              106.70436
-            ],
-            [
-              10.72909,
-              106.70328
-            ],
-            [
-              10.72921,
-              106.70846
-            ],
-            [
-              10.7284,
-              106.70861
-            ],
-            [
-              10.72858,
-              106.71553
-            ],
-            [
-              10.72919,
-              106.71544
-            ],
-            [
-              10.72912,
-              106.70859
-            ],
-            [
-              10.72932,
-              106.71538
-            ]
-          ]
-        },
-        {
-          "id": "vd2-07",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Cầu vượt Gò Dưa – Phạm Văn Đồng — đã hoàn thiện",
-          "diemDau": "Cầu vượt Gò Dưa",
-          "diemCuoi": "Phạm Văn Đồng",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 3.11,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.82754,
-              106.72013
-            ],
-            [
-              10.82881,
-              106.72247
-            ],
-            [
-              10.82907,
-              106.7224
-            ],
-            [
-              10.83767,
-              106.73263
-            ],
-            [
-              10.83742,
-              106.73309
-            ],
-            [
-              10.8385,
-              106.73524
-            ],
-            [
-              10.84064,
-              106.74224
-            ],
-            [
-              10.84136,
-              106.7437
-            ]
-          ]
-        },
-        {
-          "id": "vd2-08",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nguyễn Văn Linh — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Nguyễn Văn Linh",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 2.79,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.72114,
-              106.65739
-            ],
-            [
-              10.72093,
-              106.65801
-            ],
-            [
-              10.72387,
-              106.66252
-            ],
-            [
-              10.72611,
-              106.66773
-            ],
-            [
-              10.72692,
-              106.66826
-            ],
-            [
-              10.72566,
-              106.66461
-            ],
-            [
-              10.72413,
-              106.66164
-            ],
-            [
-              10.72239,
-              106.65901
-            ],
-            [
-              10.72062,
-              106.65742
-            ]
-          ]
-        },
-        {
-          "id": "vd2-09",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nút giao Bình Thái — chưa hoàn thiện",
-          "diemDau": "Nút giao Bình Thái",
-          "diemCuoi": "Nút giao Bình Thái",
-          "trangThai": "chua-hoan-thien",
-          "trangThaiOSM": "dang-thi-cong",
-          "mau": "#dc2626",
-          "daiKm": 2.54,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.82086,
-              106.79036
-            ],
-            [
-              10.8267,
-              106.78207
-            ],
-            [
-              10.83262,
-              106.77567
-            ],
-            [
-              10.83402,
-              106.77339
-            ],
-            [
-              10.83455,
-              106.77193
-            ]
-          ]
-        },
-        {
-          "id": "vd2-10",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Nguyễn Văn Linh – Cầu Phú Mỹ — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Cầu Phú Mỹ",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 2.33,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.73956,
-              106.72155
-            ],
-            [
-              10.74682,
-              106.72165
-            ],
-            [
-              10.74853,
-              106.72194
-            ],
-            [
-              10.75091,
-              106.72328
-            ],
-            [
-              10.75252,
-              106.72568
-            ],
-            [
-              10.75193,
-              106.72522
-            ],
-            [
-              10.75129,
-              106.72408
-            ],
-            [
-              10.75167,
-              106.72419
-            ],
-            [
-              10.75252,
-              106.72568
-            ],
-            [
-              10.75204,
-              106.72546
-            ],
-            [
-              10.752,
-              106.72478
-            ],
-            [
-              10.7513,
-              106.72423
-            ]
-          ]
-        },
-        {
-          "id": "vd2-11",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Nguyễn Văn Linh – Cầu Phú Mỹ — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Cầu Phú Mỹ",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 2.28,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.73956,
-              106.72155
-            ],
-            [
-              10.73799,
-              106.72145
-            ],
-            [
-              10.73833,
-              106.72187
-            ],
-            [
-              10.74676,
-              106.722
-            ],
-            [
-              10.74841,
-              106.72225
-            ],
-            [
-              10.75082,
-              106.72367
-            ],
-            [
-              10.75234,
-              106.72594
-            ],
-            [
-              10.75252,
-              106.72568
-            ],
-            [
-              10.75209,
-              106.7247
-            ],
-            [
-              10.75197,
-              106.72509
-            ],
-            [
-              10.75234,
-              106.72594
-            ]
-          ]
-        },
-        {
-          "id": "vd2-12",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 2.25,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.78198,
-              106.75444
-            ],
-            [
-              10.77836,
-              106.75738
-            ],
-            [
-              10.77829,
-              106.75789
-            ],
-            [
-              10.77352,
-              106.76233
-            ],
-            [
-              10.77314,
-              106.77105
-            ]
-          ]
-        },
-        {
-          "id": "vd2-13",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 1.91,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.81149,
-              106.79192
-            ],
-            [
-              10.80528,
-              106.792
-            ],
-            [
-              10.80415,
-              106.79256
-            ],
-            [
-              10.80121,
-              106.79262
-            ],
-            [
-              10.80013,
-              106.79263
-            ],
-            [
-              10.79998,
-              106.79214
-            ],
-            [
-              10.80404,
-              106.79208
-            ],
-            [
-              10.80301,
-              106.79211
-            ]
-          ]
-        },
-        {
-          "id": "vd2-14",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Ngã ba Tân Tạo — đã hoàn thiện",
-          "diemDau": "Ngã ba Tân Tạo",
-          "diemCuoi": "Ngã ba Tân Tạo",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 1.4,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.74846,
-              106.61501
-            ],
-            [
-              10.75148,
-              106.61509
-            ],
-            [
-              10.75159,
-              106.61531
-            ],
-            [
-              10.74858,
-              106.61527
-            ],
-            [
-              10.74846,
-              106.61501
+              10.86167,
+              106.66537
             ],
             [
-              10.74793,
-              106.615
+              10.86154,
+              106.66174
             ],
             [
-              10.74248,
-              106.61517
-            ]
-          ]
-        },
-        {
-          "id": "vd2-15",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 1.32,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.77707,
-              106.78165
-            ],
-            [
-              10.77404,
-              106.7785
-            ],
-            [
-              10.77385,
-              106.77898
+              10.86194,
+              106.6528
             ],
             [
-              10.7757,
-              106.78089
+              10.86189,
+              106.6525
             ],
             [
-              10.77574,
-              106.78029
+              10.86197,
+              106.65054
             ],
             [
-              10.77406,
-              106.77913
+              10.86188,
+              106.64969
             ],
             [
-              10.77372,
-              106.77822
+              10.86162,
+              106.64892
             ],
             [
-              10.77315,
-              106.77773
-            ]
-          ]
-        },
-        {
-          "id": "vd2-16",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Cầu Phú Mỹ – Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Mỹ",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 1.15,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.76146,
-              106.76594
-            ],
-            [
-              10.76839,
-              106.77364
-            ]
-          ]
-        },
-        {
-          "id": "vd2-17",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nguyễn Văn Linh — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Nguyễn Văn Linh",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 1.14,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.7307,
-              106.71966
+              10.86086,
+              106.64741
             ],
             [
-              10.73118,
-              106.72017
+              10.85177,
+              106.63074
             ],
             [
-              10.73187,
-              106.72
+              10.84732,
+              106.62127
             ],
             [
-              10.73024,
-              106.71834
+              10.84678,
+              106.62028
             ],
             [
-              10.72968,
-              106.71662
+              10.84548,
+              106.61854
             ],
             [
-              10.72885,
-              106.71706
+              10.83838,
+              106.61057
             ],
             [
-              10.72964,
-              106.7172
+              10.83683,
+              106.60895
             ],
             [
-              10.73014,
-              106.71819
+              10.83547,
+              106.6078
             ],
-            [
-              10.72958,
-              106.71666
-            ]
-          ]
-        },
-        {
-          "id": "vd2-18",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Cầu vượt Gò Dưa – Phạm Văn Đồng — đã hoàn thiện",
-          "diemDau": "Cầu vượt Gò Dưa",
-          "diemCuoi": "Phạm Văn Đồng",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 1.11,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
             [
-              10.82711,
-              106.71903
+              10.83021,
+              106.60467
             ],
             [
               10.82892,
-              106.72199
+              106.60413
             ],
             [
-              10.83313,
-              106.72706
+              10.8267,
+              106.60347
+            ],
+            [
+              10.80386,
+              106.59853
+            ],
+            [
+              10.79498,
+              106.59675
+            ],
+            [
+              10.78766,
+              106.59511
+            ],
+            [
+              10.76576,
+              106.59056
+            ],
+            [
+              10.76424,
+              106.59067
+            ],
+            [
+              10.76064,
+              106.59129
+            ],
+            [
+              10.75989,
+              106.59135
+            ],
+            [
+              10.75356,
+              106.59247
+            ],
+            [
+              10.75138,
+              106.59296
+            ],
+            [
+              10.74951,
+              106.59385
+            ],
+            [
+              10.73578,
+              106.60256
+            ]
+          ],
+          "coordinates": [
+            [
+              10.86963,
+              106.73268
+            ],
+            [
+              10.86679,
+              106.72701
+            ],
+            [
+              10.86672,
+              106.72664
+            ],
+            [
+              10.86394,
+              106.72093
+            ],
+            [
+              10.85962,
+              106.71258
+            ],
+            [
+              10.85906,
+              106.71132
+            ],
+            [
+              10.85888,
+              106.71044
+            ],
+            [
+              10.85898,
+              106.7084
+            ],
+            [
+              10.85929,
+              106.7058
+            ],
+            [
+              10.85922,
+              106.70522
+            ],
+            [
+              10.86042,
+              106.69574
+            ],
+            [
+              10.86166,
+              106.67704
+            ],
+            [
+              10.86173,
+              106.67448
+            ],
+            [
+              10.86167,
+              106.66537
+            ],
+            [
+              10.86154,
+              106.66174
+            ],
+            [
+              10.86194,
+              106.6528
+            ],
+            [
+              10.86189,
+              106.6525
+            ],
+            [
+              10.86197,
+              106.65054
+            ],
+            [
+              10.86188,
+              106.64969
+            ],
+            [
+              10.86162,
+              106.64892
+            ],
+            [
+              10.86086,
+              106.64741
+            ],
+            [
+              10.85177,
+              106.63074
+            ],
+            [
+              10.84732,
+              106.62127
+            ],
+            [
+              10.84678,
+              106.62028
+            ],
+            [
+              10.84548,
+              106.61854
+            ],
+            [
+              10.83838,
+              106.61057
+            ],
+            [
+              10.83683,
+              106.60895
+            ],
+            [
+              10.83547,
+              106.6078
+            ],
+            [
+              10.83021,
+              106.60467
+            ],
+            [
+              10.82892,
+              106.60413
+            ],
+            [
+              10.8267,
+              106.60347
+            ],
+            [
+              10.80386,
+              106.59853
+            ],
+            [
+              10.79498,
+              106.59675
+            ],
+            [
+              10.78766,
+              106.59511
+            ],
+            [
+              10.76576,
+              106.59056
+            ],
+            [
+              10.76424,
+              106.59067
+            ],
+            [
+              10.76064,
+              106.59129
+            ],
+            [
+              10.75989,
+              106.59135
+            ],
+            [
+              10.75356,
+              106.59247
+            ],
+            [
+              10.75138,
+              106.59296
+            ],
+            [
+              10.74951,
+              106.59385
+            ],
+            [
+              10.73578,
+              106.60256
             ]
           ]
         },
         {
-          "id": "vd2-19",
+          "id": "vd2_008",
           "tuyenId": "vd2",
           "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.98,
-          "daiHoSoKm": null,
+          "name": "Vành đai 2",
+          "segment": "Nút giao An Lập – Nguyễn Văn Linh",
+          "tenDoan": "Nút giao An Lập – Nguyễn Văn Linh",
+          "diemDau": "Nút giao An Lập",
+          "diemCuoi": "Nguyễn Văn Linh (nam)",
+          "aliasDiemDau": [
+            "Ngã ba An Lập",
+            "Ngã ba Tân Tạo"
+          ],
+          "aliasDiemCuoi": null,
+          "duongThucTe": "Hồ Học Lãm – Trịnh Quang Nghị – cầu Phú Định",
+          "trangThai": "chua-xac-minh",
+          "status": "unverified",
+          "trangThaiHoSo": "quy-hoach",
+          "mau": "#94a3b8",
+          "daiKm": 5.02,
+          "daiHoSoKm": 5.3,
+          "tienDo": "Chưa bố trí được vốn, dự kiến triển khai trước 2030",
           "tienDoPhanTram": null,
           "ngayKhoiCong": null,
           "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
+          "ghiChu": "Hướng tuyến quy hoạch bám các đường hiện hữu Hồ Học Lãm – Trịnh Quang Nghị – cầu Phú Định. Đồ thị OSM không có đường liên tục giữa hai nút — nhiều khả năng đoạn này chưa được vẽ trong OSM vì chưa thi công.",
+          "canXacMinh": true,
+          "nhanTam": "Tạm thời - cần hiệu chỉnh",
+          "source": "OpenStreetMap (hình học) · Wikipedia · Google Maps · báo chí dẫn Ban Giao thông TP.HCM",
+          "nguonHoSo": "Wikipedia · baodautu.vn · plo.vn · thesaigontimes.vn (2025–2026) dẫn Ban Giao thông TP.HCM",
+          "tinCayHoSo": 2,
+          "nguonHinhHoc": "Polyline tạm nối hai nút giao — CHƯA bám tim đường, cần hiệu chỉnh",
+          "ngayChupOSM": "2026-08-06",
+          "ngayCapNhat": "2026-08-06",
+          "soDiem": 2,
           "polyline": [
             [
-              10.78489,
-              106.79037
+              10.73578,
+              106.60256
             ],
             [
-              10.78632,
-              106.79177
-            ],
-            [
-              10.78785,
-              106.79256
-            ],
-            [
-              10.78868,
-              106.79276
-            ],
-            [
-              10.78943,
-              106.79237
-            ],
-            [
-              10.79051,
-              106.79232
-            ],
-            [
-              10.79064,
-              106.79276
-            ],
-            [
-              10.79243,
-              106.79274
+              10.7027,
+              106.63381
             ]
-          ]
-        },
-        {
-          "id": "vd2-20",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Nguyễn Văn Linh – Ngã ba Tân Tạo — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Ngã ba Tân Tạo",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.97,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
+          ],
+          "coordinates": [
             [
-              10.71144,
-              106.64416
+              10.73578,
+              106.60256
             ],
             [
-              10.71848,
-              106.639
-            ]
-          ]
-        },
-        {
-          "id": "vd2-21",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nguyễn Văn Linh — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Nguyễn Văn Linh",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.96,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.72813,
-              106.69447
-            ],
-            [
-              10.72833,
-              106.69621
-            ],
-            [
-              10.72809,
-              106.69643
-            ],
-            [
-              10.72811,
-              106.69528
-            ],
-            [
-              10.72858,
-              106.69461
-            ],
-            [
-              10.72869,
-              106.69623
-            ],
-            [
-              10.7282,
-              106.69642
-            ],
-            [
-              10.7282,
-              106.69555
-            ],
-            [
-              10.72883,
-              106.69539
-            ],
-            [
-              10.72882,
-              106.69639
-            ]
-          ]
-        },
-        {
-          "id": "vd2-22",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.95,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.79785,
-              106.79262
-            ],
-            [
-              10.79489,
-              106.79261
-            ],
-            [
-              10.7949,
-              106.79229
-            ],
-            [
-              10.80013,
-              106.79263
-            ]
-          ]
-        },
-        {
-          "id": "vd2-23",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu vượt Gò Dưa — đã hoàn thiện",
-          "diemDau": "Cầu vượt Gò Dưa",
-          "diemCuoi": "Cầu vượt Gò Dưa",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.81,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.8668,
-              106.7619
-            ],
-            [
-              10.86862,
-              106.76321
-            ],
-            [
-              10.87095,
-              106.76365
-            ],
-            [
-              10.87317,
-              106.76506
-            ]
-          ]
-        },
-        {
-          "id": "vd2-24",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Phạm Văn Đồng — chưa hoàn thiện",
-          "diemDau": "Phạm Văn Đồng",
-          "diemCuoi": "Phạm Văn Đồng",
-          "trangThai": "chua-hoan-thien",
-          "trangThaiOSM": "dang-thi-cong",
-          "mau": "#dc2626",
-          "daiKm": 0.74,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.83594,
-              106.76708
-            ],
-            [
-              10.83875,
-              106.7617
-            ],
-            [
-              10.8388,
-              106.761
-            ]
-          ]
-        },
-        {
-          "id": "vd2-25",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.7,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.78883,
-              106.79231
-            ],
-            [
-              10.78669,
-              106.79141
-            ],
-            [
-              10.78375,
-              106.78871
-            ]
-          ]
-        },
-        {
-          "id": "vd2-26",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Mỹ — đã hoàn thiện",
-          "diemDau": "Cầu Phú Mỹ",
-          "diemCuoi": "Cầu Phú Mỹ",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.69,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.7557,
-              106.76093
-            ],
-            [
-              10.75856,
-              106.76373
-            ],
-            [
-              10.76011,
-              106.76462
-            ],
-            [
-              10.75991,
-              106.76501
-            ]
-          ]
-        },
-        {
-          "id": "vd2-27",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nguyễn Văn Linh — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Nguyễn Văn Linh",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.69,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.73383,
-              106.7237
-            ],
-            [
-              10.73408,
-              106.72163
-            ],
-            [
-              10.73447,
-              106.72188
-            ],
-            [
-              10.73807,
-              106.72189
-            ]
-          ]
-        },
-        {
-          "id": "vd2-28",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Ngã ba Tân Tạo — đã hoàn thiện",
-          "diemDau": "Ngã ba Tân Tạo",
-          "diemCuoi": "Ngã ba Tân Tạo",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.69,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.69454,
-              106.61031
-            ],
-            [
-              10.69595,
-              106.61538
-            ],
-            [
-              10.69527,
-              106.61557
-            ]
-          ]
-        },
-        {
-          "id": "vd2-29",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu vượt Gò Dưa — đã hoàn thiện",
-          "diemDau": "Cầu vượt Gò Dưa",
-          "diemCuoi": "Cầu vượt Gò Dưa",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.65,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.81936,
-              106.68999
-            ],
-            [
-              10.81977,
-              106.69035
-            ],
-            [
-              10.81937,
-              106.68905
-            ],
-            [
-              10.81879,
-              106.68864
-            ],
-            [
-              10.81757,
-              106.68572
-            ]
-          ]
-        },
-        {
-          "id": "vd2-30",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Ngã ba Tân Tạo — đã hoàn thiện",
-          "diemDau": "Ngã ba Tân Tạo",
-          "diemCuoi": "Ngã ba Tân Tạo",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.62,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.69648,
-              106.62004
-            ],
-            [
-              10.69502,
-              106.61464
-            ]
-          ]
-        },
-        {
-          "id": "vd2-31",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.6,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.78587,
-              106.75152
-            ],
-            [
-              10.78741,
-              106.75015
-            ],
-            [
-              10.78733,
-              106.74969
-            ],
-            [
-              10.78762,
-              106.74966
-            ],
-            [
-              10.78676,
-              106.7502
-            ],
-            [
-              10.78581,
-              106.75145
-            ]
-          ]
-        },
-        {
-          "id": "vd2-32",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.6,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.80518,
-              106.79206
-            ],
-            [
-              10.80879,
-              106.79241
-            ],
-            [
-              10.80824,
-              106.79202
-            ],
-            [
-              10.80718,
-              106.79204
-            ]
-          ]
-        },
-        {
-          "id": "vd2-33",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.57,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.78277,
-              106.78774
-            ],
-            [
-              10.78355,
-              106.78842
-            ],
-            [
-              10.78349,
-              106.78896
-            ],
-            [
-              10.78123,
-              106.78624
-            ]
-          ]
-        },
-        {
-          "id": "vd2-34",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn Nút giao Bình Thái – Phạm Văn Đồng — chưa hoàn thiện",
-          "diemDau": "Nút giao Bình Thái",
-          "diemCuoi": "Phạm Văn Đồng",
-          "trangThai": "chua-hoan-thien",
-          "trangThaiOSM": "dang-thi-cong",
-          "mau": "#dc2626",
-          "daiKm": 0.55,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.83455,
-              106.77193
-            ],
-            [
-              10.83594,
-              106.76708
-            ]
-          ]
-        },
-        {
-          "id": "vd2-35",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Nguyễn Văn Linh — đã hoàn thiện",
-          "diemDau": "Nguyễn Văn Linh",
-          "diemCuoi": "Nguyễn Văn Linh",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.48,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.71623,
-              106.65106
-            ],
-            [
-              10.71408,
-              106.64832
-            ],
-            [
-              10.71325,
-              106.64819
-            ]
-          ]
-        },
-        {
-          "id": "vd2-36",
-          "tuyenId": "vd2",
-          "tenTuyen": "Vành đai 2",
-          "tenDoan": "Đoạn qua Cầu Phú Hữu — đã hoàn thiện",
-          "diemDau": "Cầu Phú Hữu",
-          "diemCuoi": "Cầu Phú Hữu",
-          "trangThai": "hoan-thanh",
-          "trangThaiOSM": "hoan-thanh",
-          "mau": "#0e7490",
-          "daiKm": 0.43,
-          "daiHoSoKm": null,
-          "tienDoPhanTram": null,
-          "ngayKhoiCong": null,
-          "duKienHoanThanh": null,
-          "ghiChu": null,
-          "nguonHoSo": null,
-          "tinCayHoSo": null,
-          "nguonHinhHoc": "OpenStreetMap · Overpass API",
-          "ngayChupOSM": "2026-08-04",
-          "polyline": [
-            [
-              10.77423,
-              106.76149
-            ],
-            [
-              10.77348,
-              106.76258
-            ],
-            [
-              10.77329,
-              106.76201
-            ],
-            [
-              10.77467,
-              106.76072
+              10.7027,
+              106.63381
             ]
           ]
         }
