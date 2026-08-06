@@ -1,0 +1,330 @@
+/* ═══ LIVE MODE ════════════════════════════════════════════════════════════
+   Chế độ trình bày cho livestream TikTok / Facebook / YouTube.
+
+   Nguyên tắc bố cục GIỮ NGUYÊN của dự án: mọi thứ nổi tuyệt đối trên bản đồ,
+   KHÔNG dùng CSS Grid chia ô. Bản dựng cũ dùng grid đã làm ô bản đồ co về 0
+   chiều cao (xem ghi chú trong clientmode.js). Đừng quay lại cách đó.
+
+   Bật bằng thuộc tính [data-live] trên .app — mọi thứ dưới đây chỉ ăn khi đó,
+   nên chế độ thường không bị ảnh hưởng một dòng nào.                        */
+
+.app[data-live] {
+  /* ─ Tông tối: đen · navy · trắng · vàng nhấn ─ */
+  --lv-bg:        #070b14;
+  --lv-navy:      #0d1728;
+  --lv-navy-2:    #132038;
+  --lv-line:      #1f3050;
+  --lv-text:      #f2f6fc;
+  --lv-text-2:    #9fb2cd;
+  --lv-gold:      #fbbf24;
+  --lv-metro:     #38bdf8;
+  --lv-quyhoach:  #f43f5e;
+  --lv-ok:        #22c55e;
+
+  /* Chữ to hơn ~20% để đọc rõ khi xem lại trên điện thoại. */
+  --lv-fs:   1.2rem;
+  --lv-fs-s: 1.05rem;
+  --lv-fs-l: 1.5rem;
+
+  --lv-ease: cubic-bezier(.22, .61, .36, 1);
+  --lv-dur:  380ms;
+}
+
+/* ─── 1 · Ẩn toàn bộ giao diện quản trị ──────────────────────────────────
+   Ẩn theo hành động cụ thể chứ không ẩn cả thanh công cụ, để nút nào mới
+   thêm sau này vẫn phải khai báo rõ ràng mới hiện trong Live Mode.        */
+.app[data-live] .topbar,
+.app[data-live] .panel,
+.app[data-live] .sidebar,
+.app[data-live] .editor,
+.app[data-live] .checker,
+.app[data-live] .devmode,
+.app[data-live] .ck,
+.app[data-live] .legend,
+.app[data-live] .leaflet-control-container .leaflet-top,
+.app[data-live] [data-act="bien-tap"],
+.app[data-live] [data-act="dev-mode"],
+.app[data-live] [data-act="kiem-tra-du-lieu"] { display: none !important; }
+
+/* ─── 2 · Khung nền ──────────────────────────────────────────────────── */
+.lv { position: absolute; inset: 0; pointer-events: none; z-index: 900;
+      font-size: var(--lv-fs); color: var(--lv-text); }
+.lv * { box-sizing: border-box; }
+.lv [data-act], .lv button, .lv input, .lv .lv-pane { pointer-events: auto; }
+
+/* ─── 3 · Header cố định ─────────────────────────────────────────────── */
+.lv-hd {
+  position: absolute; top: 0; left: 0; right: 0; height: 62px;
+  display: flex; align-items: center; gap: 18px; padding: 0 18px;
+  background: linear-gradient(180deg, rgba(7,11,20,.97), rgba(7,11,20,.82));
+  border-bottom: 1px solid var(--lv-line);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
+.lv-hd__logo { font-size: 26px; line-height: 1; }
+.lv-hd__brand { line-height: 1.15; }
+.lv-hd__name { font-size: var(--lv-fs); font-weight: 700; letter-spacing: .2px; }
+.lv-hd__sub  { font-size: .78rem; color: var(--lv-text-2); }
+
+.lv-hd__search { position: relative; flex: 0 1 340px; }
+.lv-hd__search input {
+  width: 100%; height: 38px; padding: 0 14px 0 36px;
+  background: var(--lv-navy); border: 1px solid var(--lv-line); border-radius: 10px;
+  color: var(--lv-text); font-size: var(--lv-fs-s); outline: none;
+  transition: border-color var(--lv-dur) var(--lv-ease);
+}
+.lv-hd__search input:focus { border-color: var(--lv-gold); }
+.lv-hd__search span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); opacity: .6; }
+
+.lv-nav { display: flex; gap: 6px; margin-left: auto; flex-wrap: nowrap; overflow-x: auto; }
+.lv-nav::-webkit-scrollbar { height: 0; }
+.lv-chip {
+  height: 36px; padding: 0 14px; border-radius: 999px; white-space: nowrap;
+  background: var(--lv-navy); border: 1px solid var(--lv-line);
+  color: var(--lv-text-2); font-size: var(--lv-fs-s); font-weight: 600; cursor: pointer;
+  transition: background var(--lv-dur) var(--lv-ease), color var(--lv-dur) var(--lv-ease),
+              border-color var(--lv-dur) var(--lv-ease), transform 160ms var(--lv-ease);
+}
+.lv-chip:hover { transform: translateY(-1px); color: var(--lv-text); }
+.lv-chip[aria-pressed="true"] { background: var(--lv-gold); border-color: var(--lv-gold); color: #1a1206; }
+.lv-chip--exit { background: transparent; border-color: var(--lv-quyhoach); color: var(--lv-quyhoach); }
+
+/* ─── 4 · Sidebar thu gọn, chỉ icon, mở khi bấm ──────────────────────── */
+.lv-rail {
+  position: absolute; left: 14px; top: 78px; z-index: 5;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 8px; border-radius: 14px;
+  background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
+  backdrop-filter: blur(8px); pointer-events: auto;
+}
+.lv-rail__btn {
+  width: 44px; height: 44px; display: grid; place-items: center;
+  border: 0; border-radius: 10px; background: transparent;
+  color: var(--lv-text-2); font-size: 20px; cursor: pointer;
+  transition: background var(--lv-dur) var(--lv-ease), color var(--lv-dur) var(--lv-ease);
+}
+.lv-rail__btn:hover { background: var(--lv-navy-2); color: var(--lv-text); }
+.lv-rail__btn[aria-pressed="true"] { background: var(--lv-gold); color: #1a1206; }
+.lv-rail__btn span { pointer-events: none; }
+
+/* Nhãn trượt ra khi rê chuột — giữ thanh gọn mà vẫn biết nút làm gì. */
+.lv-rail__btn { position: relative; }
+.lv-rail__btn::after {
+  content: attr(data-nhan); position: absolute; left: 52px; top: 50%;
+  transform: translate(-6px, -50%); opacity: 0; pointer-events: none;
+  padding: 5px 10px; border-radius: 8px; white-space: nowrap;
+  background: var(--lv-navy-2); border: 1px solid var(--lv-line);
+  color: var(--lv-text); font-size: .82rem; font-weight: 600;
+  transition: opacity var(--lv-dur) var(--lv-ease), transform var(--lv-dur) var(--lv-ease);
+}
+.lv-rail__btn:hover::after { opacity: 1; transform: translate(0, -50%); }
+
+/* ─── 5 · Panel dự án trượt từ phải ──────────────────────────────────── */
+.lv-pane {
+  position: absolute; top: 78px; right: 14px; bottom: 86px; width: min(420px, 34vw);
+  display: flex; flex-direction: column; overflow: hidden;
+  border-radius: 16px; border: 1px solid var(--lv-line);
+  background: linear-gradient(180deg, rgba(13,23,40,.97), rgba(7,11,20,.97));
+  backdrop-filter: blur(12px); box-shadow: 0 24px 60px rgba(0,0,0,.55);
+  /* CHỈ animate opacity — không animate transform hay right/bottom.
+     Đã thử cả ba: phần tử được tạo lúc `.lv` còn `hidden` (display:none) nên
+     transition khởi động trong khung hình đó bị kẹt, giá trị tính toán đứng
+     nguyên ở trạng thái đóng dù phần tử đã khớp `[data-mo]`. Ép reflow +
+     requestAnimationFrame cũng không gỡ được. Fade thì luôn đúng. */
+  /* Đóng thì đẩy hẳn ra ngoài mép phải; mở thì trượt vào kèm fade.
+     Dùng `visibility` để panel đóng không ăn chuột và không bị đọc màn hình. */
+  right: 14px; opacity: 0; visibility: hidden;
+  transform: translateX(calc(100% + 28px));
+  transition: transform var(--lv-dur) var(--lv-ease),
+              opacity var(--lv-dur) var(--lv-ease),
+              visibility 0s linear var(--lv-dur);
+  pointer-events: auto;
+}
+.lv-pane[data-mo] {
+  opacity: 1; visibility: visible; transform: translateX(0);
+  transition-delay: 0s;
+}
+.lv-pane__hd { padding: 16px 18px 12px; border-bottom: 1px solid var(--lv-line); }
+.lv-pane__ten { font-size: var(--lv-fs-l); font-weight: 800; line-height: 1.2; }
+.lv-pane__phu { margin-top: 4px; font-size: var(--lv-fs-s); color: var(--lv-text-2); }
+.lv-pane__body { flex: 1; overflow-y: auto; padding: 14px 18px 18px; }
+.lv-pane__body::-webkit-scrollbar { width: 8px; }
+.lv-pane__body::-webkit-scrollbar-thumb { background: var(--lv-line); border-radius: 4px; }
+
+.lv-gia { font-size: 2rem; font-weight: 800; color: var(--lv-gold); line-height: 1.1; }
+.lv-gia small { display: block; font-size: .8rem; font-weight: 500; color: var(--lv-text-2); }
+
+.lv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.lv-o { padding: 10px 12px; border-radius: 10px; background: var(--lv-navy); border: 1px solid var(--lv-line); }
+.lv-o__k { font-size: .74rem; text-transform: uppercase; letter-spacing: .6px; color: var(--lv-text-2); }
+.lv-o__v { margin-top: 3px; font-size: var(--lv-fs-s); font-weight: 700; }
+.lv-o--rong { grid-column: 1 / -1; }
+
+.lv-sect { margin-top: 18px; font-size: .78rem; font-weight: 700; letter-spacing: 1px;
+           text-transform: uppercase; color: var(--lv-gold); }
+
+.lv-diem { display: flex; align-items: baseline; gap: 10px; margin-top: 8px; }
+.lv-diem__so { font-size: 2.4rem; font-weight: 800; line-height: 1; }
+.lv-diem__nhan { font-size: var(--lv-fs-s); color: var(--lv-text-2); }
+
+.lv-cta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.lv-cta button {
+  flex: 1 1 auto; height: 40px; padding: 0 14px; border-radius: 10px; cursor: pointer;
+  background: var(--lv-navy-2); border: 1px solid var(--lv-line); color: var(--lv-text);
+  font-size: var(--lv-fs-s); font-weight: 600;
+  transition: background var(--lv-dur) var(--lv-ease), transform 160ms var(--lv-ease);
+}
+.lv-cta button:hover { background: var(--lv-line); transform: translateY(-1px); }
+.lv-cta button.is-gold { background: var(--lv-gold); border-color: var(--lv-gold); color: #1a1206; }
+
+/* ─── 6 · Live Ticker ────────────────────────────────────────────────── */
+.lv-tick {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 54px;
+  display: flex; align-items: center; gap: 0; overflow: hidden;
+  background: linear-gradient(0deg, rgba(7,11,20,.97), rgba(7,11,20,.8));
+  border-top: 1px solid var(--lv-line);
+}
+.lv-tick__nhan {
+  flex: 0 0 auto; height: 100%; display: flex; align-items: center; padding: 0 16px;
+  background: var(--lv-gold); color: #1a1206; font-weight: 800; letter-spacing: 1px;
+  font-size: .82rem; text-transform: uppercase;
+}
+.lv-tick__chay { flex: 1; overflow: hidden; white-space: nowrap; }
+.lv-tick__chay > span {
+  display: inline-block; padding-left: 100%;
+  animation: lv-chay 42s linear infinite;
+  font-size: var(--lv-fs-s); font-variant-numeric: tabular-nums;
+}
+.lv-tick__chay b { color: var(--lv-gold); font-weight: 700; }
+.lv-tick__chay i { color: var(--lv-metro); font-style: normal; }
+.lv-tick__sep { color: var(--lv-line); margin: 0 14px; }
+@keyframes lv-chay { to { transform: translateX(-100%); } }
+
+/* ─── 7 · Live Focus — dự án khác mờ đi, dự án đang nói nổi lên ───────── */
+.app[data-live] .lv-mo .duan-ic,
+.app[data-live][data-focus] .leaflet-marker-icon:not(.lv-noi) { opacity: .3; transition: opacity var(--lv-dur) var(--lv-ease); }
+.app[data-live] .leaflet-marker-icon.lv-noi { z-index: 1200 !important; }
+.lv-noi .duan-ic { animation: lv-pulse 1.9s ease-out infinite; transform-origin: 50% 100%; }
+@keyframes lv-pulse {
+  0%   { filter: drop-shadow(0 0 0 rgba(251,191,36,.85)); transform: scale(1.18); }
+  60%  { filter: drop-shadow(0 0 16px rgba(251,191,36,0)); transform: scale(1.24); }
+  100% { filter: drop-shadow(0 0 0 rgba(251,191,36,0)); transform: scale(1.18); }
+}
+
+/* Vòng nhấn riêng của Live Mode — vẽ độc lập với marker dự án nên không bị
+   mất khi bản đồ gom cụm hoặc vẽ lại theo khung nhìn. */
+.lv-nhan { width: 26px; height: 26px; border-radius: 50%;
+           border: 3px solid var(--lv-gold); box-shadow: 0 0 0 0 rgba(251,191,36,.75);
+           animation: lv-song 1.8s cubic-bezier(.22,.61,.36,1) infinite; }
+@keyframes lv-song {
+  0%   { box-shadow: 0 0 0 0 rgba(251,191,36,.75); transform: scale(.9); }
+  70%  { box-shadow: 0 0 0 26px rgba(251,191,36,0); transform: scale(1.15); }
+  100% { box-shadow: 0 0 0 0 rgba(251,191,36,0); transform: scale(.9); }
+}
+
+/* ─── 8 · Công cụ thuyết trình ───────────────────────────────────────── */
+.lv-laser {
+  position: fixed; width: 18px; height: 18px; border-radius: 50%; pointer-events: none;
+  z-index: 4000; transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #ff2d2d 0%, rgba(255,45,45,.55) 45%, rgba(255,45,45,0) 70%);
+  box-shadow: 0 0 18px 6px rgba(255,45,45,.55);
+}
+.lv-spot { position: fixed; inset: 0; z-index: 3900; pointer-events: none; }
+.lv-mag {
+  position: fixed; width: 260px; height: 260px; border-radius: 50%; pointer-events: none;
+  z-index: 4000; transform: translate(-50%, -50%); overflow: hidden;
+  border: 3px solid var(--lv-gold); box-shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+.lv-ve { position: absolute; inset: 0; z-index: 3800; cursor: crosshair; }
+
+/* ─── 9 · Đồng hồ đo, la bàn, toạ độ, mini map ───────────────────────── */
+.lv-hud {
+  position: absolute; right: 14px; bottom: 96px; z-index: 5;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  font-size: .8rem; color: var(--lv-text-2); pointer-events: none;
+}
+.lv-hud__o {
+  padding: 6px 10px; border-radius: 8px; font-variant-numeric: tabular-nums;
+  background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
+}
+.lv-compass { width: 46px; height: 46px; display: grid; place-items: center;
+              border-radius: 50%; background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
+              color: var(--lv-gold); font-weight: 800; }
+.lv-mini {
+  width: 190px; height: 130px; border-radius: 10px; overflow: hidden;
+  background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
+}
+
+/* ─── 10 · Story Mode ────────────────────────────────────────────────── */
+.lv-story {
+  position: absolute; left: 50%; top: 78px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+  border-radius: 12px; background: rgba(13,23,40,.94); border: 1px solid var(--lv-gold);
+  box-shadow: 0 12px 40px rgba(0,0,0,.5); pointer-events: auto;
+  animation: lv-vao var(--lv-dur) var(--lv-ease);
+}
+.lv-story__t { font-size: var(--lv-fs); font-weight: 700; }
+.lv-story__p { font-size: .8rem; color: var(--lv-text-2); }
+.lv-story__thanh { width: 120px; height: 4px; border-radius: 2px; background: var(--lv-line); overflow: hidden; }
+.lv-story__thanh i { display: block; height: 100%; background: var(--lv-gold); width: 0; }
+@keyframes lv-vao { from { opacity: 0; transform: translate(-50%, -10px); } }
+
+/* ─── 11 · So sánh chia đôi ──────────────────────────────────────────── */
+.lv-vs {
+  position: absolute; left: 50%; top: 78px; bottom: 86px; width: min(880px, 76vw);
+  transform: translateX(-50%); display: flex; gap: 1px; overflow: hidden;
+  border-radius: 16px; border: 1px solid var(--lv-line); background: var(--lv-line);
+  box-shadow: 0 24px 60px rgba(0,0,0,.6); pointer-events: auto;
+  animation: lv-vao var(--lv-dur) var(--lv-ease);
+}
+.lv-vs__cot { flex: 1; overflow-y: auto; padding: 16px; background: rgba(7,11,20,.97); }
+.lv-vs__ten { font-size: var(--lv-fs-l); font-weight: 800; margin-bottom: 4px; }
+.lv-vs__hang { display: flex; justify-content: space-between; gap: 10px;
+               padding: 9px 0; border-bottom: 1px dashed var(--lv-line); font-size: var(--lv-fs-s); }
+.lv-vs__hang b { color: var(--lv-gold); }
+.lv-vs__k { color: var(--lv-text-2); }
+
+/* ─── 12 · Bảng phím tắt ─────────────────────────────────────────────── */
+.lv-keys {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  padding: 22px 26px; border-radius: 16px; pointer-events: auto;
+  background: rgba(13,23,40,.97); border: 1px solid var(--lv-line);
+  box-shadow: 0 24px 60px rgba(0,0,0,.6); animation: lv-vao var(--lv-dur) var(--lv-ease);
+}
+.lv-keys h3 { margin: 0 0 12px; font-size: var(--lv-fs); color: var(--lv-gold); }
+.lv-keys dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 0; font-size: var(--lv-fs-s); }
+.lv-keys dt { font-weight: 800; color: var(--lv-gold); font-variant-numeric: tabular-nums; }
+.lv-keys dd { margin: 0; color: var(--lv-text-2); }
+
+/* ─── 13 · Bản đồ trong Live Mode ────────────────────────────────────── */
+.app[data-live] #map { filter: saturate(.92) contrast(1.04) brightness(.96); }
+.app[data-live] .leaflet-control-attribution {
+  background: rgba(7,11,20,.7); color: var(--lv-text-2); font-size: .68rem;
+}
+.app[data-live] .leaflet-control-scale-line {
+  background: rgba(13,23,40,.9); border-color: var(--lv-line); color: var(--lv-text);
+}
+
+/* ─── 14 · Màn hình nhỏ ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .app[data-live] { --lv-fs: 1.06rem; --lv-fs-s: .95rem; --lv-fs-l: 1.28rem; }
+  .lv-hd { height: 56px; gap: 10px; padding: 0 10px; }
+  .lv-hd__search { display: none; }
+  .lv-hd__brand .lv-hd__sub { display: none; }
+  /* Trên máy hẹp panel chiếm gần hết bề ngang. Phải khai báo lại CẢ trạng thái
+     mở: đóng thì trượt xuống dưới thay vì sang phải, vì trượt ngang trên màn
+     hình nhỏ làm panel nhô ra ngoài khung nhìn. */
+  /* Máy hẹp: panel chiếm nửa dưới màn hình, trượt lên từ đáy. */
+  .lv-pane { top: auto; left: 10px; right: 10px; width: auto;
+             height: min(58vh, 480px); bottom: 62px;
+             transform: translateY(calc(100% + 70px)); }
+  .lv-pane[data-mo] { transform: translateY(0); }
+  .lv-vs { width: calc(100vw - 20px); top: 66px; bottom: 78px; }
+  .lv-rail { top: 66px; left: 8px; flex-direction: row; }
+  .lv-rail__btn::after { display: none; }
+  .lv-hud, .lv-mini { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv *, .lv-pane { animation: none !important; transition-duration: 1ms !important; }
+}
