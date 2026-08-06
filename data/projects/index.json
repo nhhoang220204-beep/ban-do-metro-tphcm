@@ -20076,24 +20076,6 @@
     "coChiTiet": true
   },
   {
-    "id": "green-tower",
-    "ma": "",
-    "ten": "Green Tower",
-    "loaiHinh": "can-ho",
-    "toaDo": [
-      10.8884,
-      106.775
-    ],
-    "xacMinh": "osm",
-    "trangThai": "dang-ban",
-    "chuDauTu": "",
-    "giaTu": 58,
-    "donViGia": "trđ/m²",
-    "nguon": "thu-cong",
-    "coChiTiet": true,
-    "nguonToaDo": "OpenStreetMap · way/976324703"
-  },
-  {
     "id": "thien-ha-bang-duong",
     "ma": "",
     "ten": "Thiên Hà Băng Dương",
