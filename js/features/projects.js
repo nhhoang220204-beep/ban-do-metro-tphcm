@@ -24,9 +24,6 @@ import { datToaDoTam, banNhap } from './project-editor.js';
 let lop = null;
 const markers = new Map();
 
-/** Marker đang vẽ của một dự án — Live Mode dùng để làm nổi dự án đang nói. */
-export const markerCua = id => markers.get(id) ?? null;
-
 /* ─── §1 · VẼ GHIM Ở QUY MÔ LỚN ─────────────────────────────────────────────
    Ba lớp bảo vệ để hàng nghìn dự án không làm chết trình duyệt:
 
