@@ -3,7 +3,7 @@
 > Tài liệu này viết cho một phiên Claude hoàn toàn mới. Đọc xong file này là đủ
 > để tiếp tục công việc — **không cần đọc lại lịch sử hội thoại**.
 >
-> **Cập nhật:** 04/08/2026 · **Trạng thái:** Đã lên GitHub Pages: Chế độ biên
+> **Cập nhật:** 07/08/2026 · **Trạng thái:** Đã lên GitHub Pages: Chế độ biên
 > tập GIS (Giai đoạn 7), lọc danh mục dự án (Giai đoạn 8), Project Edit Mode
 > (Giai đoạn 9), "Kiểm tra dữ liệu" (Giai đoạn 10), Developer Mode (Giai đoạn
 > 11). Hoàng đã yêu cầu một đợt refactor tổng thể lớn hơn nhiều (9 hạng mục) —
@@ -369,7 +369,7 @@ cần xem bằng mắt). Đã làm phần THẬT SỰ khả thi:
   động, dò responsive tự động toàn diện, dò lỗi Popup/Sidebar dạng hình ảnh
   (chỉ dò được Layer ở mức "bật nhưng tải lỗi", không dò được "vẽ sai/méo")
 
-### Giai đoạn 12 — Chuyển sang Firebase để lưu trực tiếp trên web thật (🔴 ĐANG LÀM DỞ, bắt đầu 04/08/2026)
+### Giai đoạn 12 — Chuyển sang Firebase để lưu trực tiếp trên web thật (🔴 ĐANG LÀM DỞ, bắt đầu 07/08/2026)
 
 Bối cảnh: Hoàng thấy toast "Không lưu được xuống file — chỉ hoạt động khi
 chạy node tools/serve.mjs trên máy…" khi bấm Lưu trên bản GitHub Pages, và nói
