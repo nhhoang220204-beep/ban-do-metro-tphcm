@@ -24,7 +24,7 @@ import { map, VIEW_MAC_DINH } from '../map/engine.js';
 import { chamDiem, nhanDiem } from './score.js';
 import { chonDuAn, markerCua } from './projects.js';
 import { hienLopDuAn } from './projects.js';
-import { cacTuyenVD, bangTrangThai, tatCaDoan, hienLopVanhDai } from './vanhdai.js';
+import { cacTuyenVD, hienLopVanhDai, datLocVD } from './vanhdai.js';
 
 let host, appEl;
 let dangBat = false;
@@ -71,7 +71,11 @@ function bat_() {
   ve();
   ganPhim();
   ganHud();
+  /* Bản đồ vừa thu vào khung panel — Leaflet phải đo lại, và phải đo SAU khi
+     trình duyệt áp xong CSS mới, nếu không tile sẽ hụt một dải bên phải. */
   map.invalidateSize();
+  hen(() => map.invalidateSize(), 60);
+  hen(() => map.invalidateSize(), 450);
   toast('LIVE MODE — F1 toàn màn hình · ? xem phím tắt', 'ok', 4200);
 }
 
@@ -87,22 +91,24 @@ function tat_() {
   duAnDangNoi = null;
   delete appEl.dataset.live;
   delete appEl.dataset.focus;
+  delete appEl.dataset.pane;
   boNoi();
   host.hidden = true;
   fill(host, []);
   map.invalidateSize();
+  setTimeout(() => map.invalidateSize(), 60);   // bản đồ trả về tràn viền
 }
 
 /* ─── §2 · KHUNG GIAO DIỆN ──────────────────────────────────────────────── */
 
-const NAV = [
-  { act: 'metro',    nhan: 'Metro' },
-  { act: 'vanhdai',  nhan: 'Vành đai' },
-  { act: 'duan',     nhan: 'Dự án' },
-  { act: 'nha-pho',  nhan: 'Nhà phố' },
-  { act: 'chung-cu', nhan: 'Chung cư' },
-  { act: 'tien-ich', nhan: 'Tiện ích' },
-  { act: 'so-sanh',  nhan: 'So sánh' }
+/** Sáu lớp dữ liệu trên sidebar — chỉ icon, nhãn trượt ra khi rê chuột. */
+const LOP = [
+  { act: 'metro',    icon: '🚇', nhan: 'Metro' },
+  { act: 'vanhdai',  icon: '🛣', nhan: 'Vành đai' },
+  { act: 'quy-hoach',icon: '📐', nhan: 'Quy hoạch' },
+  { act: 'duan',     icon: '🏢', nhan: 'Dự án' },
+  { act: 'tien-ich', icon: '📍', nhan: 'Tiện ích' },
+  { act: 'so-sanh',  icon: '⇄',  nhan: 'So sánh 2 dự án' }
 ];
 
 const RAIL = [
@@ -116,41 +122,158 @@ const RAIL = [
   { act: 'phim',      icon: '⌨', nhan: 'Phím tắt' }
 ];
 
+/**
+ * Danh tính hiện trên sóng. ĐỔI Ở ĐÂY — không rải chuỗi khắp nơi.
+ */
+export const THUONG_HIEU = {
+  logo: '🏙',
+  ten: 'BẢN ĐỒ TƯ VẤN BĐS',
+  slogan: 'Thành phố Hồ Chí Minh · Dữ liệu quy hoạch',
+  chuongTrinh: 'PHÂN TÍCH THỊ TRƯỜNG',
+  tieuDe: 'Metro · Vành đai · Giá căn hộ theo trục hạ tầng',
+  nguoiDan: 'Huy Hoàng',
+  chucDanh: 'Chuyên viên tư vấn bất động sản',
+  website: 'nhhoang220204-beep.github.io/ban-do-metro-tphcm'
+};
+
 function ve() {
   fill(host, [
+    /* ─ Nền nhiều lớp, đặt dưới cùng ─ */
+    el('div.lv-bg', { 'aria-hidden': 'true' }, [
+      el('div.lv-bg__nen', {}),
+      el('div.lv-bg__hex', {}),
+      el('div.lv-bg__grid', {}),
+      veWireframe(),
+      veDuongNoi(),
+      el('div.lv-bg__glow', {})
+    ]),
+
+    /* ─ Thanh trên ─ */
     el('header.lv-hd', {}, [
-      el('div.lv-hd__logo', { 'aria-hidden': 'true' }, '🏙'),
+      el('div.lv-hd__logo', { 'aria-hidden': 'true' }, THUONG_HIEU.logo),
       el('div.lv-hd__brand', {}, [
-        el('div.lv-hd__name', {}, 'Bản đồ tư vấn BĐS'),
-        el('div.lv-hd__sub', {}, 'Thành phố Hồ Chí Minh')
+        el('div.lv-hd__name', {}, THUONG_HIEU.ten),
+        el('div.lv-hd__sub', {}, THUONG_HIEU.slogan)
       ]),
-      el('div.lv-hd__search', {}, [
-        el('span', { 'aria-hidden': 'true' }, '🔍'),
-        el('input', { type: 'search', placeholder: 'Tìm dự án…', 'aria-label': 'Tìm dự án',
-                      dataset: { act: 'tim' } })
-      ]),
+      el('div.lv-hd__ct', {}, THUONG_HIEU.chuongTrinh),
+      el('div.lv-hd__tieude', {}, THUONG_HIEU.tieuDe),
       el('nav.lv-nav', {}, [
-        ...NAV.map(n => el('button.lv-chip', {
-          type: 'button', dataset: { act: 'nav', nav: n.act }, 'aria-pressed': 'false'
-        }, n.nhan)),
-        el('button.lv-chip.lv-chip--exit', { type: 'button', dataset: { act: 'tat' } }, '✕ Thoát Live')
+        el('button.lv-chip', { type: 'button', dataset: { act: 'nav', nav: 'so-sanh' }, 'aria-pressed': 'false' }, 'So sánh'),
+        el('button.lv-chip.lv-chip--exit', { type: 'button', dataset: { act: 'tat' } }, '✕ Thoát')
+      ]),
+      el('div.lv-onair', {}, [el('i', {}), 'ON AIR']),
+      el('div.lv-hd__ngay', {}, [
+        el('div.lv-hd__gio', { dataset: { dh: 'gio' } }, '--:--'),
+        el('div.lv-hd__nam', { dataset: { dh: 'ngay' } }, '')
       ])
     ]),
 
-    el('div.lv-rail', {}, RAIL.map(r => el('button.lv-rail__btn', {
+    /* ─ Sidebar: ĐÚNG 6 lớp dữ liệu, chỉ icon.
+         Công cụ thuyết trình để riêng ở thanh dưới — nhét chung 14 nút vào một
+         cột làm sidebar cao 829px, tràn khỏi màn hình 720px. ─ */
+    el('div.lv-rail', {}, LOP.map(n => el('button.lv-rail__btn', {
+      type: 'button', dataset: { act: 'nav', nav: n.act, nhan: n.nhan },
+      'aria-pressed': 'false', 'aria-label': n.nhan
+    }, el('span', {}, n.icon)))),
+
+    /* ─ Công cụ thuyết trình — thanh ngang gọn, góc phải dưới ─ */
+    el('div.lv-tools', {}, RAIL.map(r => el('button.lv-rail__btn', {
       type: 'button', dataset: { act: 'cong-cu', cc: r.act, nhan: r.nhan },
       'aria-pressed': 'false', 'aria-label': r.nhan
     }, el('span', {}, r.icon)))),
 
+    /* ─ Khung camera (rỗng, để TikTok Studio phủ webcam lên) + lower third ─ */
+    el('div.lv-cam', {}, [
+      el('div.lv-cam__khung', {}, [
+        el('div.lv-cam__nhan', {}, 'CAM 01'),
+        el('div.lv-cam__goc.lv-cam__goc--tt', {}),
+        el('div.lv-cam__goc.lv-cam__goc--tp', {}),
+        el('div.lv-cam__goc.lv-cam__goc--dt', {}),
+        el('div.lv-cam__goc.lv-cam__goc--dp', {})
+      ]),
+      el('div.lv-lower', {}, [
+        el('div.lv-lower__tren', {}, el('div', {}, [
+          el('div.lv-lower__ten', {}, THUONG_HIEU.nguoiDan),
+          el('div.lv-lower__chuc', {}, THUONG_HIEU.chucDanh)
+        ])),
+        el('div.lv-lower__duoi', {}, [
+          el('span', {}, THUONG_HIEU.ten),
+          el('span.lv-lower__web', {}, THUONG_HIEU.website)
+        ])
+      ])
+    ]),
+
     el('aside.lv-pane', { dataset: { pane: '' } }, []),
+
     el('div.lv-tick', {}, [
       el('div.lv-tick__nhan', {}, 'LIVE'),
       el('div.lv-tick__chay', {}, el('span', {}, ''))
-    ])
+    ]),
+
+    el('div.lv-frame', { 'aria-hidden': 'true' })
   ]);
 
   veTicker();
   ganNut();
+  chayDongHo();
+}
+
+/* ─── §2b · NỀN — WIREFRAME TỪ DỮ LIỆU THẬT ─────────────────────────────── */
+
+/**
+ * Vẽ bóng mờ các tuyến vành đai làm hoạ tiết nền.
+ *
+ * Dùng ĐÚNG toạ độ trong ring_roads.json chứ không vẽ hình TP.HCM bịa — nền
+ * trang trí cũng không nên là dữ liệu sai. Chiếu tuyến tính theo khung bao của
+ * chính tập điểm, đủ cho mục đích hoạ tiết.
+ */
+function veWireframe() {
+  const doan = [];
+  for (const t of cacTuyenVD()) for (const d of t.doan ?? []) {
+    if (Array.isArray(d.polyline) && d.polyline.length > 1) doan.push(d);
+  }
+  const svg = el('svg.lv-bg__wire', { viewBox: '0 0 1000 1000', preserveAspectRatio: 'xMidYMid slice' });
+  if (!doan.length) return svg;
+
+  const pts = doan.flatMap(d => d.polyline);
+  const la = pts.map(p => p[0]), lo = pts.map(p => p[1]);
+  const laMin = Math.min(...la), laMax = Math.max(...la);
+  const loMin = Math.min(...lo), loMax = Math.max(...lo);
+  const dx = (loMax - loMin) || 1, dy = (laMax - laMin) || 1;
+  const X = lng => ((lng - loMin) / dx) * 880 + 60;
+  const Y = lat => (1 - (lat - laMin) / dy) * 880 + 60;      // vĩ độ tăng lên trên
+
+  for (const d of doan) {
+    const nd = d.polyline.map((p, i) => `${i ? 'L' : 'M'}${X(p[1]).toFixed(1)} ${Y(p[0]).toFixed(1)}`).join(' ');
+    svg.appendChild(el(`path${d.trangThai === 'hoan-thanh' ? '.w-nhan' : ''}`, { d: nd }));
+  }
+  return svg;
+}
+
+/** Vài đường kết nối + nút mạng, thuần trang trí, nét chạy rất chậm. */
+function veDuongNoi() {
+  const svg = el('svg.lv-bg__noi', { viewBox: '0 0 100 100', preserveAspectRatio: 'none' });
+  const nut = [[8, 22], [26, 9], [23, 44], [6, 68], [40, 74], [72, 12], [88, 34], [66, 58], [92, 76], [50, 30]];
+  for (let i = 0; i < nut.length; i++) {
+    const [x1, y1] = nut[i], [x2, y2] = nut[(i + 3) % nut.length];
+    svg.appendChild(el('line', { x1, y1, x2, y2 }));
+  }
+  for (const [cx, cy] of nut) svg.appendChild(el('circle', { cx, cy, r: 0.5 }));
+  return svg;
+}
+
+/** Đồng hồ trên thanh trên — cập nhật mỗi 10 giây là đủ. */
+function chayDongHo() {
+  const ve_ = () => {
+    const d = new Date();
+    const g = host.querySelector('[data-dh="gio"]');
+    const n = host.querySelector('[data-dh="ngay"]');
+    if (g) g.textContent = d.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+    if (n) n.textContent = d.toLocaleDateString('vi-VN', { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' });
+  };
+  ve_();
+  const id = setInterval(ve_, 10000);
+  rac.push(() => clearInterval(id));
 }
 
 function ganNut() {
@@ -190,25 +313,27 @@ function bamNav(btn) {
   const dang = btn.getAttribute('aria-pressed') === 'true';
   const dat = v => btn.setAttribute('aria-pressed', String(v));
 
-  if (nav === 'metro')   { dat(!dang); return hienMetro(!dang); }
-  if (nav === 'vanhdai') { dat(!dang); return hienVanhDai(!dang); }
-  if (nav === 'duan')    { dat(!dang); hienLopDuAn(dang ? false : true); return; }
-  if (nav === 'tien-ich'){ dat(!dang); return toggleLop('tienich', !dang); }
-  if (nav === 'so-sanh') return moSoSanh();
-  if (nav === 'nha-pho' || nav === 'chung-cu') { dat(!dang); return locLoaiHinh(nav, !dang); }
+  if (nav === 'metro')    { dat(!dang); return hienMetro(!dang); }
+  if (nav === 'vanhdai')  { dat(!dang); return hienVanhDai(!dang); }
+  if (nav === 'quy-hoach'){ dat(!dang); return hienQuyHoach(!dang); }
+  if (nav === 'duan')     { dat(!dang); hienLopDuAn(!dang); return; }
+  if (nav === 'tien-ich') { dat(!dang); return toggleLop('tienich', !dang); }
+  if (nav === 'so-sanh')  return moSoSanh();
+}
+
+/**
+ * Lớp Quy hoạch = chỉ giữ những đoạn vành đai CHƯA hoàn thành.
+ * Đây là câu chuyện hay nhất khi tư vấn: hạ tầng sắp có, không phải đã có.
+ */
+function hienQuyHoach(bat) {
+  hienLopVanhDai(true);
+  datLocVD(bat ? { trangThai: ['dang-thi-cong', 'chuan-bi', 'quy-hoach', 'chua-xac-minh'] }
+               : { trangThai: null });
+  toast(bat ? 'Chỉ hiện đoạn vành đai chưa hoàn thành' : 'Hiện lại toàn bộ vành đai', 'ok');
 }
 
 function toggleLop(khoa, bat) {
   set({ lop: { ...state.lop, [khoa]: bat } }, 'lop-doi');
-}
-
-/** Lọc nhanh theo loại hình ngay trên header — ít click nhất khi đang live. */
-function locLoaiHinh(nav, bat) {
-  const ma = nav === 'nha-pho' ? ['nha-pho', 'nha-pho-thuong-mai', 'shophouse', 'biet-thu']
-                               : ['chung-cu', 'can-ho'];
-  set({ loc: { ...state.loc, loaiHinh: bat ? ma : null } }, 'loc-doi');
-  toast(bat ? `Chỉ hiện ${nav === 'nha-pho' ? 'nhà phố / biệt thự' : 'chung cư / căn hộ'}`
-            : 'Hiện lại tất cả loại hình', 'ok');
 }
 
 /* ─── §4 · METRO MODE — ga hiện lần lượt ────────────────────────────────── */
@@ -316,6 +441,8 @@ async function noiVe(id) {
 function datPane(pane, mo) {
   if (!pane) return;
   if (mo) pane.dataset.mo = ''; else delete pane.dataset.mo;
+  /* Cờ trên .app để thanh công cụ và HUD né sang trái, khỏi nằm dưới panel. */
+  if (mo) appEl.dataset.pane = ''; else delete appEl.dataset.pane;
 }
 
 function dongPane() {

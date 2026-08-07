@@ -1,25 +1,35 @@
-/* ═══ LIVE MODE ════════════════════════════════════════════════════════════
-   Chế độ trình bày cho livestream TikTok / Facebook / YouTube.
+/* ═══ LIVE MODE — LỚP TRÌNH BÀY LIVESTREAM ════════════════════════════════
+   Chuẩn hình: trung tâm phân tích dữ liệu (Bloomberg / CNBC / TradingView),
+   KHÔNG phải livestream bán hàng.
 
-   Nguyên tắc bố cục GIỮ NGUYÊN của dự án: mọi thứ nổi tuyệt đối trên bản đồ,
-   KHÔNG dùng CSS Grid chia ô. Bản dựng cũ dùng grid đã làm ô bản đồ co về 0
-   chiều cao (xem ghi chú trong clientmode.js). Đừng quay lại cách đó.
+   Bố cục: bản đồ là PANEL NỘI DUNG có khung kính nằm giữa, xung quanh là chrome
+   thương hiệu (thanh trên, sidebar icon, khung camera, lower third, ticker).
+   Nền phía sau có chiều sâu: gradient + lục giác + lưới mờ + đường kết nối +
+   wireframe vành đai thật + glow.
 
-   Bật bằng thuộc tính [data-live] trên .app — mọi thứ dưới đây chỉ ăn khi đó,
-   nên chế độ thường không bị ảnh hưởng một dòng nào.                        */
+   Nguyên tắc bố cục GIỮ NGUYÊN của dự án: mọi thứ nổi TUYỆT ĐỐI, KHÔNG dùng
+   CSS Grid chia ô. Bản dựng cũ dùng grid làm ô bản đồ co về 0 chiều cao
+   (xem ghi chú trong clientmode.js). Đừng quay lại cách đó.
+
+   Bật bằng [data-live] trên .app — chế độ thường không bị ảnh hưởng dòng nào. */
 
 .app[data-live] {
-  /* ─ Tông tối: đen · navy · trắng · vàng nhấn ─ */
-  --lv-bg:        #070b14;
-  --lv-navy:      #0d1728;
-  --lv-navy-2:    #132038;
-  --lv-line:      #1f3050;
-  --lv-text:      #f2f6fc;
-  --lv-text-2:    #9fb2cd;
-  --lv-gold:      #fbbf24;
-  --lv-metro:     #38bdf8;
-  --lv-quyhoach:  #f43f5e;
-  --lv-ok:        #22c55e;
+  /* ─ Tông: navy đậm · than chì · trắng · vàng nhấn ─ */
+  --lv-void:      #05080f;   /* nền ngoài cùng, sâu nhất */
+  --lv-bg:        #070c16;
+  --lv-navy:      #0c1626;
+  --lv-navy-2:    #122036;
+  --lv-charcoal:  #161d28;
+  --lv-line:      #1e3050;
+  --lv-line-2:    #2a4470;
+  --lv-text:      #f3f7fd;
+  --lv-text-2:    #9db0cb;
+  --lv-text-3:    #63748f;
+  --lv-gold:      #f5b53d;
+  --lv-gold-2:    #ffd27a;
+  --lv-metro:     #3fbdf5;
+  --lv-quyhoach:  #f2556f;
+  --lv-ok:        #2fc46b;
 
   /* Chữ to hơn ~20% để đọc rõ khi xem lại trên điện thoại. */
   --lv-fs:   1.2rem;
@@ -27,12 +37,18 @@
   --lv-fs-l: 1.5rem;
 
   --lv-ease: cubic-bezier(.22, .61, .36, 1);
-  --lv-dur:  380ms;
+  --lv-dur:  400ms;
+
+  /* Khoảng chừa quanh panel bản đồ — dùng lại ở nhiều chỗ nên đặt biến. */
+  --lv-top:   68px;
+  --lv-rail:  78px;
+  --lv-bot:   74px;
+  --lv-right: 18px;
 }
 
-/* ─── 1 · Ẩn toàn bộ giao diện quản trị ──────────────────────────────────
-   Ẩn theo hành động cụ thể chứ không ẩn cả thanh công cụ, để nút nào mới
-   thêm sau này vẫn phải khai báo rõ ràng mới hiện trong Live Mode.        */
+/* ─── 1 · Ẩn toàn bộ giao diện quản trị ───────────────────────────────────
+   Ẩn theo hành động cụ thể chứ không ẩn cả thanh công cụ, để nút mới thêm sau
+   này vẫn phải khai báo rõ ràng mới hiện trong Live Mode.                   */
 .app[data-live] .topbar,
 .app[data-live] .panel,
 .app[data-live] .sidebar,
@@ -46,124 +62,311 @@
 .app[data-live] [data-act="dev-mode"],
 .app[data-live] [data-act="kiem-tra-du-lieu"] { display: none !important; }
 
-/* ─── 2 · Khung nền ──────────────────────────────────────────────────── */
+/* ─── 2 · Bản đồ thành PANEL NỘI DUNG ─────────────────────────────────────
+   Thu bản đồ vào trong khung có bo góc + viền kính + đổ bóng sâu. Đây là thứ
+   tạo cảm giác "màn hình phân tích" thay vì trang web tràn viền.            */
+.app[data-live] #map {
+  inset: var(--lv-top) var(--lv-right) var(--lv-bot) var(--lv-rail);
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px rgba(90,130,190,.28),
+              0 0 0 6px rgba(8,14,26,.55),
+              0 30px 80px rgba(0,0,0,.7),
+              inset 0 0 90px rgba(0,0,0,.45);
+  filter: saturate(.9) contrast(1.05) brightness(.94);
+  overflow: hidden;
+}
+
+/* ─── 3 · NỀN CÓ CHIỀU SÂU ───────────────────────────────────────────────
+   Bốn lớp chồng nhau, lớp nào cũng rất mờ để không giành sự chú ý với bản đồ:
+   gradient sâu → lục giác → lưới → wireframe vành đai thật → glow.          */
+.lv-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+
+.lv-bg__nen {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(1200px 700px at 18% -10%, rgba(30,60,110,.55), transparent 60%),
+    radial-gradient(900px 600px at 100% 110%, rgba(20,45,85,.45), transparent 62%),
+    linear-gradient(160deg, var(--lv-bg) 0%, var(--lv-void) 55%, #04070d 100%);
+}
+
+/* Lục giác — pattern SVG lặp, độ mờ rất thấp. */
+.lv-bg__hex {
+  position: absolute; inset: -40px; opacity: .16;
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'>\
+<path d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z' fill='none' stroke='%232c4straight' stroke-width='1'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 1 L55 16.5 L55 47.5 L28 63 L1 47.5 L1 16.5 Z' fill='none' stroke='%23315храм' stroke-width='1'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 1 L55 16.5 L55 47.5 L28 63 L1 47.5 L1 16.5 Z' fill='none' stroke='%232f4a75' stroke-width='1'/><path d='M28 65 L55 80.5 L55 96 M28 65 L1 80.5 L1 96' fill='none' stroke='%232f4a75' stroke-width='1'/></svg>");
+  background-size: 56px 97px;
+  mask-image: radial-gradient(1000px 620px at 50% 40%, transparent 38%, #000 88%);
+}
+
+/* Lưới mảnh — gợi bảng dữ liệu. */
+.lv-bg__grid {
+  position: absolute; inset: 0; opacity: .3;
+  background-image:
+    linear-gradient(rgba(70,110,170,.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70,110,170,.14) 1px, transparent 1px);
+  background-size: 68px 68px;
+  mask-image: radial-gradient(1100px 700px at 50% 45%, transparent 30%, #000 92%);
+}
+
+/* Wireframe vành đai — vẽ bằng JS từ toạ độ THẬT trong ring_roads.json. */
+.lv-bg__wire { position: absolute; inset: 0; opacity: .2; }
+.lv-bg__wire path { fill: none; stroke: var(--lv-metro); stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.lv-bg__wire .w-nhan { stroke: var(--lv-gold); opacity: .55; }
+
+/* Đường kết nối kiểu sơ đồ mạng — nét chạy rất chậm. */
+.lv-bg__noi { position: absolute; inset: 0; opacity: .22; }
+.lv-bg__noi line { stroke: rgba(120,170,230,.5); stroke-width: 1; stroke-dasharray: 3 10;
+                   animation: lv-noi-chay 26s linear infinite; }
+.lv-bg__noi circle { fill: var(--lv-metro); opacity: .5; }
+@keyframes lv-noi-chay { to { stroke-dashoffset: -260; } }
+
+/* Glow góc — tạo khối, tránh nền phẳng. */
+.lv-bg__glow {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(520px 320px at 8% 92%, rgba(245,181,61,.10), transparent 70%),
+    radial-gradient(560px 340px at 96% 8%, rgba(63,189,245,.10), transparent 70%);
+}
+
+/* ─── 4 · KHUNG PHÁT SÓNG (LIVE BORDER) ─────────────────────────────────── */
+.lv-frame { position: absolute; inset: 0; z-index: 40; pointer-events: none; }
+.lv-frame::before {
+  content: ''; position: absolute; inset: 6px; border-radius: 20px;
+  border: 1px solid rgba(120,165,225,.18);
+  box-shadow: inset 0 0 120px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.03);
+}
+/* Vệt gradient mảnh chạy dọc mép trên — dấu hiệu "đang phát" tinh tế. */
+.lv-frame::after {
+  content: ''; position: absolute; left: 6px; right: 6px; top: 6px; height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--lv-gold) 18%, var(--lv-metro) 52%, transparent 88%);
+  opacity: .75;
+}
+
+/* ─── 5 · Khung chung ────────────────────────────────────────────────────── */
 .lv { position: absolute; inset: 0; pointer-events: none; z-index: 900;
       font-size: var(--lv-fs); color: var(--lv-text); }
 .lv * { box-sizing: border-box; }
 .lv [data-act], .lv button, .lv input, .lv .lv-pane { pointer-events: auto; }
 
-/* ─── 3 · Header cố định ─────────────────────────────────────────────── */
+/* ─── 6 · TOP BAR ────────────────────────────────────────────────────────
+   Logo + thương hiệu | tên chương trình | tiêu đề buổi phát | ngày & giờ.   */
 .lv-hd {
-  position: absolute; top: 0; left: 0; right: 0; height: 62px;
-  display: flex; align-items: center; gap: 18px; padding: 0 18px;
-  background: linear-gradient(180deg, rgba(7,11,20,.97), rgba(7,11,20,.82));
-  border-bottom: 1px solid var(--lv-line);
+  position: absolute; top: 0; left: 0; right: 0; height: var(--lv-top);
+  display: flex; align-items: center; gap: 16px; padding: 0 18px 0 16px; z-index: 30;
+  background: linear-gradient(180deg, rgba(6,10,19,.96) 0%, rgba(6,10,19,.72) 78%, transparent 100%);
+  pointer-events: auto;
+  animation: lv-xuong 520ms var(--lv-ease);
+}
+@keyframes lv-xuong { from { opacity: 0; transform: translateY(-14px); } }
+
+.lv-hd__logo {
+  width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center;
+  border-radius: 11px; font-size: 20px;
+  background: linear-gradient(145deg, var(--lv-navy-2), var(--lv-navy));
+  border: 1px solid var(--lv-line-2);
+  box-shadow: 0 6px 18px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.lv-hd__brand { line-height: 1.16; }
+.lv-hd__name { font-size: 1.02rem; font-weight: 800; letter-spacing: .3px; }
+.lv-hd__sub  { font-size: .72rem; color: var(--lv-text-3); letter-spacing: 1.3px; text-transform: uppercase; }
+
+.lv-hd__ct {
+  padding: 5px 14px; border-radius: 8px; white-space: nowrap;
+  background: rgba(245,181,61,.1); border: 1px solid rgba(245,181,61,.35);
+  color: var(--lv-gold-2); font-size: .74rem; font-weight: 800;
+  letter-spacing: 1.6px; text-transform: uppercase;
+}
+.lv-hd__tieude {
+  flex: 1 1 auto; min-width: 0; font-size: 1.02rem; font-weight: 650;
+  color: var(--lv-text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.lv-hd__ngay {
+  flex: 0 0 auto; text-align: right; line-height: 1.2; font-variant-numeric: tabular-nums;
+}
+.lv-hd__gio  { font-size: 1.05rem; font-weight: 700; letter-spacing: .5px; }
+.lv-hd__nam  { font-size: .7rem; color: var(--lv-text-3); letter-spacing: .8px; }
+
+/* Đèn ĐANG PHÁT */
+.lv-onair {
+  display: flex; align-items: center; gap: 7px; padding: 5px 12px; border-radius: 999px;
+  background: rgba(242,85,111,.12); border: 1px solid rgba(242,85,111,.45);
+  font-size: .72rem; font-weight: 800; letter-spacing: 1.4px; color: #ff8b9d;
+}
+.lv-onair i { width: 7px; height: 7px; border-radius: 50%; background: #f2556f;
+              box-shadow: 0 0 0 0 rgba(242,85,111,.7); animation: lv-nhap 2.2s ease-out infinite; }
+@keyframes lv-nhap {
+  0% { box-shadow: 0 0 0 0 rgba(242,85,111,.7); }
+  70% { box-shadow: 0 0 0 9px rgba(242,85,111,0); }
+  100% { box-shadow: 0 0 0 0 rgba(242,85,111,0); }
+}
+
+/* ─── 7 · SIDEBAR — chỉ icon ─────────────────────────────────────────────── */
+.lv-rail {
+  position: absolute; left: 14px; top: calc(var(--lv-top) + 8px); z-index: 30;
+  display: flex; flex-direction: column; gap: 6px; padding: 8px 7px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(14,24,40,.92), rgba(8,14,26,.92));
+  border: 1px solid var(--lv-line);
+  box-shadow: 0 18px 44px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05);
   backdrop-filter: blur(10px);
   pointer-events: auto;
+  animation: lv-sang-phai 520ms var(--lv-ease);
 }
-.lv-hd__logo { font-size: 26px; line-height: 1; }
-.lv-hd__brand { line-height: 1.15; }
-.lv-hd__name { font-size: var(--lv-fs); font-weight: 700; letter-spacing: .2px; }
-.lv-hd__sub  { font-size: .78rem; color: var(--lv-text-2); }
+@keyframes lv-sang-phai { from { opacity: 0; transform: translateX(-16px); } }
 
-.lv-hd__search { position: relative; flex: 0 1 340px; }
-.lv-hd__search input {
-  width: 100%; height: 38px; padding: 0 14px 0 36px;
-  background: var(--lv-navy); border: 1px solid var(--lv-line); border-radius: 10px;
-  color: var(--lv-text); font-size: var(--lv-fs-s); outline: none;
-  transition: border-color var(--lv-dur) var(--lv-ease);
-}
-.lv-hd__search input:focus { border-color: var(--lv-gold); }
-.lv-hd__search span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); opacity: .6; }
-
-.lv-nav { display: flex; gap: 6px; margin-left: auto; flex-wrap: nowrap; overflow-x: auto; }
-.lv-nav::-webkit-scrollbar { height: 0; }
-.lv-chip {
-  height: 36px; padding: 0 14px; border-radius: 999px; white-space: nowrap;
-  background: var(--lv-navy); border: 1px solid var(--lv-line);
-  color: var(--lv-text-2); font-size: var(--lv-fs-s); font-weight: 600; cursor: pointer;
-  transition: background var(--lv-dur) var(--lv-ease), color var(--lv-dur) var(--lv-ease),
-              border-color var(--lv-dur) var(--lv-ease), transform 160ms var(--lv-ease);
-}
-.lv-chip:hover { transform: translateY(-1px); color: var(--lv-text); }
-.lv-chip[aria-pressed="true"] { background: var(--lv-gold); border-color: var(--lv-gold); color: #1a1206; }
-.lv-chip--exit { background: transparent; border-color: var(--lv-quyhoach); color: var(--lv-quyhoach); }
-
-/* ─── 4 · Sidebar thu gọn, chỉ icon, mở khi bấm ──────────────────────── */
-.lv-rail {
-  position: absolute; left: 14px; top: 78px; z-index: 5;
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 8px; border-radius: 14px;
-  background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
-  backdrop-filter: blur(8px); pointer-events: auto;
-}
 .lv-rail__btn {
-  width: 44px; height: 44px; display: grid; place-items: center;
-  border: 0; border-radius: 10px; background: transparent;
-  color: var(--lv-text-2); font-size: 20px; cursor: pointer;
-  transition: background var(--lv-dur) var(--lv-ease), color var(--lv-dur) var(--lv-ease);
+  position: relative; width: 46px; height: 46px; display: grid; place-items: center;
+  border: 1px solid transparent; border-radius: 12px; background: transparent;
+  color: var(--lv-text-2); font-size: 19px; cursor: pointer;
+  transition: background var(--lv-dur) var(--lv-ease), color var(--lv-dur) var(--lv-ease),
+              border-color var(--lv-dur) var(--lv-ease), transform 200ms var(--lv-ease);
 }
-.lv-rail__btn:hover { background: var(--lv-navy-2); color: var(--lv-text); }
-.lv-rail__btn[aria-pressed="true"] { background: var(--lv-gold); color: #1a1206; }
+.lv-rail__btn:hover { background: var(--lv-navy-2); color: var(--lv-text); transform: scale(1.06); }
+.lv-rail__btn[aria-pressed="true"] {
+  background: linear-gradient(145deg, rgba(245,181,61,.22), rgba(245,181,61,.08));
+  border-color: rgba(245,181,61,.55); color: var(--lv-gold-2);
+  box-shadow: 0 0 18px rgba(245,181,61,.2);
+}
 .lv-rail__btn span { pointer-events: none; }
+.lv-rail__vach { height: 1px; margin: 3px 6px; background: var(--lv-line); }
 
 /* Nhãn trượt ra khi rê chuột — giữ thanh gọn mà vẫn biết nút làm gì. */
-.lv-rail__btn { position: relative; }
+/* Thanh công cụ thuyết trình — nằm ngang góc phải dưới, tách khỏi sidebar.
+   Gộp chung vào sidebar thành 14 nút một cột làm nó cao 829px, tràn màn hình. */
+.lv-tools {
+  position: absolute; right: calc(var(--lv-right) + 10px); bottom: calc(var(--lv-bot) + 12px);
+  z-index: 27; display: flex; gap: 4px; padding: 6px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(14,24,40,.9), rgba(8,14,26,.9));
+  border: 1px solid var(--lv-line);
+  box-shadow: 0 16px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05);
+  backdrop-filter: blur(10px); pointer-events: auto;
+  animation: lv-len 620ms var(--lv-ease) 100ms backwards;
+}
+.lv-tools .lv-rail__btn { width: 40px; height: 40px; font-size: 17px; }
+/* Nhãn của thanh ngang bung LÊN TRÊN, không sang phải như sidebar. */
+.lv-tools .lv-rail__btn::after {
+  left: 50%; top: auto; bottom: 48px;
+  transform: translate(-50%, 6px);
+}
+.lv-tools .lv-rail__btn:hover::after { transform: translate(-50%, 0); }
+
 .lv-rail__btn::after {
-  content: attr(data-nhan); position: absolute; left: 52px; top: 50%;
-  transform: translate(-6px, -50%); opacity: 0; pointer-events: none;
-  padding: 5px 10px; border-radius: 8px; white-space: nowrap;
-  background: var(--lv-navy-2); border: 1px solid var(--lv-line);
-  color: var(--lv-text); font-size: .82rem; font-weight: 600;
+  content: attr(data-nhan); position: absolute; left: 54px; top: 50%;
+  transform: translate(-6px, -50%); opacity: 0; pointer-events: none; z-index: 5;
+  padding: 6px 11px; border-radius: 9px; white-space: nowrap;
+  background: var(--lv-navy-2); border: 1px solid var(--lv-line-2);
+  color: var(--lv-text); font-size: .8rem; font-weight: 650;
+  box-shadow: 0 10px 26px rgba(0,0,0,.5);
   transition: opacity var(--lv-dur) var(--lv-ease), transform var(--lv-dur) var(--lv-ease);
 }
 .lv-rail__btn:hover::after { opacity: 1; transform: translate(0, -50%); }
 
-/* ─── 5 · Panel dự án trượt từ phải ──────────────────────────────────── */
+/* ─── 8 · KHUNG CAMERA + LOWER THIRD ──────────────────────────────────────
+   Ô kính rỗng để TikTok LIVE Studio phủ webcam thật lên trên. Không vẽ ảnh
+   người — chỉ là khung.                                                     */
+.lv-cam {
+  position: absolute; left: var(--lv-rail); bottom: calc(var(--lv-bot) + 12px);
+  width: 300px; z-index: 25; pointer-events: none;
+  animation: lv-len 600ms var(--lv-ease);
+}
+@keyframes lv-len { from { opacity: 0; transform: translateY(18px); } }
+
+.lv-cam__khung {
+  position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden;
+  background: linear-gradient(155deg, rgba(18,32,54,.55), rgba(7,12,22,.62));
+  border: 1px solid rgba(140,180,235,.26);
+  box-shadow: 0 24px 60px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.07);
+  backdrop-filter: blur(6px);
+}
+.lv-cam__khung::after {                     /* ánh kính chéo */
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(118deg, rgba(255,255,255,.09) 0%, transparent 38%);
+}
+.lv-cam__nhan {
+  position: absolute; top: 9px; left: 10px; padding: 3px 9px; border-radius: 6px;
+  background: rgba(6,10,19,.72); border: 1px solid var(--lv-line);
+  font-size: .64rem; font-weight: 800; letter-spacing: 1.3px; color: var(--lv-text-3);
+}
+/* Bốn góc ngắm kiểu thiết bị quang học */
+.lv-cam__goc { position: absolute; width: 16px; height: 16px; border: 2px solid rgba(245,181,61,.5); }
+.lv-cam__goc--tt { top: 8px;    left: 8px;  border-right: 0; border-bottom: 0; border-radius: 5px 0 0 0; }
+.lv-cam__goc--tp { top: 8px;    right: 8px; border-left: 0;  border-bottom: 0; border-radius: 0 5px 0 0; }
+.lv-cam__goc--dt { bottom: 8px; left: 8px;  border-right: 0; border-top: 0;    border-radius: 0 0 0 5px; }
+.lv-cam__goc--dp { bottom: 8px; right: 8px; border-left: 0;  border-top: 0;    border-radius: 0 0 5px 0; }
+
+/* Lower third — thanh danh tính dưới camera */
+.lv-lower {
+  margin-top: 10px; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--lv-line); box-shadow: 0 16px 40px rgba(0,0,0,.55);
+  animation: lv-mo-ngang 620ms var(--lv-ease) 120ms backwards;
+}
+@keyframes lv-mo-ngang { from { opacity: 0; transform: translateX(-18px); } }
+
+.lv-lower__tren {
+  display: flex; align-items: center; gap: 10px; padding: 9px 13px;
+  background: linear-gradient(100deg, rgba(12,22,38,.97), rgba(8,14,26,.92));
+  border-left: 3px solid var(--lv-gold);
+}
+.lv-lower__ten { font-size: 1.06rem; font-weight: 800; letter-spacing: .2px; line-height: 1.15; }
+.lv-lower__chuc { font-size: .76rem; color: var(--lv-text-2); margin-top: 2px; }
+.lv-lower__duoi {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 6px 13px; background: rgba(245,181,61,.94); color: #171102;
+  font-size: .74rem; font-weight: 800; letter-spacing: .6px;
+}
+.lv-lower__web { font-weight: 700; opacity: .82; }
+
+/* ─── 9 · PANEL DỰ ÁN — trượt từ phải ────────────────────────────────────── */
 .lv-pane {
-  position: absolute; top: 78px; right: 14px; bottom: 86px; width: min(420px, 34vw);
-  display: flex; flex-direction: column; overflow: hidden;
-  border-radius: 16px; border: 1px solid var(--lv-line);
-  background: linear-gradient(180deg, rgba(13,23,40,.97), rgba(7,11,20,.97));
-  backdrop-filter: blur(12px); box-shadow: 0 24px 60px rgba(0,0,0,.55);
-  /* CHỈ animate opacity — không animate transform hay right/bottom.
-     Đã thử cả ba: phần tử được tạo lúc `.lv` còn `hidden` (display:none) nên
-     transition khởi động trong khung hình đó bị kẹt, giá trị tính toán đứng
-     nguyên ở trạng thái đóng dù phần tử đã khớp `[data-mo]`. Ép reflow +
-     requestAnimationFrame cũng không gỡ được. Fade thì luôn đúng. */
-  /* Đóng thì đẩy hẳn ra ngoài mép phải; mở thì trượt vào kèm fade.
-     Dùng `visibility` để panel đóng không ăn chuột và không bị đọc màn hình. */
-  right: 14px; opacity: 0; visibility: hidden;
-  transform: translateX(calc(100% + 28px));
+  position: absolute; top: calc(var(--lv-top) + 8px); right: var(--lv-right);
+  bottom: calc(var(--lv-bot) + 12px); width: min(420px, 32vw);
+  display: flex; flex-direction: column; overflow: hidden; z-index: 28;
+  border-radius: 16px; border: 1px solid rgba(140,180,235,.22);
+  background: linear-gradient(180deg, rgba(12,22,38,.97), rgba(6,11,20,.97));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 28px 70px rgba(0,0,0,.66), inset 0 1px 0 rgba(255,255,255,.06);
+  /* Đóng thì đẩy hẳn ra ngoài mép phải; `visibility` để không ăn chuột. */
+  opacity: 0; visibility: hidden; transform: translateX(calc(100% + 34px));
   transition: transform var(--lv-dur) var(--lv-ease),
               opacity var(--lv-dur) var(--lv-ease),
               visibility 0s linear var(--lv-dur);
   pointer-events: auto;
 }
-.lv-pane[data-mo] {
-  opacity: 1; visibility: visible; transform: translateX(0);
-  transition-delay: 0s;
-}
-.lv-pane__hd { padding: 16px 18px 12px; border-bottom: 1px solid var(--lv-line); }
-.lv-pane__ten { font-size: var(--lv-fs-l); font-weight: 800; line-height: 1.2; }
+.lv-pane[data-mo] { opacity: 1; visibility: visible; transform: translateX(0); transition-delay: 0s; }
+
+.lv-pane__hd { padding: 15px 18px 12px; border-bottom: 1px solid var(--lv-line);
+               background: linear-gradient(180deg, rgba(18,32,54,.6), transparent); }
+.lv-pane__ten { font-size: var(--lv-fs-l); font-weight: 800; line-height: 1.18; }
 .lv-pane__phu { margin-top: 4px; font-size: var(--lv-fs-s); color: var(--lv-text-2); }
 .lv-pane__body { flex: 1; overflow-y: auto; padding: 14px 18px 18px; }
-.lv-pane__body::-webkit-scrollbar { width: 8px; }
-.lv-pane__body::-webkit-scrollbar-thumb { background: var(--lv-line); border-radius: 4px; }
+.lv-pane__body::-webkit-scrollbar { width: 7px; }
+.lv-pane__body::-webkit-scrollbar-thumb { background: var(--lv-line-2); border-radius: 4px; }
 
-.lv-gia { font-size: 2rem; font-weight: 800; color: var(--lv-gold); line-height: 1.1; }
-.lv-gia small { display: block; font-size: .8rem; font-weight: 500; color: var(--lv-text-2); }
+.lv-gia { font-size: 2rem; font-weight: 800; color: var(--lv-gold); line-height: 1.08;
+          text-shadow: 0 0 26px rgba(245,181,61,.28); }
+.lv-gia small { display: block; font-size: .78rem; font-weight: 500; color: var(--lv-text-3);
+                letter-spacing: .3px; margin-top: 3px; text-shadow: none; }
 
-.lv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-.lv-o { padding: 10px 12px; border-radius: 10px; background: var(--lv-navy); border: 1px solid var(--lv-line); }
-.lv-o__k { font-size: .74rem; text-transform: uppercase; letter-spacing: .6px; color: var(--lv-text-2); }
+.lv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 14px; }
+.lv-o { padding: 10px 12px; border-radius: 10px;
+        background: linear-gradient(160deg, rgba(18,32,54,.7), rgba(10,18,32,.7));
+        border: 1px solid var(--lv-line); }
+.lv-o__k { font-size: .7rem; text-transform: uppercase; letter-spacing: .8px; color: var(--lv-text-3); }
 .lv-o__v { margin-top: 3px; font-size: var(--lv-fs-s); font-weight: 700; }
 .lv-o--rong { grid-column: 1 / -1; }
 
-.lv-sect { margin-top: 18px; font-size: .78rem; font-weight: 700; letter-spacing: 1px;
-           text-transform: uppercase; color: var(--lv-gold); }
+.lv-sect { margin-top: 18px; font-size: .74rem; font-weight: 800; letter-spacing: 1.4px;
+           text-transform: uppercase; color: var(--lv-gold);
+           display: flex; align-items: center; gap: 9px; }
+.lv-sect::after { content: ''; flex: 1; height: 1px;
+                  background: linear-gradient(90deg, rgba(245,181,61,.4), transparent); }
 
-.lv-diem { display: flex; align-items: baseline; gap: 10px; margin-top: 8px; }
+.lv-diem { display: flex; align-items: baseline; gap: 10px; margin-top: 9px; }
 .lv-diem__so { font-size: 2.4rem; font-weight: 800; line-height: 1; }
 .lv-diem__nhan { font-size: var(--lv-fs-s); color: var(--lv-text-2); }
 
@@ -171,58 +374,59 @@
 .lv-cta button {
   flex: 1 1 auto; height: 40px; padding: 0 14px; border-radius: 10px; cursor: pointer;
   background: var(--lv-navy-2); border: 1px solid var(--lv-line); color: var(--lv-text);
-  font-size: var(--lv-fs-s); font-weight: 600;
-  transition: background var(--lv-dur) var(--lv-ease), transform 160ms var(--lv-ease);
+  font-size: var(--lv-fs-s); font-weight: 650;
+  transition: background var(--lv-dur) var(--lv-ease), transform 180ms var(--lv-ease);
 }
 .lv-cta button:hover { background: var(--lv-line); transform: translateY(-1px); }
-.lv-cta button.is-gold { background: var(--lv-gold); border-color: var(--lv-gold); color: #1a1206; }
+.lv-cta button.is-gold { background: var(--lv-gold); border-color: var(--lv-gold); color: #171102; }
 
-/* ─── 6 · Live Ticker ────────────────────────────────────────────────── */
+/* ─── 10 · LIVE TICKER ───────────────────────────────────────────────────── */
 .lv-tick {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 54px;
-  display: flex; align-items: center; gap: 0; overflow: hidden;
-  background: linear-gradient(0deg, rgba(7,11,20,.97), rgba(7,11,20,.8));
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--lv-bot); z-index: 30;
+  display: flex; align-items: center; overflow: hidden;
+  background: linear-gradient(0deg, rgba(5,8,15,.99) 30%, rgba(5,8,15,.82) 100%);
   border-top: 1px solid var(--lv-line);
+  animation: lv-len 620ms var(--lv-ease);
 }
 .lv-tick__nhan {
-  flex: 0 0 auto; height: 100%; display: flex; align-items: center; padding: 0 16px;
-  background: var(--lv-gold); color: #1a1206; font-weight: 800; letter-spacing: 1px;
-  font-size: .82rem; text-transform: uppercase;
+  flex: 0 0 auto; align-self: stretch; display: flex; align-items: center; gap: 8px;
+  padding: 0 18px; background: var(--lv-gold); color: #171102;
+  font-weight: 900; letter-spacing: 1.6px; font-size: .8rem; text-transform: uppercase;
 }
-.lv-tick__chay { flex: 1; overflow: hidden; white-space: nowrap; }
+.lv-tick__chay { flex: 1; overflow: hidden; white-space: nowrap; padding-left: 8px; }
 .lv-tick__chay > span {
   display: inline-block; padding-left: 100%;
-  animation: lv-chay 42s linear infinite;
-  font-size: var(--lv-fs-s); font-variant-numeric: tabular-nums;
+  animation: lv-chay 46s linear infinite;
+  font-size: var(--lv-fs-s); font-variant-numeric: tabular-nums; color: var(--lv-text-2);
 }
-.lv-tick__chay b { color: var(--lv-gold); font-weight: 700; }
+.lv-tick__chay b { color: var(--lv-text); font-weight: 750; }
+.lv-tick__chay em { color: var(--lv-gold); font-style: normal; font-weight: 750; }
 .lv-tick__chay i { color: var(--lv-metro); font-style: normal; }
-.lv-tick__sep { color: var(--lv-line); margin: 0 14px; }
+.lv-tick__sep { color: var(--lv-line-2); margin: 0 16px; }
 @keyframes lv-chay { to { transform: translateX(-100%); } }
 
-/* ─── 7 · Live Focus — dự án khác mờ đi, dự án đang nói nổi lên ───────── */
-.app[data-live] .lv-mo .duan-ic,
-.app[data-live][data-focus] .leaflet-marker-icon:not(.lv-noi) { opacity: .3; transition: opacity var(--lv-dur) var(--lv-ease); }
+/* ─── 11 · Live Focus ────────────────────────────────────────────────────── */
+.app[data-live][data-focus] .leaflet-marker-icon:not(.lv-noi) {
+  opacity: .3; transition: opacity var(--lv-dur) var(--lv-ease);
+}
 .app[data-live] .leaflet-marker-icon.lv-noi { z-index: 1200 !important; }
 .lv-noi .duan-ic { animation: lv-pulse 1.9s ease-out infinite; transform-origin: 50% 100%; }
 @keyframes lv-pulse {
-  0%   { filter: drop-shadow(0 0 0 rgba(251,191,36,.85)); transform: scale(1.18); }
-  60%  { filter: drop-shadow(0 0 16px rgba(251,191,36,0)); transform: scale(1.24); }
-  100% { filter: drop-shadow(0 0 0 rgba(251,191,36,0)); transform: scale(1.18); }
+  0%   { filter: drop-shadow(0 0 0 rgba(245,181,61,.85)); transform: scale(1.18); }
+  60%  { filter: drop-shadow(0 0 16px rgba(245,181,61,0)); transform: scale(1.24); }
+  100% { filter: drop-shadow(0 0 0 rgba(245,181,61,0)); transform: scale(1.18); }
 }
-
-/* Vòng nhấn riêng của Live Mode — vẽ độc lập với marker dự án nên không bị
-   mất khi bản đồ gom cụm hoặc vẽ lại theo khung nhìn. */
+/* Vòng nhấn vẽ độc lập với marker dự án nên không mất khi bản đồ gom cụm. */
 .lv-nhan { width: 26px; height: 26px; border-radius: 50%;
-           border: 3px solid var(--lv-gold); box-shadow: 0 0 0 0 rgba(251,191,36,.75);
-           animation: lv-song 1.8s cubic-bezier(.22,.61,.36,1) infinite; }
+           border: 3px solid var(--lv-gold); box-shadow: 0 0 0 0 rgba(245,181,61,.75);
+           animation: lv-song 1.8s var(--lv-ease) infinite; }
 @keyframes lv-song {
-  0%   { box-shadow: 0 0 0 0 rgba(251,191,36,.75); transform: scale(.9); }
-  70%  { box-shadow: 0 0 0 26px rgba(251,191,36,0); transform: scale(1.15); }
-  100% { box-shadow: 0 0 0 0 rgba(251,191,36,0); transform: scale(.9); }
+  0%   { box-shadow: 0 0 0 0 rgba(245,181,61,.75); transform: scale(.9); }
+  70%  { box-shadow: 0 0 0 26px rgba(245,181,61,0); transform: scale(1.15); }
+  100% { box-shadow: 0 0 0 0 rgba(245,181,61,0); transform: scale(.9); }
 }
 
-/* ─── 8 · Công cụ thuyết trình ───────────────────────────────────────── */
+/* ─── 12 · Công cụ thuyết trình ─────────────────────────────────────────── */
 .lv-laser {
   position: fixed; width: 18px; height: 18px; border-radius: 50%; pointer-events: none;
   z-index: 4000; transform: translate(-50%, -50%);
@@ -230,101 +434,134 @@
   box-shadow: 0 0 18px 6px rgba(255,45,45,.55);
 }
 .lv-spot { position: fixed; inset: 0; z-index: 3900; pointer-events: none; }
-.lv-mag {
-  position: fixed; width: 260px; height: 260px; border-radius: 50%; pointer-events: none;
-  z-index: 4000; transform: translate(-50%, -50%); overflow: hidden;
-  border: 3px solid var(--lv-gold); box-shadow: 0 12px 40px rgba(0,0,0,.6);
-}
+.lv-mag { position: fixed; width: 260px; height: 260px; border-radius: 50%; pointer-events: none;
+          z-index: 4000; transform: translate(-50%, -50%); overflow: hidden;
+          border: 3px solid var(--lv-gold); box-shadow: 0 12px 40px rgba(0,0,0,.6); }
 .lv-ve { position: absolute; inset: 0; z-index: 3800; cursor: crosshair; }
 
-/* ─── 9 · Đồng hồ đo, la bàn, toạ độ, mini map ───────────────────────── */
+/* ─── 13 · HUD: toạ độ · zoom · la bàn ──────────────────────────────────── */
+/* Đặt NGAY TRÊN thanh công cụ, không cùng hàng — cùng hàng thì hai khối đè nhau
+   ở góc phải dưới. */
 .lv-hud {
-  position: absolute; right: 14px; bottom: 96px; z-index: 5;
-  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
-  font-size: .8rem; color: var(--lv-text-2); pointer-events: none;
-}
-.lv-hud__o {
-  padding: 6px 10px; border-radius: 8px; font-variant-numeric: tabular-nums;
-  background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
-}
-.lv-compass { width: 46px; height: 46px; display: grid; place-items: center;
-              border-radius: 50%; background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
-              color: var(--lv-gold); font-weight: 800; }
-.lv-mini {
-  width: 190px; height: 130px; border-radius: 10px; overflow: hidden;
-  background: rgba(13,23,40,.9); border: 1px solid var(--lv-line);
+  position: absolute; right: calc(var(--lv-right) + 10px); bottom: calc(var(--lv-bot) + 66px);
+  z-index: 26; display: flex; align-items: center; gap: 8px;
+  font-size: .76rem; color: var(--lv-text-3); pointer-events: none;
 }
 
-/* ─── 10 · Story Mode ────────────────────────────────────────────────── */
+/* Panel dự án chiếm góc phải — thanh công cụ và HUD né sang trái, nếu không
+   chúng nằm ĐÈ dưới panel và bấm không được. */
+.app[data-live][data-pane] .lv-tools,
+.app[data-live][data-pane] .lv-hud {
+  right: calc(var(--lv-right) + min(420px, 32vw) + 16px);
+  transition: right var(--lv-dur) var(--lv-ease);
+}
+.lv-hud__o { padding: 6px 11px; border-radius: 8px; font-variant-numeric: tabular-nums;
+             background: rgba(8,14,26,.88); border: 1px solid var(--lv-line); }
+.lv-compass { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%;
+              background: rgba(8,14,26,.88); border: 1px solid var(--lv-line);
+              color: var(--lv-gold); font-weight: 800; font-size: .86rem; }
+
+/* ─── 14 · Story Mode · So sánh · Phím tắt ──────────────────────────────── */
 .lv-story {
-  position: absolute; left: 50%; top: 78px; transform: translateX(-50%);
-  display: flex; align-items: center; gap: 12px; padding: 10px 16px;
-  border-radius: 12px; background: rgba(13,23,40,.94); border: 1px solid var(--lv-gold);
-  box-shadow: 0 12px 40px rgba(0,0,0,.5); pointer-events: auto;
+  position: absolute; left: calc(var(--lv-rail) + 50%); top: calc(var(--lv-top) + 14px);
+  transform: translateX(-50%); z-index: 32;
+  display: flex; align-items: center; gap: 14px; padding: 11px 17px;
+  border-radius: 13px; background: rgba(10,18,32,.96); border: 1px solid rgba(245,181,61,.5);
+  box-shadow: 0 16px 46px rgba(0,0,0,.6); pointer-events: auto;
   animation: lv-vao var(--lv-dur) var(--lv-ease);
 }
-.lv-story__t { font-size: var(--lv-fs); font-weight: 700; }
-.lv-story__p { font-size: .8rem; color: var(--lv-text-2); }
-.lv-story__thanh { width: 120px; height: 4px; border-radius: 2px; background: var(--lv-line); overflow: hidden; }
+.lv-story__t { font-size: var(--lv-fs); font-weight: 750; }
+.lv-story__p { font-size: .8rem; color: var(--lv-text-2); margin-top: 2px; }
+.lv-story__thanh { width: 130px; height: 4px; border-radius: 2px; background: var(--lv-line); overflow: hidden; }
 .lv-story__thanh i { display: block; height: 100%; background: var(--lv-gold); width: 0; }
-@keyframes lv-vao { from { opacity: 0; transform: translate(-50%, -10px); } }
+@keyframes lv-vao { from { opacity: 0; transform: translate(-50%, -12px); } }
 
-/* ─── 11 · So sánh chia đôi ──────────────────────────────────────────── */
 .lv-vs {
-  position: absolute; left: 50%; top: 78px; bottom: 86px; width: min(880px, 76vw);
-  transform: translateX(-50%); display: flex; gap: 1px; overflow: hidden;
-  border-radius: 16px; border: 1px solid var(--lv-line); background: var(--lv-line);
-  box-shadow: 0 24px 60px rgba(0,0,0,.6); pointer-events: auto;
+  position: absolute; left: calc(var(--lv-rail) + 50%); top: calc(var(--lv-top) + 10px);
+  bottom: calc(var(--lv-bot) + 14px); width: min(860px, 68vw);
+  transform: translateX(-50%); display: flex; gap: 1px; overflow: hidden; z-index: 34;
+  border-radius: 16px; border: 1px solid var(--lv-line-2); background: var(--lv-line);
+  box-shadow: 0 28px 70px rgba(0,0,0,.7); pointer-events: auto;
   animation: lv-vao var(--lv-dur) var(--lv-ease);
 }
-.lv-vs__cot { flex: 1; overflow-y: auto; padding: 16px; background: rgba(7,11,20,.97); }
+.lv-vs__cot { flex: 1; overflow-y: auto; padding: 17px; background: rgba(6,11,20,.98); }
 .lv-vs__ten { font-size: var(--lv-fs-l); font-weight: 800; margin-bottom: 4px; }
-.lv-vs__hang { display: flex; justify-content: space-between; gap: 10px;
-               padding: 9px 0; border-bottom: 1px dashed var(--lv-line); font-size: var(--lv-fs-s); }
+.lv-vs__hang { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0;
+               border-bottom: 1px dashed var(--lv-line); font-size: var(--lv-fs-s); }
 .lv-vs__hang b { color: var(--lv-gold); }
-.lv-vs__k { color: var(--lv-text-2); }
+.lv-vs__k { color: var(--lv-text-3); }
 
-/* ─── 12 · Bảng phím tắt ─────────────────────────────────────────────── */
 .lv-keys {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  padding: 22px 26px; border-radius: 16px; pointer-events: auto;
-  background: rgba(13,23,40,.97); border: 1px solid var(--lv-line);
-  box-shadow: 0 24px 60px rgba(0,0,0,.6); animation: lv-vao var(--lv-dur) var(--lv-ease);
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 36;
+  padding: 24px 28px; border-radius: 16px; pointer-events: auto;
+  background: rgba(10,18,32,.98); border: 1px solid var(--lv-line-2);
+  box-shadow: 0 28px 70px rgba(0,0,0,.7); animation: lv-hien var(--lv-dur) var(--lv-ease);
 }
-.lv-keys h3 { margin: 0 0 12px; font-size: var(--lv-fs); color: var(--lv-gold); }
-.lv-keys dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 0; font-size: var(--lv-fs-s); }
+@keyframes lv-hien { from { opacity: 0; transform: translate(-50%, -50%) scale(.96); } }
+.lv-keys h3 { margin: 0 0 13px; font-size: var(--lv-fs); color: var(--lv-gold); }
+.lv-keys dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; margin: 0; font-size: var(--lv-fs-s); }
 .lv-keys dt { font-weight: 800; color: var(--lv-gold); font-variant-numeric: tabular-nums; }
 .lv-keys dd { margin: 0; color: var(--lv-text-2); }
 
-/* ─── 13 · Bản đồ trong Live Mode ────────────────────────────────────── */
-.app[data-live] #map { filter: saturate(.92) contrast(1.04) brightness(.96); }
+/* ─── 15 · Chip điều hướng trong top bar ────────────────────────────────── */
+.lv-nav { display: flex; gap: 6px; }
+.lv-chip {
+  height: 34px; padding: 0 13px; border-radius: 999px; white-space: nowrap;
+  background: rgba(18,32,54,.8); border: 1px solid var(--lv-line);
+  color: var(--lv-text-2); font-size: .84rem; font-weight: 650; cursor: pointer;
+  transition: background var(--lv-dur) var(--lv-ease), color var(--lv-dur) var(--lv-ease),
+              border-color var(--lv-dur) var(--lv-ease), transform 180ms var(--lv-ease);
+}
+.lv-chip:hover { transform: translateY(-1px); color: var(--lv-text); }
+.lv-chip[aria-pressed="true"] { background: var(--lv-gold); border-color: var(--lv-gold); color: #171102; }
+.lv-chip--exit { background: transparent; border-color: rgba(242,85,111,.45); color: #ff8b9d; }
+
+/* Leaflet trong Live Mode */
 .app[data-live] .leaflet-control-attribution {
-  background: rgba(7,11,20,.7); color: var(--lv-text-2); font-size: .68rem;
+  background: rgba(5,8,15,.72); color: var(--lv-text-3); font-size: .66rem;
 }
 .app[data-live] .leaflet-control-scale-line {
-  background: rgba(13,23,40,.9); border-color: var(--lv-line); color: var(--lv-text);
+  background: rgba(8,14,26,.9); border-color: var(--lv-line); color: var(--lv-text);
 }
 
-/* ─── 14 · Màn hình nhỏ ──────────────────────────────────────────────── */
-@media (max-width: 860px) {
-  .app[data-live] { --lv-fs: 1.06rem; --lv-fs-s: .95rem; --lv-fs-l: 1.28rem; }
-  .lv-hd { height: 56px; gap: 10px; padding: 0 10px; }
-  .lv-hd__search { display: none; }
-  .lv-hd__brand .lv-hd__sub { display: none; }
-  /* Trên máy hẹp panel chiếm gần hết bề ngang. Phải khai báo lại CẢ trạng thái
-     mở: đóng thì trượt xuống dưới thay vì sang phải, vì trượt ngang trên màn
-     hình nhỏ làm panel nhô ra ngoài khung nhìn. */
-  /* Máy hẹp: panel chiếm nửa dưới màn hình, trượt lên từ đáy. */
-  .lv-pane { top: auto; left: 10px; right: 10px; width: auto;
-             height: min(58vh, 480px); bottom: 62px;
-             transform: translateY(calc(100% + 70px)); }
-  .lv-pane[data-mo] { transform: translateY(0); }
-  .lv-vs { width: calc(100vw - 20px); top: 66px; bottom: 78px; }
-  .lv-rail { top: 66px; left: 8px; flex-direction: row; }
+/* ─── 16 · Màn hình hẹp / dọc ────────────────────────────────────────────
+   TikTok đứng máy dọc: thu chrome lại, bản đồ vẫn là nhân vật chính.       */
+@media (max-width: 900px) {
+  .app[data-live] { --lv-fs: 1.06rem; --lv-fs-s: .95rem; --lv-fs-l: 1.3rem;
+                    --lv-top: 58px; --lv-rail: 12px; --lv-bot: 62px; --lv-right: 12px; }
+  .app[data-live] #map { inset: 58px 12px 62px 12px; }
+  .lv-hd { gap: 10px; padding: 0 10px; }
+  .lv-hd__tieude, .lv-hd__sub, .lv-nav { display: none; }
+  /* Giữ sidebar dạng CỘT DỌC trên máy dọc. Nằm ngang thì nó dài 284px, đè lên
+     khung camera ở góc phải trên. Cột dọc 6 nút chỉ chiếm 66px bề ngang. */
+  .lv-rail { left: 10px; top: calc(var(--lv-top) + 6px); flex-direction: column; padding: 6px; gap: 4px; }
+  .lv-rail__btn { width: 40px; height: 40px; font-size: 17px; }
   .lv-rail__btn::after { display: none; }
-  .lv-hud, .lv-mini { display: none; }
+  .lv-tools { right: 10px; bottom: calc(var(--lv-bot) + 8px); flex-wrap: wrap;
+              max-width: 132px; justify-content: flex-end; }
+  .lv-tools .lv-rail__btn { width: 34px; height: 34px; font-size: 15px; }
+  /* Panel mở thì chiếm nửa dưới — giấu công cụ đi thay vì để chúng nằm dưới panel.
+     Máy dọc không đủ chỗ cho cả hai; công cụ vẫn gọi được bằng phím tắt. */
+  .app[data-live][data-pane] .lv-tools { display: none; }
+  .app[data-live][data-pane] .lv-tools,
+  .app[data-live][data-pane] .lv-hud { right: 10px; }
+  /* Máy dọc: camera lên GÓC PHẢI TRÊN. Để nguyên góc trái dưới thì panel dự án
+     (chiếm nửa dưới màn hình) đè thẳng lên camera và lower third. */
+  .lv-cam { width: 140px; left: auto; right: 10px; bottom: auto;
+            top: calc(var(--lv-top) + 6px); }
+  .lv-lower__ten { font-size: .88rem; }
+  .lv-lower__chuc, .lv-lower__duoi { font-size: .66rem; }
+  .lv-lower__duoi .lv-lower__web { display: none; }   /* URL quá dài cho 150px */
+  /* Chiều cao vừa đủ để KHÔNG chạm đáy sidebar dọc (kết thúc ~346px). */
+  .lv-pane { top: auto; left: 10px; right: 10px; width: auto;
+             height: min(46vh, 380px); bottom: calc(var(--lv-bot) + 8px);
+             transform: translateY(calc(100% + 80px)); }
+  .lv-pane[data-mo] { transform: translateY(0); }
+  .lv-vs { left: 50%; width: calc(100vw - 20px); }
+  .lv-story { left: 50%; }
+  .lv-hud { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lv *, .lv-pane { animation: none !important; transition-duration: 1ms !important; }
+  .lv *, .lv-pane, .lv-bg * { animation: none !important; transition-duration: 1ms !important; }
 }
